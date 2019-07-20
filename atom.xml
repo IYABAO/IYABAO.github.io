@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.plbear.com</id>
     <title>Plbear | Cuz Penguin QQ</title>
-    <updated>2019-07-20T15:18:02.253Z</updated>
+    <updated>2019-07-20T15:21:09.108Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.plbear.com"/>
     <link rel="self" href="https://www.plbear.com/atom.xml"/>
@@ -16,7 +16,7 @@
         <link href="https://www.plbear.com/post/about">
         </link>
         <updated>2019-07-20T15:10:21.000Z</updated>
-        <content type="html"><![CDATA[<iframe width="100%" height="600px"  frameborder="0" scrolling="no" src="http://liveshare.huya.com/iframe/plbear"></iframe>
+        <content type="html"><![CDATA[<iframe width="100%" height="600px"  frameborder="0" scrolling="no" src="https://liveshare.huya.com/iframe/plbear"></iframe>
 ]]></content>
     </entry>
     <entry>
