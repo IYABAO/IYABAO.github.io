@@ -751,3 +751,11 @@ a {
   font-size: 16px;
   margin: 4px 8px;
 }
+
+      .sidebar {
+        width: 325px;
+      }
+      .main-container {
+        margin-left: 325px;
+      }
+    
