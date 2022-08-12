@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>微服务架构基于Mycat分库分表及读写分离的配置实战 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">微服务架构基于Mycat分库分表及读写分离的配置实战</h2>
+            <div class="post-date">2019-08-01</div>
+            
+            <div class="post-content">
+              <div><blockquote><p>本文以在线商城系统为主要业务场景，分别定义了用户、商品和订单三个微服务，并实现三个微服务所涉及到的数据库和表的水平拆分、垂直拆分和读写分离的相关配置。</p></blockquote><h1>概念</h1><p>先来看一下本文业务场景中涉及到的数据库表。</p><div class="pgc-img"><img src="http://p9.pstatp.com/large/pgc-image/4ef055d806c046bcb286caf945fb019e" img_width="161" img_height="256" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">单机环境的数据库结构</p></div><p><strong>1、水平拆分</strong></p><p>将同一个表的数据进行分块保存到不同的数据库中，这些数据库中的表结构完全相同。</p><p>我们把数据库水平拆分成三个数据库，每个数据库中的表结构是完全相同的，不同数据库中表的记录条数不同。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/6fe8a9205795466886ded8fcdedb0d8e" img_width="519" img_height="544" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">水平拆分后的数据库结构</p></div><p><strong>2、垂直拆分</strong></p><p>按功能模块拆分，比如分为订单库、商品库、用户库...这种方式多个数据库之间的表结构不同。</p><p>按用户库、商品库和订单库实现的不同功能进行垂直拆分。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/e00c8023747d430797d51fdf0f5be00d" img_width="591" img_height="449" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">垂直拆分数据库结构</p></div><p><strong>3、读写分离</strong></p><p>读写分离一般来说都是通过主从复制（Master-Slave）的方式来同步数据，再通过读写分离（MySQL-Proxy）来提升数据库的并发负载能力这样的方案来进行部署与实施的。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/cbd8c22935544d82a243d225f3dc9394" img_width="866" img_height="532" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">数据库读写分离架构</p></div><p><strong>4、Mycat介绍</strong></p><p>首先，Mycat是数据库分库分表中间件。这是Mycat官网（http://mycat.io/）定义的一句话。个人理解它相当于一个数据库的代理，将拆分后的数据库在逻辑上重新封装，对外暴露和未拆分之前是同样的数据库结构。</p><p>按照上面的业务场景，将数据库进行垂直拆分再水平拆分。按三个业务模块进行垂直拆分，在分别水平拆分成3个数据库，最后形成9个数据库。再按一主一从的方式进行读写分离配置，即一共18个数据库。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/137595b896e949e7bfd8dd56a9671501" img_width="1336" img_height="809" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">垂直、水平拆分及读写分离架构</p></div><p>1、 不同的微服务连接Mycat中间件。访问对应业务模块的数据库。</p><p>2、 Mycat中的三个数据库在物理上并不存在，是逻辑上的三个数据库。</p><p>3、 Master将三个业务模块的数据库表进行水平拆分，各库中的表结构相同，数据不同。并作为主数据库完成数据的写操作。</p><p>4、 Slave将三个业务模块的数据库表进行水平拆分，各库中的表结构相同，数据不同。并作为从数据库完成数据的读操作。</p><p>5、 Master和Slave实现数据同步操作。</p><h1>Mycat配置</h1><p><strong>概览</strong></p><p>Mycat官网下载1.6.7-release版本解压后的目录结构包括bin、catlet、conf、lib和version.txt。其中conf目录中存放大量的配置文件，其中最主要的是有server.xml、schema.xml和rule.xml三个文件。</p><p><strong>1、server.xml</strong></p><p>server.xml 包含mycat的系统配置信息，它有两个标签，分别是user和system。</p><p>user标签</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/f45c49c024e74b3a9478f7edeb9b16c7" img_width="970" img_height="466" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">server的user标签</p></div><p>name：user的名称，下面的schema.xml文件中的数据库访问用户名。</p><p>password：访问密码。</p><p>schemas：下面schema.xml文件中的逻辑数据库名称，这里把三个都配置上了，方便操作。</p><p>readOnly：说明此用户只有读权限，没有写权限。上面配置中，如果使用user用户登录，则只能进行读操作。</p><p>system标签：</p><p>这里只着重介绍sequnceHanlderType属性，这里是Mycat主键的生成策略。因为现在是把数据进行了多节点的分片拆分。所以使用主键的自增就会造成主键冲突的问题。</p><p>sequnceHanlderType属性有三个选项。0代表本地文件，1代表数据库方式，2代表时间戳方式。这里可以根据需要自行配置。数据库方式的话需要对dataNode创建一些相关的函数才能使用。本地文件是使用conf/sequence_conf.properties文件内容进行维护的。具体详见该文件的内容。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/32b7d5cbf1c342c1bf30f8f4f595eed2" img_width="541" img_height="35" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">sequnceHanlderType配置</p></div><p><strong>2、schema.xml</strong></p><p>这里将数据库从逻辑上分为三个，javapupil_user(用户库)、javapupil_goods(商品库)、javapupil_order(订单库)。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/7c00ec461b08456784e2ae3721443fed" img_width="929" img_height="559" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">schema-table-datanode配置</p></div><p>table配置：</p><p>name：表名。</p><p>primaryKey：表中的主键列名。</p><p>dataNode：数据库表所在的数据节点名称。</p><p>rule：数据插入规则，rule.xml小节中详述。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/05401142d526494880bc0f9b56832921" img_width="831" img_height="270" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">dataNode配置</p></div><p>dataNode配置：</p><p>name：数据节点名称。</p><p>dataHost：数据主机名称。下面详述。</p><p>database：数据库名称。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/5a3f6b863ca14942b764c8559dc1d6ce" img_width="1080" img_height="388" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">dataHost配置</p></div><p>name：dataHost的名称。</p><p>balance：负载均衡类型。</p><p>（1）0不开启读写分离机制，所有读操作都发送到当前可用的writeHost 上。</p><p>（2）全部的 readHost 与 stand by writeHost 参与 select 语句的负载均衡，简单的说，当双主双从模式(M1-&gt;S1，M2-&gt;S2，并且 M1 与 M2 互为主备)，正常情况下，M2,S1,S2 都参与 select 语句的负载均衡。</p><p>（3）balance="2"，所有读操作都随机的在 writeHost、 readhost 上分发。</p><p>（4）balance="3"，所有读请求随机的分发到 wiriterHost 对应的 readhost 执行，writerHost 不负担读压力，注意 balance=3 只在 1.4 及其以后版本有，1.3 没有。</p><p>所以，这里使用1和3都是可以的。</p><p>writeType：</p><p>（1）writeType="0", 所有写操作发送到配置的第一个 writeHost，第一个挂了切到还生存的第二个riteHost，重新启动后已切换后的为准，切换记录在配置文件中:dnindex.properties.</p><p>（2）writeType="1"，所有写操作都随机的发送到配置的 writeHost，1.5 以后废弃不推荐。</p><p>heartbeat：心跳，判断该数据库是否存活。</p><p>writeHost：Master写操作的数据库配置</p><p>readHost：Slave读操作的数据库配置。如果有多个Slave，这里可以配置多个。</p><p><strong>3、rule.xml</strong></p><p>规则配置文件。</p><pre>&lt;table name="user" primaryKey="id" dataNode="dn1,dn2,dn3" rule="mod-long" /&gt;<br></pre><p>rule属性的mod-long在此配置文件中进行设置。这里表示的是“取模”规则。</p><p>rule.xml文件中会找到如下代码：</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/ec54c97105c443b28c1926bb19416037" img_width="546" img_height="133" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">mod-long配置</p></div><p>columns：表示利用哪个列进行操作，这里是用id列进行操作。这里的id列必须是整型。</p><p>algorithm：表示具体的算法，这里的算法是mod-long。</p><p>那么mod-long是怎么实现的呢：</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/65fc61b83d1b4598975cd44d7cedc0d4" img_width="764" img_height="94" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">实现mod-long的java类</p></div><p>class：io.mycat.route.funciton.PartitionByMod。取模的算法是通过这个类实现的。</p><p>count：表示一共有几个数据节点，这里配置3个，也就是当生成的id与3取模，得到的余数是几就将该条记录插入到哪个数据库中。比如余数是0，就进入dn1中，余数是1就进入dn2中，余数是2就进入dn3中。</p><h1>应用配置</h1><p><strong>1、数据库连接配置</strong></p><p>本例中因为使用了Mycat作为数据库中间件，代理了数据库的分库分表。所以应用程序只需要连接Mycat中的逻辑数据库javapupil_user、javapupil_goods、javapupil_order即可。</p><p>jdbc:mysql://192.168.1.145:8066/javapupil_user</p><p>jdbc:mysql://192.168.1.145:8066/javapupil_ goods</p><p>jdbc:mysql://192.168.1.145:8066/javapupil_order</p><p>注意：Mycat默认的端口是8066。</p><p><strong>2、sql配置</strong></p><p>当程序需要插入数记录时，在insert into中需要加入如下的Sql代码：</p><p>next value for MYCATSEQ_GLOBAL，这里的GLOBAL是在conf/sequence_conf.properties中进行的配置。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/57be1f8820844309987b7f329f8eb7c2" img_width="308" img_height="102" alt="微服务架构基于Mycat分库分表及读写分离的配置实战" inline="0"><p class="pgc-img-caption">SEQ_GLOBAL配置</p></div><h1>总结</h1><p>本文着重介绍了基于Mycat的Mysql分库分表及读写分离的配置。使用了垂直和水平相结合的方式对数据库进行拆分。Mycat是一款强大的分库分表的中间件，配置简单，运行稳定。希望本文能给正在研究微服务架构分库分表读写分离的朋友带来一点启发。</p></div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/b4_oNB2bY/" class="tag">
+                    sql
+                  </a>
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/that-is-how-restful-api-workds/">
+                  <h3 class="post-title">
+                    如何写出完美的接口：接口规范定义、接口管理工具推荐
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

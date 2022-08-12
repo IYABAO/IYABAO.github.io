@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>运维的生活中常见的Nginx规则 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">运维的生活中常见的Nginx规则</h2>
+            <div class="post-date">2019-08-01</div>
+            
+            <div class="post-content">
+              <div><h1><strong>1. 概述</strong></h1><p>大家都知道Nginx有很多功能模块，比如反向代理、缓存等，这篇文章总结下我们这些年实际环境中那些有用的Nginx规则和模块，大部分是用法的概括及介绍，具体细节在实际配置时再自行google。</p><h1><strong>2. 内置语法</strong></h1><p>先介绍Nginx默认已支持的内置功能，靠这些基本就满足大部分的web服务需求。</p><h1><strong>2.1 proxy代理</strong></h1><p>proxy常用于两类应用场景，一类是中转，如异地科学的上网方式，另外一类是到后端服务的负载均衡方案。</p><p>用反向代理时候，需要特别注意里面的域名默认是在nginx启动时候就解析了，除非reload否则一直用的是当初解析的域名，也就是说不能动态解析。</p><p>但这个问题是可以通过别的模块或者用内置字典变量方式来解决。</p><pre>resolver 114.114.114.114;<br>server {<br> location / {<br> set $servers github.com;<br> proxy_pass http://$servers;<br> }<br>}<br></pre><h1><strong>2.1.1 中转</strong></h1><p>针对某个域名进行中转：</p><pre>server {<br>listen 172.16.10.1:80;<br> server_name pypi.python.org;<br> location ~ /simple {<br> proxy_set_header Host $http_host;<br> proxy_redirect off;<br> proxy_pass http://pypi.python.org;<br> }<br>}<br></pre><p>注意如果是前后端域名不一样的话需要处理proxy_redirect的301跳转之类的显示，否则在跳转时候会跳转到proxy_pass的域名。</p><p>另外可以直接代理所有80端口的http流量：</p><pre>server {<br> listen 80;<br> server_name _;<br> resolver 114.114.114.114;<br> set $URL $host;<br> location / {<br> proxy_pass http://$URL;<br> }<br>}<br></pre><p>如果是想代理https的站点也不是不可能，只是需要自行处理CA证书导入即可，而且经过https中转的流量对nginx是透明的，也就是有证书的时候做窃听和劫持的情况。</p><h1><strong>2.1.2 负载均衡</strong></h1><p>这是代理的另外一个常见用法，通过upstream到多个后端，可以通过weight来调节权重或者backup关键词来指定备份用的后端，通常默认就可以 了，或者可以指定类似ip_hash这样的方式来均衡，配置很简单，先在http区域添加upstream定义：</p><pre>upstream backend {<br> ip_hash;<br> server backend1.example.com weight=5;<br> server backend2.example.com weight=5;;<br>}<br></pre><p>然后在server里面添加proxy_pass：</p><pre>location / {<br> proxy_pass http://backend;<br> proxy_http_version 1.1;<br> proxy_set_header Connection "";<br>}<br></pre><p>做负载均衡的时候可以智能识别后端服务器状态，虽然可以智能地proxy_next_upstream到另外的后端，但还是会定期损失一些正常的“尝试性”的连接，比如过了max_fails 次尝试之后，休息fail_timeout时间，过了这个时间之后又会去尝试，这个时候可以使用第三方的upstream_check模块来在后台定期地自动探索，类似这样：</p><pre>check interval=3000 rise=2 fall=5 timeout=2000 type=http;<br></pre><p>这样替代用户正常的连接来进行尝试的方式进一步保障了高可用的特性。</p><p>还有就是在做前端代理的时候也是这样的方式，直接proxy_pass到后端即可，比如CDN的场景。</p><h1><strong>2.2 防盗链</strong></h1><p>普通的防盗链是通过referer来做，比如：</p><pre>location ~* \.(gif|jpg|png|bmp)$ {<br> valid_referers none blocked *.example.com server_names ~\.google\. ~\.baidu\.;<br> if ($invalid_referer) {<br> return 403;<br> }<br>}<br></pre><p>再精细一点的就是URL加密，针对一些用户IP之类的变量生成一个加密URL通常是针对文件下载时候用到，可以通过openresty来写lua脚本或者是accesskey之类的模块来实现。</p><h1><strong>2.3 变量</strong></h1><p>nginx里面支持正则匹配和变量配置，默认的变量比如remote_addr、request_filename、query_string、server_name之类的，这些组合在一起可以做很多规则，或者还有日志里面status、http_cookie等。</p><p>还有在进行多域名配置时候可以用通配符，比如：</p><pre>server_name ~^(www\.)?(.+)$;<br>root /data/web/$2;<br></pre><p>这样就实现了自动进行域名的目录指派。</p><p>变量方面，比如配置变量a=1：</p><pre>set $a 1;<br></pre><p>下面这个案例配合if判断来做有更大的用处。</p><h1><strong>2.4 if判断</strong></h1><p>nginx里面支持一些简单的if判断，但是没有多重逻辑的语法，多个判断条件用起来需要结合变量的方式来实现，比如允许ip地址为10.10.61段和和192.168.100段的用户访问，其余的拒绝，返回405状态码：</p><pre>set $err 0;<br> if ( $remote_addr ~ 10.10.61.){<br> set $err 0;<br> }<br> if ( $remote_addr ~ 192.168.100.){<br> set $err 0;<br> }<br> if ( $err = 1){<br> return 405;<br> }<br></pre><p>这样通过一个err变量比较巧妙实现了需求。</p><h1><strong>2.5 error_page</strong></h1><p>有用到后端proxy的地方需要加上这句话才可以传到状态码到nginx：</p><pre>fastcgi_intercept_errors on;<br></pre><p>具体配置一般是配置到具体的错误URL页面，比如：</p><pre>#返回具体状态码<br>error_page 404 403 /4xx.html<br>#返回200状态码<br>error_page 404 403 =200 /error.html<br></pre><p>或者采用callback的方式统一做处理：</p><pre>error_page 404 403 = @fallback; <br>location @fallback {<br> proxy_pass http://backend;<br> access_log /data/logs/404_error.log access;<br>}<br></pre><p>这样在重定向时不会改变URL，然后把404页面直接返回。</p><h1><strong>2.6 rewrite</strong></h1><p>rewrite做一些301、302之类的跳转，同时也可以在CDN前端做“去问号”缓存的效果。</p><pre>location /db.txt {<br> rewrite (.*) $1? break;<br> include proxy.conf;<br>}<br></pre><p>另外最常见的跳转写法：</p><pre>rewrite ^/game/(.*) /$1;<br></pre><p>把/game/test跳转为/test的效果，注意这样是没有状态码的，如果访问正常就直接返回200状态码。</p><p>可以在后面加个permanent参数，就变为了301 Moved Permanently，或者添加redirect改为302跳转。</p><p>同理，还可以进行多个正则匹配进行URL重组，比如：</p><pre>rewrite ^/download/(.*)/lastest/(.*)$ /file/$1?ver=$2 break;<br></pre><h1><strong>2.7 日志字段</strong></h1><p>想针对每个连接进行日志留档，可以在nginx日志那里配置好字段，比如记录cookie之类的数据。</p><p>在log_format字段里面加入$http_cookie变量即可。</p><p>另外post的数据可以永久保留在文件里面，比如用来做http的日志备份，包括get和post的原始数据，把这个值开启即可：</p><pre>client_body_in_file_only on;<br></pre><p>然后post的数据就会保存在nginx/client_body_temp文件夹里面。</p><h1><strong>2.8 internal关键词</strong></h1><p>这个关键词很少见，但有时候是很有用的，比如在有很多规则时候，突然需要针对某个目录转为nginx内部处理。</p><pre>location ^~ /upload/down/ {<br>alias /data/web/dts/dtsfile/down/;<br>internal;<br>}<br></pre><h1><strong>2.9 try_files</strong></h1><p>字面意思是尝试，后面可以接多个目录或者文件，比如kohana框架：</p><pre>try_files $uri /index.php?$query_string;<br></pre><p>先看是否有URL这个文件，没有的话再调用index.php来处理，或者支持状态码处理：</p><pre>try_files /foo /bar/ =404;<br></pre><p>没有这两个文件的话返回404状态。</p><h1><strong>2.10 auth认证</strong></h1><p>可以做简单的用户登录认证方式，其中的passwd_file得通过apache的htpasswd命令来生成。</p><pre>auth_basic "Restricted";<br>auth_basic_user_file passwd_file;<br></pre><p>认证通过之后每次访问会在头部添加Authorization字段包含用户名密码的base64加密密文给服务端。</p><h1><strong>2.11 gzip</strong></h1><p>普通的线上web站点gzip压缩是必须要开的，压缩一些文本类型的文件再返回给用户。</p><p>注意必须手动指定全需要压缩的类型，比如css、js之类的，线上配置如下：</p><pre>gzip on;<br>gzip_min_length 2048;<br>gzip_buffers 4 16k;<br>gzip_vary on;<br>gzip_http_version 1.1;<br>gzip_types text/plain text/css text/xml application/xml application/javascript application/x-javascript ;<br></pre><h1><strong>2.12 mime配置</strong></h1><p>很久以前基本是忽略这个配置，但手游流行之后就发现异常了，需要让手机浏览器知道返回的apk后缀是什么类型，否则类似IE浏览器会以zip后缀返回，需要加上：</p><pre>application/vnd.android.package-archive apk;<br>application/iphone pxl ipa;<br></pre><h1><strong>2.13 限速</strong></h1><p>限速包括限制请求的并发数和请求的下载速度。</p><p>简单的限制某个线程的下载速度就直接加上一句话就可以了：</p><pre>limit_rate 1024k;<br></pre><p>要限制某个IP的并发数之类的就需要用ngx_http_limit_req_module和ngx_http_limit_conn_module模块了，不过是默认就编译好的。</p><p>比如使用一个 10M 大小的状态缓存区，针对每个IP每秒只接受20次的请求：</p><pre>limit_req_zone $binary_remote_addr zone=NAME:10m rate=20r/s;<br></pre><h1><strong>2.14 location匹配</strong></h1><p>location匹配有多种方式，常见的比如</p><pre>location = / <br>location / <br>location ^~ /test{<br></pre><p>是有优先级的，直接 ”=” 的优先级是最高的，一般就用”~”这个符号来匹配php就好了，不过是区分了大小写的：</p><pre>location ~ .*\.php$<br></pre><h1><strong>2.15 文件缓存</strong></h1><p>返回给用户的文件一般都配置了过期时间，让浏览器缓存起来。</p><p>比如缓存14天：</p><pre>expires 14d;<br></pre><p>针对某些特殊的文件就需要location匹配之后进行禁止缓存配置：</p><pre>add_header Cache-Control no-cache;<br>add_header Cache-Control no-store;<br>expires off;<br></pre><h1><strong>2.16 缓存文件</strong></h1><p>nginx可以作为ATS这样的缓存服务器来缓存文件，配置也比较简单，不过我们很少用，除非一些特殊的场合，参考配置：</p><pre>#先在全局下面定义好缓存存放的目录<br>proxy_cache_path /data/cache/ levels=1:2 keys_zone=cache_one:10m inactive=7d max_size=10g;<br>proxy_temp_path /data/cache/proxy_temp_path;<br>proxy_cache_key $host$uri$is_args$args;<br>#然后在server里面的location匹配好目的文件，加入下一段即可<br>proxy_cache cache_one;<br>proxy_cache_valid 200 304 24h;<br>proxy_cache_valid any 10m;<br>proxy_pass https://$host;<br>proxy_cache_key $host$uri$is_args$args;<br>add_header Nginx-Cache "$upstream_cache_status"; 3. 内置模块<br></pre><h1><strong>3. 内置模块</strong></h1><p>nginx含有大量的模块可以支持多种复杂的需求，比如源码目录src/http/modules里面就有很多c模块的代码，或者直接通过./configure –help|grep module来查看有哪些内置模块，编译时候直接加上就可以了。</p><p>除了nginx内置的模块，网络上还有很多第三方的模块，可以通过编译时候加参数–add-module=PATH指定模块源码来编译。</p><p>下面介绍一些我们线上用过而且比较赞的内置模块。</p><h1><strong>3.1 stream</strong></h1><p>端口转发的模块，从nginx1.9版本才开始支持，包含tcp和udp的支持，和IPTABLES相比这个虽然是应用层，会监听端口，但是配置起来很方便，比IPTABLES灵活，在tcp模块下面添加类似vhost的server就可以了，方便自动化管理，参考配置：</p><pre>server {<br> listen PORT;<br> proxy_pass IP:PORT;<br> access_log /data/logs/tcp/PORT.log;<br>}<br></pre><h1><strong>3.2 http_realip_module</strong></h1><p>nginx反向代理之后，如何让后端web直接获取到的IP不是反向代理的iP，而是直接获取到用户的真实IP呢，就需要这个模块了，不需要代码那里再做类似X-Real-IP的变量特殊判断。</p><h1><strong>3.3 http_slice_module</strong></h1><p>在做CDN时候可以用到，让一个大文件分片，分成多个小文件通过206断点续传到后端，然后再组合起来，避免大文件直接回源导致多副本和多次回源的问题。</p><h1><strong>3.4 http_secure_link_module</strong></h1><p>前面说到的防盗链可以用这个来做，但是这个一般是针对那种文件下载时候用到的，比如从网页下载时候，服务端生成一个加密URL给用户，然后这个URL有过期时间之类的，避免此URL被多次分享出去，不过普通的素材加载还是用普通的防盗链即可。</p><h1><strong>3.5 http_sub_module</strong></h1><p>替换响应给用户的内容，相对于sed之后再返回，比如可以在需要临时全局修改网站背景或者title时候可以一次性处理好。</p><h1><strong>4. 扩展项目</strong></h1><p>简单介绍下大名鼎鼎的两个基于nginx的扩展项目，也是我们线上有很多地方用到的。</p><h1><strong>4.1 openresty</strong></h1><p>集成lua脚本，几乎可以完成任何普通web相关的需求。</p><p>比如URL加密进行防劫持和防盗链，服务端动态生成一串aes加密的URL给CDN，CDN的openresty解密之后用普通的URL转发到后端，然后再返回给用户正确的内容。</p><h1><strong>4.2 tengine</strong></h1><p>淘宝的nginx修改版，实现了很多nginx的收费功能或者是特殊功能，比如动态加载、concat合并请求，动态解析等。</p></div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/636As62Lr/" class="tag">
+                    nginx
+                  </a>
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/mysql-partition/">
+                  <h3 class="post-title">
+                    MySQL表分区（partition）创建、查询、删除以及重建分区等等操作
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

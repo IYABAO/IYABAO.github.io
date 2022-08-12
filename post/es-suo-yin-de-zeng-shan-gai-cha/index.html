@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>ES索引的增删改查 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">ES索引的增删改查</h2>
+            <div class="post-date">2020-09-08</div>
+            
+            <div class="post-content">
+              <p>标准的restful接口</p>
+<h1 id="查">查</h1>
+<p>查看所有index, 等价于show tables;</p>
+<p>GET _cat/indices</p>
+<p>GET test_index</p>
+<p>GET kibana_sample_data_logs?include_type_name=true&amp;include_defaults=true</p>
+<ul>
+<li>
+<p>aliases</p>
+</li>
+<li>
+<p>mappings</p>
+</li>
+<li>
+<p>settings</p>
+</li>
+</ul>
+<h1 id="删">删</h1>
+<p>DELETE test_index</p>
+<p>DELETE test_index?ignore_unavailable=true  ==&gt; drop table xx  if exists</p>
+<h1 id="增">增</h1>
+<pre><code>PUT kibana_sample_data_ecommerce2?include_type_name=true
+{
+&quot;mappings&quot; : {
+      &quot;_doc&quot; : {
+        &quot;properties&quot; : {
+          &quot;@timestamp&quot; : {
+            &quot;type&quot; : &quot;alias&quot;,
+            &quot;path&quot; : &quot;timestamp&quot;
+          },
+          &quot;agent&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;bytes&quot; : {
+            &quot;type&quot; : &quot;long&quot;
+          },
+          &quot;clientip&quot; : {
+            &quot;type&quot; : &quot;ip&quot;
+          },
+          &quot;event&quot; : {
+            &quot;properties&quot; : {
+              &quot;dataset&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;
+              }
+            }
+          },
+          &quot;extension&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;geo&quot; : {
+            &quot;properties&quot; : {
+              &quot;coordinates&quot; : {
+                &quot;type&quot; : &quot;geo_point&quot;
+              },
+              &quot;dest&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;
+              },
+              &quot;src&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;
+              },
+              &quot;srcdest&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;
+              }
+            }
+          },
+          &quot;host&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;index&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;ip&quot; : {
+            &quot;type&quot; : &quot;ip&quot;
+          },
+          &quot;machine&quot; : {
+            &quot;properties&quot; : {
+              &quot;os&quot; : {
+                &quot;type&quot; : &quot;text&quot;,
+                &quot;fields&quot; : {
+                  &quot;keyword&quot; : {
+                    &quot;type&quot; : &quot;keyword&quot;,
+                    &quot;ignore_above&quot; : 256
+                  }
+                }
+              },
+              &quot;ram&quot; : {
+                &quot;type&quot; : &quot;long&quot;
+              }
+            }
+          },
+          &quot;memory&quot; : {
+            &quot;type&quot; : &quot;double&quot;
+          },
+          &quot;message&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;phpmemory&quot; : {
+            &quot;type&quot; : &quot;long&quot;
+          },
+          &quot;referer&quot; : {
+            &quot;type&quot; : &quot;keyword&quot;
+          },
+          &quot;request&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;response&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;tags&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;timestamp&quot; : {
+            &quot;type&quot; : &quot;date&quot;
+          },
+          &quot;url&quot; : {
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;fields&quot; : {
+              &quot;keyword&quot; : {
+                &quot;type&quot; : &quot;keyword&quot;,
+                &quot;ignore_above&quot; : 256
+              }
+            }
+          },
+          &quot;utc_time&quot; : {
+            &quot;type&quot; : &quot;date&quot;
+          }
+        }
+      }
+    },
+    &quot;settings&quot; : {
+      &quot;index&quot; : {
+        &quot;number_of_shards&quot; : &quot;1&quot;,
+        &quot;auto_expand_replicas&quot; : &quot;0-1&quot;,
+        &quot;number_of_replicas&quot; : &quot;1&quot;
+      }
+    }
+}
+</code></pre>
+<p>改 reindex</p>
+<pre><code>POST _reindex?wait_for_completion=true
+{
+  &quot;dest&quot;: {
+    &quot;index&quot;: &quot;kibana_sample_data_ecommerce2&quot;
+  },
+  &quot;source&quot;: {
+    &quot;index&quot;: &quot;kibana_sample_data_ecommerce&quot;
+  }
+}
+</code></pre>
+<pre><code>POST _aliases
+{
+  &quot;actions&quot;: [
+    {
+      &quot;add&quot;: {
+        &quot;index&quot;: &quot;kibana_sample_data_ecommerce2&quot;,
+        &quot;alias&quot;: &quot;ecommerce&quot;
+      }
+    },
+    {
+      &quot;remove&quot;: {
+        &quot;index&quot;: &quot;kibana_sample_data_ecommerce&quot;,
+        &quot;alias&quot;: &quot;ecommerce&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+<p>mapping</p>
+<p>POST kibana_sample_data_ecommerce2/_mapping<br>
+{</p>
+<pre><code>&quot;properties&quot;: {
+  &quot;agent&quot;: {
+    &quot;type&quot;: &quot;text&quot;,
+    &quot;fields&quot;: {
+      &quot;keyword&quot;: {
+        &quot;type&quot;: &quot;keyword&quot;,
+        &quot;ignore_above&quot;: 256
+      },
+      &quot;hello&quot;:{
+        &quot;type&quot;:&quot;keyword&quot;,
+        &quot;ignore_above&quot;: 1
+      }
+    }
+  }
+}
+</code></pre>
+<p>}</p>
+<p>settings</p>
+<p>PUT kibana_sample_data_ecommerce2/_settings<br>
+{</p>
+<pre><code>&quot;index&quot;: {
+  &quot;auto_expand_replicas&quot;: &quot;0-1&quot;,
+  &quot;number_of_replicas&quot;: &quot;2&quot;
+}
+</code></pre>
+<p>}</p>
+<p>直接 ==&gt; 插入数据，</p>
+<p>让他动态索引（dynamic mapping）得到mapping，在此基础上更改。</p>
+<p>字段类型</p>
+<h2 id="field-data-types">Field data types</h2>
+<p>Elasticsearch supports a number of different data types for the fields in a document:</p>
+<h3 id="core-data-types">Core data types</h3>
+<ul>
+<li>
+<p>string</p>
+<p><a href="text.html"><code>text</code></a>, <a href="keyword.html"><code>keyword</code></a> and <a href="wildcard.html"><code>wildcard</code></a></p>
+</li>
+<li>
+<p><a href="number.html">Numeric</a></p>
+<p><code>long</code>, <code>integer</code>, <code>short</code>, <code>byte</code>, <code>double</code>, <code>float</code>, <code>half_float</code>, <code>scaled_float</code></p>
+</li>
+<li>
+<p><a href="date.html">Date</a></p>
+<p><code>date</code></p>
+</li>
+<li>
+<p><a href="date_nanos.html">Date nanoseconds</a></p>
+<p><code>date_nanos</code></p>
+</li>
+<li>
+<p><a href="boolean.html">Boolean</a></p>
+<p><code>boolean</code></p>
+</li>
+<li>
+<p><a href="binary.html">Binary</a></p>
+<p><code>binary</code></p>
+</li>
+<li>
+<p><a href="range.html">Range</a></p>
+<p><code>integer_range</code>, <code>float_range</code>, <code>long_range</code>, <code>double_range</code>, <code>date_range</code>, <code>ip_range</code></p>
+</li>
+</ul>
+<h3 id="complex-data-types">Complex data types</h3>
+<ul>
+<li>
+<p><a href="object.html">Object</a></p>
+<p><code>object</code> for single JSON objects</p>
+</li>
+<li>
+<p><a href="nested.html">Nested</a></p>
+<p><code>nested</code> for arrays of JSON objects</p>
+</li>
+</ul>
+<h3 id="spatial-data-types">Spatial data types</h3>
+<ul>
+<li>
+<p><a href="geo-point.html">Geo-point</a></p>
+<p><code>geo_point</code> for lat/lon points</p>
+</li>
+<li>
+<p><a href="geo-shape.html">Geo-shape</a></p>
+<p><code>geo_shape</code> for complex shapes like polygons</p>
+</li>
+<li>
+<p><a href="point.html">Point</a></p>
+<p><code>point</code> for arbitrary cartesian points.</p>
+</li>
+<li>
+<p><a href="shape.html">Shape</a></p>
+<p><code>shape</code> for arbitrary cartesian geometries.</p>
+</li>
+</ul>
+<h3 id="specialised-data-types">Specialised data types</h3>
+<ul>
+<li>
+<p><a href="ip.html">IP</a></p>
+<p><code>ip</code> for IPv4 and IPv6 addresses</p>
+</li>
+<li>
+<p><a href="search-suggesters.html#completion-suggester">Completion data type</a></p>
+<p><code>completion</code> to provide auto-complete suggestions</p>
+</li>
+<li>
+<p><a href="token-count.html">Token count</a></p>
+<p><code>token_count</code> to count the number of tokens in a string</p>
+</li>
+<li>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/plugins/7.9/mapper-murmur3.html"><code>mapper-murmur3</code></a></p>
+<p><code>murmur3</code> to compute hashes of values at index-time and store them in the index</p>
+</li>
+<li>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/plugins/7.9/mapper-annotated-text.html"><code>mapper-annotated-text</code></a></p>
+<p><code>annotated-text</code> to index text containing special markup (typically used for identifying named entities)</p>
+</li>
+<li>
+<p><a href="percolator.html">Percolator</a></p>
+<p>Accepts queries from the query-dsl</p>
+</li>
+<li>
+<p><a href="parent-join.html">Join</a></p>
+<p>Defines parent/child relation for documents within the same index</p>
+</li>
+<li>
+<p><a href="rank-feature.html">Rank feature</a></p>
+<p>Record numeric feature to boost hits at query time.</p>
+</li>
+<li>
+<p><a href="rank-features.html">Rank features</a></p>
+<p>Record numeric features to boost hits at query time.</p>
+</li>
+<li>
+<p><a href="dense-vector.html">Dense vector</a></p>
+<p>Record dense vectors of float values.</p>
+</li>
+<li>
+<p><a href="sparse-vector.html">Sparse vector</a></p>
+<p>Record sparse vectors of float values.</p>
+</li>
+<li>
+<p><a href="search-as-you-type.html">Search-as-you-type</a></p>
+<p>A text-like field optimized for queries to implement as-you-type completion</p>
+</li>
+<li>
+<p><a href="alias.html">Alias</a></p>
+<p>Defines an alias to an existing field.</p>
+</li>
+<li>
+<p><a href="flattened.html">Flattened</a></p>
+<p>Allows an entire JSON object to be indexed as a single field.</p>
+</li>
+<li>
+<p><a href="histogram.html">Histogram</a></p>
+<p><code>histogram</code> for pre-aggregated numerical values for percentiles aggregations.</p>
+</li>
+<li>
+<p><a href="constant-keyword.html">Constant keyword</a></p>
+<p>Specialization of <code>keyword</code> for the case when all documents have the same value.</p>
+</li>
+</ul>
+<h3 id="arrays">Arrays</h3>
+<p>In Elasticsearch, arrays do not require a dedicated field data type. Any field can contain zero or more values by default, however, all values in the array must be of the same data type. See <a href="array.html">Arrays</a>.</p>
+<h3 id="multi-fields">Multi-fields</h3>
+<p>It is often useful to index the same field in different ways for different purposes. For instance, a <code>string</code> field could be mapped as a <code>text</code> field for full-text search, and as a <code>keyword</code> field for sorting or aggregations. Alternatively, you could index a text field with the <a href="analysis-standard-analyzer.html"><code>standard</code> analyzer</a>, the <a href="analysis-lang-analyzer.html#english-analyzer"><code>english</code></a> analyzer, and the <a href="analysis-lang-analyzer.html#french-analyzer"><code>french</code> analyzer</a>.</p>
+<p>This is the purpose of <em>multi-fields</em>. Most data types support multi-fields via the <a href="multi-fields.html"><code>fields</code></a>parameter.</p>
+<p>&quot;dynamic&quot; : &quot;true&quot; | &quot;false&quot; | &quot;strict&quot;</p>
+<p>&quot;copy_to&quot;</p>
+<p>数组</p>
+<p>多字段特性</p>
+<p>简单提下， 下下次专门讲这块</p>
+<h2 id="analysis-built-in-analyzer">Analysis | Built-in analyzer</h2>
+<p>char filter</p>
+<p>Tokenizer [必须有一个]</p>
+<p>token filter</p>
+<pre><code>html_strip
+mapping
+pattern_replace
+</code></pre>
+<pre><code>PUT my-index-000001
+{
+  &quot;settings&quot;: {
+    &quot;analysis&quot;: {
+      &quot;analyzer&quot;: {
+        &quot;my_custom_analyzer&quot;: {
+          &quot;type&quot;: &quot;custom&quot;, 
+          &quot;tokenizer&quot;: &quot;standard&quot;,
+          &quot;char_filter&quot;: [
+            &quot;html_strip&quot;
+          ],
+          &quot;filter&quot;: [
+            &quot;lowercase&quot;,
+            &quot;asciifolding&quot;
+          ]
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/python-that-is-all-about-python/">
+                  <h3 class="post-title">
+                    Python资源大全
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

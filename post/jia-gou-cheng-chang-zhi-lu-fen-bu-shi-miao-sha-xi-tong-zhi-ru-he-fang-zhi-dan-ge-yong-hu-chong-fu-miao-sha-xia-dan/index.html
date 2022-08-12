@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？ | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？</h2>
+            <div class="post-date">2019-07-21</div>
+            
+            <div class="post-content">
+              <div class="article-content"><div><p>电子交易的一个很基本的问题，就是避免用户下重复订单。用户明明想买一次，结果一看下了两个单。如果没有及时发现，就会带来额外的物流成本和扯皮。对商家的信誉也不好看。</p><p>从技术上看，这是一个分布式一致性问题；但实际上，技术无法100%解决这类问题，得结合多种手段综合处理。这里就来说道说道。</p><h1>为啥会下重了呢？</h1><p><strong>原因1：客户端bug</strong></p><p>比如下单的按键在点按之后，在没有收到服务器请求之前，按键的状态没有设为<strong>已禁用</strong>状态，还可以被按。又或者，在触摸屏下，用户手指的点按可能被手机操作系统识别为多次点击。</p><p>嗯，谁能保证客户端不偶尔出个什么bug 呢。</p><p><strong>原因2: 超时</strong></p><p>用户的设备与服务器之间可能是不稳定的网路。这样一个下单请求过去，返回不一定回得来。超时最大的问题是: 从用户的角度，他无法确定下单的请求是还没到服务器，还是已经到了服务器但是返回丢失了。——<strong>用户无法区分到底这个单下了还是没下</strong>。</p><p>这样在等待一个超时后，UI可能会提示用户下单超时，请重复再试。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/a3c09c7618b447d1b0a265c1620bd23c" img_width="1000" img_height="244" alt="架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？" inline="0"><p class="pgc-img-caption"></p></div><p><strong>原因3: 用户的App闪退/人工强退，之后重新打开重新下单</strong></p><p>也许可以使用一些技术手段避免用户下重单，但是心急的用户可能会重启流程/重启App/重启手机。在这种强制的手段下，任何技术手段都会失效——用户压根就不让你的技术执行，你怎么玩？</p><p><strong>在这些条件下，如何避免用户多下了一笔订单呢？</strong></p><h1>用幂等防止重复订单</h1><p>在技术方面，这是一个分布式一致性的问题，即客户端和服务器端对某个订单是否成功/失败达成一致。防止重单的关键是<strong>使用一个由客户端生成的，可用于避免重复的key</strong>，俗称<strong>dedup key</strong>（deduplicate key之意）。这个key可以用任意可以保证全局唯一性的方式生成，比如uuid。客户端和服务器需要使用这个dedup key作为串联条件，一起解决去重问题。</p><h1>客户端的流程</h1><p>客户端需要实现这样一个下单界面。用户点击【确认下单】时，应该产生一个独一无二的dedup key，连定订单数据发送给服务器端。在服务器返回之前，该界面应该一直等待，直到服务器响应成功/失败或者超时发生（比如15秒后，收不到服务器响应）。如果超时发生，应该向用户提示是否重试下单或者退出该界面。当用户点击【重试】时，应该用刚刚生成的dedup key来再次发送下单请求——如果用户一直不退出这个流程，每次用户点击重试，都应该用这个dedup key来重试下单，直到服务器正常返回，或者用户放弃返回。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/3659880202454777a9d7a649a524456f" img_width="1000" img_height="528" alt="架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？" inline="0"><p class="pgc-img-caption">下单的客户端流程</p></div><h1>后端数据表设计</h1><p>后端在订单数据表中，需要增加dedup_key这列，并设置<strong>唯一约束</strong>。</p><pre>create table order(<br> # ...<br> dedup_key varchar(60) not null comment 'key to pretend order duplication',<br> # ...<br> unique uniq_dedup_key(dedup_key)<br>);<br></pre><h1>下单的实现</h1><p>在实现下单逻辑时，基于该dedup_key实现一个"create-or-get"语义的下单接口——简单说就是</p><blockquote><p>如果带有指定dedup_key的订单已经存在，则直接返回；否则，用该dedup_key下单。</p></blockquote><p>用伪代码表示大概是：</p><pre>@Transactional<br>Order createOrder(Integer userId, String prodCode, Decimal amount, String dedupKey) {<br> try {<br> String orderId = createOrder(userId, prodCode, amount, deupKey); // insert a new order<br> Order order = getOrderById(orderId); // read order from db<br> order.setDuplicated(false);<br> return order;<br> } catch(UniqueKeyViolationException e) {<br> // if duplicated order has existed<br> Order order = getOrderByDedupKey(dedupKey);<br> order.setDuplicated(true);<br> return order;<br> } catch (Exception e) {<br> // hanlde other errors and rollback transaction ...<br> }<br>}<br></pre><p>这时，这段下单代码总是能返回一个订单（除非发生一些DB挂了之类的错误），要么是新创建的，要么就是一个已经存在的单。注意，<strong>最好在订单里增加一个属性（比如例子中用“duplicated”）来表示这个订单是这次新生成的，还是因为幂等而直接返回的</strong>。这样前端可以有针对性的对这两种情况提示不同的文案。</p><h1>技术搞定幂等就足够了吗？</h1><p>上面的流程没有考虑一种情况，就是用户中途强制退出客户端，或者直接点击【返回】回到产品页，重新走下单流程。这个时候客户端就无法判断用户到底是想重新下单，还是想第二次下单。此时，可以从产品设计上考虑一下。</p><p>比如，在客户端缓存一个表，记录所有没有确认结果的订单。</p><p> 产品代码 产品数量 金额 dedup key 未确认订单1 AAA 1 1000 xxx-yyy-zzz 未确认订单2 BBB 2 500.00 Aaa-bbb-ccc ... 通过这个表，我们可以<strong>猜</strong>一下用户的意图。比如，如果用户重新提交了一笔订单，其产品代码、金额与表中记录的某条完全一致，就可以提示一下用户:</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/f1df5062d20e4def95ab2fc7d456d4d4" img_width="676" img_height="274" alt="架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？" inline="0"><p class="pgc-img-caption">提示一下用户是不是下重了</p></div><p>如果用户想重试，可以继续用表中对应记录的dedup key重新发起下单。</p><p>这样不是绝对准确的，仅仅是尽量的减少用户误操作的可能性。当然，在产品设计上可以能出于用户交互简化，不一定真的会这样做。这就需要其他机制来配合，比如“通知”。</p><h1>通知</h1><p>一旦服务器下单成功，可以通过某种通知机制（如APNS、Websocket）主动将订单推送至客户端，强行让客户端重新拉取最新的订单信息，并配合“未确认订单”表，以通知Badge/弹框等方式提示用户刚刚一笔状态未知的订单成功/失败了。</p><p>另外一种手段就是，服务器端实时扫描用户的下单数据，一旦发现可能的重单，就立刻通知客服<strong>主动</strong>联系用户，及时处理问题。</p><h1>如果还拦不住……</h1><p>经过层层阻拦，可能还是会有用户误操作，直到收到两份商品才发现下重了。此时就得依靠运营/客服的支持了。提供用户申诉的手段，让用户提出哪些订单是重复的，并且由销售系统店家、商品提供者和买家三方共同根据用户操作的记录来协商如何处理。我们需要让技术帮助让这种人工处理的几率尽量小。因为每次处理都会耗费较大的人工成本，和一些运营费用（比如赔款、小礼品等等）。</p><h1>这么麻烦，有必要吗？</h1><p>这要分业务场景，对于很多电商来讲可能不是必要的。因为从用户下单到订单被审核处理进入到发货阶段需要一定的时间（可能是半小时～1小时），并且一定是支付成功后才会开始进行下一步流程。在这个时间段，用户大概率能从网络错误中恢复过来，自行区分是否下重了。配合客服主动提示，会极大的降低出问题的概率。</p><p>但是对于理财服务来说，这种去重就非常必要了。因为</p><ul><li><strong>“下单+支付”</strong>。用户购买理财往往是“下单+支付”一起执行，不可以单独下单/单独支付</li><li><strong>用户的入金可能很大</strong>。例如数万，数十万</li><li><strong>准确性丢失</strong>。如果一旦下重了，有可能影响用户的投资资金配置的准确性。</li><li><strong>撤销难</strong>。部分理财产品存在下单不可撤销的问题；或者即便撤销，资金也无法立刻回款。等到回款，可能这个购入机会就错过去了。例如对于基金交易，错过1个交易日，价格就会发生变动。</li></ul><p>基于这些特性，在理财产品中，就要竭尽全力的去重。</p><h1>结论</h1><p>以上所讲是处理重复订单问题的一般方法。你可以注意到，无论多么好的技术，也不可能100%的拦截所有的可能性，必须依靠<strong>技术+产品设计+运营支持</strong>的综合手段才能解决这类问题。</p><p>另外，本文还没涉及到关于订单支付（支付也可能重复哦）带来的进一步的复杂性，也没有讨论在高并发情况下的性能优化，仅仅讨论下单本身的问题。所以可以想象一下现实中的交易业务比这里的说的要复杂得多。</p><p>本文介绍的原理也不仅仅适用于防止下重复订单，而是可以应用到任何<strong>需要“创建一个不应该重复资源”</strong>的场景，比如“向用户发一条通知”，“触发一次不能重复的批处理任务！</p></div></div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/zai-xi-fang-de-cheng-xu-yuan-yan-li-dong-fang-de-cheng-xu-yuan-shi-shi-me-yang-de/">
+                  <h3 class="post-title">
+                    在西方的程序员眼里，东方的程序员是什么样的？
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

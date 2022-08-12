@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>MySQL表分区（partition）创建、查询、删除以及重建分区等等操作 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">MySQL表分区（partition）创建、查询、删除以及重建分区等等操作</h2>
+            <div class="post-date">2019-08-01</div>
+            
+            <div class="post-content">
+              <div><p>下面演示MySQL Range类型分区的操作，其他类型的分区还有Hash、Key、List等等。</p><p>分区优点：</p><p>1. 分区可以分在多个磁盘，存储更大一点。</p><p>2. 根据查找条件，也就是where后面的条件，查找只查找相应的分区不用全部查找了。</p><p>3. 进行大数据搜索时可以进行并行处理。</p><p>4. 跨多个磁盘来分散数据查询，来获得更大的查询吞吐量.</p><h1><strong>1. 创建演示表 tr，设置range 类型分区</strong></h1><blockquote><p>CREATE TABLE tr (id INT, name VARCHAR(50), purchased DATE)</p><p> PARTITION BY RANGE( YEAR(purchased) ) (</p><p> PARTITION p0 VALUES LESS THAN (1990),</p><p> PARTITION p1 VALUES LESS THAN (1995),</p><p> PARTITION p2 VALUES LESS THAN (2000),</p><p> PARTITION p3 VALUES LESS THAN (2005),</p><p> PARTITION p4 VALUES LESS THAN (2010),</p><p> PARTITION p5 VALUES LESS THAN (2015)</p><p>);</p></blockquote><h1><strong>2. 插入演示数据</strong></h1><blockquote><p>INSERT INTO tr VALUES</p><p>(1, 'desk organiser', '2003-10-15'),</p><p>(2, 'alarm clock', '1997-11-05'),</p><p>(3, 'chair', '2009-03-10'),</p><p>(4, 'bookcase', '1989-01-10'),</p><p>(5, 'exercise bike', '2014-05-09'),</p><p>(6, 'sofa', '1987-06-05'),</p><p>(7, 'espresso maker', '2011-11-22'),</p><p>(8, 'aquarium', '1992-08-04'),</p><p>(9, 'study desk', '2006-09-16'),</p><p>(10, 'lava lamp', '1998-12-25');</p></blockquote><p><strong>3. 查询分区 p2中的数据</strong></p><blockquote><p>SELECT * FROM tr</p><p>WHERE purchased BETWEEN '1995-01-01' AND '1999-12-31';</p></blockquote><p>也可以使用分区参数partition 获取相同的信息。</p><h1>SELECT * FROM tr PARTITION (p2);</h1><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/f4140e2646e9492e9ffa88179cc77f81" img_width="587" img_height="250" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><h1><strong>4. 删除分区</strong></h1><p>下面指定删除分区p2，执行如下命令。</p><blockquote><p>ALTER TABLE tr DROP PARTITION p2;</p></blockquote><p>需要注意的是：<strong>当删除一个分区时，分区中的数据也会被删除。</strong></p><p>再次执行前面的SELECT 脚本，没有任何数据返回。</p><blockquote><p>SELECT * FROM tr</p><p>WHERE purchased BETWEEN '1995-01-01' AND '1999-12-31';</p></blockquote><p>返回结果：0 row(s) returned</p><blockquote><p>SELECT * FROM tr PARTITION (p2);</p></blockquote><p>出现异常：Error Code: 1735. Unknown partition 'p2' in table 'tr'</p><h1><strong>5. 查看表tr的分区定义</strong></h1><blockquote><p>SHOW CREATE TABLE tr;</p></blockquote><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/f8cd0de264854e089b8d2d345ed7a06e" img_width="513" img_height="269" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>partition p2 已经不存在了。</p><p>现在插入 purchased 列数据在1995-01-01 到 2004-12-31 之间的数据，新的行数据将存储在 partition p3中。</p><blockquote><p>INSERT INTO tr VALUES (11, 'pencil holder', '1995-07-12');</p><p>SELECT * FROM tr WHERE purchased BETWEEN '1995-01-01' AND '2004-12-31';</p><p>select * from tr partition(p3);</p></blockquote><div class="pgc-img"><img src="http://p9.pstatp.com/large/pgc-image/748a57d73a7747f0af24463daac5f7c0" img_width="743" img_height="222" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><h1><strong>6. RANGE 重建分区</strong></h1><p>将原来的 p0,p1 分区合并起来，放到新的 p0 分区中。</p><p>在分区合并之前，先检查一下 p0和p1 分区中的数据。</p><p>select * from tr partition(p0,p1);</p><p>输出结果：3条记录</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/01ba2e3ed4054d9a9d4f4f190d1617dd" img_width="421" img_height="182" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>下面进行分区合并操作。</p><p>ALTER TABLE tr REORGANIZE PARTITION p0, p1 INTO (PARTITION p0 VALUES LESS THAN (1995));</p><p>合并操作完成之后，分区 p1 已经不存在了，新的 p0 分区数据记录如下，3条记录。</p><p>select * from tr partition(p0);</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/2ee35a9b924841ee8aab57323ce53e76" img_width="420" img_height="186" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>查看更新后的分区定义，分区p0的范围进行了重新定义。</p><p>SHOW CREATE TABLE tr;</p><div class="pgc-img"><img src="http://p9.pstatp.com/large/pgc-image/52c3a3b52b0b48d59b1511ca65a5e027" img_width="491" img_height="256" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>打开MySQL的数据目录，查看分区的表空间文件如下。</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/8757eccc655e4845aec2b263e6abc1e6" img_width="606" img_height="108" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><h1><strong>7. 子分区</strong></h1><p>子分区是分区表中每个分区的再次分割，子分区既可以使用HASH分区，也可以使用KEY分区。这也被称为复合分区（composite partitioning）。</p><p>子分区的几点注意事项：</p><ul><li>如果一个分区中创建了子分区，其他分区也要有子分区。</li><li>如果创建了子分区，每个分区中的子分区数必有相同。</li><li>同一分区内的子分区，名字不相同，不同分区内的子分区名字可以相同。</li><li>由于分区是RANGE和LIST分区，所以删除分区也是同RANGE和LIST分区一样，这里只能对每个分区进行删除，不能针对每个子分区进行删除操作，删除分区后子分区连同数据一并被删除。</li></ul><p><strong>子分区由两种创建方法：</strong></p><p>一种是不定义每个子分区的名字和路径由分区决定；</p><p>二是定义每个子分区的分区名和各自的路径；</p><p>（1）不定义每个子分区</p><p>表名称：tb_sub</p><blockquote><p>CREATE TABLE tb_sub (id INT, purchased DATE)</p><p> PARTITION BY RANGE( YEAR(purchased) )</p><p> SUBPARTITION BY HASH( TO_DAYS(purchased) )</p><p> SUBPARTITIONS 2 (</p><p> PARTITION p0 VALUES LESS THAN (1990),</p><p> PARTITION p1 VALUES LESS THAN (2000),</p><p> PARTITION p2 VALUES LESS THAN MAXVALUE</p><p> );</p></blockquote><p>分区表空间文件如下。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/736fdd7f0a9f4f588d85d7bfbccbcf26" img_width="609" img_height="150" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>查看系统中表tb_sub 信息：</p><blockquote><p>SELECT PARTITION_NAME,PARTITION_METHOD,PARTITION_EXPRESSION,PARTITION_DESCRIPTION,TABLE_ROWS,SUBPARTITION_NAME,SUBPARTITION_METHOD,SUBPARTITION_EXPRESSION</p><p>FROM information_schema.PARTITIONS</p><p>WHERE TABLE_SCHEMA=SCHEMA() AND TABLE_NAME='tb_sub';</p></blockquote><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/5b927bdc92f641d9837cec790f803278" img_width="1016" img_height="300" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>（2）定义每个子分区</p><p>定义子分区可以为每个子分区定义具体的分区名和分区路径。</p><blockquote><p>CREATE TABLE tb_sub_ev (id INT, purchased DATE)</p><p> PARTITION BY RANGE( YEAR(purchased) )</p><p> SUBPARTITION BY HASH( TO_DAYS(purchased) ) (</p><p> PARTITION p0 VALUES LESS THAN (1990) (</p><p> SUBPARTITION s0,</p><p> SUBPARTITION s1</p><p> ),</p><p> PARTITION p1 VALUES LESS THAN (2000) (</p><p> SUBPARTITION s2,</p><p> SUBPARTITION s3</p><p> ),</p><p> PARTITION p2 VALUES LESS THAN MAXVALUE (</p><p> SUBPARTITION s4,</p><p> SUBPARTITION s5</p><p> )</p><p> );</p></blockquote><p>插入测试记录：</p><blockquote><p>INSERT INTO tb_sub_ev() VALUES(1,'1989-01-01'),(2,'1989-03-19'),(3,'1989-04-19');</p></blockquote><p>从查询结果中，可以看到3条记录分表存储在2个不同的子分区中。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/9bec9e47cfe9407f9ac5a1350610b12d" img_width="1016" img_height="385" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>查看如下查询语言的执行计划：</p><blockquote><p>explain select * from tb_sub where purchased='1989-01-01';</p><p>explain select * from tb_sub where purchased='1989-03-19';</p><p>explain select * from tb_sub where purchased='1989-04-19';</p></blockquote><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/362381940f1c4c6991fba01dc062149a" img_width="808" img_height="114" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><h1><strong>8. 移除表的分区</strong></h1><p>注意：使用remove移除分区是仅仅移除分区的定义，并不会删除数据和drop PARTITION不一样，后者会连同数据一起删除。</p><p>ALTER TABLE tb_sub REMOVE PARTITIONING;</p><p>移除分区之后，再次查询表中的数据，确认表的数据依然存在。</p><div class="pgc-img"><img src="http://p3.pstatp.com/large/pgc-image/ecf5574015af49259b8e3a153455f093" img_width="459" img_height="246" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><p>查看表结构，确认表分区已经成功移除了。</p><p>show create table tb_sub;</p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/2336de35079440b8bded63559396d1b0" img_width="417" img_height="244" alt="MySQL表分区（partition）创建、查询、删除以及重建分区等等操作" inline="0"><p class="pgc-img-caption"></p></div><!----></div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/b4_oNB2bY/" class="tag">
+                    sql
+                  </a>
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/mycat/">
+                  <h3 class="post-title">
+                    微服务架构基于Mycat分库分表及读写分离的配置实战
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>阿里云盘 挂载本地挂载 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">阿里云盘 挂载本地挂载</h2>
+            <div class="post-date">2022-06-24</div>
+            
+            <div class="post-content">
+              <div class="article-content"><p data-track="12" class="syl-line-pure-english"><strong><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">Alist</span></strong></p><p data-track="13"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">一般电脑上挂载云盘到本地都是两步走，先利用网盘目录程序搞定网盘，再映射成本地网络磁盘，所以想把网盘挂载到本地，我们需要两个工具。</span></p><p data-track="14"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">当然，网盘目录程序有很多，不过你可以试试今天这个 Alist，开源在 GitHub 上，已经荣获了 6.2K+ Star。</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/f50fce521cf24d97b90965af12898ee4?from=pc" img_width="1190" img_height="1230" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="15"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">而且不光是阿里云盘，什么天翼云盘、谷歌云盘、123 云盘、蓝奏云、夸克网盘等等，Alist 可以一口气帮你聚合十几种网盘。</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/3569de323d9c4a03827326366b880011?from=pc" img_width="1080" img_height="778" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="16"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">Alist 用起来很简单，双击解压后的可执行文件，你会看到这样一个运行窗口，里面记录了自动生成的密码，和本地访问的端口：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/8f7c504e1be1465eac1a7e814b184305?from=pc" img_width="1310" img_height="748" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="17"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">如果双击无反应，大家可以试试右键「以管理员身份运行」：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/9cc5db4ebb794de6aefc5540888c52cc?from=pc" img_width="761" img_height="282" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="18"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">只要运行窗口正常弹出，Alist 在你电脑上就搭建好了，去浏览器上访问地址「127.0.0.1:5244」，输入刚刚生成的密码：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/d9b9b5fb8a504114bef3cef6dadc6892?from=pc" img_width="957" img_height="225" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="19"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">你就进入 Alist 的管理后台了。</span></p><p data-track="20"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">注意，我们最小化运行窗口就行，不要关闭，否则 Alist 会停止服务：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/3882ac7419df4b319d539c582dc06b9d?from=pc" img_width="1080" img_height="576" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="21"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">还有就是第一次配置 Alist 后，会生成一个配置文件，如果使用过程中有什么问题，把它删了，重新启动下面的可执行文件就行。</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/21c9acfb405d48e2a13eb0a372798906?from=pc" img_width="791" img_height="165" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="22"><strong><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">增添网盘</span></strong></p><p data-track="23"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">不过此时的 Alist 空空如也，不过别急，在左侧菜单「账号」处添加自己的网盘即可：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/f057e7524e98413e8a0165974e633d42?from=pc" img_width="1080" img_height="743" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="24"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">以阿里云盘为例，你会看到这样一个窗口，必填项有「虚拟路径」和「刷新令牌」，前者随意，后者则包含了我们登录信息的 token 值：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/7fe95e34e9e5437ba8e21302875e648b?from=pc" img_width="1080" img_height="616" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="25"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">别的网盘你可以在浏览器上获得 token，但阿里云盘只能用移动端的 token，不过贴心的是，作者提供了个提取移动端 token 的在线工具。</span></p><p data-track="26"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">点击<a href="https://alist-doc.nn.ci/docs/driver/aliyundrive/
+" target="_blank">「Get Token」</a>，手机阿里云盘扫码即可获取：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/63fbc96845d24bfc9fcb1bf0f89c53f9?from=pc" img_width="1080" img_height="618" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="27"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">粘贴到 Alist 的管理后台，重新访问「127.0.0.1:5244」，你的 Alist 就该是这个样子，图片里框起来的地方就是我们填写的「虚拟路径」：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/6cfe0b61854a48b09f8ddccd4d398149?from=pc" img_width="1080" img_height="504" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="28"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">可移动、可下载、可重命名：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/32ee1346bfd74c8cb615985ab221c1e8?from=pc" img_width="1080" img_height="683" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="29"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">资源还可在线观看：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/62fb98a69455466e99e747504a417690?from=pc" img_width="1080" img_height="616" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="30"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">而当你把多个网盘都配置好，你就能在「127.0.0.1:5244」这个网页内随便访问了，比如我配置了阿里云盘、蓝奏云、123网盘和夸克网盘，访问效果如下：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/d8f839d9f97e4316a559043ccca6ecc2?from=pc" img_width="1080" img_height="432" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="31" class="syl-line-pure-english"><strong><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">RaiDrive</span></strong></p><p data-track="32"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">这时还只是浏览器里操作，想映射本地，还得请出评论区出镜率最高的 RaiDrive。</span></p><p data-track="33"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">下载安装，打开 RaiDrive 后，按照提示去右上角找「Add」：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/1d00459f70ee4fba92e446ddc619bdb8?from=pc" img_width="911" img_height="384" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="34"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">然后在「NAS」处找到「WebDAV」协议，给你挂载的盘符选个名，比如我选的是「L」，输入链接「127.0.0.1:5244/dav」，输入账号、密码，最后点击「OK」。</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/3927ac1e4f5942e9bd0f38f85570d4c5?from=pc" img_width="721" img_height="656" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="35"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">如果你不知道怎么搞，像我上面这张图配置即可，至于账号密码哪里找？去 Alist 管理后台的「后端」处找，密码每个人不一样，大家可别照抄了：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/20901db3402244ef9a8841104bf4eb11?from=pc" img_width="1080" img_height="422" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="36"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">当你做好了这些，再打开「我的电脑」，会发现有个「网络磁盘 L」：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/fbd41732fa534306a165c00f6c413a24?from=pc" img_width="1080" img_height="346" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="37"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">打开你会发现有 4 个文件夹，分别是阿里云盘、蓝奏云、夸克网盘和 123 盘，怎么操作就看你的了：</span></p><div class="pgc-img"><img src="https://p6.toutiaoimg.com/origin/tos-cn-i-qvj2lq49k0/65a5a27df262480297f141ab4ced2239?from=pc" img_width="1080" img_height="432" alt="给你免费加个「8百万TB」的硬盘，你猜能存多少东西？" inline="0" class="syl-page-img" style="height: auto;"><p class="pgc-img-caption"></p></div><p data-track="38"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">感受一下，你的电脑磁盘第一次出现以 EB 为单位的容量是什么感觉，也不是很大，1EB 也就等于 100 万 TB 吧，不管实际有多少，看着就带劲，想想看这里面能住多少个小姐姐。。。</span></p><p data-track="39"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">不过大家别被这 8EB 迷住了眼，你配置了多少网盘，有多少容量，就能挂多少，但等你挂载完，就知道和你电脑合二为一的网盘到底有多方便了。</span></p><p data-track="40"><strong><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">结语</span></strong></p><p data-track="41"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">把网盘挂载到本地，图的就是个方便，如果你没有把网盘挂到本地的需求，也可以利用 Alist 实现多网盘管理，一个网页就能查看所有网盘的资源。</span></p><p data-track="42"><span style="color: #333333; --tt-darkmode-color: #A3A3A3;">具体的配置攻略，建议大家去看看 Alist 的官方文档，所有网盘的配置需求，包括那个提取阿里云盘移动端 token，文档里都有。</span></p><p data-track="43"><br><br></p></article></div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/ji-zhu-bo-ke/">
+                  <h3 class="post-title">
+                    技术博客
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

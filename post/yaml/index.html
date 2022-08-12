@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>YAML基础语法手册以及和JSON的对照 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">YAML基础语法手册以及和JSON的对照</h2>
+            <div class="post-date">2019-08-05</div>
+            
+            <div class="post-content">
+              <div class="article_body" id="nei">
+            <div>
+  <p>
+    <a href="http://yaml.org/" target="_blank" rel="nofollow,noindex">YAML</a>
+全名 YAML Ain’t Markup Language，主要设计目标是对人类可读性高。    <a href="http://yaml.org/spec/1.2/spec.html" target="_blank" rel="nofollow,noindex">YAML 1.2</a>
+是 JSON 的超集，也就是说合法的 JSON 扔给 YAML 1.2 解析器是可以被完美解析的。YAML 集 JSON 和 XML 等各种标记语言之长，进行了扩展强化，功能全面也很易读，很多的系统采用它作为配置文件的格式。  </p>
+  <h2>示例  </h2>
+  <div>
+    <div>
+      <pre class="prettyprint hljs less"><span class="hljs-attribute">fruits</span>:
+  - <span class="hljs-attribute">apple1</span>: 
+      <span class="hljs-attribute">color</span>: red
+  - <span class="hljs-attribute">apple2</span>: 
+      <span class="hljs-attribute">color</span>: green
+  - pear
+</pre>
+    </div>
+  </div>
+  <p>上面的 YAML 等同于 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"fruits"</span>: [
+    {
+      <span class="hljs-attr">"apple1"</span>: {
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"red"</span>
+      }
+    }, 
+    {
+      <span class="hljs-attr">"apple2"</span>: {
+        <span class="hljs-attr">"color"</span>: <span class="hljs-string">"green"</span>
+      }
+    }, 
+    <span class="hljs-string">"pear"</span>
+  ]
+}
+</pre>
+    </div>
+  </div>
+  <p>是不是看上去简洁了很多，也更容易阅读很多？</p>
+  <h2>YAML 的基本结构  </h2>
+  <h2>缩进符  </h2>
+  <p>YAML 的缩进只能用空格而不能用 tab，一个主要的原因是不同的系统对 tab 的处理不完全一致（比如有的系统把 tab 处理成 4 个空格，有的系统把 tab 处理成 8 个空格）。好在现代的文本编辑器基本都支持把 tab 转换成指定数量的空格。</p>
+  <p>YAML 里的元素都是用缩进来匹配层级关系的，简单说就是缩进相同的都是同级元素，缩进比上一个元素长就是上一个元素的子元素。</p>
+  <p>具体的例子如下：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs yaml"><span class="hljs-attr">- apple1:</span>
+<span class="hljs-attr">  color:</span> red
+<span class="hljs-attr">- apple2:</span>
+<span class="hljs-attr">    color:</span> green
+</pre>
+    </div>
+  </div>
+  <p>对应的 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  {
+    <span class="hljs-attr">"color"</span>: <span class="hljs-string">"red"</span>, 
+    <span class="hljs-attr">"apple1"</span>: <span class="hljs-literal">null</span>
+  }, 
+  {
+    <span class="hljs-attr">"apple2"</span>: {
+      <span class="hljs-attr">"color"</span>: <span class="hljs-string">"green"</span>
+    }
+  }
+]
+</pre>
+    </div>
+  </div>
+  <p>请自行体会，我就不展开了。为了方便理解说一下前面的 YAML 等同于：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs yaml"><span class="hljs-bullet">-</span>
+<span class="hljs-attr">  apple1:</span>
+<span class="hljs-attr">  color:</span> red
+<span class="hljs-bullet">-</span>
+<span class="hljs-attr">  apple2:</span>
+<span class="hljs-attr">    color:</span> green
+</pre>
+    </div>
+  </div>
+  <h2>分隔符  </h2>
+  <p>
+只要不是行首的缩进符，其它地方的词法分隔符是可以用各种 white space 字符的。但是要注意这是 YAML 1.2 的规则，在 YAML 1.1 里还是严禁用 tab 作分隔符的。我认为 YAML 1.2 做出这样的更改主要也是为了兼容 JSON。目前解析 YAML 的大部分库还是仅支持 YAML 1.1，所以为了兼容性，    <strong>分隔符最好还是不要用 tab</strong>
+。  </p>
+  <h2>注释  </h2>
+  <p>YAML 使用 “#” 来进行注释，”#” 及在其之后的当行内容将被忽略。注意 “#” 如果跟在别的元素后面，和元素之间需要用 white space 字符隔开。</p>
+  <h2>多行文本的种种  </h2>
+  <p>
+说起来会絮絮叨叨的，懒得说了……请自行看    <a href="http://yaml.org/spec/1.2/spec.html#Basic" target="_blank" rel="nofollow,noindex">官网文档</a>
+。  </p>
+  <h2>YAML 的纯量（Scalar）  </h2>
+  <p>这就是大部分语言里的基础类型，YAML 里常用的纯量有以下类型：</p>
+  <h2>null  </h2>
+  <p>
+    <code>~</code>
+/    <code>null</code>
+/    <code>Null</code>
+/    <code>NULL</code>
+还有空字符都被解析成 null 类型，最标准的写法是    <code>~</code>
+。  </p>
+  <h2>bool  </h2>
+  <p>
+最新标准里    <code>y</code>
+/    <code>Y</code>
+/    <code>yes</code>
+/    <code>Yes</code>
+/    <code>YES</code>
+/    <code>n</code>
+/    <code>N</code>
+/    <code>no</code>
+/    <code>No</code>
+/    <code>NO</code>
+/    <code>true</code>
+/    <code>True</code>
+/    <code>TRUE</code>
+/    <code>false</code>
+/    <code>False</code>
+/    <code>FALSE</code>
+/    <code>on</code>
+/    <code>On</code>
+/    <code>ON</code>
+/    <code>off</code>
+/    <code>Off</code>
+/    <code>OFF</code>
+全部都会被解析成正确的 bool 类型，为了兼容性比较好建议用    <code>true</code>
+和    <code>false</code>
+。  </p>
+  <p>举个例子，我使用的在线解析器解析如下 YAML：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs markdown"><span class="hljs-bullet">- </span>on
+<span class="hljs-bullet">- </span>On
+<span class="hljs-bullet">- </span>no
+<span class="hljs-bullet">- </span>No
+<span class="hljs-bullet">- </span>n
+<span class="hljs-bullet">- </span>N
+</pre>
+    </div>
+  </div>
+  <p>解析出的 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  <span class="hljs-literal">true</span>, 
+  <span class="hljs-literal">true</span>, 
+  <span class="hljs-literal">false</span>, 
+  <span class="hljs-literal">false</span>, 
+  <span class="hljs-string">"n"</span>, 
+  <span class="hljs-string">"N"</span>
+]
+</pre>
+    </div>
+  </div>
+  <h2>int  </h2>
+  <p>很常规就不多介绍了，YAML 支持 8 进制和 16 进制格式的数据，甚至 2 进制和 60 进制。</p>
+  <h2>float  </h2>
+  <p>
+支持常规的浮点数，支持科学计数法，还支持无穷大和 NaN。详情可以参考    <a href="http://yaml.org/type/float.html" target="_blank" rel="nofollow,noindex">tag:yaml.org,2002:float</a>
+。  </p>
+  <h2>str  </h2>
+  <p>大部分情况下，YAML 里的字串是不需要带引号的，某些容易引起解析歧义的字串可以用引号括起来。</p>
+  <p>示例 YAML：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs ruby">- a b c
+- <span class="hljs-string">"a\n\x20b"</span>
+- <span class="hljs-string">'a\n\x20b'</span>
+- <span class="hljs-string">"'\""</span>
+- <span class="hljs-string">''</span><span class="hljs-string">'"'</span>
+- <span class="hljs-number">123</span> <span class="hljs-comment"># 有歧义，会被解析成 int</span>
+- <span class="hljs-string">'123'</span>
+- yes <span class="hljs-comment"># 有歧义，会被解析成 bool</span>
+- <span class="hljs-string">'yes'</span>
+- <span class="hljs-symbol">a:</span> b <span class="hljs-comment"># 有歧义，会被解析成 map</span>
+- <span class="hljs-string">'a: b'</span>
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  <span class="hljs-string">"a b c"</span>, 
+  <span class="hljs-string">"a\n b"</span>, 
+  <span class="hljs-string">"a\\n\\x20b"</span>, 
+  <span class="hljs-string">"'\""</span>, 
+  <span class="hljs-string">"'\""</span>, 
+  <span class="hljs-number">123</span>, 
+  <span class="hljs-string">"123"</span>, 
+  <span class="hljs-literal">true</span>, 
+  <span class="hljs-string">"yes"</span>, 
+  { <span class="hljs-attr">"a"</span>: <span class="hljs-string">"b"</span> }, 
+  <span class="hljs-string">"a: b"</span>
+]
+</pre>
+    </div>
+  </div>
+  <p>
+顺带说明下双引号会对转义符进行操作，而单引号不会。双引号内包含双引号可以用    <code>\"</code>
+来表示，单引号内包含单引号可以用    <code>''</code>
+来表示。  </p>
+  <h2>其它纯量  </h2>
+  <p>
+其它纯量是很不常用的类型，可以自行查阅(官方文档)[    <a href="http://yaml.org/type/]。" target="_blank" rel="nofollow,noindex">http://yaml.org/type/]。</a>
+  </p>
+  <h2>类型强转  </h2>
+  <p>另外要提一点，YAML 支持类型强转：</p>
+  <div>
+    <div>
+      <pre class="hljs markdown"><span class="hljs-bullet">- </span>123
+<span class="hljs-bullet">- </span>!!str 123
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  <span class="hljs-number">123</span>, 
+  <span class="hljs-string">"123"</span>
+]
+</pre>
+    </div>
+  </div>
+  <h2>字典（Mapping）和数组（Sequence）  </h2>
+  <h2>基本用法  </h2>
+  <p>字典：</p>
+  <div>
+    <div>
+      <pre class="hljs http"><span class="hljs-attribute">a</span>: b
+<span class="hljs-attribute">c</span>: d
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"a"</span>: <span class="hljs-string">"b"</span>, 
+  <span class="hljs-attr">"c"</span>: <span class="hljs-string">"d"</span>
+}
+</pre>
+    </div>
+  </div>
+  <p>数组：</p>
+  <div>
+    <div>
+      <pre class="hljs markdown"><span class="hljs-bullet">- </span>a
+<span class="hljs-bullet">- </span>b
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  <span class="hljs-string">"a"</span>, 
+  <span class="hljs-string">"b"</span>
+]
+</pre>
+    </div>
+  </div>
+  <h2>嵌套使用  </h2>
+  <p>字典的 value 为数组：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs makefile"><span class="hljs-section">a:</span>
+  - b
+  - c
+<span class="hljs-section">d:</span>
+  - e
+  - f
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"a"</span>: [
+    <span class="hljs-string">"b"</span>, 
+    <span class="hljs-string">"c"</span>
+  ], 
+  <span class="hljs-attr">"d"</span>: [
+    <span class="hljs-string">"e"</span>, 
+    <span class="hljs-string">"f"</span>
+  ]
+}
+</pre>
+    </div>
+  </div>
+  <p>数据的元素为字典：</p>
+  <div>
+    <div>
+      <pre class="hljs yaml"><span class="hljs-bullet">-</span>
+<span class="hljs-attr">  a:</span> b
+<span class="hljs-attr">- d:</span> e
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  {
+    <span class="hljs-attr">"a"</span>: <span class="hljs-string">"b"</span>
+  }, 
+  {
+    <span class="hljs-attr">"d"</span>: <span class="hljs-string">"e"</span>
+  }
+]
+</pre>
+    </div>
+  </div>
+  <h2>类 JSON 的行内写法  </h2>
+  <p>数组有一种类似 JSON 的写法，可以完成行内数组的功能，当然和 JSON 一样写成多行的也可以：</p>
+  <div>
+    <div>
+      <pre class="hljs json">[a, b]
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">[
+  <span class="hljs-string">"a"</span>, 
+  <span class="hljs-string">"b"</span>
+]
+</pre>
+    </div>
+  </div>
+  <p>字典也可以用类似 JSON 的方法写成行内的：</p>
+  <div>
+    <div>
+      <pre class="hljs css">{<span class="hljs-attribute">a</span>: b}
+</pre>
+    </div>
+  </div>
+  <p>对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"a"</span>: <span class="hljs-string">"b"</span>
+}
+</pre>
+    </div>
+  </div>
+  <h2>引用  </h2>
+  <p>引用是 YAML 的一个很方便的高级语法，示例如下：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs yaml"><span class="hljs-attr">name:</span> &amp;name Jason
+<span class="hljs-attr">relation:</span>
+<span class="hljs-bullet">  -</span> <span class="hljs-meta">&amp;info</span>
+<span class="hljs-attr">    name:</span> Sara
+<span class="hljs-attr">    age:</span> <span class="hljs-number">23</span>
+<span class="hljs-attr">  - name:</span> <span class="hljs-meta">*name</span>
+<span class="hljs-attr">    age:</span> <span class="hljs-number">25</span>
+<span class="hljs-attr">    wife:</span> <span class="hljs-meta">*info</span>
+</pre>
+    </div>
+  </div>
+  <p>解析出的对应 JSON：</p>
+  <div>
+    <div>
+      <pre class="prettyprint hljs json">{
+  <span class="hljs-attr">"relation"</span>: [
+    {
+      <span class="hljs-attr">"age"</span>: <span class="hljs-number">23</span>, 
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Sara"</span>
+    }, 
+    {
+      <span class="hljs-attr">"age"</span>: <span class="hljs-number">25</span>, 
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jason"</span>, 
+      <span class="hljs-attr">"wife"</span>: {
+        <span class="hljs-attr">"age"</span>: <span class="hljs-number">23</span>, 
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Sara"</span>
+      }
+    }
+  ], 
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Jason"</span>
+}
+</pre>
+    </div>
+  </div>
+  <p>
+可以看到基本的规则就是用    <code>&amp;</code>
+声明一个引用，然后在其他地方用    <code>*</code>
+进行展开，有点像 c 语言的指针操作。  </p>
+  <p>
+引用的部分就是在    <code>&amp;</code>
+之后的整个子元素，上面例子里    <code>&amp;name</code>
+引用的是    <code>Jason</code>
+，而    <code>&amp;info</code>
+引用的是：  </p>
+  <div>
+    <div>
+      <pre class="hljs http"><span class="hljs-attribute">name</span>: Sara
+<span class="hljs-attribute">age</span>: 23
+</pre>
+    </div>
+  </div>
+  <p>在后面使用对应的名称展开后就得到了最终的 JSON 内容。</p>
+</div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/nginx-rule/">
+                  <h3 class="post-title">
+                    运维的生活中常见的Nginx规则
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

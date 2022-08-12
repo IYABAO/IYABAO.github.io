@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何写出完美的接口：接口规范定义、接口管理工具推荐 | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何写出完美的接口：接口规范定义、接口管理工具推荐</h2>
+            <div class="post-date">2019-07-24</div>
+            
+            <div class="post-content">
+              <div><p> <strong>无规矩不成方圆</strong>，为了开发人员间更好的配合，我特意整理了这么一篇文档供大家参考学习，如有意见、见解，请在评论区留言探讨。</p><p> 接口规范说起来大，其实也就那么几个部分，接口规范、接口管理工具、接口文档编写、开发文档编写。</p><p class="ql-align-justify"><br></p><p><strong>接口规范定义</strong></p><p><strong>一、协议规范</strong></p><p> 为了确保不同系统/模块间的数据交互，需要事先约定好通讯协议，如：TCP、HTTP、HTTPS协议。为了确保数据交互安全，建议使用HTTPS协议。</p><p><strong>二、接口路径规范</strong></p><p> 作为接口路径，为了方便清晰的区分来自不同的系统，可以采用不同系统/模块名作为接口路径前缀。</p><p>格式规范如下：</p><p> 支付模块 /pay/xx</p><p> 订单模块 /order/xx</p><p><strong>三、版本控制规范</strong></p><p> 为了便于后期接口的升级和维护，建议在接口路径中加入版本号，便于管理，实现接口多版本的可维护性。如果你细心留意过的话，你会发现好多框架对外提供的API接口中(如：Eureka)，都带有版本号的。如：接口路径中添加类似"v1"、"v2"等版本号。</p><p>格式规范如下：</p><p> /xx/v1/xx</p><p>更新版本后可以使用v2、v3等、依次递加。</p><p><strong>四、接口命名规范</strong></p><p> 和Java命名规范一样，好的、统一的接口命名规范，不仅可以增强其可读性，而且还会减少很多不必要的口头/书面上的解释。</p><p> 可结合【接口路径规范】、【版本控制规范】，外加<strong>具体接口命名</strong>(路径中可包含请求数据，如：id等)，建议具体接口命名也要规范些，可使用"<strong>驼峰命名法</strong>"按照实现接口的业务类型、业务场景等命名，有必要时可采取多级目录命名，但目录不宜过长，两级目录较为适宜。</p><p>格式规范如下：</p><p> /user/v1/sys/login 用户服务/模块的系统登录接口</p><p> /zoo/v1/zoos/{ID} 动物园服务/模块中，获取id为ID的动物</p><p>具体接口命名，通常有以下两种方式：</p><ul><li class="ql-align-justify">接口名称动词前/后缀化</li></ul><p> 接口名称以接口数据操作的动词为前/后缀，常见动词有：add、delete、update、query、get、send、save、detail、list等，如：新建用户addUser、查询订单详情queryOrderDetail。</p><ul><li class="ql-align-justify">接口名称动词+请求方式</li></ul><p> 接口路径中包含具体接口名称的名词，接口数据操作动作以HTTP请求方式来区分。常用的HTTP请求方式有：</p><p> <strong>GET</strong>：从服务器取出资源（一项或多项）。</p><p> <strong>POST</strong>：在服务器新建一个资源。</p><p> <strong>PUT</strong>：在服务器更新资源（客户端提供改变后的完整资源）。</p><p> <strong>PATCH</strong>：在服务器更新资源（客户端提供改变的属性）。</p><p> <strong>DELETE</strong>：从服务器删除资源。</p><p>如：</p><p> GET /zoo/v1/zoos：列出所有动物园</p><p> POST /zoo/v1/zoos：新建一个动物园</p><p> GET /zoo/v1/zoos/{ID}：获取某个指定动物园的信息</p><p> PUT /zoo/v1/zoos/{ID}：更新某个指定动物园的信息（提供该动物园的全部信息）</p><p> PATCH /zoo/v1/zoos/{ID}：更新某个指定动物园的信息（提供该动物园的部分信息）</p><p> DELETE /zoo/v1/zoos/{ID}：删除某个动物园</p><p> GET /zoo/v1/zoos/{ID}/animals：列出某个指定动物园的所有动物</p><p> DELETE /zoo/v1/zoos/ID/animals/ID：删除某个指定动物园的指定动物</p><p class="ql-align-justify"><br></p><p><strong>五、请求参数规范</strong></p><ul><li class="ql-align-justify">请求方式：</li><li class="ql-align-justify">按照GET、POST、PUT等含义定义，避免出现不一致现象，对人造成误解、歧义。</li><li class="ql-align-justify">请求头：</li><li class="ql-align-justify">请求头根据项目需求添加配置参数。如：请求数据格式，accept=‘application/json’等。如有需要，请求头可根据项目需求要求传入用户token、唯一验签码等加密数据。</li><li class="ql-align-justify">请求参数/请求体：</li></ul><p> 请求参数字段，尽可能与数据库表字段、对象属性名等保持一致，因为保持一致最省事，最舒服的一件事。</p><p><strong>六、返回数据规范</strong></p><p> 统一规范返回数据的格式，对己对彼都有好处，此处以json格式为例。返回数据应包含：<strong>返回状态码</strong>、<strong>返回状态信息</strong>、<strong>具体数据。</strong></p><p>格式规范如下：</p><pre>{<br> "status":"000000",<br> "msg":"success",<br> "data": {<br> //json格式的具体数据<br> }<br>}<br></pre><p><strong>接口管理工具推荐</strong></p><p> 接口开发完后，最终的目的是提供给其他系统/模块来使用的，因此，接口的管理是必不可少的。</p><p><strong>接口管理的痛点</strong></p><p> 接口的管理常常面临很多的痛苦，这里就列举几个常见的，看看你是否也遇到过。</p><ul><li class="ql-align-justify">系统/模块太多、接口太多，没有系统统一管理所有接口。</li><li class="ql-align-justify">代码修改后，接口文档没有及时更新，造成接口文档和实际接口不一致的现象。</li><li class="ql-align-justify">接口管理系统自主研开发成本高。</li><li class="ql-align-justify">接口管理缺少接口mock功能。</li></ul><p><strong>接口管理工具推荐</strong></p><p> 在日常工作过程中用过、接触过的接口管理工具也是不尽其数，下面介绍你可能使用过、没有使用过的接口管理工具，同时也介绍这些接口管理工具的优缺点。 </p><p><strong>word</strong></p><p> 相信大家之前用来管理接口比较多的应该是word吧，开发人员将系统的接口维护在word文档里，不管是组内沟通还是和其他团队的接口沟通都离不开这些接口文档，每次修改文档和代码都要同步修改。相信使用word的缺点大家应该也很清楚，就是维护和管理很麻烦，我们经常会遇到<strong>文档和代码不一致</strong>的情况，大部分不一致都是因为接口因为种种原因修改了，开发人员大部分都是只改了代码里的接口实现，而没有去修改接口文档。而且word文档搜索接口也很麻烦，没办法建全局索引，只能一个个文档点开查看，想想就很痛苦。但不可否认的是，word对于一些小团队用起来还是挺方便的，不用搭建系统，给谁一看就明白。</p><p class="ql-align-justify"><br></p><p><strong>自建接口管理系统</strong></p><p> 对于一些有一定规模的企业，在各项工程管理活动上都非常正规，各种ISO标准要遵守，自然对接口管理的要求也非常高，之前在国有银行，我们就是自建了接口管理系统，自建还是很消<strong>耗人力成本</strong>的，从开发到后续运维，都要<strong>消耗人力</strong>，但是自建的好处就是，可以根据公司的要求进行各种花样的定制，我们之前在接口管理系统中加入了很多好用的定制功能，例如接口被哪些系统调用、接口是在哪个批次投产又在哪个批次做过变更等等，这对于架构师来说非常好用，用于分析接口影响范围非常方便。目前开源的接口管理系统还没有能做到这些定制化功能的。</p><p><strong>wiki</strong></p><p> 之前在小团队的时候还用过一段时间的私有wiki，wiki特别适合于小团队高速线性迭代开发，在wiki上看到的就是最新的接口，团队内所有成员看到的都是一样的，如果接口有变化，相关开发人员修改后立即生效，保证了顺畅的接口沟通。但是wiki的缺点也很多，接口文档只是静态页面，<strong>无法实现一些动态效果</strong>，无法实现追溯等等缺点。</p><p><strong>RAP</strong></p><p> 相信很多互联网公司都在使用RAP，RAP是阿里开源的一套接口管理系统，RAP可以比较方便的管理公司所有系统的接口，同时还有比较完善的权限管理，还可以做接口mock，方便开发人员在接口功能还没有完成的时候能够及时发布出去，给调用方去使用。但是RAP的缺点就是每个接口都需要维护进去，接口修改后也需要及时维护，当时我们在使用的时候遇到的最大的问题也是经常碰到接口没有及时维护的问题。</p><p><strong>swagger</strong></p><p class="ql-align-center"><br></p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/70132de473a14bffbc577d64af355b95" img_width="532" img_height="173" alt="如何写出完美的接口：接口规范定义、接口管理工具推荐" inline="0"><p class="pgc-img-caption"></p></div><p class="ql-align-center"><br></p><p class="ql-align-justify"> 上面说的那些接口管理工具，其实都有一个很大的问题就是修改代码后需要同步维护接口文档，但是让程序员去修改文档是很难的，大部分程序员都比较讨厌维护各类文档。当我第一次了解到swagger的时候，发现这简直就是为程序员定制的接口管理工具，swagger定义了很多注解，在对接口加上swagger相关的注解，当接口代码修改后，swagger在工程启动后会根据代码自动生成最新的接口html文档，同时swagger提供了mock接口模拟的功能，也能够更加方便的模拟接口，并且还能够在swagger界面上直接发起接口调用，可以方便调用方在还没写代码的时候就能够尝试下接口调用后的结果。</p><p> 看了那么多swagger的优点，下面也说说swagger的缺点，那就是swagger是跟随着每个工程一起启动的，这就导致每个工程都有一个swagger的访问地址，如果公司系统很多的话，那就会导致查看不同系统的接口都要到不同的地址去查看，每个开发都要自己收藏好各个系统的swagger地址。有些公司也自己开发了统一网关，将所有swagger的接口地址聚合起来，但是多少还是涉及到一些开发工作的，而且做的还不一定很完善。</p><p><strong>Easy Mock</strong></p><p class="ql-align-center"><br></p><div class="pgc-img"><img src="http://p1.pstatp.com/large/pgc-image/5f8b8653282d44318f49479b6b03e071" img_width="1080" img_height="670" alt="如何写出完美的接口：接口规范定义、接口管理工具推荐" inline="0"><p class="pgc-img-caption"></p></div><p class="ql-align-center"><br></p><p> 官网的这张图基本上介绍清楚了easymock的核心功能，这其中我最看重的功能有两块，一个是能够集成swagger接口并集中管理所有接口，另一个就是响应式数据。</p><p> EasyMock能够根据swagger接口的地址自动导入所有swagger接口，非常方便，对于非swagger的接口也可以手工维护进去，这样可以很方便的做到全公司接口统一维护，而且也有比较完善的接口权限管理，方便分组管理。但缺点就是过于庞大，可能太适合小一点项目或团队。</p><p class="ql-align-justify"> 上面提及到接口管理工具，大家可根据自己项目的规模、需求，进行实际选择，切记生搬硬套。</p></div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://i.plbear.com/tag/code/" class="tag">
+                    技术汇总
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/awesome-docker-get-start/">
+                  <h3 class="post-title">
+                    这可能是最为详细的Docker入门吐血总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

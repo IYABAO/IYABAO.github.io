@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>PHPUnit | Plbear | Cuz Penguin QQ</title>
+<meta name="description" content="Food And Freedom. Make my own world a better place.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://i.plbear.com/favicon.ico?v=1660284304251">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://i.plbear.com/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64200944-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64200944-2');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://i.plbear.com">
+        <img src="https://i.plbear.com/images/avatar.png?v=1660284304251" class="site-logo">
+        <h1 class="site-title">Plbear | Cuz Penguin QQ</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            网络日志
+          </a>
+        
+      
+        
+          <a href="/post/roleplayinglife" class="site-nav">
+            角色扮演
+          </a>
+        
+      
+        
+          <a href="/tag/code" class="site-nav">
+            技术汇总
+          </a>
+        
+      
+        
+          <a href="https://plbear.ke.qq.com" class="site-nav" target="_blank">
+            腾讯课堂
+          </a>
+        
+      
+        
+          <a href="https://www.ximalaya.com/zhubo/14520598" class="site-nav" target="_blank">
+            喜马拉雅
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            历史归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            分类标签
+          </a>
+        
+      
+        
+          <a href="/blog/Messages/index.html" class="site-nav">
+            碎语杂记
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于博主
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://www.github.com/iyabao" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://twitter.com/dutm2012" target="_blank">
+            <i class="fab fa-twitter"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/dutm" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/dutm" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.facebook.com/nswtech" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        
+      
+    </div>
+    <div class="site-description">
+      Food And Freedom. Make my own world a better place.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/iyabao" target="_blank">IYABAO</a>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?08db7a4317392485c1399729a150b26e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> | <a class="rss" href="https://i.plbear.com/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">PHPUnit</h2>
+            <div class="post-date">2022-08-12</div>
+            
+            <div class="post-content">
+              <p>PHPUnit踩坑实录</p>
+<p>版本信息<br>
+说明：现有项目使用php7.2, 只能支持phpunit8.5, 不支持部分新特性</p>
+<p>php 7.4.30<br>
+phpunit 9.5.21<br>
+mockery 1.5.0<br>
+日常开发<br>
+测试类继承 PHPUnit\Framework\TestCase<br>
+use PHPUnit\Framework\TestCase;</p>
+<p>class BackBlackServiceTest extends TestCase{}</p>
+<p>测试方法 public function testBackBlackService($data, $expect),   需是public, 以test开头</p>
+<p>多用例可使用注解  @dataProvider dataProvider<br>
+dataProvider 方法需为public, 参数个数,类型可按需自定义</p>
+<pre><code>建议$data按表格式组装数据，  mock方法，指向预期值 [’myFunc‘ =&gt; 'myFuncExpectData']
+</code></pre>
+<p>public function serviceProvider()<br>
+{</p>
+<pre><code>    return [
+      '测试用例名1'=&gt;[$data,$expect], 
+
+      '测试用例名2'=&gt;[$data,$expect]
+
+    ];
+</code></pre>
+<p>}</p>
+<p>断言时可增加用例名作为报错message</p>
+<pre><code>         public function testBackBlackService(){
+</code></pre>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>h</mi><mi>i</mi><mi>s</mi><mo>−</mo><mo>&gt;</mo><mi>a</mi><mi>s</mi><mi>s</mi><mi>e</mi><mi>r</mi><mi>t</mi><mi>E</mi><mi>q</mi><mi>u</mi><mi>a</mi><mi>l</mi><mi>s</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">this-&gt;assertEquals(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">h</span><span class="mord mathdefault">i</span><span class="mord mathdefault">s</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mord mathdefault">u</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">s</span><span class="mopen">(</span></span></span></span>expected, $actual, $this-&gt;getName());</p>
+<pre><code>         }
+</code></pre>
+<p>常用技巧<br>
+对象mock(原则上需要mock的类为操作db，调用第三方服务的类)<br>
+可注入对象使用一般方法<br>
+\Mockery::mock(MyClass::class)</p>
+<pre><code>   无需注入(基于代码现状, 不改动现有代码)
+           \Mockery::mock(&quot;overload:&quot; . MyClass::class);   
+
+           \Mockery::mock(&quot;alias:&quot; . MyClass::class);         静态方法
+
+   使用overload:  alias:  需配合以下注解使用
+</code></pre>
+<ul>
+<li>@runInSeparateProcess</li>
+<li>@runTestsInSeparateProcesses</li>
+<li>@preserveGlobalState disabled</li>
+</ul>
+<p>使用shouldReceive定义mock方法，返回值<br>
+\Mockery::mock(&quot;alias:&quot; . MyClass::class)-&gt;shouldReceive('myFunc')-&gt;andReturn($data['myFunc'] ?? []);</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi><mi>e</mi><mi>p</mi><mi>l</mi><mi>y</mi><mi>V</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>−</mo><mo>&gt;</mo><mi>s</mi><mi>h</mi><mi>o</mi><mi>u</mi><mi>l</mi><mi>d</mi><mi>R</mi><mi>e</mi><mi>c</mi><mi>e</mi><mi>i</mi><mi>v</mi><mi>e</mi><msup><mo>(</mo><mo mathvariant="normal">′</mo></msup><mi>v</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>a</mi><mi>t</mi><msup><mi>e</mi><mo mathvariant="normal">′</mo></msup><mo>)</mo><mo>−</mo><mo>&gt;</mo><mi>a</mi><mi>n</mi><mi>d</mi><mi>T</mi><mi>h</mi><mi>r</mi><mi>o</mi><mi>w</mi><mo>(</mo><mi>n</mi><mi>e</mi><mi>w</mi><mi>V</mi><mi>a</mi><mi>l</mi><mi>i</mi><mi>d</mi><mi>E</mi><mi>x</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>(</mo></mrow><annotation encoding="application/x-tex">replyValidation-&gt;shouldReceive(&#x27;valiate&#x27;)-&gt;andThrow(new ValidException(</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">h</span><span class="mord mathdefault">o</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">e</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">a</span><span class="mord mathdefault">t</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="mord mathdefault">h</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02691em;">w</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="mord mathdefault">a</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">i</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mord mathdefault">x</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mord mathdefault">p</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mopen">(</span></span></span></span>data['validate']));  //需要抛异常</p>
+<p>多用例时需增加Mockery::close()方法<br>
+public function tearDown(): void<br>
+{<br>
+parent::tearDown();<br>
+Mockery::close();<br>
+}</p>
+<p>特殊技巧<br>
+链式操作<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>e</mi><mi>r</mi><mi>s</mi><mi>o</mi><mi>n</mi><mo>=</mo><mi>R</mi><mi>e</mi><mi>s</mi><mi>u</mi><mi>m</mi><mi>e</mi><mi>S</mi><mi>e</mi><mi>r</mi><mi>v</mi><mi>i</mi><mi>c</mi><mi>e</mi><mo>:</mo><mo>:</mo><mi>m</mi><mi>o</mi><mi>d</mi><mi>u</mi><mi>l</mi><mi>e</mi><msup><mo>(</mo><mo mathvariant="normal">′</mo></msup><mi>b</mi><mi>a</mi><mi>s</mi><msup><mi>e</mi><mo mathvariant="normal">′</mo></msup><mo>)</mo><mo>−</mo><mo>&gt;</mo><mi>f</mi><mi>i</mi><mi>n</mi><msub><mi>d</mi><mi>b</mi></msub><msub><mi>y</mi><mi>u</mi></msub><mi>s</mi><mi>e</mi><msub><mi>r</mi><mi>i</mi></msub><mi>d</mi><mo>(</mo><mo>(</mo><mi>i</mi><mi>n</mi><mi>t</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">person = ResumeService::module(&#x27;base&#x27;)-&gt;find_by_user_id((int)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault">s</span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord mathdefault">e</span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault">e</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">i</span><span class="mord mathdefault">c</span><span class="mord mathdefault">e</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.001892em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">o</span><span class="mord mathdefault">d</span><span class="mord mathdefault">u</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">e</span><span class="mopen"><span class="mopen">(</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mord mathdefault">b</span><span class="mord mathdefault">a</span><span class="mord mathdefault">s</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.751892em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mord">−</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">s</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>userId);<br>
+$resume_service-&gt;shouldReceive('module-&gt;find_by_user_id')<br>
+同一个方法调用多次<br>
+参数区分<br>
+withAnyArgs() 任意传参</p>
+<pre><code>      按传参返回 with(...$args)     \Mockery::spy('alias:' . Config::class)-&gt;shouldReceive('getConfigItem')-&gt;with(&quot;a&quot;)-&gt;andReturn($data1);
+
+次数区分
+    atLeast()-&gt;times(2) 最少调用次数
+
+    atMost()-&gt;times(2)  最多调用次数
+
+    times(3)  明确调用次数，多了， 少了都不行。
+
+   \Mockery::spy('alias:' . Config::class)-&gt;shouldReceive('getConfigItem')-&gt;atLeast()-&gt;times(2)-&gt;andReturn($data1, $data2);
+</code></pre>
+<p>静态常量<br>
+使用“alias:” mock的类无法访问该类的常量，静态变量</p>
+<p>使用自定义类，方式注入</p>
+<p>class ConstMap<br>
+{<br>
+public const CONTRACT_RESUME = 'View'; //简<br>
+public static $remain_field = 'SurplusNum';</p>
+<p>}</p>
+<p>\Mockery::mock('alias:' . ContractService::class, ConstMap::class);</p>
+<p>魔术方法<br>
+类里面未定义属性，使用魔术方法__get($name) 访问</p>
+<p>\Mockery::mock('overload:' . CompanyComponent::class)-&gt;shouldReceive('__construct')-&gt;andSet('company_name', '公司名');</p>
+<p>代码注解使用<br>
+通过phpunit.xml 定义，测试用例常量 如 inPhpUnit 跳过测试用例无法覆盖代码， 如register_shutdown_function<br>
+!defined('inPhpUnit') &amp;&amp; register_shutdown_function(function(){});</p>
+<p>使用注解跳过相关代码块覆盖<br>
+// @codeCoverageIgnoreStart</p>
+<pre><code> //@codeCoverageIgnoreEnd
+</code></pre>
+<p>phpunit.xml<br>
+phpunit.xml (phpunit9)<br>
+关注参数  forceCoversAnnotation=&quot;false&quot;</p>
+<pre><code>&lt;coverage&gt;&lt;/coverage&gt;   覆盖源文件配置
+</code></pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" backupGlobals="false" backupStaticAttributes="false" colors="true" executionOrder="depends,defects" forceCoversAnnotation="false" beStrictAboutCoversAnnotation="true" beStrictAboutOutputDuringTests="true" beStrictAboutTodoAnnotatedTests="true" convertDeprecationsToExceptions="true" processIsolation="false" stopOnFailure="false" verbose="true">
+<coverage processUncoveredFiles="true">
+<include>
+<directory suffix=".php">src</directory>
+</include>
+<report>
+<clover outputFile="./runtime/tests/coverage.xml"/>
+<html outputDirectory="./runtime/tests/report" lowUpperBound="35" highLowerBound="70"/>
+<php outputFile="./runtime/tests/coverage.serialized"/>
+<text outputFile="php://stdout" showUncoveredFiles="false"/>
+</report>
+</coverage>
+<testsuites>
+<testsuite name="default">
+<directory>tests</directory>
+</testsuite>
+</testsuites>
+<php>
+<const name="inPhpUnit" value="true"/>
+</php>
+<logging>
+<junit outputFile="./runtime/tests/logfile.xml"/>
+<testdoxHtml outputFile="./runtime/tests/testdox.html"/>
+<testdoxText outputFile="./runtime/tests/testdox.txt"/>
+</logging>
+</phpunit>
+<p>phpunit.xml (phpunit8.5)<br>
+关注参数  forceCoversAnnotation=&quot;false&quot;</p>
+<pre><code>&lt;whitelist&gt;&lt;/whitelist&gt;   覆盖源文件配置
+</code></pre>
+<?xml version="1.0" encoding="UTF-8"?>
+<p><phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+backupGlobals="false"
+backupStaticAttributes="false"
+colors="true"
+executionOrder="depends,defects"
+forceCoversAnnotation="false"
+beStrictAboutCoversAnnotation="true"
+beStrictAboutOutputDuringTests="true"
+beStrictAboutTodoAnnotatedTests="true"
+convertDeprecationsToExceptions="true"
+processIsolation="false"
+stopOnFailure="false"
+verbose="true"><br>
+<testsuites><br>
+<testsuite name="default"><br>
+<directory>tests</directory><br>
+</testsuite><br>
+</testsuites></p>
+<php>
+<const name="inPhpUnit" value="true"/>
+</php>
+<filter>
+<whitelist processUncoveredFilesFromWhitelist="true">
+<directory suffix=".php">src</directory>
+</whitelist>
+</filter>
+<logging>
+<log type="coverage-html" target="./runtime/tests/report" lowUpperBound="35"
+highLowerBound="70"/>
+<log type="coverage-clover" target="./runtime/tests/coverage.xml"/>
+<log type="coverage-php" target="./runtime/tests/coverage.serialized"/>
+<log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+<log type="junit" target="./runtime/tests/logfile.xml" />
+<log type="testdox-html" target="./runtime/tests/testdox.html"/>
+<log type="testdox-text" target="./runtime/tests/testdox.txt"/>
+</logging>
+</phpunit>
+<p>IDE支持<br>
+点选phpunit.xml, 或者指定用例, 更多运行/调试，使用覆盖率运行</p>
+<p>命令行<br>
+全部覆盖率</p>
+<pre><code> php -dxdebug.mode=coverage /Users/******/composer/vendor/phpunit/phpunit/phpunit  --configuration phpunit.xml
+
+ 指定测试
+
+ php -dxdebug.mode=coverage /Users/******/composer/vendor/phpunit/phpunit/phpunit  --configuration phpunit.xml tests/unit/Service/Resume/KickFavoriteServiceTest.php
+</code></pre>
+<p>开发建议<br>
+db层不封装业务逻辑</p>
+<pre><code>对象实体能以对象形式代替数组形式返回， 便于模拟数据。
+
+数据层，第三方服务支持注入，简化mock难度
+</code></pre>
+<p>相关文档<br>
+https://phpunit.readthedocs.io/en/9.5/</p>
+<p>https://phpunit.readthedocs.io/zh_CN/latest/  (中文文档相对滞后)</p>
+<p>http://docs.mockery.io/en/latest/index.html</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://i.plbear.com/post/a-li-yun-pan-gua-zai-ben-di-gua-zai/">
+                  <h3 class="post-title">
+                    阿里云盘 挂载本地挂载
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39652c8415a40c6bf5aa',
+        clientSecret: '0b7befba5be1a2e590d3d191ddc9d75234f319d6',
+        repo: 'iyabao.github.io',
+        owner: 'IYABAO',
+        admin: ['IYABAO'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
