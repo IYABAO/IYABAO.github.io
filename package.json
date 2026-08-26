@@ -8,6 +8,6 @@
     "new": "hugo new"
   },
   "devDependencies": {
-    "hugo-bin": "^0.132.0"
+    "hugo-bin": "*"
   }
 }
