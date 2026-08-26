@@ -3,7 +3,7 @@ languageCode = 'zh-cn'
 title = 'Plbear | Cuz Penguin QQ'
 defaultContentLanguage = 'zh-cn'
 hasCJKLanguage = true
-theme = ''
+theme = 'PaperMod'
 enableRobotsTXT = true
 enableEmoji = true
 paginate = 10
@@ -13,6 +13,39 @@ summaryLength = 50
   description = 'Food And Freedom. Make my own world a better place.'
   author = 'IYABAO'
   keywords = ['技术博客', '生活随笔', 'Plbear']
+  env = 'production'
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+[params.homeInfoParams]
+  Title = "Plbear | Cuz Penguin QQ"
+  Content = "Food And Freedom. Make my own world a better place."
+
+[params.assets]
+  disableHLJS = true
+
+[[params.socialIcons]]
+  name = 'github'
+  url = 'https://github.com/IYABAO'
+[[params.socialIcons]]
+  name = 'rss'
+  url = '/index.xml'
+
+[params.search]
+  enable = true
 
 [menu]
   [[menu.main]]
