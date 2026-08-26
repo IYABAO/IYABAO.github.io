@@ -6,7 +6,8 @@ hasCJKLanguage = true
 theme = 'PaperMod'
 enableRobotsTXT = true
 enableEmoji = true
-paginate = 10
+[pagination]
+  pagerSize = 10
 summaryLength = 50
 
 [params]
