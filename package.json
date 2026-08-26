@@ -1,0 +1,13 @@
+{
+  "name": "plbear-blog",
+  "version": "1.0.0",
+  "description": "Plbear Blog - Powered by Hugo",
+  "scripts": {
+    "build": "hugo --minify",
+    "server": "hugo server -D",
+    "new": "hugo new"
+  },
+  "devDependencies": {
+    "hugo-bin": "^0.132.0"
+  }
+}
