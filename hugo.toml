@@ -66,9 +66,13 @@ summaryLength = 50
     url = '/categories/'
     weight = 4
   [[menu.main]]
+    name = '友链'
+    url = '/links/'
+    weight = 5
+  [[menu.main]]
     name = '关于'
     url = '/about/'
-    weight = 5
+    weight = 6
 
 [markup]
   [markup.highlight]
