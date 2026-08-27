@@ -24,4 +24,15 @@ var _hmt = _hmt || [];
 .post-content svg text {
     font-size: 8px !important;
 }
+
+/* 暗色模式下行内 code 可读性 */
+html[data-theme="dark"] .post-content code:not(pre code) {
+    background-color: #161b22 !important;
+    color: #e6edf3 !important;
+    border: 1px solid #30363d;
+}
+html[data-theme="dark"] .post-content code a,
+html[data-theme="dark"] .post-content a code {
+    color: #79c0ff !important;
+}
 </style>
