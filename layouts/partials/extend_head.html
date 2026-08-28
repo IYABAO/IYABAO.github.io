@@ -36,3 +36,26 @@ html[data-theme="dark"] .post-content a code {
     color: #79c0ff !important;
 }
 </style>
+
+<!-- WebSite 结构化数据（带搜索框，仅首页） -->
+{{- if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Plbear | 后端架构 · AI工程 · 云原生技术博客",
+  "url": "https://www.plbear.com/",
+  "description": "12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "inLanguage": "zh-CN",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.plbear.com/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{- end }}
+
+<!-- GEO 优化：允许 AI 搜索引擎大图预览与全文索引 -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="AI" content="index, follow, summarize, cite-source">

@@ -1,6 +1,6 @@
 baseURL = 'https://www.plbear.com/'
 languageCode = 'zh-cn'
-title = 'Plbear | Cuz Penguin QQ'
+title = 'Plbear | 后端架构 · AI工程 · 云原生技术博客'
 defaultContentLanguage = 'zh-cn'
 hasCJKLanguage = true
 theme = 'PaperMod'
@@ -8,12 +8,12 @@ enableRobotsTXT = true
 enableEmoji = true
 [pagination]
   pagerSize = 10
-summaryLength = 50
+  summaryLength = 50
 
 [params]
-  description = 'Food And Freedom. Make my own world a better place.'
-  author = 'IYABAO'
-  keywords = ['技术博客', '生活随笔', 'Plbear']
+  description = '12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。'
+  author = '林壮 Allen / IYABAO'
+  keywords = ['Go微服务', 'PHP转Go', '后端架构', 'MCP协议', 'RAG实战', 'AI Agent', '大模型应用', 'Kubernetes', 'eBPF', 'DevOps', '云原生', '工程效能', 'Coding Agent', '技术博客']
   env = 'production'
   defaultTheme = 'auto'
   ShowReadingTime = true
@@ -31,9 +31,17 @@ summaryLength = 50
   showtoc = true
   tocopen = false
 
+  [params.schema]
+    publisherType = "Person"
+
+  [params.analytics.google]
+    SiteVerificationTag = ""
+  [params.analytics.bing]
+    SiteVerificationTag = ""
+
 [params.homeInfoParams]
-  Title = "Plbear | Cuz Penguin QQ"
-  Content = "Food And Freedom. Make my own world a better place."
+  Title = "Plbear | 后端架构 · AI工程 · 云原生"
+  Content = "12年后端架构师，专注 Go 微服务、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能。"
 
 [params.assets]
   disableHLJS = true
@@ -44,6 +52,9 @@ summaryLength = 50
 [[params.socialIcons]]
   name = 'rss'
   url = '/index.xml'
+[[params.socialIcons]]
+  name = 'email'
+  url = 'mailto:iyabao@vip.qq.com'
 
 [params.search]
   enable = true
