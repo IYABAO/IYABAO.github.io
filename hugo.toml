@@ -35,7 +35,7 @@ enableEmoji = true
     publisherType = "Person"
 
   [params.analytics.google]
-    SiteVerificationTag = ""
+    SiteVerificationTag = "viHbWhCyKDbYHXBvjSAav4NPwnM6tScrxInxiUUxdHI"
   [params.analytics.bing]
     SiteVerificationTag = ""
 
