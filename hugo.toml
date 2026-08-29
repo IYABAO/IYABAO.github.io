@@ -98,6 +98,10 @@ enableEmoji = true
     startLevel = 2
     endLevel = 4
 
+[minify]
+  disableHTML = true
+  minifyOutput = true
+
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
   section = ['HTML', 'RSS']
