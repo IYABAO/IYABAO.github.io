@@ -2,6 +2,7 @@
 title: "PHPUnit"
 date: 2022-08-12
 draft: false
+summary: "PHPUnit 踩坑实录：记录 PHP 7.2/7.4 环境下 PHPUnit 8.5/9.5 与 Mockery 的版本兼容问题、测试类编写规范与日常开发中的实战经验。"
 slug: "phpunit"
 ---
 

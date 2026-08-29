@@ -1,0 +1,24 @@
+{{- /* FAQPage JSON-LD - 从文章 front matter 的 faq 字段生成结构化数据，利于 Google 富摘要和 AI 回答抽取 */ -}}
+{{- with .Params.faq -}}
+{{- if gt (len .) 0 -}}
+{{- $faqLen := len . -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{- range $i, $faq := . }}
+    {
+      "@type": "Question",
+      "name": {{ $faq.question | jsonify | safeJS }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $faq.answer | jsonify | safeJS }}
+      }
+    }{{- if lt $i (sub $faqLen 1) }},{{- end }}
+    {{- end }}
+  ]
+}
+</script>
+{{- end -}}
+{{- end -}}

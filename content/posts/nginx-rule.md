@@ -2,6 +2,7 @@
 title: "运维的生活中常见的Nginx规则"
 date: 2019-08-01
 draft: false
+summary: "运维实战中常用的 Nginx 规则总结：反向代理、缓存、负载均衡等内置模块的用法与配置示例，覆盖日常 Web 服务部署的绝大多数场景。"
 slug: "nginx-rule"
 ---
 

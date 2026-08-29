@@ -2,6 +2,7 @@
 title: "这可能是最为详细的Docker入门吐血总结"
 date: 2019-07-22
 draft: false
+summary: "可能是最详细的 Docker 入门总结：从 Docker 核心概念、镜像与容器基础操作，到 Dockerfile 编写、数据卷、网络与 Compose 编排，结合一线互联网公司的使用场景完整讲解。"
 slug: "awesome-docker-get-start"
 ---
 

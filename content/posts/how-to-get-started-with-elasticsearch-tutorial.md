@@ -2,6 +2,7 @@
 title: "如何高逼格的给同事做 Elasticsearch 技术分享"
 date: 2019-07-22
 draft: false
+summary: "如何高逼格地给同事做 Elasticsearch 技术分享：从可视化展示 ELK 效果、核心概念讲解到实战案例，梳理一场深入浅出的 ES 技术分享的思路与内容组织方式。"
 slug: "how-to-get-started-with-elasticsearch-tutorial"
 ---
 

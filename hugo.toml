@@ -109,3 +109,17 @@ enableEmoji = true
 [taxonomies]
   tag = 'tags'
   category = 'categories'
+[related]
+  includeNewer = true
+  threshold = 80
+  toLower = false
+  [[related.indices]]
+    name = 'tags'
+    weight = 100
+  [[related.indices]]
+    name = 'categories'
+    weight = 30
+  [[related.indices]]
+    name = 'date'
+    weight = 10
+

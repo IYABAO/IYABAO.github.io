@@ -5,6 +5,14 @@ draft: false
 tags: ["Go", "性能调优", "pprof", "trace", "性能分析", "微服务"]
 categories: ["Go开发"]
 summary: "Go 服务性能调优的完整方法论，涵盖 pprof CPU/内存/阻塞分析、trace 链路追踪、火焰图、常见性能问题定位与优化，以及在招聘平台微服务中的实战案例和调优效果。"
+faq:
+  - question: "Go 性能分析怎么入门？"
+    answer: "Go 内置 pprof 和 trace 两大工具链。入门路径：先通过 pprof 看 CPU、内存、阻塞、锁等 profile 定位瓶颈；再用 trace 分析 goroutine 调度、系统调用耗时等运行时细节。两者配合能覆盖绝大多数性能问题定位。"
+  - question: "pprof 和 trace 分别适合分析什么问题？"
+    answer: "pprof 适合回答\"哪里耗时/占内存\"（CPU、堆、阻塞、锁、goroutine 分析）；trace 适合回答\"为什么这么慢\"（goroutine 创建/阻塞、调度等待、系统调用、GC 停顿）。前者定位热点，后者还原时序与根因。"
+  - question: "P99 延迟高怎么排查优化？"
+    answer: "先建立可观测性（链路追踪 + 指标）确定瓶颈服务；再用 pprof 定位函数级热点；常见优化点包括：连接池复用、批量 IO、缓存热点数据、减少锁竞争、优化 GC 参数，最后用 trace 验证调度层面的改进。"
+
 ---
 
 Go 语言自带了强大的性能分析工具链（pprof、trace），但很多开发者不知道怎么用，或者只会看 CPU profile 不会看其他的。2025年我们做了一次全服务的性能调优，用 pprof 和 trace 定位并优化了多个性能瓶颈，核心服务 P99 延迟从 120ms 降到 30ms。今天把完整的调优方法论和实战经验分享出来。

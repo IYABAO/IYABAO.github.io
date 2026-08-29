@@ -2,6 +2,7 @@
 title: "在西方的程序员眼里，东方的程序员是什么样的？"
 date: 2019-07-20
 draft: false
+summary: "从 Stack Exchange 热议出发，聊聊西方程序员眼中的东方程序员：关于离岸外包协作、跨文化技术合作的观察、观点与开放讨论。"
 slug: "zai-xi-fang-de-cheng-xu-yuan-yan-li-dong-fang-de-cheng-xu-yuan-shi-shi-me-yang-de"
 ---
 

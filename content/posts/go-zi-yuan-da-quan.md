@@ -2,6 +2,7 @@
 title: "Go资源大全"
 date: 2022-06-02
 draft: false
+summary: "Awesome Go 中文资源大全：覆盖音频音乐、认证授权、区块链、命令行、数据库、Web 框架等 Go 生态的高质量库与工具清单，Go 开发者选型参考必备。"
 slug: "go-zi-yuan-da-quan"
 ---
 

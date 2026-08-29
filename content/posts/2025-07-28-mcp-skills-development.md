@@ -5,6 +5,14 @@ draft: false
 tags: ["MCP", "Skills", "FastMCP", "Python", "AI", "大模型", "招聘"]
 categories: ["AI架构"]
 summary: "基于 FastMCP 从零构建招聘领域 MCP Skills 服务的完整实战，涵盖项目结构、工具定义、资源管理、提示词模板、鉴权安全、部署运维，以及在 Claude/Cursor 中的实际使用体验。"
+faq:
+  - question: "MCP Skills 和 MCP Server 有什么区别？"
+    answer: "MCP Server 是实现了 MCP 协议的服务端，提供通用 Tools/Resources；MCP Skills 是把特定领域（如招聘、售后）的专业知识和业务能力封装成的服务，让大模型能像领域专家一样工作，更具业务价值。"
+  - question: "怎么用 FastMCP 开发一个 Skills 服务？"
+    answer: "FastMCP 提供了轻量 API：定义工具函数（@mcp.tool）→ 注册资源（@mcp.resource）→ 配置传输方式（stdio/SSE）→ 启动服务。只需几十行代码就能把内部接口封装成标准 MCP 服务。"
+  - question: "企业级 MCP Skills 如何做鉴权？"
+    answer: "采用 Token 鉴权 + 会话隔离中间件：每个调用方持有独立 Token，请求通过中间件校验身份并隔离会话上下文，确保大模型只能访问授权范围内的数据，防止越权访问企业敏感信息。"
+
 ---
 
 MCP 协议火了之后，各种 MCP Server 层出不穷，但大多数是通用工具（文件系统、数据库、浏览器）。真正有价值的是**领域专属的 MCP Skills**——把你所在行业的专业知识和业务能力封装成 MCP 服务，让大模型能像领域专家一样工作。2025年我们基于 FastMCP 构建了招聘领域的 MCP Skills 服务，今天把完整开发过程分享出来。

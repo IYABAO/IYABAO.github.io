@@ -23,3 +23,6 @@ Thumbs.db
 # Env
 .env
 .env.local
+
+# 临时脚本
+/scripts/

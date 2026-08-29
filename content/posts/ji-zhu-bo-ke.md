@@ -2,6 +2,7 @@
 title: "技术博客"
 date: 2022-06-08
 draft: false
+summary: "值得收藏的技术博客与学习资源导航：收录技术 RoadMap、云风、美团技术团队、阮一峰等一线技术博客与学习站点，持续学习与拓宽技术视野必备。"
 slug: "ji-zhu-bo-ke"
 ---
 

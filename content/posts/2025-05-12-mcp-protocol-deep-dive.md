@@ -5,6 +5,14 @@ draft: false
 tags: ["MCP", "Model Context Protocol", "AI", "大模型", "协议设计", "Anthropic"]
 categories: ["AI架构"]
 summary: "MCP（Model Context Protocol）协议的深度解析，从设计哲学到三大核心能力 Tools/Resources/Prompts，传输层、安全模型、生命周期管理，以及和 Function Calling、OpenAPI 的本质区别。"
+faq:
+  - question: "MCP 协议的三大核心设计是什么？"
+    answer: "MCP 协议围绕 Tools（工具）、Resources（资源）、Prompts（提示词模板）三大核心设计：Tools 让大模型可以调用外部函数；Resources 让大模型可以读取结构化数据/文件；Prompts 提供可复用的提示词模板，三者配合实现大模型与外部系统的标准化连接。"
+  - question: "MCP 相比 Function Calling 有什么优势？"
+    answer: "Function Calling 是各家厂商各自定义的私有协议，迁移成本高；MCP 是开放的标准化协议，Claude、Cursor、ChatGPT、Windsurf 等主流产品都原生支持，一套服务可被多个 Agent 复用，生态更广、维护成本更低。"
+  - question: "MCP 传输层是怎么工作的？"
+    answer: "MCP 采用客户端-服务器模型，通过 JSON-RPC 2.0 进行消息传递，支持 stdio（本地进程通信）和 HTTP/SSE（远程通信）两种传输方式，并支持流式请求和双向通信，适合 Agent 与工具之间的实时交互。"
+
 ---
 
 MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的开放协议，目标是让大模型能标准化地连接外部工具和数据。2025年 MCP 生态爆发，Claude、Cursor、Windsurf、ChatGPT 都支持了 MCP。我们在招聘平台做了企业级 MCP 服务，深入研究了协议设计。今天从协议层面做深度解析。

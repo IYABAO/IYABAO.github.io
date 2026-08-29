@@ -2,6 +2,7 @@
 title: "YAML基础语法手册以及和JSON的对照"
 date: 2019-08-05
 draft: false
+summary: "YAML 基础语法手册及与 JSON 的对照：从 YAML 1.2 规范讲起，覆盖常用语法与 JSON 对照关系，快速掌握这种对人对机器都友好的配置格式。"
 slug: "yaml"
 ---
 

@@ -1,0 +1,31 @@
+{{- /* 可视化 FAQ 区块 - 在文章正文后渲染 FAQ，提升 GEO/AI 回答友好度 */ -}}
+{{- with .Params.faq -}}
+{{- if gt (len .) 0 -}}
+<div class="post-faq" style="margin-top: 2.5em; padding: 1.5em; border: 1px solid var(--border); border-radius: 8px; background: var(--code-bg);">
+  <h2 id="faq" style="margin-top: 0; font-size: 1.3em;">常见问题 FAQ</h2>
+  {{- range . }}
+  <details style="margin: 0.8em 0; border-bottom: 1px solid var(--border); padding-bottom: 0.6em;">
+    <summary style="font-weight: 600; cursor: pointer; list-style: none;">{{ .question }}<span style="float: right; color: var(--secondary);">▾</span></summary>
+    <div style="margin-top: 0.6em; color: var(--content);">{{ .answer | markdownify }}</div>
+  </details>
+  {{- end }}
+</div>
+{{- end -}}
+{{- end -}}
+
+{{- /* 相关阅读 - 基于 tags/categories 自动匹配，提升内链与停留时长 */ -}}
+{{- $related := site.RegularPages.Related . | first 5 -}}
+{{- if $related -}}
+<div class="post-related" style="margin-top: 2em; padding-top: 1.2em; border-top: 1px solid var(--border);">
+  <h3 style="font-size: 1.1em; margin-bottom: 0.8em;">📚 相关阅读</h3>
+  <ul style="list-style: none; padding: 0; margin: 0;">
+    {{- range $related }}
+    <li style="margin: 0.5em 0; padding-left: 1.2em; position: relative;">
+      <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
+      <a href="{{ .Permalink }}" style="font-weight: 500;">{{ .Title }}</a>
+      <span style="color: var(--secondary); font-size: 0.85em; margin-left: 0.6em;">{{ .Date.Format "2006-01-02" }}</span>
+    </li>
+    {{- end }}
+  </ul>
+</div>
+{{- end }}

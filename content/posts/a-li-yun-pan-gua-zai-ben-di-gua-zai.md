@@ -2,6 +2,7 @@
 title: "阿里云盘 挂载本地挂载"
 date: 2022-06-24
 draft: false
+summary: "使用 Alist 将阿里云盘挂载到本地磁盘的完整教程：先通过开源网盘目录程序 Alist 管理网盘，再映射成本地网络磁盘，两步实现云盘本地化，在本地直接读写云盘文件。"
 slug: "a-li-yun-pan-gua-zai-ben-di-gua-zai"
 ---
 

@@ -2,6 +2,7 @@
 title: "架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？"
 date: 2019-07-21
 draft: false
+summary: "架构成长之路：分布式秒杀系统如何防止单个用户重复秒杀下单？从客户端防抖、幂等设计、分布式锁到数据库唯一约束，剖析重复下单根因与多手段综合治理的完整防线。"
 slug: "jia-gou-cheng-chang-zhi-lu-fen-bu-shi-miao-sha-xi-tong-zhi-ru-he-fang-zhi-dan-ge-yong-hu-chong-fu-miao-sha-xia-dan"
 ---
 

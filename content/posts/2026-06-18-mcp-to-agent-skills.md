@@ -5,6 +5,14 @@ draft: false
 tags: ["MCP", "Agent Skills", "AI能力封装", "大模型", "工具调用", "AI架构"]
 categories: ["AI架构"]
 summary: "AI 能力封装从 MCP 到 Agent Skills 的演进路径，涵盖 MCP 协议原理、Skills 概念、两者关系、封装方法论、设计原则，以及在企业级 AI 应用中的实践和选型建议。"
+faq:
+  - question: "MCP 和 Agent Skills 有什么区别？"
+    answer: "MCP（Model Context Protocol）是一种标准化的工具调用协议，把外部工具和数据封装成可被大模型调用的服务；Agent Skills 则更强调把完整的任务处理能力（含领域知识、流程、提示词）封装成可复用的技能单元。简单说：MCP 解决\"怎么调用\"，Agent Skills 解决\"怎么把一件事做对\"。"
+  - question: "为什么会有从 MCP 到 Agent Skills 的演进？"
+    answer: "因为仅有工具调用不够——大模型需要知道在什么场景下调用哪个工具、如何组织多步流程、如何输出符合业务规范的结果。Agent Skills 在 MCP 之上补充了领域知识、状态管理和任务编排，让 AI 能力从\"能用\"变成\"好用\"。"
+  - question: "企业内部该如何在 MCP 和 Agent Skills 之间选型？"
+    answer: "如果只是让大模型调用现有系统接口，MCP 足够；如果希望沉淀某个业务领域的完整处理能力（如招聘面试流程、售后处理流程），建议基于 MCP 构建 Skills 层。实践中常以 MCP 作为传输/协议底座，在之上封装业务 Skills。"
+
 ---
 
 AI 应用的核心是"大模型 + 工具"，但工具怎么封装、怎么管理、怎么复用，一直是个问题。从早期的 Function Calling，到 MCP 协议，再到现在的 Agent Skills，AI 能力封装在不断演进。2026年我们深度实践了从 MCP 到 Agent Skills 的能力封装体系，今天把演进路径和最佳实践分享出来。

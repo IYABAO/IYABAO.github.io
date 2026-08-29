@@ -2,6 +2,7 @@
 title: "MySQL表分区（partition）创建、查询、删除以及重建分区等等操作"
 date: 2019-08-01
 draft: false
+summary: "MySQL 表分区实战手册：Range、Hash、Key、List 各分区类型详解，涵盖分区表创建、查询、删除与重建等操作演示，助力大表数据管理与查询性能优化。"
 slug: "mysql-partition"
 ---
 

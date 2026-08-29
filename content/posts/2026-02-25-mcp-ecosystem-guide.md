@@ -5,6 +5,14 @@ draft: false
 tags: ["MCP", "Model Context Protocol", "MCP Server", "AI生态", "选型", "工具盘点"]
 categories: ["AI架构"]
 summary: "2026年 MCP 生态全景盘点，涵盖官方、社区、企业级三大类 MCP Server，按文件系统、数据库、开发工具、生产力、浏览器、AI 服务等分类对比，提供选型指南和最佳实践。"
+faq:
+  - question: "2026 年主流 MCP Server 有哪些？"
+    answer: "MCP 生态已形成官方、社区、企业三个层级：官方层包括 Claude、Cursor 等产品内置的 MCP；社区层包括文件系统、数据库、浏览器等通用工具类 MCP Server（GitHub 上数千个）；企业层是各行业自建的业务 MCP 服务（如招聘、CRM、金融）。"
+  - question: "怎么选型合适的 MCP Server？"
+    answer: "建议从四个维度评估：活跃度（Star 数、最近提交）、维护质量（Issue 响应、发布频率）、安全性（鉴权机制、权限控制）、生态适配（是否支持你正在使用的 Agent 产品）。优先选官方或高活跃的社区项目，避免使用长期不维护的项目。"
+  - question: "企业自建 MCP 服务需要注意什么？"
+    answer: "重点关注：数据安全（Token 鉴权与会话隔离）、权限边界（只暴露必要工具）、可观测性（调用日志与审计）、高可用（网关与限流），以及和现有内部系统的打通成本。"
+
 ---
 
 MCP（Model Context Protocol）从 2024 年底推出到 2026 年，生态已经爆发式增长。GitHub 上有几千个 MCP Server 项目，官方、社区、企业都在推出自己的 MCP 服务。面对这么多选择，怎么选？哪些是真正好用的？2026年初我深度调研了 MCP 生态，今天把主流 MCP Server 盘点和选型指南分享出来。
