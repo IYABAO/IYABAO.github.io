@@ -1,0 +1,134 @@
+{{- /* 全站结构化数据 - 覆盖主题默认版本，首页输出 WebSite + Person，文章页输出 BreadcrumbList + BlogPosting */ -}}
+{{- if .IsHome }}
+{{- /* WebSite schema - 含 SearchAction 站点搜索富结果 */ -}}
+{{- $searchUrl := printf "%ssearch/?q={search_term_string}" site.Home.Permalink -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.Title | jsonify | safeJS }},
+  "url": {{ site.Home.Permalink | jsonify | safeJS }},
+  "description": {{ site.Params.description | plainify | truncate 180 | jsonify | safeJS }},
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": {{ $searchUrl | jsonify | safeJS }}
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{- /* Person schema - 作者实体信息 */ -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.Params.author | jsonify | safeJS }},
+  "url": {{ site.Home.Permalink | jsonify | safeJS }},
+  "description": {{ site.Params.description | plainify | truncate 180 | jsonify | safeJS }},
+  "image": {{ "images/og-cover.jpg" | absURL | jsonify | safeJS }},
+  "jobTitle": "资深后端架构师",
+  "email": "mailto:iyabao@vip.qq.com",
+  "sameAs": [
+    {{- $socials := site.Params.SocialIcons }}
+    {{- range $i, $s := $socials }}
+    {{- if and (ne $s.name "rss") (ne $s.name "email") }}{{ if gt $i 0 }}, {{ end }}{{ $s.url | jsonify | safeJS }}{{ end }}
+    {{- end }}
+  ]
+}
+</script>
+{{- else if (or .IsPage .IsSection) }}
+{{/* BreadcrumbList */}}
+{{- $url := replace .Parent.Permalink ( printf "%s" site.Home.Permalink) "" }}
+{{- $lang_url := strings.TrimPrefix ( printf "%s/" .Lang) $url }}
+{{- $bc_list := (split $lang_url "/")}}
+
+{{- $scratch := newScratch }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+  {{- range $index, $element := $bc_list }}
+
+    {{- $scratch.Add "path" (printf "%s/" $element ) | safeJS }}
+    {{- $bc_pg := site.GetPage ($scratch.Get "path") -}}
+
+    {{- if (and ($bc_pg) (gt (len . ) 0))}}
+    {{- if (and $index)}}, {{end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add 1 $index  }},
+      "name": {{ $bc_pg.Name | jsonify | safeJS }},
+      "item": {{ $bc_pg.Permalink | jsonify | safeJS }}
+    }
+    {{- end }}
+
+  {{- end }}
+  {{- /*  self-page addition  */ -}}
+  {{- if (ge (len $bc_list) 2) }}, {{end }}
+    {
+      "@type": "ListItem",
+      "position": {{len $bc_list}},
+      "name": {{ .Name | jsonify | safeJS }},
+      "item": {{ .Permalink | jsonify | safeJS }}
+    }
+  ]
+}
+</script>
+{{- if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | plainify | jsonify | safeJS }},
+  "name": {{ .Title | plainify | jsonify | safeJS }},
+  "description": {{ with .Description | plainify }}{{ . | jsonify | safeJS }}{{ else }}{{ .Summary | plainify | jsonify | safeJS }}{{ end -}},
+  "keywords": [
+    {{- if .Params.keywords }}
+    {{ range $i, $e := .Params.keywords }}{{ if $i }}, {{ end }}{{ $e | jsonify | safeJS }}{{ end }}
+    {{- else }}
+    {{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}{{ $e | jsonify | safeJS }}{{ end }}
+    {{- end }}
+  ],
+  "articleBody": {{ .Content | safeJS | htmlUnescape | plainify | jsonify | safeJS }},
+  "wordCount" : "{{ .WordCount }}",
+  "inLanguage": {{ .Language.Lang | default "en-us" }},
+  {{ if .Params.cover.image -}}
+  "image":
+    {{- if (ne .Params.cover.relative true) -}}
+    {{ .Params.cover.image | absURL | jsonify | safeJS }},
+    {{- else -}}
+    {{ (path.Join .RelPermalink .Params.cover.image ) | absURL | jsonify | safeJS }},
+    {{- end}}
+  {{- else }}
+    {{- $images := partial "templates/_funcs/get-page-images" . -}}
+    {{- with index $images 0 -}}
+  "image": {{ .Permalink | jsonify | safeJS }},
+    {{- end }}
+  {{- end -}}
+  "datePublished": {{ .PublishDate | jsonify | safeJS }},
+  "dateModified": {{ .Lastmod | jsonify | safeJS }},
+  "author": {
+    "@type": "Person",
+    "name": {{ (site.Params.author | plainify) | jsonify | safeJS }},
+    "url": {{ site.Home.Permalink | jsonify | safeJS }}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ .Permalink | jsonify | safeJS }}
+  },
+  "publisher": {
+    "@type": "{{- ( site.Params.schema.publisherType | default "Organization") | title -}}",
+    "name": {{ site.Title | jsonify | safeJS }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ "images/og-cover.jpg" | absURL | jsonify | safeJS }}
+    }
+  }
+}
+</script>
+{{- end }}{{/* .IsPage end */}}
+
+{{- end -}}
