@@ -27,7 +27,7 @@ keywords: ["统计分析", "OLAP", "预聚合", "性能优化", "报表"]
 
 ### 2.1 整体架构
 
-```
+```text
 业务系统 → 双写（MySQL + Kafka）
                     ↓
               ClickHouse（明细数据）

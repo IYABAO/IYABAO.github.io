@@ -48,7 +48,7 @@ func migrateUsers() error {
 
 全量迁移需要时间，迁移期间旧系统还有新数据产生。用 Canal 监听旧库 binlog 做增量同步：
 
-```
+```text
 旧库 binlog → Canal → Kafka → 迁移服务 → 新库
 ```
 

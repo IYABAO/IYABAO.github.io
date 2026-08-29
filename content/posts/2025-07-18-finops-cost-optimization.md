@@ -58,7 +58,7 @@ labels:
 
 部署 OpenCost 后，能看到每个服务、每个团队的实时成本：
 
-```
+```text
 服务成本排行（本月）：
 1. resume-service   ¥12,500  CPU 8核 内存16G × 3实例
 2. job-service      ¥9,800   CPU 8核 内存16G × 2实例

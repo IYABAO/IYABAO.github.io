@@ -130,7 +130,7 @@ fmt.Println(value)
 
 Go 项目的标准布局：
 
-```
+```text
 myapp/
   cmd/          # 主程序入口
     server/

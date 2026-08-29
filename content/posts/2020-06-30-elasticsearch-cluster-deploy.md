@@ -113,7 +113,7 @@ xpack.security.enabled: false
 
 `config/jvm.options`：
 
-```
+```text
 # 堆内存，建议设为物理内存的一半，但不超过32GB
 -Xms4g
 -Xmx4g

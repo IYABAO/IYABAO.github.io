@@ -19,7 +19,7 @@ keywords: ["Go微服务", "分层设计", "缓存一致性", "简历服务"]
 
 ## 一、分层架构
 
-```
+```text
 API 层（HTTP/gRPC）→ Handler 层 → Service 层 → Repository 层 → 数据库/缓存
 ```
 
@@ -146,7 +146,7 @@ func (r *ResumeRepository) Search(query *SearchQuery) ([]*Resume, int64, error) 
 
 ## 二、多级缓存
 
-```
+```text
 本地缓存（APCu/FreeCache）→ Redis 集群 → MySQL
 ```
 

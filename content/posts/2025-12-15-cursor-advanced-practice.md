@@ -76,7 +76,7 @@ Cursor 基于 VS Code fork，核心 AI 功能：
 
 Cursor 支持在子目录放 .cursorrules，会和根目录的规则合并，子目录的规则优先级更高：
 
-```
+```text
 project/
 ├── .cursorrules              # 全局规则
 ├── handler/
@@ -143,40 +143,40 @@ handler 层的 .cursorrules：
 ### 实战用法
 
 **引用文件**：
-```
+```text
 参考 @/internal/handler/resume.go 的风格，给 job-service 加类似的接口
 ```
 
 Cursor 会读取 resume.go 的内容，模仿它的风格写新代码。
 
 **引用文件夹**：
-```
+```text
 看一下 @/internal/service/ 目录下的代码，总结 service 层的设计模式，然后给 apply-service 加 service 层
 ```
 
 **引用代码符号**：
-```
+```text
 @GetResume 这个函数有性能问题，帮我优化一下
 ```
 
 直接引用函数，Cursor 会定位到函数定义并分析。
 
 **引用整个代码库**：
-```
+```text
 @code 我们项目里的错误处理是怎么做的？给我几个例子
 ```
 
 @code 会搜索整个代码库，找到相关的代码片段。
 
 **引用文档**：
-```
+```text
 @docs gin 怎么写中间件？给我一个鉴权中间件的例子
 ```
 
 @docs 会搜索 Gin 的官方文档，给出准确的用法，不会瞎编 API。
 
 **引用 Git diff**：
-```
+```text
 @gd （git diff 的缩写）看一下当前改动，帮我做 code review
 ```
 
@@ -214,7 +214,7 @@ Composer 界面：
 - 有什么约束和要求
 - 期望的结果
 
-```
+```text
 给 resume-service 加一个批量导出接口：
 1. 接口 POST /api/resume/export，接收筛选条件（keyword、city、experience）
 2. 异步处理：接口立即返回任务ID，后台 goroutine 生成 Excel
@@ -271,7 +271,7 @@ make test
 **2. 先让 AI 读代码再改**
 
 复杂任务先让 AI 读相关代码，理解现有架构和风格，再开始改：
-```
+```text
 先看一下 @/internal/service/ 和 @/internal/repository/ 目录下的代码，
 总结一下现有的设计模式和代码风格，然后再开始实现批量导出功能。
 ```
@@ -279,7 +279,7 @@ make test
 **3. 用 @ 引用指定文件**
 
 任务描述里用 @ 引用相关文件，AI 不用自己找，更精准：
-```
+```text
 参考 @/internal/handler/resume.go 的风格，
 参考 @/internal/service/resume.go 的错误处理方式，
 给 job-service 加类似的接口。
@@ -288,7 +288,7 @@ make test
 **4. 明确约束条件**
 
 告诉 AI 不能做什么，避免它"自由发挥"：
-```
+```text
 约束：
 - 不要引入新的依赖，用现有的库
 - 不要修改现有的函数签名，只加新函数

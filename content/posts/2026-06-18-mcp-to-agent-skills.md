@@ -57,7 +57,7 @@ response = openai.ChatCompletion.create(
 
 Anthropic 推出 MCP（Model Context Protocol），标准化大模型和外部工具的连接：
 
-```
+```text
 ┌──────────┐         MCP 协议          ┌──────────────┐
 │  大模型   │ ◄──────────────────────► │  MCP Server  │
 │ (Client) │   JSON-RPC over stdio/HTTP│  (Tools)     │
@@ -105,7 +105,7 @@ MCP 基于 JSON-RPC 2.0，支持两种传输方式：
 
 核心交互流程：
 
-```
+```text
 1. 初始化（Initialize）
    Client → Server：初始化请求，声明支持的能力
    Server → Client：初始化响应，返回 Server 信息和能力
@@ -215,7 +215,7 @@ Agent Skill 是一个完整的能力包，包含：
 
 ### Skill 的工作原理
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │              AI Agent                    │
 │  ┌─────────┐  ┌─────────┐  ┌─────────┐ │

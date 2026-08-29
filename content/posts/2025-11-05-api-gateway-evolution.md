@@ -74,7 +74,7 @@ Kong 是基于 OpenResty 的开源 API 网关，生态成熟，插件丰富。
 - 社区活跃，文档完善
 
 **Kong 架构**：
-```
+```text
 客户端 → Kong（OpenResty + Lua 插件）→ 后端服务
               ↓
          PostgreSQL（配置存储）
@@ -196,7 +196,7 @@ for route in kong_routes["data"]:
 
 部署 APISIX 集群，和 Kong 并行运行，用流量复制验证：
 
-```
+```text
                     ┌──→ Kong（旧）→ 后端
 客户端 → 负载均衡 ──┤
                     └──→ APISIX（新）→ 后端（影子流量，不返回给客户端）
@@ -215,7 +215,7 @@ for route in kong_routes["data"]:
 
 通过负载均衡按比例切流量：
 
-```
+```text
 第1天：1% 流量到 APISIX，99% 到 Kong
 第3天：10% 流量到 APISIX
 第5天：30% 流量到 APISIX

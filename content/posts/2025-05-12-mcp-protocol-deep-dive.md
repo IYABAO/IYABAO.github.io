@@ -29,7 +29,7 @@ MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的开放协�
 
 MCP 的核心目标就是**解耦**——把工具和数据封装成标准的 MCP Server，任何支持 MCP 的 Client（Claude、Cursor、ChatGPT 等）都能直接用，不用重复开发。
 
-```
+```text
 MCP 之前：
   Claude → 自定义工具A
   Cursor → 自定义工具B（和A功能一样但要重写）
@@ -101,7 +101,7 @@ Tools 是模型可以**调用**的操作，有输入有输出，会产生副作�
 
 **调用流程**：
 
-```
+```text
 1. Client 发送 tools/list → Server 返回所有工具定义
 2. 模型根据用户问题选择工具和参数
 3. Client 发送 tools/call {name, arguments} → Server 执行工具
@@ -132,7 +132,7 @@ Resources 是模型可以**读取**的数据，没有副作用，类似"文件"�
 
 **读取流程**：
 
-```
+```text
 1. Client 发送 resources/list → Server 返回所有资源
 2. 模型需要某个资源时，Client 发送 resources/read {uri}
 3. Server 返回资源内容
@@ -192,7 +192,7 @@ Prompts 是预定义的提示词模板，模型可以使用，类似"快捷指�
 
 **使用流程**：
 
-```
+```text
 1. Client 发送 prompts/list → Server 返回所有提示词
 2. 用户或模型选择某个提示词，填入参数
 3. Client 发送 prompts/get {name, arguments} → Server 返回完整提示词
@@ -209,7 +209,7 @@ MCP 支持两种传输方式：
 
 本地进程间通信，适合桌面端 AI 工具（Claude Desktop、Cursor 本地插件）。
 
-```
+```text
 Client 进程 ←── stdin/stdout ──→ Server 进程
 ```
 
@@ -223,7 +223,7 @@ Client 进程 ←── stdin/stdout ──→ Server 进程
 
 适合远程 MCP Server，Client 通过 HTTP 连接。
 
-```
+```text
 Client ←── HTTP + SSE ──→ MCP Server（远程部署）
 ```
 
@@ -290,7 +290,7 @@ MCP 基于 JSON-RPC 2.0，消息格式：
 
 MCP 会话的生命周期：
 
-```
+```text
 1. 初始化（initialize）
    Client → Server：协议版本、客户端能力
    Server → Client：协议版本、服务端能力、工具/资源/提示词列表

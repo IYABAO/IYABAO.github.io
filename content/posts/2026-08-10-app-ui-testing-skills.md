@@ -150,7 +150,7 @@ def generate_test_case(scenario: str) -> str:
 
 ## 五、框架架构
 
-```
+```text
 测试用例（自然语言/代码）→ AI 用例生成器 → 测试执行引擎
                                         ↓
                                   Skill 注册表

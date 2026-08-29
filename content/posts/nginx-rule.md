@@ -164,7 +164,7 @@ fastcgi_intercept_errors on;
 
 具体配置一般是配置到具体的错误URL页面，比如：
 
-```
+```text
 #返回具体状态码
 error_page 404 403 /4xx.html
 #返回200状态码
@@ -342,7 +342,7 @@ expires off;
 
 nginx可以作为ATS这样的缓存服务器来缓存文件，配置也比较简单，不过我们很少用，除非一些特殊的场合，参考配置：
 
-```
+```text
 #先在全局下面定义好缓存存放的目录
 proxy_cache_path /data/cache/ levels=1:2 keys_zone=cache_one:10m inactive=7d max_size=10g;
 proxy_temp_path /data/cache/proxy_temp_path;

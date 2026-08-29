@@ -21,7 +21,7 @@ OpenTelemetry（简称 OTel）是 CNCF 的可观测性标准，核心优势：
 
 ## 二、架构
 
-```
+```text
 应用服务（OTel SDK）→ OTel Collector → 后端存储
                               ↓
                     ┌───────┼───────┐

@@ -37,3 +37,68 @@
   <meta property="og:image" content="{{ "images/og-cover.jpg" | absURL }}">
   <meta name="twitter:image" content="{{ "images/og-cover.jpg" | absURL }}">
 {{- end -}}
+
+<!-- 百度搜索资源平台验证 -->
+<meta name="baidu-site-verification" content="codeva-rZep0Qxg9I" />
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5e16b1751efcedd092611328bae71693";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<!-- 不蒜子页面访问量统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!-- 文章内 SVG 样式控制：限制字体大小并自适应容器 -->
+<style>
+.post-content svg {
+    font-size: 8px !important;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.post-content svg text {
+    font-size: 8px !important;
+}
+
+/* 暗色模式下行内 code 可读性 */
+html[data-theme="dark"] .post-content code:not(pre code) {
+    background-color: #161b22 !important;
+    color: #e6edf3 !important;
+    border: 1px solid #30363d;
+}
+html[data-theme="dark"] .post-content code a,
+html[data-theme="dark"] .post-content a code {
+    color: #79c0ff !important;
+}
+</style>
+
+<!-- WebSite 结构化数据（带搜索框，仅首页） -->
+{{- if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Plbear | 后端架构 · AI工程 · 云原生技术博客",
+  "url": "https://www.plbear.com/",
+  "description": "12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "inLanguage": "zh-CN",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.plbear.com/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{{- end }}
+
+<!-- GEO 优化：允许 AI 搜索引擎大图预览与全文索引 -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="AI" content="index, follow, summarize, cite-source">

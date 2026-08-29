@@ -124,7 +124,7 @@ CREATE TABLE `account_data_scope` (
 
 权限用编码标识，按模块分层：
 
-```
+```text
 job:view          查看职位
 job:create        创建职位
 job:edit          编辑职位

@@ -39,7 +39,7 @@ MCP 协议火了之后，各种 MCP Server 层出不穷，但大多数是通用�
 
 ## 三、项目结构
 
-```
+```text
 recruitment-mcp/
 ├── skills/                    # 各个 Skill
 │   ├── __init__.py

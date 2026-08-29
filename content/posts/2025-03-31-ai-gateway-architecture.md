@@ -12,7 +12,7 @@ AI 模拟面试、AI 简历解析、AI 职位生成等功能需要调用多个�
 
 ## 一、架构
 
-```
+```text
 业务系统 → AI 网关（One-API）→ 模型供应商（OpenAI/Anthropic/阿里/百度）
                 ↓
           鉴权 + 限流 + 计费 + 日志 + 缓存
@@ -101,7 +101,7 @@ func recordUsage(key string, model string, promptTokens int, completionTokens in
 
 AI 模拟面试是增值服务，会员体系和 AI 网关打通：
 
-```
+```text
 用户购买会员 → 生成 API Key（绑定会员，Token 限制=会员额度）→ 业务系统用 Key 调用 AI → 扣减 Token → Token 用完提示升级
 ```
 

@@ -139,7 +139,7 @@ Coding Agent（AI 编程助手）在个人层面提效明显，但在企业团�
 
 建立团队共享的 Prompt 模板库，常用场景直接用：
 
-```
+```text
 prompts/
 ├── code-review.md          # 代码审查 Prompt
 ├── bug-fix.md              # Bug 修复 Prompt
@@ -188,7 +188,7 @@ prompts/
 
 定期整理最佳实践，形成文档：
 
-```
+```text
 docs/
 ├── ai-coding/
 │   ├── getting-started.md      # 新人入门指南

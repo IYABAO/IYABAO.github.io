@@ -23,7 +23,7 @@ summary: "招聘通 PC 端从服务端渲染到前后端分离的架构升级实
 
 ### 2.1 整体架构
 
-```
+```text
 浏览器（Vue SPA） → Nginx → 后端 API（Yii2 RESTful）
                           ↓
                     MySQL / Redis / Elasticsearch
@@ -225,7 +225,7 @@ class JwtAuthBehavior extends Behavior
 
 ### 3.2 项目结构
 
-```
+```text
 src/
   api/          # API 接口封装
   assets/       # 静态资源

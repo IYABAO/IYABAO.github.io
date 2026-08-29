@@ -26,14 +26,14 @@ class BackBlackServiceTest extends TestCase{}
 多用例可使用注解 @dataProvider dataProvider
 dataProvider 方法需为public, 参数个数,类型可按需自定义
 
-```
+```text
 建议$data按表格式组装数据，  mock方法，指向预期值 [’myFunc‘ => 'myFuncExpectData']
 ```
 
 public function serviceProvider()
 {
 
-```
+```text
     return [
       '测试用例名1'=>[$data,$expect],
 
@@ -61,7 +61,7 @@ this−>assertEquals(this->assertEquals(this−>assertEquals(expected, $actual, 
 可注入对象使用一般方法
 \Mockery::mock(MyClass::class)
 
-```
+```text
    无需注入(基于代码现状, 不改动现有代码)
            \Mockery::mock("overload:" . MyClass::class);
 
@@ -94,7 +94,7 @@ $resume\_service->shouldReceive('module->find\_by\_user\_id')
 参数区分
 withAnyArgs() 任意传参
 
-```
+```text
       按传参返回 with(...$args)     \Mockery::spy('alias:' . Config::class)->shouldReceive('getConfigItem')->with("a")->andReturn($data1);
 
 次数区分
@@ -141,7 +141,7 @@ phpunit.xml
 phpunit.xml (phpunit9)
 关注参数 forceCoversAnnotation="false"
 
-```
+```text
 <coverage></coverage>   覆盖源文件配置
 ```
 
@@ -154,7 +154,7 @@ tests
 phpunit.xml (phpunit8.5)
 关注参数 forceCoversAnnotation="false"
 
-```
+```text
 <whitelist></whitelist>   覆盖源文件配置
 ```
 
@@ -170,7 +170,7 @@ IDE支持
 命令行
 全部覆盖率
 
-```
+```text
  php -dxdebug.mode=coverage /Users/******/composer/vendor/phpunit/phpunit/phpunit  --configuration phpunit.xml
 
  指定测试
@@ -181,7 +181,7 @@ IDE支持
 开发建议
 db层不封装业务逻辑
 
-```
+```text
 对象实体能以对象形式代替数组形式返回， 便于模拟数据。
 
 数据层，第三方服务支持注入，简化mock难度

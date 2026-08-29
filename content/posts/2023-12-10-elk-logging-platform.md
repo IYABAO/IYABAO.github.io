@@ -12,7 +12,7 @@ keywords: ["ELK", "日志中台", "Filebeat", "Kibana", "可观测性"]
 
 ## 一、架构
 
-```
+```text
 应用日志 → Filebeat（DaemonSet）→ Logstash（过滤清洗）→ Elasticsearch（存储索引）→ Kibana（可视化分析）
 ```
 

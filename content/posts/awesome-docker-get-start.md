@@ -433,7 +433,7 @@ systemctl restart docker.service
 
 ③我们通过以下命令即可实现与远程服务器通信：
 
-```
+```text
 docker -H 服务器IP地址 info
 ```
 

@@ -159,7 +159,7 @@ $stats = (new Query())
 
 ### 3.1 架构设计
 
-```
+```text
 业务系统 → 发消息到 Kafka → 统计服务消费 → 写入 ClickHouse
                               ↓
                         实时聚合（Redis）

@@ -171,7 +171,7 @@ func (s *AIAuditService) Audit(ctx *AuditContext) (*AIAuditResult, error) {
 
 ## 四、审核流程
 
-```
+```text
 职位发布 → 规则引擎审核 → AI 辅助审核 → 结果判定
                 ↓              ↓
             高风险拒绝     中风险人工审核

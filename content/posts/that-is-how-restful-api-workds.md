@@ -106,7 +106,7 @@ DELETE /zoo/v1/zoos/ID/animals/ID：删除某个指定动物园的指定动物
 
 格式规范如下：
 
-```
+```text
 {
  "status":"000000",
  "msg":"success",

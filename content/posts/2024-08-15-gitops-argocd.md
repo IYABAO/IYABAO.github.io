@@ -22,7 +22,7 @@ GitOps 的四个原则：
 
 ## 二、架构
 
-```
+```text
 开发者 → Git 提交 → ArgoCD 检测变更 → 同步到 K8s 集群
                 ↑                          ↓
            配置仓库（Git）            应用健康检查
@@ -36,7 +36,7 @@ GitOps 的四个原则：
 
 用一个 Git 仓库管理所有环境的配置：
 
-```
+```text
 deploy-repo/
 ├── apps/                          # 应用配置
 │   ├── resume-service/

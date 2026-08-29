@@ -47,7 +47,7 @@ public function actionViewJob($jobId)
 
 ### 2.1 整体架构
 
-```
+```text
 前端/业务系统 → 埋点SDK → 收集API → Kafka → 清洗服务 → 存储
                                                           ↓
                                                     ClickHouse / MySQL

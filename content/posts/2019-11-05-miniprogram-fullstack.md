@@ -29,7 +29,7 @@ summary: "企业招聘小程序从0到1的全栈开发实践，后端基于 Yii2
 
 ### 2.1 目录结构
 
-```
+```text
 api/                    # 小程序 API
   controllers/
     v1/
@@ -342,7 +342,7 @@ public function actionSts()
 
 ### 4.1 阿里云架构
 
-```
+```text
 用户 → SLB 负载均衡 → ECS（API + 后台）
                            ↓
                          RDS MySQL
