@@ -152,7 +152,7 @@ Docker Registry 公有仓库是开放给用户使用、允许用户管理镜像�
 
 我们从下图可以直观地看到 Docker 的架构
 
-![Docker 整体架构：Client 客户端、Daemon 守护进程与 Registry 仓库的协作关系](/images/posts/docker-arch.jpg)
+![Docker 整体架构：Client 客户端、Daemon 守护进程与 Registry 仓库的协作关系](/images/posts/docker-arch.webp)
 ：
 
 

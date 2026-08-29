@@ -11,7 +11,7 @@ tags: ["Elasticsearch", "ELK", "技术分享", "Kibana"]
 
 # 1、可视化展示ELK效果
 
-![Elasticsearch 分布式集群架构：节点分片与副本的协作关系](/images/posts/es-cluster.jpg)
+![Elasticsearch 分布式集群架构：节点分片与副本的协作关系](/images/posts/es-cluster.webp)
 
 
 

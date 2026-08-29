@@ -13,7 +13,7 @@ tags: ["架构", "秒杀", "幂等", "分布式"]
 
 # 
 
-![分布式秒杀防重：唯一键幂等校验，拦截重复请求](/images/posts/seckill-dedup.jpg)
+![分布式秒杀防重：唯一键幂等校验，拦截重复请求](/images/posts/seckill-dedup.webp)
 为啥会下重了呢？
 
 **原因1：客户端bug**

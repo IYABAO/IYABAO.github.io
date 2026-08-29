@@ -9,7 +9,7 @@ tags: ["MySQL", "分区", "数据库"]
 
 下面演示MySQL Range类型分区的操作，其他类型的分区还有Hash、Key、List等等。
 
-![MySQL 表分区：将大表按 Range 规则拆分为多个独立分区](/images/posts/mysql-partition.jpg)
+![MySQL 表分区：将大表按 Range 规则拆分为多个独立分区](/images/posts/mysql-partition.webp)
 
 
 分区优点：
