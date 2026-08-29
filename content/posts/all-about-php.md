@@ -4,6 +4,7 @@ date: 2019-08-06
 draft: false
 summary: "Awesome PHP 中文资源大全：系统整理 PHP 生态的高质量库、框架、模板、安全、代码分析、日志、第三方库、配置工具、Web 工具、书籍与经典博文，PHP 开发者选型与学习必备收藏。"
 slug: "all-about-php"
+tags: ["PHP", "资源大全", "Awesome"]
 ---
 
 # Awesome PHP

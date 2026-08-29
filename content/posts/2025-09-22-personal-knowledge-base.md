@@ -5,6 +5,7 @@ draft: false
 tags: ["知识库", "Obsidian", "weknora", "Notion", "知识管理", "RAG", "个人知识体系"]
 categories: ["工程效能"]
 summary: "个人知识库的搭建实践，从工具选型（Obsidian vs weknora vs Notion）到知识体系构建、笔记方法论、AI 增强，以及从 Notion 迁移到 weknora 的完整经验，打造技术人的第二大脑。"
+keywords: ["知识库", "Obsidian", "weknora", "Notion", "选型"]
 ---
 
 作为一个技术人，每天接触大量信息——技术文档、架构方案、踩坑记录、读书笔记、会议纪要。如果不系统地整理，这些信息很快就会遗忘，需要的时候找不到。2025年我花了不少时间搭建个人知识库，从 Notion 换到 Obsidian 再到 weknora，试了各种方法论，今天把完整实践分享出来。

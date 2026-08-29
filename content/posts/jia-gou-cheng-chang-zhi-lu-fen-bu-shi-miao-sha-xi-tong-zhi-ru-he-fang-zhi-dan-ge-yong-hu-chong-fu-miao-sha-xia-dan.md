@@ -4,13 +4,17 @@ date: 2019-07-21
 draft: false
 summary: "架构成长之路：分布式秒杀系统如何防止单个用户重复秒杀下单？从客户端防抖、幂等设计、分布式锁到数据库唯一约束，剖析重复下单根因与多手段综合治理的完整防线。"
 slug: "jia-gou-cheng-chang-zhi-lu-fen-bu-shi-miao-sha-xi-tong-zhi-ru-he-fang-zhi-dan-ge-yong-hu-chong-fu-miao-sha-xia-dan"
+tags: ["架构", "秒杀", "幂等", "分布式"]
 ---
 
 电子交易的一个很基本的问题，就是避免用户下重复订单。用户明明想买一次，结果一看下了两个单。如果没有及时发现，就会带来额外的物流成本和扯皮。对商家的信誉也不好看。
 
 从技术上看，这是一个分布式一致性问题；但实际上，技术无法100%解决这类问题，得结合多种手段综合处理。这里就来说道说道。
 
-# 为啥会下重了呢？
+# 
+
+![分布式秒杀防重：唯一键幂等校验，拦截重复请求](/images/posts/seckill-dedup.jpg)
+为啥会下重了呢？
 
 **原因1：客户端bug**
 
@@ -24,7 +28,7 @@ slug: "jia-gou-cheng-chang-zhi-lu-fen-bu-shi-miao-sha-xi-tong-zhi-ru-he-fang-zhi
 
 这样在等待一个超时后，UI可能会提示用户下单超时，请重复再试。
 
-![架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？](http://p1.pstatp.com/large/pgc-image/a3c09c7618b447d1b0a265c1620bd23c)
+
 
 **原因3: 用户的App闪退/人工强退，之后重新打开重新下单**
 
@@ -40,7 +44,7 @@ slug: "jia-gou-cheng-chang-zhi-lu-fen-bu-shi-miao-sha-xi-tong-zhi-ru-he-fang-zhi
 
 客户端需要实现这样一个下单界面。用户点击【确认下单】时，应该产生一个独一无二的dedup key，连定订单数据发送给服务器端。在服务器返回之前，该界面应该一直等待，直到服务器响应成功/失败或者超时发生（比如15秒后，收不到服务器响应）。如果超时发生，应该向用户提示是否重试下单或者退出该界面。当用户点击【重试】时，应该用刚刚生成的dedup key来再次发送下单请求——如果用户一直不退出这个流程，每次用户点击重试，都应该用这个dedup key来重试下单，直到服务器正常返回，或者用户放弃返回。
 
-![架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？](http://p1.pstatp.com/large/pgc-image/3659880202454777a9d7a649a524456f)
+
 
 下单的客户端流程
 
@@ -94,7 +98,7 @@ Order createOrder(Integer userId, String prodCode, Decimal amount, String dedupK
 
 产品代码 产品数量 金额 dedup key 未确认订单1 AAA 1 1000 xxx-yyy-zzz 未确认订单2 BBB 2 500.00 Aaa-bbb-ccc ... 通过这个表，我们可以**猜**一下用户的意图。比如，如果用户重新提交了一笔订单，其产品代码、金额与表中记录的某条完全一致，就可以提示一下用户:
 
-![架构成长之路：分布式秒杀系统之如何防止单个用户重复秒杀下单？](http://p1.pstatp.com/large/pgc-image/f1df5062d20e4def95ab2fc7d456d4d4)
+
 
 提示一下用户是不是下重了
 

@@ -5,6 +5,7 @@ draft: false
 tags: ["MCP", "AI", "FastMCP", "Skills", "Python", "大模型"]
 categories: ["AI架构"]
 summary: "MCP（Model Context Protocol）协议入门与实战，基于 FastMCP 框架构建企业级 Skills 服务，让大模型安全调用招聘平台的结构化数据，实现 AI 智能体的工具调用能力。"
+keywords: ["MCP", "FastMCP", "AI", "企业级Skills", "工具调用"]
 ---
 
 MCP（Model Context Protocol）是 Anthropic 提出的开放协议，让大模型能安全地调用外部工具和数据。2025年4月我们基于 FastMCP 构建了招聘平台的企业级 Skills 服务，让 AI 智能体能调用简历检索、人才匹配、职位查询等工具。今天把入门和实战经验分享出来。

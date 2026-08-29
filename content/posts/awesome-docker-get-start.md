@@ -4,15 +4,16 @@ date: 2019-07-22
 draft: false
 summary: "可能是最详细的 Docker 入门总结：从 Docker 核心概念、镜像与容器基础操作，到 Dockerfile 编写、数据卷、网络与 Compose 编排，结合一线互联网公司的使用场景完整讲解。"
 slug: "awesome-docker-get-start"
+tags: ["Docker", "容器", "入门", "虚拟化"]
 ---
 
 在计算机技术日新月异的今天， Docker 在国内发展的如火如荼。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437482919069761a6bf)
+
 
 特别是在一线互联网公司 Docker 的使用是十分普遍的，甚至成为了一些企业面试的加分项，不信的话看看下面这张图。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374832194c7c2d4160)
+
 
 这是我在某招聘网站上看到的招聘 Java 开发工程师的招聘要求，其中有一条熟悉 Docker 成为了你快速入职的加分项，由此可见熟悉 Docker 在互联网公司的地位之重要。
 
@@ -44,7 +45,7 @@ slug: "awesome-docker-get-start"
 
 通过下面这幅图，我们可以很直观的反映出这两者的区别所在：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/154043748298764b5cbeafd)
+
 
 Docker 属于 Linux 容器的一种封装，提供简单易用的容器使用接口。它是目前最流行的 Linux 容器解决方案。
 
@@ -80,11 +81,11 @@ Docker 相比于传统虚拟化方式具有更多的优势：
 
 我们可以从下面这张表格很清楚地看到容器相比于传统虚拟机的特性的优势所在：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374829284f427c013d)
+
 
 **Docker 的三个基本概念**
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374829469eea2fc391)
+
 
 从上图我们可以看到，Docker 中包括三个基本的概念：
 
@@ -100,7 +101,7 @@ Docker 相比于传统虚拟化方式具有更多的优势：
 
 镜像不包含任何动态数据，其内容在构建之后也不会被改变。镜像(Image)就是一堆只读层(read-only layer)的统一视角，也许这个定义有些难以理解，下面的这张图能够帮助读者理解镜像的定义：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437483061d74da9b80d)
+
 
 从左边我们看到了多个只读层，它们重叠在一起。除了最下面一层，其他层都会有一个指针指向下一层。这些层是 Docker 内部的实现细节，并且能够在主机的文件系统上访问到。
 
@@ -112,7 +113,7 @@ Docker 相比于传统虚拟化方式具有更多的优势：
 
 容器(Container)的定义和镜像(Image)几乎一模一样，也是一堆层的统一视角，唯一区别在于容器的最上面那一层是可读可写的。
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483094ad5d26853a)
+
 
 由于容器的定义并没有提及是否要运行容器，所以实际上，容器 = 镜像 + 读写层。
 
@@ -149,15 +150,18 @@ Docker Registry 公有仓库是开放给用户使用、允许用户管理镜像�
 
 我们主要把 Docker 的一些常见概念如 Image，Container，Repository 做了详细的阐述，也从传统虚拟化方式的角度阐述了 Docker 的优势。
 
-我们从下图可以直观地看到 Docker 的架构：
+我们从下图可以直观地看到 Docker 的架构
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437483066b438f353af)
+![Docker 整体架构：Client 客户端、Daemon 守护进程与 Registry 仓库的协作关系](/images/posts/docker-arch.jpg)
+：
+
+
 
 Docker 使用 C/S 结构，即客户端/服务器体系结构。Docker 客户端与 Docker 服务器进行交互，Docker服务端负责构建、运行和分发 Docker 镜像。
 
 Docker 客户端和服务端可以运行在一台机器上，也可以通过 RESTful 、 Stock 或网络接口与远程 Docker 服务端进行通信。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437483930f2eea202cd)
+
 
 这张图展示了 Docker 客户端、服务端和 Docker 仓库(即 Docker Hub 和 Docker Cloud )，默认情况下 Docker 会在 Docker 中央仓库寻找镜像文件。
 
@@ -220,7 +224,7 @@ $ sudo yum remove docker \
  docker-engine
 ```
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/154043748342493d1d90968)
+
 
 我们执行以下安装命令去安装依赖包：
 
@@ -232,7 +236,7 @@ $ sudo yum install -y yum-utils \
 
 这里我事先已经安装过了，所以提示我已经安装了最新版本：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374833954cb9ab6494)
+
 
 **安装 Docker**
 
@@ -264,7 +268,7 @@ docker versionordocker info
 
 返回 Docker 的版本相关信息，证明 Docker 安装成功：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483440cc168b70cc)
+
 
 启动 Docker-CE：
 
@@ -286,7 +290,7 @@ docker pull library/hello-world
 
 docker pull images 是抓取 image 文件，library/hello-world 是 image 文件在仓库里面的位置，其中 library 是 image 文件所在的组，hello-world 是 image 文件的名字。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374834973408bf20f3)
+
 
 抓取成功以后，就可以在本机看到这个 image 文件了：
 
@@ -296,7 +300,7 @@ docker images
 
 我们可以看到如下结果：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374835181c6b718c94)
+
 
 现在，我们可以运行 hello-world 这个 image 文件：
 
@@ -306,7 +310,7 @@ docker run hello-world
 
 我们可以看到如下结果：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437483633734d823ba4)
+
 
 输出这段提示以后，hello world 就会停止运行，容器自动终止。有些容器不会自动终止，因为提供的是服务，比如 MySQL 镜像等。
 
@@ -320,7 +324,7 @@ Docker 提供了一套简单实用的命令来创建和更新镜像，我们可�
 
 我们可以看看下面这幅图：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483581057a285a71)
+
 
 Docker 客户端是 Docker 用户与 Docker 交互的主要方式。当您使用 Docker 命令行运行命令时，Docker 客户端将这些命令发送给服务器端，服务端将执行这些命令。
 
@@ -338,7 +342,7 @@ Docker 命令使用 Docker API 。Docker 客户端可以与多个服务端进行
 
 我们从下图可以很直观的了解到 Docker 的架构：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/154043748363888b604c0ab)
+
 
 Docker 的核心组件包括：
 
@@ -362,7 +366,7 @@ Docker Client ，也称 Docker 客户端。它其实就是 Docker 提供命令�
 
 最常用的 Docker 客户端就是 Docker 命令，我们可以通过 Docker 命令很方便地在 Host 上构建和运行 Docker 容器。
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483619ea261b99ba)
+
 
 **Docker Daemon**
 
@@ -372,7 +376,7 @@ Docker Daemon 是服务器组件，以 Linux 后台服务的方式运行，是 D
 
 该进程会在后台启动一个 API Server ，负责接收由 Docker Client 发送的请求，接收到的请求将通过 Docker Daemon 内部的一个路由分发调度，由具体的函数来执行请求。
 
-![这可能是最为详细的Docker入门吐血总结](http://p9.pstatp.com/large/pgc-image/1540437483705b79fa4c429)
+
 
 我们大致可以将其分为以下三部分：
 
@@ -382,7 +386,7 @@ Docker Daemon 是服务器组件，以 Linux 后台服务的方式运行，是 D
 
 Docker Daemon 的架构如下所示：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/154043748372362abbe96b9)
+
 
 Docker Daemon 可以认为是通过 Docker Server 模块接受 Docker Client 的请求，并在 Engine 中处理请求，然后根据请求类型，创建出指定的 Job 并运行。
 
@@ -410,7 +414,7 @@ docker –d = true
 
 下图可以很直观地看到 Docker Daemon 的启动流程：
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/15404374837235e5f0fe2a4)
+
 
 默认配置下，Docker Daemon 只能响应来自本地 Host 的客户端请求。如果要允许远程客户端请求，需要在配置文件中打开 TCP 监听。
 
@@ -418,7 +422,7 @@ docker –d = true
 
 ①编辑配置文件/etc/systemd/system/multi-user.target.wants/docker.service，在环境变量 ExecStart 后面添加 -H tcp://0.0.0.0，允许来自任意 IP 的客户端连接。
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/15404374837212af51bc3b9)
+
 
 ②重启 Docker Daemon：
 
@@ -453,7 +457,7 @@ Docker 镜像可以看作是一个特殊的文件系统，除了提供容器运�
 
 Docker Registry 是存储 Docker Image 的仓库，它在 Docker 生态环境中的位置如下图所示：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483766706e52e4af)
+
 
 运行 docker push、docker pull、docker search 时，实际上是通过 Docker Daemon 与 Docker Registry 通信。
 
@@ -479,15 +483,15 @@ Docker Container 提供了系统硬件环境，我们可以使用 Docker Images 
 
 具体过程可以看如下这幅演示图：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/15404374837950bb41b5243)
+
 
 我们可以通过 Docker Images 可以查看到 hello-world 已经下载到本地：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/15404374838229a52253032)
+
 
 我们可以通过 Docker Ps 或者 Docker Container ls 显示正在运行的容器，我们可以看到，hello-world 在输出提示信息以后就会停止运行，容器自动终止，所以我们在查看的时候没有发现有容器在运行。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/154043748381858997113fc)
+
 
 我们把 Docker 容器的工作流程剖析的十分清楚了，我们大体可以知道 Docker 组件协作运行容器可以分为以下几个过程：
 
@@ -503,7 +507,7 @@ Docker Container 提供了系统硬件环境，我们可以使用 Docker Images 
 
 我们可以通过 docker -h 去查看命令的详细的帮助文档。在这里我只会讲一些日常我们可能会用的比较多的一些命令。
 
-![这可能是最为详细的Docker入门吐血总结](http://p9.pstatp.com/large/pgc-image/15404374838451e3f53be64)
+
 
 例如，我们需要拉取一个 Docker 镜像，我们可以用如下命令：
 
@@ -585,7 +589,7 @@ Dockerfile 是自动构建 Docker 镜像的配置文件，用户可以使用 Doc
 
 我们可以通过下面这幅图来直观地感受下 Docker 镜像、容器和 Dockerfile 三者之间的关系：
 
-![这可能是最为详细的Docker入门吐血总结](http://p3.pstatp.com/large/pgc-image/1540437483882415022c72b)
+
 
 我们从上图中可以看到，Dockerfile 可以自定义镜像，通过 Docker 命令去运行镜像，从而达到启动容器的目的。Dockerfile 是由一行行命令语句组成，并且支持已 # 开头的注释行。
 
@@ -763,7 +767,7 @@ docker build -t angelkitty/nginx_web:v1 .
 
 我们构建完成之后，使用 Docker Images 命令查看所有镜像，如果存在 REPOSITORY 为 Nginx 和 TAG 是 v1 的信息，就表示构建成功。
 
-![这可能是最为详细的Docker入门吐血总结](http://p1.pstatp.com/large/pgc-image/1540437483933ff478b60d5)
+
 
 接下来使用 docker run 命令来启动容器：
 
@@ -775,4 +779,4 @@ docker run --name nginx_web -d -p 8080:80 angelkitty/nginx_web:v1
 
 这样我们可以用浏览器去访问这个 Nginx 服务器：http://localhost:8080/ 或者 http://本机的 IP 地址：8080/，页面返回信息：
 
-![这可能是最为详细的Docker入门吐血总结](http://p9.pstatp.com/large/pgc-image/15404374839230f36285646)
+

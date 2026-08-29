@@ -4,6 +4,7 @@ date: 2022-06-06
 draft: false
 summary: "程序员应该访问的最佳网站中文版：精选对程序员有用的学习、资讯与技术社区站点清单，覆盖技术储备与新知识获取，助力持续成长。"
 slug: "cheng-xu-yuan-ying-gai-fang-wen-de-zui-jia-wang-zhan-zhong-wen-ban"
+tags: ["程序员", "资源", "Awesome", "效率"]
 ---
 
 # awesome
@@ -640,4 +641,4 @@ slug: "cheng-xu-yuan-ying-gai-fang-wen-de-zui-jia-wang-zhan-zhong-wen-ban"
 
 下一篇
 
-[### Go资源大全](https://i.plbear.com/post/go-zi-yuan-da-quan/)
+[### Go资源大全](https://www.plbear.com/posts/go-zi-yuan-da-quan//)

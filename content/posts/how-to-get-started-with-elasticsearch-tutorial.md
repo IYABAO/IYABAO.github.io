@@ -4,13 +4,17 @@ date: 2019-07-22
 draft: false
 summary: "如何高逼格地给同事做 Elasticsearch 技术分享：从可视化展示 ELK 效果、核心概念讲解到实战案例，梳理一场深入浅出的 ES 技术分享的思路与内容组织方式。"
 slug: "how-to-get-started-with-elasticsearch-tutorial"
+tags: ["Elasticsearch", "ELK", "技术分享", "Kibana"]
 ---
 
 如果你有机会在公司内部做一次Elasticsearch 技术分享，如何才能讲的逼格高，又接地气，那么建议从以下几个方面展开，大家有好的想法，也欢迎文章留言交流。
 
 # 1、可视化展示ELK效果
 
-![如何高逼格的给同事做 Elasticsearch 技术分享](http://p3.pstatp.com/large/pgc-image/e6f0b99ab0204c2f89398a825576ea86)
+![Elasticsearch 分布式集群架构：节点分片与副本的协作关系](/images/posts/es-cluster.jpg)
+
+
+
 
 如果条件允许，demo的内容是：通过logstash 同步日志或数据库（oracle、mysql）表的数据到 Elasticsearch，然后通过kibana进行可视化。
 
@@ -20,7 +24,7 @@ slug: "how-to-get-started-with-elasticsearch-tutorial"
 
 # 2、 Elk stack大家族简介
 
-![如何高逼格的给同事做 Elasticsearch 技术分享](http://p1.pstatp.com/large/pgc-image/be95b5a3cb294445bac60559329a2d8f)
+
 
 考虑到不同受众关注点不同。结合业务的数据的特点，从输入、中间处理、存储&检索、分析等全数据流环节展开。
 
@@ -86,7 +90,7 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 - 倒排索引。
 - ES的底层是lucene等。
 
-![如何高逼格的给同事做 Elasticsearch 技术分享](http://p1.pstatp.com/large/pgc-image/423dfe02f753443a8ecba9e0f0a774f1)
+
 
 3.2 Elasticsearch分布式可扩展的特性
 
@@ -132,13 +136,13 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 
 可以借助他山之石，把其他公司的应用场景、对应的硬件资源、写入、查询、QPS等性能指标展示出来，凸显牛逼功能和性能。
 
-![如何高逼格的给同事做 Elasticsearch 技术分享](http://p3.pstatp.com/large/pgc-image/d31ef223121a415188541e227f4de895)
+
 
 # 6、Elastic 前景光明
 
 Elasticsearch在DBRanking 数据库排行榜搜索引擎部分近几年一直处于第一名的领先优势。
 
-![如何高逼格的给同事做 Elasticsearch 技术分享](http://p9.pstatp.com/large/pgc-image/b41ccbaa0bd14d7d8e8b5141c22fe5be)
+
 
 基于Elastic的分布式、可扩展性、良好的性能，BAT、滴滴、美团、小米、华为、携程、360、有赞等几乎所有的主流互联网公司甚至婚庆网站的搜索引擎已经都已经转成ES了。
 

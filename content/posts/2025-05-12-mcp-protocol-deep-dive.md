@@ -12,7 +12,7 @@ faq:
     answer: "Function Calling 是各家厂商各自定义的私有协议，迁移成本高；MCP 是开放的标准化协议，Claude、Cursor、ChatGPT、Windsurf 等主流产品都原生支持，一套服务可被多个 Agent 复用，生态更广、维护成本更低。"
   - question: "MCP 传输层是怎么工作的？"
     answer: "MCP 采用客户端-服务器模型，通过 JSON-RPC 2.0 进行消息传递，支持 stdio（本地进程通信）和 HTTP/SSE（远程通信）两种传输方式，并支持流式请求和双向通信，适合 Agent 与工具之间的实时交互。"
-
+keywords: ["MCP协议", "Model Context Protocol", "FastMCP", "大模型工具调用", "AI Agent"]
 ---
 
 MCP（Model Context Protocol）是 Anthropic 在 2024 年底推出的开放协议，目标是让大模型能标准化地连接外部工具和数据。2025年 MCP 生态爆发，Claude、Cursor、Windsurf、ChatGPT 都支持了 MCP。我们在招聘平台做了企业级 MCP 服务，深入研究了协议设计。今天从协议层面做深度解析。

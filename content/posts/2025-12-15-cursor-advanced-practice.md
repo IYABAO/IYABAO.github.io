@@ -5,6 +5,7 @@ draft: false
 tags: ["Cursor", "AI编程", "Rules", "Composer", "代码重构", "研发效能"]
 categories: ["工程效能"]
 summary: "Cursor AI 编辑器的进阶使用技巧，涵盖 .cursorrules 项目规则配置、Composer 多文件编辑模式、@ 引用系统、自定义指令、大型重构工作流，以及在 Go/PHP 微服务项目中的实战经验和效率提升数据。"
+keywords: ["Cursor", "Rules", "Composer", "重构", "AI编程"]
 ---
 
 Cursor 是目前最火的 AI 原生编辑器，很多人用 Cursor 只是把它当"带 AI 补全的 VS Code"，其实 Cursor 的高级功能（Rules、Composer、@ 引用）能让开发效率再提升一个量级。我用 Cursor 做了几个微服务重构项目，总结了一套进阶使用方法。今天把实战技巧分享出来。

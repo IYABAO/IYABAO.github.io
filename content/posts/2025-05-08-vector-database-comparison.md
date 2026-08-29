@@ -5,6 +5,7 @@ draft: false
 tags: ["向量数据库", "Milvus", "Pinecone", "Weaviate", "pgvector", "RAG", "AI基础设施"]
 categories: ["AI架构"]
 summary: "四款主流向量数据库的深度对比，Milvus、Pinecone、Weaviate、pgvector 的架构、性能、功能、部署方式、成本，以及在 RAG 场景下的选型实践和压测数据。"
+keywords: ["向量数据库", "Milvus", "Pinecone", "RAG", "选型"]
 ---
 
 做 RAG 和 AI 应用，向量数据库是核心基础设施。2025年向量数据库赛道已经很成熟了，主流选项有 Milvus、Pinecone、Weaviate、pgvector，各有特点。我们在做招聘知识库 RAG 时做了深度调研和压测，今天把选型经验分享出来。

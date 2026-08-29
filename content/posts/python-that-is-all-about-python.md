@@ -4,6 +4,7 @@ date: 2019-08-10
 draft: false
 summary: "Awesome Python 中文资源大全：系统整理 Python 环境管理、库、框架、工具等高质量资源清单，Python 开发者学习与选型参考必备。"
 slug: "python-that-is-all-about-python"
+tags: ["Python", "资源大全", "Awesome"]
 ---
 
 ### 环境管理

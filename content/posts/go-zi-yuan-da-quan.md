@@ -4,6 +4,7 @@ date: 2022-06-02
 draft: false
 summary: "Awesome Go 中文资源大全：覆盖音频音乐、认证授权、区块链、命令行、数据库、Web 框架等 Go 生态的高质量库与工具清单，Go 开发者选型参考必备。"
 slug: "go-zi-yuan-da-quan"
+tags: ["Go", "资源大全", "Awesome"]
 ---
 
 ## Contents
@@ -3345,4 +3346,4 @@ See also [Natural Language Processing](#natural-language-processing) and [Text A
 
 下一篇
 
-[### ES索引的增删改查](https://i.plbear.com/post/es-suo-yin-de-zeng-shan-gai-cha/)
+[### ES索引的增删改查](https://www.plbear.com/posts/es-suo-yin-de-zeng-shan-gai-cha//)

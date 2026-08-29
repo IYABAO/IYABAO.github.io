@@ -4,6 +4,7 @@ date: 2022-08-12
 draft: false
 summary: "PHPUnit 踩坑实录：记录 PHP 7.2/7.4 环境下 PHPUnit 8.5/9.5 与 Mockery 的版本兼容问题、测试类编写规范与日常开发中的实战经验。"
 slug: "phpunit"
+tags: ["PHPUnit", "PHP", "测试"]
 ---
 
 PHPUnit踩坑实录
@@ -195,4 +196,4 @@ http://docs.mockery.io/en/latest/index.html
 
 下一篇
 
-[### 阿里云盘 挂载本地挂载](https://i.plbear.com/post/a-li-yun-pan-gua-zai-ben-di-gua-zai/)
+[### 阿里云盘 挂载本地挂载](https://www.plbear.com/posts/a-li-yun-pan-gua-zai-ben-di-gua-zai//)

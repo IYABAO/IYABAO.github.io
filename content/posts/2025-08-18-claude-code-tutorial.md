@@ -5,6 +5,7 @@ draft: false
 tags: ["Claude Code", "AI编程", "CLI", "Skills", "MCP", "研发效能", "教程"]
 categories: ["工程效能"]
 summary: "Claude Code 的深度使用教程，从基础 CLI 命令到高级技巧，涵盖项目理解、多文件重构、自定义 Skills、MCP 集成、调试排错、工作流优化，以及在 Go/PHP 微服务项目中的实战经验。"
+keywords: ["Claude Code", "AI辅助开发", "Skills", "工作流"]
 ---
 
 Claude Code 是 Anthropic 推出的命令行 AI 编程助手，2025年已经成为很多后端开发者的主力工具。它不是简单的代码补全，而是能在终端里自主理解项目、编辑文件、运行命令、调试排错的 AI Agent。我用 Claude Code 做了几个微服务重构项目，总结了一套从入门到精通的使用方法。今天把深度教程分享出来。

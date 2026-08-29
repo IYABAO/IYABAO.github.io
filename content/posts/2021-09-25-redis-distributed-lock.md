@@ -5,6 +5,7 @@ draft: false
 tags: ["Redis", "分布式锁", "高并发", "PHP", "Redlock", "幂等"]
 categories: ["分布式系统"]
 summary: "Redis 分布式锁在高并发场景下的正确性分析，从基础的 SETNX 到 Redlock 算法，再到原子防重的工程实践，分析各种方案的适用场景和坑点。"
+keywords: ["Redis", "分布式锁", "Redlock", "防重", "高并发"]
 ---
 
 分布式锁是高并发系统里的常用工具，防止多个进程同时操作共享资源。Redis 因为性能高、实现简单，是最常用的分布式锁方案。但 Redis 分布式锁的正确性一直有争议，Martin Kleppmann 和 antirez（Redis 作者）还专门争论过 Redlock 算法的安全性。今天从工程实践角度，分析 Redis 分布式锁在高并发场景下的各种方案和坑点。

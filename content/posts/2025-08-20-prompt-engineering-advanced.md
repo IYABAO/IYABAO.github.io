@@ -5,6 +5,7 @@ draft: false
 tags: ["Prompt工程", "大模型", "CoT", "ReAct", "AI应用", "推理模式"]
 categories: ["AI架构"]
 summary: "Prompt 工程的进阶技术，从基础提示词到 CoT 思维链、ReAct 推理模式、Few-shot 示例、Self-Consistency，以及在招聘场景（AI面试、简历评估、职位匹配）中的实际应用和效果对比。"
+keywords: ["Prompt工程", "CoT", "ReAct", "大模型", "推理"]
 ---
 
 Prompt 工程是大模型应用的核心技术，很多人觉得 Prompt 就是"写几句话告诉模型做什么"，但实际上高级的 Prompt 技术能让模型的推理能力、准确率、稳定性提升一个量级。2025年我们在 AI 面试、简历评估、职位匹配等场景做了大量 Prompt 优化，今天把进阶技术和实战经验分享出来。

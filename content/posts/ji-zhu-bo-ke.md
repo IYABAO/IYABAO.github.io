@@ -4,6 +4,7 @@ date: 2022-06-08
 draft: false
 summary: "值得收藏的技术博客与学习资源导航：收录技术 RoadMap、云风、美团技术团队、阮一峰等一线技术博客与学习站点，持续学习与拓宽技术视野必备。"
 slug: "ji-zhu-bo-ke"
+tags: ["博客", "资源", "技术社区"]
 ---
 
 [技术RoadMap](https://github.com/kamranahmedse/developer-roadmap)
@@ -106,4 +107,4 @@ Keep LearningBuilding with Observability in mindMetrics logging and other observ
 
 下一篇
 
-[### 程序员应该访问的最佳网站中文版](https://i.plbear.com/post/cheng-xu-yuan-ying-gai-fang-wen-de-zui-jia-wang-zhan-zhong-wen-ban/)
+[### 程序员应该访问的最佳网站中文版](https://www.plbear.com/posts/cheng-xu-yuan-ying-gai-fang-wen-de-zui-jia-wang-zhan-zhong-wen-ban//)

@@ -5,6 +5,7 @@ draft: false
 tags: ["ELK", "日志", "Filebeat", "Elasticsearch", "Kibana", "可观测性"]
 categories: ["运维"]
 summary: "ELK 日志中台搭建实践，涵盖 Filebeat 日志采集、Logstash 过滤清洗、Elasticsearch 存储索引、Kibana 可视化分析，解决微服务架构下日志分散、排查困难的问题。"
+keywords: ["ELK", "日志中台", "Filebeat", "Kibana", "可观测性"]
 ---
 
 微服务架构下，日志分散在各个服务的各个 Pod 里，出问题排查要登到各个机器上翻日志，效率极低。2023年底搭了 ELK 日志中台，统一采集、存储、分析所有服务的日志。今天把搭建实践分享出来。

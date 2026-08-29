@@ -5,6 +5,7 @@ draft: false
 tags: ["AI编程", "Cursor", "Claude Code", "GitHub Copilot", "Windsurf", "Trae", "研发效能"]
 categories: ["工程效能"]
 summary: "五款主流 AI 编程助手的深度横评，Cursor、Claude Code、GitHub Copilot、Windsurf、Trae 的功能对比、适用场景、价格、性能实测，以及在 Go/PHP 微服务项目中的实际使用体验和选型建议。"
+keywords: ["AI编程助手", "Cursor", "Claude Code", "Copilot", "选型"]
 ---
 
 2025年 AI 编程助手已经是开发者的标配了，市面上产品很多，各有特点。我们团队从 2024 年开始陆续试用了主流的 AI 编程助手，在 Go/PHP 微服务项目里做了深度对比。今天把横评结果和选型建议分享出来。

@@ -4,15 +4,19 @@ date: 2019-08-01
 draft: false
 summary: "微服务架构基于 Mycat 分库分表及读写分离的配置实战：以在线商城用户、商品、订单三大微服务为例，完整演示水平拆分、垂直拆分与读写分离的配置过程。"
 slug: "mycat"
+tags: ["MyCat", "分库分表", "MySQL", "微服务"]
 ---
 
 > 本文以在线商城系统为主要业务场景，分别定义了用户、商品和订单三个微服务，并实现三个微服务所涉及到的数据库和表的水平拆分、垂直拆分和读写分离的相关配置。
+
+![MyCat 分库分表架构：中间件层将请求分发到多个水平分片数据库](/images/posts/mycat-sharding.jpg)
+
 
 # 概念
 
 先来看一下本文业务场景中涉及到的数据库表。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p9.pstatp.com/large/pgc-image/4ef055d806c046bcb286caf945fb019e)
+
 
 单机环境的数据库结构
 
@@ -22,7 +26,7 @@ slug: "mycat"
 
 我们把数据库水平拆分成三个数据库，每个数据库中的表结构是完全相同的，不同数据库中表的记录条数不同。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/6fe8a9205795466886ded8fcdedb0d8e)
+
 
 水平拆分后的数据库结构
 
@@ -32,7 +36,7 @@ slug: "mycat"
 
 按用户库、商品库和订单库实现的不同功能进行垂直拆分。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/e00c8023747d430797d51fdf0f5be00d)
+
 
 垂直拆分数据库结构
 
@@ -40,7 +44,7 @@ slug: "mycat"
 
 读写分离一般来说都是通过主从复制（Master-Slave）的方式来同步数据，再通过读写分离（MySQL-Proxy）来提升数据库的并发负载能力这样的方案来进行部署与实施的。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p3.pstatp.com/large/pgc-image/cbd8c22935544d82a243d225f3dc9394)
+
 
 数据库读写分离架构
 
@@ -50,7 +54,7 @@ slug: "mycat"
 
 按照上面的业务场景，将数据库进行垂直拆分再水平拆分。按三个业务模块进行垂直拆分，在分别水平拆分成3个数据库，最后形成9个数据库。再按一主一从的方式进行读写分离配置，即一共18个数据库。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/137595b896e949e7bfd8dd56a9671501)
+
 
 垂直、水平拆分及读写分离架构
 
@@ -76,7 +80,7 @@ server.xml 包含mycat的系统配置信息，它有两个标签，分别是user
 
 user标签
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/f45c49c024e74b3a9478f7edeb9b16c7)
+
 
 server的user标签
 
@@ -94,7 +98,7 @@ system标签：
 
 sequnceHanlderType属性有三个选项。0代表本地文件，1代表数据库方式，2代表时间戳方式。这里可以根据需要自行配置。数据库方式的话需要对dataNode创建一些相关的函数才能使用。本地文件是使用conf/sequence\_conf.properties文件内容进行维护的。具体详见该文件的内容。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p3.pstatp.com/large/pgc-image/32b7d5cbf1c342c1bf30f8f4f595eed2)
+
 
 sequnceHanlderType配置
 
@@ -102,7 +106,7 @@ sequnceHanlderType配置
 
 这里将数据库从逻辑上分为三个，javapupil\_user(用户库)、javapupil\_goods(商品库)、javapupil\_order(订单库)。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p3.pstatp.com/large/pgc-image/7c00ec461b08456784e2ae3721443fed)
+
 
 schema-table-datanode配置
 
@@ -116,7 +120,7 @@ dataNode：数据库表所在的数据节点名称。
 
 rule：数据插入规则，rule.xml小节中详述。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/05401142d526494880bc0f9b56832921)
+
 
 dataNode配置
 
@@ -128,7 +132,7 @@ dataHost：数据主机名称。下面详述。
 
 database：数据库名称。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p3.pstatp.com/large/pgc-image/5a3f6b863ca14942b764c8559dc1d6ce)
+
 
 dataHost配置
 
@@ -170,7 +174,7 @@ rule属性的mod-long在此配置文件中进行设置。这里表示的是“�
 
 rule.xml文件中会找到如下代码：
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/ec54c97105c443b28c1926bb19416037)
+
 
 mod-long配置
 
@@ -180,7 +184,7 @@ algorithm：表示具体的算法，这里的算法是mod-long。
 
 那么mod-long是怎么实现的呢：
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p3.pstatp.com/large/pgc-image/65fc61b83d1b4598975cd44d7cedc0d4)
+
 
 实现mod-long的java类
 
@@ -208,7 +212,7 @@ jdbc:mysql://192.168.1.145:8066/javapupil\_order
 
 next value for MYCATSEQ\_GLOBAL，这里的GLOBAL是在conf/sequence\_conf.properties中进行的配置。
 
-![微服务架构基于Mycat分库分表及读写分离的配置实战](http://p1.pstatp.com/large/pgc-image/57be1f8820844309987b7f329f8eb7c2)
+
 
 SEQ\_GLOBAL配置
 

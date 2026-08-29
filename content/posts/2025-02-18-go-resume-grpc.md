@@ -5,6 +5,7 @@ draft: false
 tags: ["Go", "gRPC", "微服务", "接口设计", "Protobuf"]
 categories: ["Go开发"]
 summary: "Go 简历微服务的接口设计实践，从 RESTful 到 gRPC 的演进，涵盖 Protobuf 定义、错误码规范、拦截器设计、服务注册发现，建立跨服务通信标准。"
+keywords: ["Go", "gRPC", "Protobuf", "微服务", "接口设计"]
 ---
 
 简历服务从 PHP 迁移到 Go 微服务后，需要和多个服务（用户中心、职位服务、AI 服务）通信。RESTful HTTP 调用在服务间高频调用场景下性能不够，2025年2月全面切换到 gRPC，今天把接口设计实践分享出来。

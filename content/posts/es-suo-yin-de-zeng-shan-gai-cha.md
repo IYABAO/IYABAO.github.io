@@ -4,6 +4,7 @@ date: 2020-09-08
 draft: false
 summary: "Elasticsearch 索引增删改查实战笔记：通过标准 RESTful 接口演示索引的创建、查看、更新与删除操作，汇总常用 API 与 Kibana 调试技巧，ES 日常运维必备。"
 slug: "es-suo-yin-de-zeng-shan-gai-cha"
+tags: ["Elasticsearch", "ES", "索引", "RESTful"]
 ---
 
 标准的restful接口
@@ -438,4 +439,4 @@ PUT my-index-000001
 
 下一篇
 
-[### Python资源大全](https://i.plbear.com/post/python-that-is-all-about-python/)
+[### Python资源大全](https://www.plbear.com/posts/python-that-is-all-about-python//)
