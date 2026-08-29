@@ -22,3 +22,18 @@
 </script>
 {{- end -}}
 {{- end -}}
+
+{{- /* 默认 og:image - 当页面没有封面图时使用全站默认分享图 */ -}}
+{{- $hasOgImage := false -}}
+{{- if .Params.cover.image -}}
+  {{- $hasOgImage = true -}}
+{{- else -}}
+  {{- $pageImages := partial "_funcs/get-page-images" . -}}
+  {{- if $pageImages -}}
+    {{- $hasOgImage = true -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $hasOgImage -}}
+  <meta property="og:image" content="{{ "images/og-cover.jpg" | absURL }}">
+  <meta name="twitter:image" content="{{ "images/og-cover.jpg" | absURL }}">
+{{- end -}}

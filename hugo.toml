@@ -102,8 +102,19 @@ enableEmoji = true
   disableHTML = true
   minifyOutput = true
 
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
+
+[outputFormats]
+  [outputFormats.LLMS]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+
 [outputs]
-  home = ['HTML', 'RSS', 'JSON']
+  home = ['HTML', 'RSS', 'JSON', 'LLMS']
   section = ['HTML', 'RSS']
 
 [taxonomies]

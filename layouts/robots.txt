@@ -1,0 +1,44 @@
+# www.plbear.com robots.txt
+# 显式放行主流 AI 搜索引擎爬虫（GEO 优化）
+
+User-agent: *
+Disallow:
+
+# AI 搜索引擎 / LLM 爬虫（显式放行）
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}

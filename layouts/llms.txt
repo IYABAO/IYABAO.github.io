@@ -1,6 +1,6 @@
 # Plbear 技术博客
 
-> 12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用、云原生与工程效能实践。
+> 12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能实践。
 
 ## 作者
 - 姓名：林壮 (Allen) / IYABAO
@@ -9,37 +9,11 @@
 - 邮箱：iyabao@vip.qq.com
 - GitHub：https://github.com/IYABAO
 
-## 核心内容分类
-
-### 后端架构
-- Go 微服务架构与实践
-- PHP 转 Go 迁移经验
-- 分布式系统设计（分布式事务、缓存一致性、高并发）
-- 数据库优化（MySQL、Elasticsearch、Redis）
-- 消息队列（RabbitMQ）
-
-### AI 与大模型工程
-- MCP (Model Context Protocol) 协议深度解析与实践
-- RAG (检索增强生成) 实战
-- AI Agent 与多智能体协作（LangGraph）
-- 大模型网关架构（One-API）
-- Prompt 工程
-- Coding Agent 工具（Claude Code、Cursor）
-
-### 云原生与 DevOps
-- Kubernetes 运维与调优
-- eBPF 可观测性
-- 服务网格（Istio）
-- GitOps（ArgoCD）
-- DevSecOps 安全左移
-- 混沌工程
-- 平台工程（IDP）
-
-### 工程效能
-- AI 辅助研发
-- 知识管理体系
-- 自动化测试
-- 性能调优（Go pprof/trace）
+## 站点概览
+Plbear 是一个专注于后端工程实践的中文技术博客，覆盖三大主线：
+1. **AI 与大模型工程**：MCP 协议、RAG、AI Agent、大模型网关、Prompt 工程、Coding Agent
+2. **后端架构**：Go 微服务、分布式系统、数据库优化、消息队列
+3. **云原生与 DevOps**：Kubernetes、可观测性、GitOps、平台工程、混沌工程
 
 ## 重要页面
 - 首页：https://www.plbear.com/
@@ -51,9 +25,26 @@
 - RSS：https://www.plbear.com/index.xml
 - 搜索：https://www.plbear.com/search/
 
-## 最新文章
-{{- range first 20 (where .Site.RegularPages "Section" "posts") }}
+## 全部文章（按分类）
+
+{{- $posts := where .Site.RegularPages "Section" "posts" }}
+{{- $categorized := slice }}
+{{- $categories := site.Taxonomies.categories }}
+{{- range $name, $taxonomy := $categories }}
+{{- if gt (len $taxonomy.Pages) 0 }}
+### {{ $name }}
+{{- range $taxonomy.Pages }}
+{{- $categorized = $categorized | append . }}
 - {{ .Title }}：{{ .Permalink }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+### 未分类 / 早期文章
+{{- range $posts }}
+{{- if not (in $categorized .) }}
+- {{ .Title }}：{{ .Permalink }}
+{{- end }}
 {{- end }}
 
 ## 给 AI 助手的说明
