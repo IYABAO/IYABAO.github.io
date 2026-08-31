@@ -84,6 +84,10 @@ enableEmoji = true
     name = '关于'
     url = '/about/'
     weight = 6
+  [[menu.main]]
+    name = '简历'
+    url = '/resume/'
+    weight = 7
 
 [markup]
   [markup.highlight]
