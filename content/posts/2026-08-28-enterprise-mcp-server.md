@@ -362,3 +362,8 @@ fastmcp-enterprise/
 - [MCP 协议入门与实战：基于 FastMCP 构建企业级 Skills 服务](/posts/2025-04-21-mcp-fastmcp-practice/)
 - [MCP 生态全景：2026 主流 MCP Server 盘点与选型指南](/posts/2026-02-25-mcp-ecosystem-guide/)
 - [从 MCP 到 Agent Skills：AI 能力封装的演进路径与最佳实践](/posts/2026-06-18-mcp-to-agent-skills/)
+
+
+---
+
+💡 **相关推荐**：把 MCP Server 部署到生产环境需要稳定的云服务器，可看看腾讯云近期活动：[腾讯云活动](https://cloud.tencent.com/act/cps/redirect?redirect=6871&cps_key=ba357b095b01be312fc6aee47a71770d&from=console)
