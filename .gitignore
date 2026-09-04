@@ -26,3 +26,6 @@ Thumbs.db
 
 # 临时脚本
 /scripts/
+
+# 本地备份
+/backups/
