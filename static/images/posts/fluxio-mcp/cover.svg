@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <linearGradient id="cvg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b"/>
+      <stop offset="0.55" stop-color="#312e81"/>
+      <stop offset="1" stop-color="#4338ca"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#cvg)"/>
+  <rect x="40" y="40" width="1120" height="550" rx="20" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <text x="80" y="150" font-size="22" fill="#a5b4fc" font-family="Consolas,monospace">fluxio-mcp</text>
+  <text x="80" y="250" font-size="58" font-weight="bold" fill="#ffffff">让 LLM 直接读取</text>
+  <text x="80" y="330" font-size="58" font-weight="bold" fill="#ffffff">任意信息源的 MCP Server</text>
+
+  <rect x="80" y="390" width="220" height="56" rx="28" fill="#6366f1"/>
+  <text x="190" y="426" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">RSS 解析</text>
+  <rect x="320" y="390" width="220" height="56" rx="28" fill="#4f46e5"/>
+  <text x="430" y="426" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">网页转 Markdown</text>
+  <rect x="560" y="390" width="220" height="56" rx="28" fill="#4338ca"/>
+  <text x="670" y="426" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">免 Key 搜索</text>
+  <rect x="800" y="390" width="220" height="56" rx="28" fill="#3730a3"/>
+  <text x="910" y="426" text-anchor="middle" font-size="20" font-weight="bold" fill="#ffffff">Claude/Cursor 即插即用</text>
+
+  <text x="80" y="530" font-size="18" fill="#c7d2fe">基于 FastMCP · Python · 单测 21/21 · MCP 握手全通 · GitHub Actions CI</text>
+  <text x="80" y="566" font-size="15" fill="#818cf8">github.com/IYABAO/fluxio-mcp</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="440" viewBox="0 0 1200 440" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="440" rx="16" fill="#f8fafc"/>
+  <text x="60" y="58" font-size="26" font-weight="bold" fill="#0f172a">三层验证体系：不把"能跑"当"能用"</text>
+  <text x="60" y="88" font-size="15" fill="#64748b">每个工具都经过 单元测试 → 真实网络端到端 → MCP 协议握手 三层把关</text>
+
+  <!-- 三层 -->
+  <rect x="60" y="140" width="330" height="200" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="90" y="178" font-size="17" font-weight="bold" fill="#0f172a">① 单元测试（pytest）</text>
+  <text x="90" y="208" font-size="13" fill="#475569">• RSS 解析：RSS2.0/Atom/实体/CDATA/时间倒序</text>
+  <text x="90" y="232" font-size="13" fill="#475569">• Markdown：标题/列表/代码块/表格/噪音剔除</text>
+  <text x="90" y="256" font-size="13" fill="#475569">• 搜索：Bing/DuckDuckGo 解析器 + uddg 解码</text>
+  <text x="90" y="280" font-size="13" fill="#475569">• 网页：正文提取/去噪/截断</text>
+  <rect x="90" y="296" width="120" height="28" rx="6" fill="#dcfce7"/>
+  <text x="150" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#15803d">21 个用例</text>
+
+  <!-- 箭头 -->
+  <line x1="390" y1="240" x2="445" y2="240" stroke="#475569" stroke-width="3" marker-end="url(#arr3)"/>
+
+  <rect x="450" y="140" width="330" height="200" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="480" y="178" font-size="17" font-weight="bold" fill="#0f172a">② 真实网络端到端</text>
+  <text x="480" y="208" font-size="13" fill="#475569">• 阮一峰 Atom 订阅：3 篇解析正确</text>
+  <text x="480" y="232" font-size="13" fill="#475569">• 博客文章正文提取：标题/正文准确</text>
+  <text x="480" y="256" font-size="13" fill="#475569">• Bing 搜索"MCP 教程"：4 条中文结果</text>
+  <text x="480" y="280" font-size="13" fill="#475569">• Markdown 转换：标题锚点 # 残留已修复</text>
+  <rect x="480" y="296" width="120" height="28" rx="6" fill="#dcfce7"/>
+  <text x="540" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#15803d">真实站点验证</text>
+
+  <!-- 箭头 -->
+  <line x1="780" y1="240" x2="835" y2="240" stroke="#475569" stroke-width="3" marker-end="url(#arr3)"/>
+
+  <rect x="840" y="140" width="300" height="200" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="870" y="178" font-size="17" font-weight="bold" fill="#0f172a">③ MCP 协议握手</text>
+  <text x="870" y="208" font-size="13" fill="#475569">• stdio 启动真实 Server</text>
+  <text x="870" y="232" font-size="13" fill="#475569">• 工具注册清单核对</text>
+  <text x="870" y="256" font-size="13" fill="#475569">• 真实工具调用返回验证</text>
+  <text x="870" y="280" font-size="13" fill="#475569">• 4 工具 + 1 资源全部连通</text>
+  <rect x="870" y="296" width="120" height="28" rx="6" fill="#dcfce7"/>
+  <text x="930" y="316" text-anchor="middle" font-size="13" font-weight="bold" fill="#15803d">握手全通</text>
+
+  <!-- 底部 CI -->
+  <rect x="60" y="370" width="1080" height="50" rx="10" fill="#eef2ff" stroke="#c7d2fe"/>
+  <text x="600" y="402" text-anchor="middle" font-size="14" fill="#3730a3">push 后 GitHub Actions 自动在 Python 3.10 / 3.11 / 3.12 三版本重跑全部 21 个测试，回归零遗漏</text>
+</svg>
