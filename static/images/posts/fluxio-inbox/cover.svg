@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f2027"/>
+      <stop offset="1" stop-color="#203a43"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00897b"/>
+      <stop offset="1" stop-color="#26a69a"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="url(#bg)"/>
+  <rect x="60" y="52" width="840" height="92" rx="16" fill="url(#teal)" opacity="0.92"/>
+  <text x="480" y="102" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="34" font-weight="bold" fill="#ffffff">Fluxio 收件箱：任何来源一键收藏到 Obsidian</text>
+  <text x="480" y="196" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#b2dfdb">本地收件 API · 剪贴板捕获 · MV3 浏览器扩展 · 零新依赖</text>
+  <g font-family="Microsoft YaHei, sans-serif" font-size="15">
+    <rect x="90" y="250" width="230" height="96" rx="12" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="205" y="286" text-anchor="middle" font-weight="bold" fill="#4dd0e1">投递入口</text>
+    <text x="205" y="312" text-anchor="middle" fill="#cfd8dc">浏览器扩展 / 剪贴板</text>
+    <text x="205" y="332" text-anchor="middle" fill="#cfd8dc">投递页 / 脚本 curl</text>
+    <rect x="400" y="250" width="160" height="96" rx="12" fill="#00897b"/>
+    <text x="480" y="290" text-anchor="middle" font-weight="bold" fill="#ffffff">本地收件 API</text>
+    <text x="480" y="316" text-anchor="middle" fill="#e0f2f1">127.0.0.1:8730</text>
+    <text x="480" y="336" text-anchor="middle" fill="#e0f2f1">Token 鉴权</text>
+    <rect x="650" y="250" width="220" height="96" rx="12" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="760" y="286" text-anchor="middle" font-weight="bold" fill="#4dd0e1">复用现有收藏链路</text>
+    <text x="760" y="312" text-anchor="middle" fill="#cfd8dc">saveClip → md + 自包含 HTML</text>
+    <text x="760" y="332" text-anchor="middle" fill="#cfd8dc">→ Obsidian 收件箱</text>
+    <path d="M 320 298 H 392" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#arr1)"/>
+    <path d="M 560 298 H 642" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#arr2)"/>
+  </g>
+  <defs>
+    <marker id="arr1" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#4dd0e1"/></marker>
+    <marker id="arr2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#4dd0e1"/></marker>
+  </defs>
+  <text x="480" y="416" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#90a4ae">微信 / 今日头条 / 任意网页 → 一键投递，与站内收藏 100% 同链路</text>
+  <rect x="120" y="452" width="720" height="4" rx="2" fill="#26a69a" opacity="0.6"/>
+</svg>

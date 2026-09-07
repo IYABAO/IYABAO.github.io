@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102027"/>
+      <stop offset="1" stop-color="#1b2a32"/>
+    </linearGradient>
+    <marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#4dd0e1"/></marker>
+  </defs>
+  <rect width="960" height="560" rx="24" fill="url(#bg2)"/>
+  <text x="60" y="70" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="bold" fill="#e0f2f1">投递 → 校验 → 提取 → 收藏：一次请求全链路</text>
+
+  <g font-family="Microsoft YaHei, sans-serif" font-size="14">
+    <!-- 入口 -->
+    <rect x="60" y="120" width="180" height="70" rx="10" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="150" y="152" text-anchor="middle" font-weight="bold" fill="#4dd0e1">浏览器扩展</text>
+    <text x="150" y="176" text-anchor="middle" fill="#90a4ae">点击图标</text>
+    <rect x="60" y="220" width="180" height="70" rx="10" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="150" y="252" text-anchor="middle" font-weight="bold" fill="#4dd0e1">剪贴板钩子</text>
+    <text x="150" y="276" text-anchor="middle" fill="#90a4ae">2s 轮询检测 URL</text>
+    <rect x="60" y="320" width="180" height="70" rx="10" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="150" y="352" text-anchor="middle" font-weight="bold" fill="#4dd0e1">curl / 脚本</text>
+    <text x="150" y="376" text-anchor="middle" fill="#90a4ae">POST /api/inbox</text>
+
+    <!-- 收件服务 -->
+    <rect x="340" y="185" width="190" height="140" rx="12" fill="#00897b"/>
+    <text x="435" y="222" text-anchor="middle" font-weight="bold" fill="#ffffff">本地收件服务</text>
+    <text x="435" y="248" text-anchor="middle" fill="#e0f2f1">X-Inbox-Token 校验</text>
+    <text x="435" y="272" text-anchor="middle" fill="#e0f2f1">URL 协议白名单</text>
+    <text x="435" y="296" text-anchor="middle" fill="#e0f2f1">仅 loopback 绑定</text>
+
+    <!-- 提取 -->
+    <rect x="620" y="185" width="180" height="140" rx="12" fill="#263238" stroke="#26a69a" stroke-width="1.5"/>
+    <text x="710" y="222" text-anchor="middle" font-weight="bold" fill="#4dd0e1">尽力提取</text>
+    <text x="710" y="248" text-anchor="middle" fill="#cfd8dc">title / 纯文本</text>
+    <text x="710" y="272" text-anchor="middle" fill="#cfd8dc">失败仍收藏链接</text>
+    <text x="710" y="296" text-anchor="middle" fill="#cfd8dc">保证一键可用</text>
+
+    <!-- 落库 -->
+    <rect x="850" y="300" width="70" height="52" rx="10" fill="#4e342e"/>
+    <text x="885" y="326" text-anchor="middle" font-family="sans-serif" font-size="24" fill="#ffb74d">📥</text>
+    <text x="885" y="344" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#ffccbc">Obsidian</text>
+
+    <!-- 箭头 -->
+    <path d="M 240 155 H 332" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#ar)"/>
+    <path d="M 240 255 H 332" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#ar)"/>
+    <path d="M 240 355 H 332" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#ar)"/>
+    <path d="M 530 255 H 612" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#ar)"/>
+    <path d="M 800 255 H 870" stroke="#4dd0e1" stroke-width="2.5" marker-end="url(#ar)"/>
+  </g>
+
+  <!-- 失败兜底标注 -->
+  <rect x="340" y="370" width="460" height="66" rx="10" fill="#1a237e" stroke="#5c6bc0" stroke-width="1"/>
+  <text x="570" y="398" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#c5cae9">边界处理：非 http(s) 拒绝 · Token 错误 401 · 提取失败降级为纯链接收藏</text>
+  <text x="570" y="422" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" fill="#7986cb">响应统一 { ok, error?, record? }，扩展/弹条直接读状态</text>
+
+  <text x="60" y="500" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#78909c">复用：saveClip(WebPageInfo) 唯一收藏入口 · md + 自包含 HTML 双份写入收件箱</text>
+</svg>
