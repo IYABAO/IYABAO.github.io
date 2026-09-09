@@ -34,6 +34,17 @@ enableEmoji = true
   [params.schema]
     publisherType = "Person"
 
+  [params.imageCDN]
+    # 图床方案：GitHub + jsDelivr CDN
+    # 图片存放在 static/images/ 目录，推送到 GitHub 后通过 jsDelivr CDN 加速
+    enable = true
+    # jsDelivr CDN 基础 URL（GitHub 仓库路径）
+    baseURL = "https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/"
+    # 本地开发时是否使用 CDN（false 时用本地 /images/ 路径）
+    useInDev = false
+    # 图片懒加载
+    lazyLoad = true
+
   [params.analytics.google]
     SiteVerificationTag = "viHbWhCyKDbYHXBvjSAav4NPwnM6tScrxInxiUUxdHI"
   [params.analytics.bing]
@@ -137,4 +148,3 @@ enableEmoji = true
   [[related.indices]]
     name = 'date'
     weight = 10
-

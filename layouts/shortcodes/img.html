@@ -1,0 +1,36 @@
+{{/*
+  图片短代码：自动使用 jsDelivr CDN 加速
+  用法：
+    {{< img src="图片文件名.jpg" alt="图片描述" >}}
+    {{< img src="图片文件名.jpg" alt="图片描述" width="800" caption="图片说明文字" >}}
+  图片存放在 static/images/ 目录，文件名即 src 参数（不含路径）
+*/}}
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $width := .Get "width" -}}
+{{- $caption := .Get "caption" -}}
+{{- $lazy := .Site.Params.imageCDN.lazyLoad | default true -}}
+{{- $useCDN := .Site.Params.imageCDN.enable | default false -}}
+{{- $useInDev := .Site.Params.imageCDN.useInDev | default false -}}
+{{- $cdnBase := .Site.Params.imageCDN.baseURL -}}
+
+{{- /* 决定使用 CDN 还是本地路径 */ -}}
+{{- $imgURL := "" -}}
+{{- if and $useCDN (or (not hugo.IsDevelopment) $useInDev) -}}
+  {{- $imgURL = printf "%s%s" $cdnBase $src -}}
+{{- else -}}
+  {{- $imgURL = printf "/images/%s" $src -}}
+{{- end -}}
+
+<figure class="blog-image-figure">
+  <img
+    src="{{ $imgURL }}"
+    alt="{{ $alt }}"
+    {{ if $width }}style="max-width: {{ $width }}px;"{{ end }}
+    {{ if $lazy }}loading="lazy"{{ end }}
+    decoding="async"
+  />
+  {{- if $caption -}}
+  <figcaption class="blog-image-caption">{{ $caption | markdownify }}</figcaption>
+  {{- end -}}
+</figure>

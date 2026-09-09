@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="12"/>
+  <text x="400" y="150" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">GitHub + jsDelivr CDN</text>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)" text-anchor="middle">图床方案测试图片</text>
+  <text x="400" y="260" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.8)" text-anchor="middle">如果能看到这张图，说明 CDN 配置成功！</text>
+  <circle cx="200" cy="320" r="30" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="400" cy="320" r="30" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="600" cy="320" r="30" fill="rgba(255,255,255,0.2)"/>
+  <text x="200" y="327" font-family="Arial" font-size="14" fill="white" text-anchor="middle">GitHub</text>
+  <text x="400" y="327" font-family="Arial" font-size="14" fill="white" text-anchor="middle">jsDelivr</text>
+  <text x="600" y="327" font-family="Arial" font-size="14" fill="white" text-anchor="middle">Hugo</text>
+</svg>
