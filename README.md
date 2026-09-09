@@ -41,6 +41,69 @@ plbear-blog/
 └── .gitignore
 ```
 
+## 图床方案（GitHub + jsDelivr CDN）
+
+博客图片使用 **GitHub + jsDelivr CDN** 免费方案，国内访问速度快，零成本。
+
+### 配置
+
+在 `hugo.toml` 中已配置：
+
+```toml
+[params.imageCDN]
+  enable = true
+  baseURL = "https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/"
+  useInDev = false   # 本地开发时使用相对路径
+  lazyLoad = true    # 图片懒加载
+```
+
+### 上传图片
+
+使用上传脚本一键复制并重命名：
+
+```bash
+python scripts/upload-image.py <图片路径> [自定义名称]
+
+# 示例
+python scripts/upload-image.py C:/Users/xxx/Pictures/screenshot.png 架构图
+```
+
+输出示例：
+```
+✅ 图片已复制到: static/images/2026-09-09-001-架构图.png
+🌐 CDN 链接: https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/2026-09-09-001-架构图.png
+📝 Hugo 短代码: {{< img src="2026-09-09-001-架构图.png" alt="架构图" >}}
+```
+
+### 文章中引用图片
+
+使用 `img` 短代码（自动使用 CDN 链接）：
+
+```markdown
+{{< img src="2026-09-09-001-架构图.png" alt="系统架构图" caption="图1：系统整体架构" >}}
+```
+
+参数说明：
+- `src`：图片文件名（必填，放在 `static/images/` 目录）
+- `alt`：图片描述（可选，SEO 友好）
+- `caption`：图片说明文字（可选，显示在图片下方）
+- `width`：最大宽度（可选，单位 px）
+
+### 刷新 CDN 缓存
+
+图片更新后 CDN 可能还是旧的，主动刷新：
+
+```
+https://purge.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/文件名.png
+```
+
+### 注意事项
+
+- 图片放在 `static/images/` 目录，命名格式：`日期-序号-名称.扩展名`
+- GitHub 单文件建议 ≤25MB
+- 仓库必须公开（jsDelivr 只能访问公开仓库）
+- 推送代码到 GitHub 后 CDN 自动生效（可能延迟几分钟）
+
 ## 主题选择
 
 推荐技术博客主题：
