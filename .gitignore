@@ -26,6 +26,7 @@ Thumbs.db
 
 # 临时脚本
 /scripts/
+!/scripts/upload-image.py
 
 # 本地备份
 /backups/
