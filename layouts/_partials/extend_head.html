@@ -88,7 +88,7 @@ html[data-theme="dark"] .post-content a code {
   "@type": "WebSite",
   "name": "Plbear | 后端架构 · AI工程 · 云原生技术博客",
   "url": "https://www.plbear.com/",
-  "description": "12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "description": "10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
   "inLanguage": "zh-CN",
   "potentialAction": {
     "@type": "SearchAction",
@@ -99,6 +99,9 @@ html[data-theme="dark"] .post-content a code {
 </script>
 {{- end }}
 
-<!-- GEO 优化：允许 AI 搜索引擎大图预览与全文索引 -->
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{{- /* AI 爬虫索引：薄聚合页(term/taxonomy) noindex，其余允许索引与引用；robots 指令已在 head.html 收口，此处不重复输出 */ -}}
+{{- if or (eq .Kind "taxonomy") (eq .Kind "term") -}}
+<meta name="AI" content="noindex, follow">
+{{- else -}}
 <meta name="AI" content="index, follow, summarize, cite-source">
+{{- end -}}

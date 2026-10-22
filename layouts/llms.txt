@@ -1,11 +1,11 @@
 # Plbear 技术博客
 
-> 12年经验后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能实践。
+> 10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能实践。
 
 ## 作者
 - 姓名：林壮 (Allen) / IYABAO
 - 职位：资深后端架构师 / 全栈开发工程师
-- 经验：12年互联网研发经验
+- 经验：10年以上互联网研发经验
 - 邮箱：iyabao@vip.qq.com
 - GitHub：https://github.com/IYABAO
 
