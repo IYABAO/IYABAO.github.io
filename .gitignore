@@ -30,3 +30,6 @@ Thumbs.db
 
 # 本地备份
 /backups/
+
+# 根目录误提交的旧首页 dump（10/22 构建产物）
+/.html
