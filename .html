@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="auto" data-theme="auto">
+
+<head>
+	<meta name="generator" content="Hugo 0.146.0"><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<title>Plbear | 后端架构 · AI工程 · 云原生技术博客</title>
+<meta name="keywords" content="Go微服务, PHP转Go, 后端架构, MCP协议, RAG实战, AI Agent, 大模型应用, Kubernetes, eBPF, DevOps, 云原生, 工程效能, Coding Agent, 技术博客">
+<meta name="description" content="10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。">
+<meta name="author" content="林壮 Allen / IYABAO">
+<link rel="canonical" href="https://www.plbear.com/">
+<meta name="google-site-verification" content="viHbWhCyKDbYHXBvjSAav4NPwnM6tScrxInxiUUxdHI">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.6ff46447b1fa3f8a5cc0bcae48088decc3ae37f5fbc99406a3aefc3bf0e6044a.css" integrity="sha256-b/RkR7H6P4pcwLyuSAiN7MOuN/X7yZQGo678O/DmBEo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://www.plbear.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.plbear.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.plbear.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.plbear.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://www.plbear.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://www.plbear.com/index.xml" title="rss">
+<link rel="alternate" type="application/json" href="https://www.plbear.com/index.json" title="json">
+<link rel="alternate" hreflang="zh-cn" href="https://www.plbear.com/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:image" content="https://www.plbear.com/images/og-cover.jpg">
+  <meta name="twitter:image" content="https://www.plbear.com/images/og-cover.jpg">
+<meta name="baidu-site-verification" content="codeva-rZep0Qxg9I" />
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5e16b1751efcedd092611328bae71693";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<style>
+.post-content svg {
+    font-size: 8px !important;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.post-content svg text {
+    font-size: 8px !important;
+}
+
+ 
+html[data-theme="dark"] .post-content code:not(pre code) {
+    background-color: #161b22 !important;
+    color: #e6edf3 !important;
+    border: 1px solid #30363d;
+}
+html[data-theme="dark"] .post-content code a,
+html[data-theme="dark"] .post-content a code {
+    color: #79c0ff !important;
+}
+</style>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Plbear | 后端架构 · AI工程 · 云原生技术博客",
+  "url": "https://www.plbear.com/",
+  "description": "10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "inLanguage": "zh-CN",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.plbear.com/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script><meta name="AI" content="index, follow, summarize, cite-source"><meta property="og:url" content="https://www.plbear.com/">
+  <meta property="og:site_name" content="Plbear | 后端架构 · AI工程 · 云原生技术博客">
+  <meta property="og:title" content="Plbear | 后端架构 · AI工程 · 云原生技术博客">
+  <meta property="og:description" content="10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Plbear | 后端架构 · AI工程 · 云原生技术博客">
+  <meta name="twitter:description" content="10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Plbear | 后端架构 · AI工程 · 云原生技术博客",
+  "url": "https://www.plbear.com/",
+  "description": "10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.plbear.com/search/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "林壮 Allen / IYABAO",
+  "url": "https://www.plbear.com/",
+  "description": "10年以上后端架构师的技术博客，专注 Go/PHP 微服务架构、AI 大模型应用（MCP/RAG/Agent）、云原生（K8s/eBPF/DevOps）、工程效能与 Coding Agent 实践。",
+  "image": "https://www.plbear.com/images/og-cover.jpg",
+  "jobTitle": "资深后端架构师",
+  "email": "mailto:iyabao@vip.qq.com",
+  "sameAs": ["https://github.com/IYABAO"
+  ]
+}
+</script>
+</head>
+<body class="list" id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://www.plbear.com/" accesskey="h" title="Plbear | 后端架构 · AI工程 · 云原生技术博客 (Alt + H)">Plbear | 后端架构 · AI工程 · 云原生技术博客</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://www.plbear.com/" title="首页">
+                    <span class="active">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/links/" title="友链">
+                    <span>友链</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/about/" title="关于">
+                    <span>关于</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.plbear.com/resume/" title="简历">
+                    <span>简历</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>Plbear | 后端架构 · AI工程 · 云原生</h1>
+    </header>
+    <div class="entry-content md-content">
+        
+        <p>10年以上后端架构师，专注 Go 微服务、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能。</p>
+
+    </div>
+    <footer class="entry-footer">
+        <div class="social-icons" >
+    <a href="https://github.com/IYABAO" target="_blank" rel="noopener noreferrer me"
+        title="Github">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+    </a>
+    <a href="/index.xml" target="_blank" rel="noopener noreferrer me"
+        title="Rss">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+    </a>
+    <a href="mailto:iyabao@vip.qq.com" target="_blank" rel="noopener noreferrer me"
+        title="Email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+    </a>
+</div>
+
+    </footer>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">博客图床方案：GitHub &#43; jsDelivr CDN 配置实战
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>从零配置 GitHub &#43; jsDelivr CDN 免费图床方案，实现博客图片的快速访问与管理。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-09-09 15:40:00 +0800 CST'>September 9, 2026</span>&nbsp;·&nbsp;<span>3 min</span>&nbsp;·&nbsp;<span>1084 words</span>&nbsp;·&nbsp;<span>林壮 Allen / IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 博客图床方案：GitHub &#43; jsDelivr CDN 配置实战" href="https://www.plbear.com/posts/2026-09-09-image-cdn-test/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="https://www.plbear.com/images/posts/fluxio-inbox/cover.svg" alt="Fluxio 收件箱架构概览">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Fluxio 收件箱：给本地 App 加一个「任何来源一键收藏」的能力
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>用 dart:io 零依赖给本地 App 加收件服务：浏览器扩展 / 剪贴板 / 脚本三入口一键收藏到 Obsidian，Token 鉴权 &#43; 协议白名单 &#43; 失败降级，附完整实现与踩坑。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-09-07 10:30:00 +0800 CST'>September 7, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>2237 words</span>&nbsp;·&nbsp;<span>IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to Fluxio 收件箱：给本地 App 加一个「任何来源一键收藏」的能力" href="https://www.plbear.com/posts/2026-09-07-fluxio-inbox-mvp/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+        <img loading="lazy" src="https://www.plbear.com/images/posts/fluxio-mcp/cover.svg" alt="fluxio-mcp 开源项目封面">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">手写一个信息获取 MCP Server：fluxio-mcp 从零到开源
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>从零手写一个基于 FastMCP 的信息获取 MCP Server：RSS 解析、网页转 Markdown、免 Key 搜索，让 Claude/Cursor 等 Agent 直接读取任意信息源。含架构设计、踩坑记录、三层验证体系与接入教程。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-09-06 10:00:00 +0800 CST'>September 6, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>2253 words</span>&nbsp;·&nbsp;<span>林壮 Allen / IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 手写一个信息获取 MCP Server：fluxio-mcp 从零到开源" href="https://www.plbear.com/posts/2026-09-06-fluxio-mcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">我的 2026 技术雷达：AI 工程化的十个方向
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>2026 年 AI 工程化在往哪走？Agent 协作标准化、MCP 生态成熟、本地优先崛起、评估驱动开发——十个值得投入的方向和我的投入建议。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-09-01 09:00:00 +0800 CST'>September 1, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>1661 words</span>&nbsp;·&nbsp;<span>IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 我的 2026 技术雷达：AI 工程化的十个方向" href="https://www.plbear.com/posts/2026-09-01-tech-radar-2026/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">从零搭建企业级 MCP Server：鉴权、限流、脱敏、审计与 K8s 部署实战
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>把 MCP Server 从本地 Demo 推向生产环境，需要解决鉴权、限流、数据脱敏、审计日志、会话隔离、容器化部署等一堆协议之外的问题。这篇文章用一个完整的开源模板 fastmcp-enterprise 讲清楚企业级 MCP Server 的落地全流程，附可运行的完整代码。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-28 10:00:00 +0800 CST'>August 28, 2026</span>&nbsp;·&nbsp;<span>9 min</span>&nbsp;·&nbsp;<span>4250 words</span>&nbsp;·&nbsp;<span>林壮 Allen / IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 从零搭建企业级 MCP Server：鉴权、限流、脱敏、审计与 K8s 部署实战" href="https://www.plbear.com/posts/2026-08-28-enterprise-mcp-server/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AI 应用架构模式：从单体 Prompt 到分层系统
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>AI 应用有没有’架构’？有：交互层、编排层、能力层、数据层。从单体 Prompt 到分层系统，AI 应用架构的演进路径与分层模式。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-25 09:00:00 +0800 CST'>August 25, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>1669 words</span>&nbsp;·&nbsp;<span>IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to AI 应用架构模式：从单体 Prompt 到分层系统" href="https://www.plbear.com/posts/2026-08-25-ai-app-architecture/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">混沌工程入门：在微服务体系中注入故障验证系统韧性
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>混沌工程在微服务体系中的入门实践，涵盖混沌工程理念、原则、工具选型（Chaos Mesh/Litmus）、故障类型（网络延迟、Pod 杀死、资源耗尽）、实验设计、安全护栏，以及在招聘平台微服务中的实战案例和效果。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-20 14:00:00 +0800 CST'>August 20, 2026</span>&nbsp;·&nbsp;<span>12 min</span>&nbsp;·&nbsp;<span>5797 words</span>&nbsp;·&nbsp;<span>林壮 Allen / IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 混沌工程入门：在微服务体系中注入故障验证系统韧性" href="https://www.plbear.com/posts/2026-08-20-chaos-engineering-intro/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">开源项目维护：从 README 到 Issue 治理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>开源不是’把代码放上去’，是’持续经营’：README 门面、Issue 治理、PR 流程、Release 节奏、社区运营。一个项目从 0 star 到有人用，维护者要做的十件事。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-11 09:00:00 +0800 CST'>August 11, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>1722 words</span>&nbsp;·&nbsp;<span>IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to 开源项目维护：从 README 到 Issue 治理" href="https://www.plbear.com/posts/2026-08-11-open-source-maintenance/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">App UI自动化测试实践：基于元素Skills的自动化测试框架设计
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>App UI 自动化测试框架的设计与实践，基于元素 Skills 概念，用 AI 辅助元素定位和测试用例生成，解决传统 UI 自动化维护成本高、元素定位不稳定的痛点。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-10 10:00:00 +0800 CST'>August 10, 2026</span>&nbsp;·&nbsp;<span>5 min</span>&nbsp;·&nbsp;<span>2336 words</span>&nbsp;·&nbsp;<span>林壮 Allen / IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to App UI自动化测试实践：基于元素Skills的自动化测试框架设计" href="https://www.plbear.com/posts/2026-08-10-app-ui-testing-skills/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">MCP 与 RAG 结合：Tool 即知识的边界
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>RAG 把知识喂给模型，MCP 把能力交给模型。两者结合：查询即检索（Tool 即知识）、边检索边思考、动态知识接入——知识型 Agent 的新架构。</p>
+  </div>
+  <footer class="entry-footer">
+
+<span title='2026-08-04 09:00:00 +0800 CST'>August 4, 2026</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>1876 words</span>&nbsp;·&nbsp;<span>IYABAO</span></footer>
+  <a class="entry-link" aria-label="post link to MCP 与 RAG 结合：Tool 即知识的边界" href="https://www.plbear.com/posts/2026-08-04-mcp-rag-combination/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://www.plbear.com/page/2/">&nbsp;&nbsp;»
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://www.plbear.com/">Plbear | 后端架构 · AI工程 · 云原生技术博客</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
