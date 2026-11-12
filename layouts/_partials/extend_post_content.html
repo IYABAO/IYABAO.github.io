@@ -31,6 +31,27 @@
 {{- end }}
 
 
+{{- /* 所属主题：文章 → 主题聚合页的单向入口，给站内权重一个落点 */ -}}
+{{- $hubs := slice
+  (dict "url" "/topics/ai-engineering/" "name" "AI 工程与 Agent" "tags" (slice "ai工程" "ai" "ai编程" "mcp" "agent" "rag" "大模型"))
+  (dict "url" "/topics/go-backend/" "name" "Go 与后端架构" "tags" (slice "go" "微服务" "架构设计" "性能优化"))
+  (dict "url" "/topics/data-storage/" "name" "数据库与搜索" "tags" (slice "mysql" "redis" "elasticsearch"))
+-}}
+{{- $myTags := slice -}}
+{{- range .Params.tags }}{{ $myTags = $myTags | append (lower .) }}{{ end -}}
+{{- $links := slice -}}
+{{- range $hubs -}}
+  {{- $hit := false -}}
+  {{- range .tags }}{{ if in $myTags . }}{{ $hit = true }}{{ end }}{{ end -}}
+  {{- if $hit }}{{ $links = $links | append (dict "url" .url "name" .name) }}{{ end -}}
+{{- end -}}
+{{- with $links }}
+<div class="post-topics" style="margin-top:1.2em; font-size:.95em;">
+  <span style="color:var(--secondary);">所属主题：</span>
+  {{- range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}">{{ $l.name }}</a>{{ end }}
+</div>
+{{- end }}
+
 {{- /* 公众号引导卡片 - 双向引流：文章末尾引导关注公众号 */ -}}
 <div class="post-wechat" style="margin-top: 2em; display: flex; gap: 1.2em; align-items: center; padding: 1.2em 1.5em; border: 1px solid var(--border); border-radius: 8px; background: linear-gradient(135deg, rgba(155,187,244,0.08), rgba(163,213,232,0.12)); flex-wrap: wrap;">
   <img src="/images/wechat-qrcode.jpg" alt="公众号：福清而不淡" loading="lazy" style="width: 110px; height: 110px; border-radius: 8px; flex: 0 0 auto;" />

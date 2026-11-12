@@ -1,0 +1,20 @@
+{{- /* 主题聚合页的文章列表：{{< topiclist tags="Go,微服务" >}} */ -}}
+{{- $want := slice -}}
+{{- range split (.Get "tags") "," -}}
+  {{- $want = $want | append (lower (trim . " ")) -}}
+{{- end -}}
+{{- $matched := slice -}}
+{{- range where site.RegularPages "Section" "posts" -}}
+  {{- $hit := false -}}
+  {{- range .Params.tags -}}
+    {{- if in $want (lower .) -}}{{- $hit = true -}}{{- end -}}
+  {{- end -}}
+  {{- if $hit -}}{{- $matched = $matched | append . -}}{{- end -}}
+{{- end -}}
+{{- $matched = sort $matched "Date" "desc" -}}
+<ol class="topic-list" style="padding-left:1.2em; line-height:2;">
+{{- range $matched }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span style="color:var(--secondary); font-size:.85em; margin-left:.6em;">{{ .Date.Format "2006-01-02" }}</span></li>
+{{- end }}
+</ol>
+<p style="color:var(--secondary); font-size:.9em;">共 {{ len $matched }} 篇。</p>
