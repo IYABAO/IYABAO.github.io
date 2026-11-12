@@ -33,9 +33,9 @@
 
 {{- /* 所属主题：文章 → 主题聚合页的单向入口，给站内权重一个落点 */ -}}
 {{- $hubs := slice
-  (dict "url" "/topics/ai-engineering/" "name" "AI 工程与 Agent" "tags" (slice "ai工程" "ai" "ai编程" "mcp" "agent" "rag" "大模型"))
-  (dict "url" "/topics/go-backend/" "name" "Go 与后端架构" "tags" (slice "go" "微服务" "架构设计" "性能优化"))
-  (dict "url" "/topics/data-storage/" "name" "数据库与搜索" "tags" (slice "mysql" "redis" "elasticsearch"))
+  (dict "url" "/topics/ai-engineering/" "name" "AI 工程与 Agent" "tags" (slice "ai工程" "ai" "ai编程" "mcp" "agent" "ai agent" "rag" "大模型" "llm" "claude code" "cursor" "fastmcp"))
+  (dict "url" "/topics/go-backend/" "name" "Go 与后端架构" "tags" (slice "go" "微服务" "架构设计" "架构" "性能优化" "性能调优" "grpc" "高并发"))
+  (dict "url" "/topics/data-storage/" "name" "数据库与搜索" "tags" (slice "mysql" "redis" "elasticsearch" "缓存"))
 -}}
 {{- $myTags := slice -}}
 {{- range .Params.tags }}{{ $myTags = $myTags | append (lower .) }}{{ end -}}

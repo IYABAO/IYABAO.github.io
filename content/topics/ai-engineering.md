@@ -11,4 +11,4 @@ ShowReadingTime: false
 
 如果你刚开始接触，建议按「先跑通、再理解、最后优化」的顺序读：先看 MCP 与 Agent 的落地案例建立整体印象，再回头补 RAG 的检索与重排细节，最后看成本、延迟和稳定性的工程取舍。
 
-{{< topiclist tags="AI工程,AI,AI编程,MCP,Agent,RAG,大模型" >}}
+{{< topiclist tags="AI工程,AI,AI编程,MCP,Agent,AI Agent,RAG,大模型,LLM,Claude Code,Cursor,FastMCP" >}}

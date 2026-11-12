@@ -11,4 +11,4 @@ ShowReadingTime: false
 
 MySQL 部分偏索引设计、分表分区与慢查询治理；Redis 部分偏缓存策略、击穿雪崩与一致性取舍；Elasticsearch 部分偏索引结构、写入与查询的权衡——包括中文分词、深分页这类容易被忽略、但一上量就致命的问题。
 
-{{< topiclist tags="MySQL,Redis,Elasticsearch" >}}
+{{< topiclist tags="MySQL,Redis,Elasticsearch,缓存" >}}
