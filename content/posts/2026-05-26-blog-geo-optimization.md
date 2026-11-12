@@ -12,9 +12,6 @@ categories:
   - 技术
 summary: "传统 SEO 是让人搜到，GEO 是让 AI 搜到你。个人博客从百度/谷歌收录到被 AI 搜索引用，结构化数据、引用友好、E-E-A-T、sitemap 推送，一套组合拳落地记录。"
 ---
-
-# 个人博客 GEO 优化：被 AI 搜索引擎收录的实践
-
 2025 年开始，越来越多人通过 AI 搜索（豆包、Kimi、Perplexity 这类）获取信息。传统 SEO 的目标是"在搜索结果里排前面"，GEO（Generative Engine Optimization）的目标变成：**让 AI 生成答案时引用你的内容**。
 
 我的个人博客从纯 SEO 走到 SEO + GEO 双优化，这篇文章是完整实践记录。
@@ -115,3 +112,4 @@ AI 引用前会评估来源可信度（Experience / Expertise / Authoritativenes
 GEO 不是取代 SEO，是**叠加**：SEO 管"被搜到"，GEO 管"被引用"。对个人博客来说，GEO 的投入产出比甚至更高——一次被 AI 引用，就是一次"AI 在替你打广告"。
 
 **别等 AI 时代过去了才问'为什么没被收录'。结构化数据、真实履历、持续更新，现在就开始。**
+

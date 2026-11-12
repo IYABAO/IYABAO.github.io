@@ -11,9 +11,6 @@ categories:
   - 技术
 summary: "MCP 正在成为 AI 应用的 USB-C 接口。协议分层、Server/Client/Host 三方角色、注册表与 Hub、主流实现对比——MCP 生态的一次全景扫描。"
 ---
-
-# MCP 生态全景：从 Server 到 Client 到 Hub
-
 MCP（Model Context Protocol）正在成为 AI 应用连接外部世界的"USB-C 接口"：一个协议，让 LLM 统一调用各种工具、读取各种数据源。这篇文章是 MCP 生态的全景扫描：协议、角色、生态、选型。
 
 ## 一、MCP 解决什么问题
@@ -150,3 +147,4 @@ MCP 生态的核心认知：
 4. **生产五件事**：鉴权、审计、限流、错误、评测
 
 **MCP 是 AI 应用的"接口革命"**——就像 USB-C 统一了外设，MCP 正在统一 AI 的能力接入。现在开始积累 MCP Server 的实践经验，是站在下一个十年的入口。
+

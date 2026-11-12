@@ -13,9 +13,6 @@ categories:
   - 技术
 summary: "AI 编程工具爆发式增长，怎么选？Claude Code、Cursor、开源方案（Aider/Cline）实测对比：场景匹配、成本、可控性、上手教程，附我的选择结论。"
 ---
-
-# Coding Agent 选型与上手：Claude Code / Cursor / 开源方案横评
-
 2025 年 AI 编程工具已经多到挑花眼：Claude Code、Cursor、Copilot、Aider、Cline、Continue……每个都宣称"提效 50%"。作为已经用了一年多的实践者，这篇是实测横评 + 选择建议 + 上手教程。
 
 ## 一、先分类：三类工具各解决什么问题
@@ -147,3 +144,4 @@ Coding Agent 选型一句话：
 > **先确定工作流，再选工具。** Cursor 管日常、Claude Code 管硬活、开源管隐私；所有工具的共性：**任务拆小、验收写清、代码必审、CLAUDE.md 是地基。**
 
 AI 编程的差距不在工具，在**会不会把任务交代清楚**。工具只是手，规范才是大脑。
+

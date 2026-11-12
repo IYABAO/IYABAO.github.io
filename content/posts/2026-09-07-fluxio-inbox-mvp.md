@@ -17,9 +17,6 @@ cover:
   image: images/posts/fluxio-inbox/cover.svg
   alt: "Fluxio 收件箱架构概览"
 ---
-
-# Fluxio 收件箱：给本地 App 加一个「任何来源一键收藏」的能力
-
 > 我的信息流聚合工具 [Fluxio](https://github.com/IYABAO/Fluxio)（Flutter 桌面 + 移动端）一直有个痛点：**站内收藏很顺，但微信、今日头条、任意网页想收藏到 Obsidian，链条是断的。** 这篇文章记录我给它补上「收件箱」能力的过程：零新依赖的本地收件服务 + 剪贴板捕获 + MV3 浏览器扩展，任意来源一键投递，走与站内收藏 **100% 相同的链路**。
 
 ## 一、需求拆解
@@ -169,3 +166,4 @@ Fluxio 完整代码在 GitHub（MIT）：[github.com/IYABAO/Fluxio](https://gith
 ---
 
 *首发于 [plbear.com](https://www.plbear.com) · 更多 MCP / Agent / 全栈实战见 [博客归档](https://www.plbear.com/archives/)*
+

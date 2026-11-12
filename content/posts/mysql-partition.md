@@ -6,7 +6,6 @@ summary: "MySQL 表分区实战手册：Range、Hash、Key、List 各分区类�
 slug: "mysql-partition"
 tags: ["MySQL", "分区", "数据库"]
 ---
-
 下面演示MySQL Range类型分区的操作，其他类型的分区还有Hash、Key、List等等。
 
 ![MySQL 表分区：将大表按 Range 规则拆分为多个独立分区](/images/posts/mysql-partition.webp)
@@ -22,7 +21,7 @@ tags: ["MySQL", "分区", "数据库"]
 
 4. 跨多个磁盘来分散数据查询，来获得更大的查询吞吐量.
 
-# **1. 创建演示表 tr，设置range 类型分区**
+## **1. 创建演示表 tr，设置range 类型分区**
 
 > CREATE TABLE tr (id INT, name VARCHAR(50), purchased DATE)
 >
@@ -42,7 +41,7 @@ tags: ["MySQL", "分区", "数据库"]
 >
 > );
 
-# **2. 插入演示数据**
+## **2. 插入演示数据**
 
 > INSERT INTO tr VALUES
 >
@@ -74,11 +73,11 @@ tags: ["MySQL", "分区", "数据库"]
 
 也可以使用分区参数partition 获取相同的信息。
 
-# SELECT \* FROM tr PARTITION (p2);
+## SELECT \* FROM tr PARTITION (p2);
 
 
 
-# **4. 删除分区**
+## **4. 删除分区**
 
 下面指定删除分区p2，执行如下命令。
 
@@ -98,7 +97,7 @@ tags: ["MySQL", "分区", "数据库"]
 
 出现异常：Error Code: 1735. Unknown partition 'p2' in table 'tr'
 
-# **5. 查看表tr的分区定义**
+## **5. 查看表tr的分区定义**
 
 > SHOW CREATE TABLE tr;
 
@@ -116,7 +115,7 @@ partition p2 已经不存在了。
 
 
 
-# **6. RANGE 重建分区**
+## **6. RANGE 重建分区**
 
 将原来的 p0,p1 分区合并起来，放到新的 p0 分区中。
 
@@ -148,7 +147,7 @@ SHOW CREATE TABLE tr;
 
 
 
-# **7. 子分区**
+## **7. 子分区**
 
 子分区是分区表中每个分区的再次分割，子分区既可以使用HASH分区，也可以使用KEY分区。这也被称为复合分区（composite partitioning）。
 
@@ -253,7 +252,7 @@ SHOW CREATE TABLE tr;
 
 
 
-# **8. 移除表的分区**
+## **8. 移除表的分区**
 
 注意：使用remove移除分区是仅仅移除分区的定义，并不会删除数据和drop PARTITION不一样，后者会连同数据一起删除。
 
@@ -266,5 +265,6 @@ ALTER TABLE tb\_sub REMOVE PARTITIONING;
 查看表结构，确认表分区已经成功移除了。
 
 show create table tb\_sub;
+
 
 

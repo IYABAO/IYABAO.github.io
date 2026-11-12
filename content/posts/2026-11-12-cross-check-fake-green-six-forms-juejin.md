@@ -3,9 +3,6 @@ title: "掘金物料（草稿，不发布）：看板全绿也可能是假的"
 date: 2026-11-12T11:00:00+08:00
 draft: true
 ---
-
-# 掘金发布物料 ——《看板全绿也可能是假的：交叉复算抓出的「假绿」六形态》
-
 > 博客原文：https://www.plbear.com/posts/2026-11-12-cross-check-fake-green-six-forms/
 > 生成日期：2026-11-12。发布前请人工过目（本文件只准备物料，不代点发布按钮）。
 
@@ -149,3 +146,4 @@ AI Agent / 工程化 / 质量保障 / 自动化 / 踩坑记录
 ---
 
 *首发于个人博客 [www.plbear.com](https://www.plbear.com/posts/2026-11-12-cross-check-fake-green-six-forms/)，转载请注明出处。*
+

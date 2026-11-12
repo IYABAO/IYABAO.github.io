@@ -12,9 +12,6 @@ categories:
   - 技术
 summary: "用 Flutter 做桌面信息流聚合工具，内嵌网页浏览是核心功能。flutter_inappwebview 在 Windows 上走 WebView2，从初始化失败、白屏、Cookie 隔离到多实例，踩坑全记录。"
 ---
-
-# Flutter 桌面开发：WebView2 踩坑记录
-
 我做 Flutter 桌面应用（信息流聚合工具 Fluxio），核心功能之一是**内嵌网页浏览**（用户点开信息流条目直接看网页）。Windows 上 Flutter 没有官方 WebView 组件，主流方案是 `flutter_inappwebview`（底层是微软 WebView2 / Edge Chromium）。这篇文章是完整踩坑记录。
 
 ## 一、选型
@@ -132,3 +129,4 @@ Flutter 桌面 + WebView2 的核心经验：
 4. **注入看时机**：脚本注入等 `onLoadStop`，桥接用官方 handler
 
 **桌面 WebView 没有手机端成熟，每个平台的坑都要自己踩一遍。** 但踩完这遍，信息流类工具的核心能力就稳了。
+

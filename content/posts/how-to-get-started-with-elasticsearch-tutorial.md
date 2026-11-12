@@ -6,10 +6,9 @@ summary: "如何高逼格地给同事做 Elasticsearch 技术分享：从可视�
 slug: "how-to-get-started-with-elasticsearch-tutorial"
 tags: ["Elasticsearch", "ELK", "技术分享", "Kibana"]
 ---
-
 如果你有机会在公司内部做一次Elasticsearch 技术分享，如何才能讲的逼格高，又接地气，那么建议从以下几个方面展开，大家有好的想法，也欢迎文章留言交流。
 
-# 1、可视化展示ELK效果
+## 1、可视化展示ELK效果
 
 ![Elasticsearch 分布式集群架构：节点分片与副本的协作关系](/images/posts/es-cluster.webp)
 
@@ -22,7 +21,7 @@ tags: ["Elasticsearch", "ELK", "技术分享", "Kibana"]
 
 这么切入的目的：很直观，很明显，很接地气。用到ELK技术栈的内容，有带动性，让参与的同事不犯困且很容易让大家对它产生兴趣。
 
-# 2、 Elk stack大家族简介
+## 2、 Elk stack大家族简介
 
 
 
@@ -72,7 +71,7 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 
 以这四大核心产品为基础构建的Elastic数据平台实现了数据实时性、相关性及扩展性的完美结合，不仅可以处理各种数据，还能深入挖掘数据的内在关联并迅速呈现，彻底解决企业的大数据实时处理难题。
 
-# 3、 Elasticsearch 是什么？
+## 3、 Elasticsearch 是什么？
 
 展示的过程中：可以通过kibana的dsl进行展开的讲解。注意例子：可以提前准备好，规划好时间，不用现场敲代码。
 
@@ -100,7 +99,7 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 
 1、简单的restful api，天生的兼容多语言开发。2、分布式的实时文件存储，每个字段都被索引且可用于搜索。3、分布式的实时分析搜索引擎，海量数据下近实时秒级响应。4、易扩展，处理PB级结构化或非结构化数据。
 
-# 4、 Elasticsearch 能做什么？
+## 4、 Elasticsearch 能做什么？
 
 4.1 全文检索等
 
@@ -130,7 +129,7 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 
 5、数据可视化
 
-# 5、Elasticsearch 极易上手且性能牛逼
+## 5、Elasticsearch 极易上手且性能牛逼
 
 主流的Java、python、ruby等。C++等也有个人开源维护API。
 
@@ -138,7 +137,7 @@ Elastic Stack数据平台由Logstash、Beats、ElasticSearch和Kibana四大核�
 
 
 
-# 6、Elastic 前景光明
+## 6、Elastic 前景光明
 
 Elasticsearch在DBRanking 数据库排行榜搜索引擎部分近几年一直处于第一名的领先优势。
 
@@ -148,7 +147,7 @@ Elasticsearch在DBRanking 数据库排行榜搜索引擎部分近几年一直处
 
 那么咱们公司还在犹豫什么呢？
 
-# 7、Elastic技术社区非常活跃
+## 7、Elastic技术社区非常活跃
 
 这里主要强调，出了问题也不用怕，一个人搞不定，还有国外、国内官方论坛、社区，基本很短时间都能解决问题。
 
@@ -156,7 +155,7 @@ Elasticsearch在DBRanking 数据库排行榜搜索引擎部分近几年一直处
 
 估计讲完这些大家都会跃跃欲试了。
 
-# 8、Elasticsearch 相对薄弱的环节
+## 8、Elasticsearch 相对薄弱的环节
 
 有所为，有所不为。
 
@@ -180,6 +179,7 @@ Elasticsearch是近实时的系统，不是准实时。受限于：refresh\_inte
 
 准实时要求高的场景，建议选型注意。
 
-# 9 小结
+## 9 小结
 
 ELK远不止文章中提到的这些内容，可以说，以上列举的只是**冰山一角**的点，N多底层原理（索引分片原理、写入原理、检索原理、倒排索引原理、高可靠性原理、大数据实战场景等）都没有提及或展开。
+

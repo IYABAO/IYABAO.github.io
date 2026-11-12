@@ -11,9 +11,6 @@ categories:
   - 技术
 summary: "context 是 Go 并发编程的'信号灯'：超时、取消、传值。但用错 context 反而制造泄漏。这篇文章是团队 context 规范，含官方建议和反模式。"
 ---
-
-# Go context 使用规范：从入门到精通
-
 Go 的 `context` 是并发编程里最容易被误解的包：有人只用它传值（当 map 用），有人到处 `context.Background()`（等于没用），有人嵌套几十层超时（不知道哪层生效）。这篇文章是我在团队推行的 context 使用规范。
 
 ## 一、context 的三种用途
@@ -148,3 +145,4 @@ context 使用三句话：
 3. **传值只传请求级**：traceID/userID，用自定义 key，读到要断言
 
 **context 是调用链的"刹车"**——没有它，一个慢下游能拖死整条链；用好它，每个环节都能按自己的节奏止损。
+

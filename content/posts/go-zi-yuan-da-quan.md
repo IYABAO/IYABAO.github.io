@@ -6,7 +6,6 @@ summary: "Awesome Go 中文资源大全：覆盖音频音乐、认证授权、�
 slug: "go-zi-yuan-da-quan"
 tags: ["Go", "资源大全", "Awesome"]
 ---
-
 ## Contents
 
 - [Awesome Go](#awesome-go)
@@ -3054,7 +3053,7 @@ See also [Natural Language Processing](#natural-language-processing) and [Text A
 
 **[⬆ back to top](#contents)**
 
-# Resources
+## Resources
 
 *Where to discover new Go libraries.*
 
@@ -3347,3 +3346,4 @@ See also [Natural Language Processing](#natural-language-processing) and [Text A
 下一篇
 
 [### ES索引的增删改查](https://www.plbear.com/posts/es-suo-yin-de-zeng-shan-gai-cha//)
+

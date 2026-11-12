@@ -6,10 +6,7 @@ summary: "程序员应该访问的最佳网站中文版：精选对程序员有�
 slug: "cheng-xu-yuan-ying-gai-fang-wen-de-zui-jia-wang-zhan-zhong-wen-ban"
 tags: ["程序员", "资源", "Awesome", "效率"]
 ---
-
-# awesome
-
-# 程序员应该访问的最佳网站中文版[原版](https://github.com/sdmg15/Best-websites-a-programmer-should-visit)
+## 程序员应该访问的最佳网站中文版[原版](https://github.com/sdmg15/Best-websites-a-programmer-should-visit)
 
 一些对程序员有用的网站
 
@@ -52,7 +49,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [当你厌倦了CS相关的东西](#when-you-get-bored-from-cs-related-stuff)
 - [开源网站](#open-source-websites)
 
-# 当你遇到问题时
+## 当你遇到问题时
 
 - [Codementor](https://www.codementor.io): 国际版在行，更侧重于开发者之间的帮助，可以从某些方面的专家那里获取帮助
 - [devRant](https://www.devrant.io): 供你吐槽和释放压力的地方
@@ -60,7 +57,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Quora](https://www.quora.com/): 一个共享知识和更好的理解世界的地方
 - [Stack Overflow](http://stackoverflow.com/): 订阅他们的每周新闻和任何你感兴趣的主题
 
-# 新闻篇
+## 新闻篇
 
 - [ACM TechNews](http://technews.acm.org) : 科技新闻
 - [Stratechery](https://stratechery.com) : 类似于个人博客
@@ -86,13 +83,13 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [The Verge](https://www.theverge.com) : 更多面向产品的科技新闻
 - [XDA](https://www.xda-developers.com) :Android开发者新闻
 
-# 杂志篇
+## 杂志篇
 
 - [Mit技术评论](https://www.technologyreview.com/magazine/) :麻省理工学院技术评论杂志
 - [Nautilus](http://nautil.us) : 纽约人看技术
 - [LWN](https://lwn.net) :开源技术，编程等的新闻周刊等（原linux每周新闻）
 
-# 针对初学者的代码练习
+## 针对初学者的代码练习
 
 - [Cave of programming](https://caveofprogramming.com/) : 学习编程，提升技巧
 - [Codeacademy](https://www.codecademy.com/) : 交互式编码学习，免费
@@ -110,12 +107,12 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Paqmind](http://paqmind.com) :学习编程的指南和挑战
 - [treehouse](https://teamtreehouse.com) :快速容易和经济实惠的方法来提升技巧
 
-# 加密货币
+## 加密货币
 
 - [加密货币爱好者必知内容](http://www.ofnumbers.com/2017/09/21/eight-things-cryptocurrency-enthusiasts-probably-wont-tell-you/) :加密货币爱好者必须要知道的8项内容
 - [区块链基础](https://www.sitepen.com/blog/2017/09/21/blockchain-basics/) :区块链介绍
 
-# 针对那些想开始一个小的项目但是无从下手的人
+## 针对那些想开始一个小的项目但是无从下手的人
 
 - [freeCodeCamp | React project ideas](https://medium.freecodecamp.org/every-time-you-build-a-to-do-list-app-a-puppy-dies-505b54637a5d?gi=c786640fbd11) :学习react的27个有趣的想法
 - [martyr2s-mega-project-ideas-list](http://www.dreamincode.net/forums/topic/78802-martyr2s-mega-project-ideas-list/) : 包含125个项目，从初级到中级
@@ -123,7 +120,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Wrong "big projects" for beginners](http://rodiongork.tumblr.com/post/108155476418/wrong-big-projects-for-beginners) : 怎样选择，从哪里开始
 - [vicky002/1000-Projects](https://github.com/vicky002/1000_Projects) : 一个能够用任何编程语言解决的巨型项目清单
 
-# 通用编码建议
+## 通用编码建议
 
 - [成为一名优秀开发者的10种方法](https://stephenhaunts.files.wordpress.com/2014/04/10-ways-to-be-a-better-developer.png)
 - [代码审查最佳实践](http://kevinlondon.com/2015/05/05/code-review-best-practices.html): Kevin London的博客
@@ -140,7 +137,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [在计算机科学专业应该知道什么](http://matt.might.net/articles/what-cs-majors-should-know/) :良好的编程规范
 - [软件开发者的工作](https://henrikwarne.com/2012/12/12/working-as-a-software-developer/) : Henrik Warne的博客
 
-# 编码风格
+## 编码风格
 
 - [Airbnb JS 风格指南](https://github.com/airbnb/javascript) : 写JavaScript最好的方式
 - [Airbnb Ruby 风格指南](https://github.com/airbnb/ruby) : Airbnb的ruby风格指南
@@ -159,7 +156,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Google Python 风格指南](https://google.github.io/styleguide/pyguide.html)
 - [Aurelia 风格指南](https://github.com/behzad888/Aurelia-styleguide)
 
-# 通用工具
+## 通用工具
 
 - [CodePad](https://codepad.remoteinterview.io/DDCUYLAEYS) : 远程面试工具
 - [CodePen](https://codepen.io) : 基于浏览器共享前端代码的地方
@@ -244,7 +241,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [一个站点提供技术面试题，逻辑题或者你想的其他内容](http://www.techinterview.org/)
 - [前端常见面试题汇总](https://www.geekjc.com/ebook/detail/5ba5bcae7143880b09cb4d54/1537588096871)
 
-# 纪录片
+## 纪录片
 
 - [什么都能问 Gayle Laakmann McDowell (程序员面试宝典的作者)](https://www.youtube.com/watch?v=1fqxMuPmGak)
 - [Breaking the Code: Alan Turing传](https://www.youtube.com/watch?v=S23yie-779k)
@@ -267,7 +264,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Download: 互联网的真实故事](https://www.youtube.com/playlist?list=PL_IlIlrxhtPMqW4b0-v8OgLvFZQes6SoZ) : 发现频道关于浏览器战争和互联网泡沫的记录
 - [Linux操作系统的故事](https://www.youtube.com/watch?v=fxjElWL8igo)
 
-# 学习新知识-mooc
+## 学习新知识-mooc
 
 - [课程中心](https://www.class-central.com) : 超过10万名学生评价的目录
 - [计算机科学资源](https://docs.google.com/spreadsheets/d/1BD8BJJUNaX63m2QmySWMGDp71nx4W4MyyiIBlfMoN3Q/htmlview?sle=true#)  : 针对自学者的mooc列表
@@ -284,7 +281,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [网上CS课程的收集](https://github.com/prakhar1989/awesome-courses/blob/master/README.md)
 - [极客教程](https://www.geekjc.com)
 
-# 与你偏爱的编程语言相关的网站(对我来说是Java)
+## 与你偏爱的编程语言相关的网站(对我来说是Java)
 
 - [学习java的最好的书](https://javahungry.blogspot.com/2014/02/best-books-for-learning-java-must-read.html) : Java基础
 - [Bjarne Stroustrup's C++风格和技术问答](http://www.stroustrup.com/bs_faq2.html) : C++问答
@@ -313,7 +310,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Welcome to JavaWorld.com](http://www.javaworld.com/)
 - [XyzWs Java FAQs](http://www.xyzws.com/javafaq/page/1)  : Java面试题汇总
 
-# AI学习
+## AI学习
 
 - [fast.ai](http://course.fast.ai) : 针对没有研究生水准的数学的开发者的免费实用的深度学习课程
 - [grakn.ai](https://grakn.ai) : 数据库AI
@@ -326,7 +323,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [深度学习的历史](http://blog.floydhub.com/coding-the-history-of-deep-learning/)
 - [Serpent AI](https://github.com/SerpentAI/SerpentAI) : 游戏代理框架
 
-# 研讨会、研究性写作、会谈等
+## 研讨会、研究性写作、会谈等
 
 - [关于研究和写作的建议](http://www.cs.cmu.edu/~mleone/how-to.html)
 - [博士论文](http://www.cse.iitd.ac.in/~srsarangi/articles.html)
@@ -336,7 +333,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Begin Latex in minutes](https://github.com/LewisVo/Begin-Latex-in-minutes) : 针对初学者的Latex的简单介绍帮助你轻松掌握Latex
 - [Lshort](https://tobi.oetiker.ch/lshort/lshort.pdf) : 对Latex2的详细介绍
 
-# 知识汇总
+## 知识汇总
 
 - [reddit.com/user/ashish2199/m/cs\_student\_subs](https://www.reddit.com/user/ashish2199/m/cs_student_subs) : 在reddits中计算机科学和编程相关的主题
 - [一个程序员应该访问的web站点](https://www.quora.com/What-are-the-best-websites-a-programmer-should-visit/answer/Ashish-Padalkar?srid=OH96) :发表在Quora上，作者ashish2199
@@ -344,7 +341,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Rico's cheatsheets](https://devhints.io) : 常用知识备忘集合
 - [API Documentation](http://devdocs.io/) : 一个众所周知的带有搜索接口的API文档，类似于dash
 
-# youtube频道
+## youtube频道
 
 - [C++Now (BoostCon)](https://www.youtube.com/channel/UC5e__RG9K3cHrPotPABnrwg) :当前的C++会议
 - [code::dive conference](https://www.youtube.com/channel/UCU0Rt8VHO5-YNQXwIjkf-1g) : 有诺基亚技术中心组织的会议
@@ -370,7 +367,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [thoughtbot](https://www.youtube.com/user/ThoughtbotVideo/videos)  : 谈论各种话题
 - [yegor256](https://www.youtube.com/user/technoparkcorp/videos)
 
-# 好文章
+## 好文章
 
 - [白话40个关键的计算机科学概念](http://carlcheo.com/compsci)
 - [关于图论的一个介绍](https://dev.to/vaidehijoshi/a-gentle-introduction-to-graph-theory)
@@ -393,7 +390,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Pixel Beat - Unix](http://www.pixelbeat.org/docs/unix-parallel-tools.html):使用unix工具并行处理
 - [学习Vim](https://hackernoon.com/learning-vim-what-i-wish-i-knew-b5dca186bef7):我希望我应该知道什么
 
-# 播客
+## 播客
 
 - [Coding Blocks](http://www.codingblocks.net/):一个播客，涵盖最佳编程实践，设计模式，性能编码，面向对象编码，数据库设计和实现、提示、技巧和许多其他主题的内容
 - [水深火热的开发者](http://developeronfire.com/episodes):一个播客，分享开发人员的人性，并讲述了由Dave Rael主持的一些令人惊叹的软件人物的故事
@@ -413,7 +410,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [The Change log](https://changelog.com/podcast) : 每周一次的谈话，参与者都是开源技术的核心人员和创建者
 - [愤世嫉俗的开发者](https://cynicaldeveloper.com/) :一个播客，旨在通过解释最新和最伟大的开发技术，为您提供开发知识和职业生涯，并提供您作为开发人员取得成功的需要。覆盖桌面，网络和移动开发，主要围绕.Net堆栈，也经常研究其他软件和框架
 
-# 构建一个简单的编译器/解释器
+## 构建一个简单的编译器/解释器
 
 - [snowman：可能是有史以来最小的编译器](https://github.com/thejameskyle/the-super-tiny-compiler) : 这是一个超简化的例子，它描述了一个使用JavaScript编写的易于阅读的 现代编译器的所有主要部分
 - [精彩的编译器](http://aalhour.com/awesome-compilers/) : 编译器，翻译和运行的精彩资源列表
@@ -425,7 +422,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [编译器简介](https://nicoleorchard.com/blog/compilers) : 如何与计算机说话，例如Siri先生
 - [编写自己的编译器](http://staff.polito.it/silvano.rivoira/HowToWriteYourOwnCompiler.htm) : 如何编写自己的编译器
 
-# 教程
+## 教程
 
 - [A Hacker's Guide to Git](https://wildlyinaccurate.com/a-hackers-guide-to-git/) : 为那些想学习git的人打下坚实的基础
 - [Best Of - Gustavo Duarte](http://duartes.org/gustavo/blog/best-of/) : 包含各种主题的文章
@@ -472,18 +469,18 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Learn Python](https://www.learnpython.org) : 免费的交互式Python教程
 - [C++17](https://www.viva64.com/en/b/0533/) : C ++指南17
 
-# 欣赏他人的代码
+## 欣赏他人的代码
 
 - [LiveEdu.tv](https://www.liveedu.tv) : 构建应用，网站游戏等人的视频
 - [Twitch.tv](https://www.twitch.tv/communities/programming) : Twitch的编程社区
 
-# 一个程序员应该知道的东西
+## 一个程序员应该知道的东西
 
 - [GitHub.com Build software better, together](https://github.com) : 向其他人展示你的项目和与人协作的地方（为了更高效的使用它必须知道Git）
 - [Gitlab提供无限制的私有库，和无限制的组织](https://about.gitlab.com)
 - [程序员能力矩阵](http://sijinjoseph.com/programmer-competency-matrix/) : 一篇用来了解我们作为程序员的水平的文章
 
-# 编程比赛
+## 编程比赛
 
 - [Archived Problems - Project Euler](https://projecteuler.net/archives) : 问题归档
 - [Art of Problem Solving](https://artofproblemsolving.com) : 数学课对你来说太容易了吗？你来到正确的地方！
@@ -502,7 +499,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [UVa Online Judge](https://uva.onlinejudge.org) : 支持多种语言的数百种问题
 - [WakaTime](https://wakatime.com) : 通过编辑器插件收集编码度量的排行榜
 
-# 计算机书籍
+## 计算机书籍
 
 - [Become a Programmer, Motherfucker (list of books)](http://programming-motherfucker.com/become.html) :来自Zed A. Shaw的书籍详尽清单
 - [最佳图书奖](http://gatecse.in/best-books-for-gatecse/)
@@ -511,7 +508,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [GitBook](https://www.gitbook.com) : GitBook 可以帮助您的团队在线编写，协作和发布内容
 - [Data Science course](https://jakevdp.github.io/PythonDataScienceHandbook/) : Python数据科学手册
 
-# 视频指南
+## 视频指南
 
 - [codedamn](https://www.youtube.com/channel/UCJUmE61LxhbhudzUugHL2wQ/videos) : 前端Web开发教程
 - [代码学院](https://www.codeschool.com) : PluralSight公司和一个有抱负和有经验的开发人员的互动学习的地方
@@ -531,7 +528,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Functional programming](https://www.youtube.com/watch?v=1PhArSujR_A) : John Carmack功能编程（2013）
 - [Video about vims](https://vimeo.com/album/2838732) : 关于Vim的一系列教程
 
-# 在线编译和共享代码片段
+## 在线编译和共享代码片段
 
 - [CodePad](https://codepad.remoteinterview.io) : 支持代码编写，测试和运行，支持超过25种语言
 - [Codesandbox.io](https://codesandbox.io) : CodeSandbox可以更轻松地创建，与他人共享和重用React项目
@@ -542,7 +539,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [C9.io](https://c9.io) : 在云端的开发环境
 - [Github Gist](https://gist.github.com) : 即时分享代码，笔记和片段
 
-# 开发者博客
+## 开发者博客
 
 - [Algo-Geeks](http://algo-geeks.blogspot.com) : 编程拼图，数学技巧，算法等
 - [Antirez - Redis Creator's blog](http://antirez.com/latest/0) : Antirez的博客
@@ -581,7 +578,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [WildMl](http://www.wildml.com) : 机器学习博客
 - [XDA - Android Developer Forum](https://forum.xda-developers.com) : Android开源开发者论坛
 
-# 用来提高你的英语
+## 用来提高你的英语
 
 - [Englishclub.com/learn-english](https://www.englishclub.com/learn-english.htm)
 - [语法和写作指南](http://grammar.ccc.commnet.edu/grammar/) : 对于那些想提高英语语言能力的人
@@ -589,7 +586,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [PPurdue大学在线写作实验室](https://owl.english.purdue.edu)
 - [Quia - English](https://www.quia.com/shared/english/)
 
-# 当你厌倦了CS相关的东西
+## 当你厌倦了CS相关的东西
 
 - [Barcroft TV](https://www.youtube.com/user/barcroftmedia/featured) : 构成世界的各种各样的人的短小的纪录片
 - [Big Think](https://www.youtube.com/user/bigthink/videos) : 专家驱动，可操作的教育内容，包括比尔·克林顿到比尔·奈
@@ -610,7 +607,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [Ox A cuk](http://www.ox.ac.uk/research/research-in-conversation/how-live-happy-life/dr-bronwyn-tarr#) : 如何过幸福的生活
 - [lonelyspeck](https://www.lonelyspeck.com/the-milky-way-in-los-angeles-light-pollution/) : 关于轻污染天文摄影的权利的曝光 - Palos Verdes，洛杉矶，加利福尼亚州
 
-# 开源网站
+## 开源网站
 
 - [Open Hatch](https://openhatch.org) : OpenHatch是一个非营利组织，致力于将潜在的免费软件贡献者与社区，工具和教育相匹配
 - [Source Forge](sourceforge.net) : SourceForge主持着近28万个项目（最后一次）。它每天提供超过200万次下载，并包含各种类别的应用程序和工具
@@ -632,7 +629,7 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 - [First Timers Only](http://www.firsttimersonly.com) : 首次对开放源码做出贡献可能是可怕的，有点压倒性。也许你是一个代码新手，或者你已经编码了一段时间，但还没有找到一个你觉得自己很有帮助的项目
 - [Your First PR](http://yourfirstpr.github.io) : 您的第一个公关帮助在GitHub和其他地方展示最佳启动器问题为开源做贡献
 
-# 特别感谢
+## 特别感谢
 
 - 如果您发现这很有用或考虑也参与并作出贡献，请考虑一个github Star。
 - 特别感谢Ashish Padalkar（@ ashish2199）为初始版本原始帖子贡献了大量的数据和结构。
@@ -642,3 +639,4 @@ tags: ["程序员", "资源", "Awesome", "效率"]
 下一篇
 
 [### Go资源大全](https://www.plbear.com/posts/go-zi-yuan-da-quan//)
+

@@ -6,9 +6,6 @@ summary: "Awesome PHP 中文资源大全：系统整理 PHP 生态的高质量�
 slug: "all-about-php"
 tags: ["PHP", "资源大全", "Awesome"]
 ---
-
-# Awesome PHP
-
 一个PHP资源列表，内容包括：库、框架、模板、安全、代码分析、日志、第三方库、配置工具、Web 工具、书籍、电子书、经典博文等等
 
 ## 目录
@@ -1005,3 +1002,4 @@ tags: ["PHP", "资源大全", "Awesome"]
 *有趣的PHP相关的杂志*
 
 - [php[architect]](https://www.phparch.com/magazine/) - 一个致力于PHP的月更的杂志
+

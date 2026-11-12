@@ -6,10 +6,9 @@ summary: "Elasticsearch 索引增删改查实战笔记：通过标准 RESTful �
 slug: "es-suo-yin-de-zeng-shan-gai-cha"
 tags: ["Elasticsearch", "ES", "索引", "RESTful"]
 ---
-
 标准的restful接口
 
-# 查
+## 查
 
 查看所有index, 等价于show tables;
 
@@ -23,13 +22,13 @@ GET kibana\_sample\_data\_logs?include\_type\_name=true&include\_defaults=true
 - mappings
 - settings
 
-# 删
+## 删
 
 DELETE test\_index
 
 DELETE test\_index?ignore\_unavailable=true ==> drop table xx if exists
 
-# 增
+## 增
 
 ```
 PUT kibana_sample_data_ecommerce2?include_type_name=true
@@ -440,3 +439,4 @@ PUT my-index-000001
 下一篇
 
 [### Python资源大全](https://www.plbear.com/posts/python-that-is-all-about-python//)
+

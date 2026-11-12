@@ -12,9 +12,6 @@ categories:
   - 技术
 summary: "Agent 的核心能力是'会调用工具'。Function Calling 的机制、工具描述如何影响选型、从私有函数到 MCP 标准化——Agent 工具调用的完整演进与工程实践。"
 ---
-
-# Agent 工具调用：从 Function Calling 到 MCP
-
 Agent 和 Chatbot 的本质区别：**Agent 会"动手"**——调用工具、读写数据、执行动作。工具调用（Tool Calling / Function Calling）是 Agent 的核心机制。这篇文章从机制讲起，到工程实践，到 MCP 标准化。
 
 ## 一、Function Calling 的机制
@@ -171,3 +168,4 @@ MCP = 协议（工具怎么标准化地提供和调用）
 4. **MCP 是工具层的标准化**：Function Calling 是机制，MCP 是协议
 
 **Agent 的能力边界 = 工具集的能力边界。** 会定义工具、会管理调用循环、会用 MCP 标准化——这是 AI 应用工程师的核心技能。
+

@@ -13,9 +13,6 @@ categories:
   - 技术
 summary: "AI 对话要打字机效果，选 SSE 还是 WebSocket？从协议机制、代理兼容、断线重连、服务端实现四个维度对比，结论：90% 的 AI 场景选 SSE，剩下 10% 才需要 WebSocket。"
 ---
-
-# SSE vs WebSocket：AI 流式场景怎么选
-
 做 AI 模拟面试，第一个技术选型就是：**LLM 的 token 流式输出，用 SSE 还是 WebSocket？** 我们一开始用 PHP + Socket（WebSocket 的早期方案），后来全换成了 Go 自研 SSE 代理。这篇文章说说为什么。
 
 ## 一、先搞清楚两者的本质
@@ -121,3 +118,4 @@ Go 代理职责：
 > **AI 对话场景：默认 SSE。** 数据单向、要过代理、要自动重连——SSE 全对。只有"双向高频"是硬需求时才考虑 WebSocket。
 
 我们弃掉 PHP + Socket 换 Go SSE 后，TTFT（首字延迟）从 800ms 降到 500ms 以内，基础设施问题清零。**选对协议，一半的线上故障就消失了。**
+
