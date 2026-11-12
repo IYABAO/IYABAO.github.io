@@ -36,11 +36,11 @@ enableEmoji = true
     publisherType = "Person"
 
   [params.imageCDN]
-    # 图床方案：GitHub + jsDelivr CDN
-    # 图片存放在 static/images/ 目录，推送到 GitHub 后通过 jsDelivr CDN 加速
+    # 图床方案：站内直出（static/images 随构建发布到 /images/，走 ESA 边缘缓存）
+    # 2026-11-12 从 jsDelivr @master 切到站内：解耦分支名，删/改 master 不会再让全站图片 404
     enable = true
-    # jsDelivr CDN 基础 URL（GitHub 仓库路径）
-    baseURL = "https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/"
+    # 站内基础 URL
+    baseURL = "https://www.plbear.com/images/"
     # 本地开发时是否使用 CDN（false 时用本地 /images/ 路径）
     useInDev = false
     # 图片懒加载
