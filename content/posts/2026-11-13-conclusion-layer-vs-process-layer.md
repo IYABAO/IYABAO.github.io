@@ -58,11 +58,9 @@ description: "同一天，任务看板写着本周 2 篇，仓库提交信息写
 
 同一轮核查里还有一处更贵的偏差，比篇数严重得多。
 
-仓库 README 写着：代码托管是「Gitee（主仓库）→ GitHub（镜像同步）」。这句话我信了很久，直到跑了一次分支状态：
+仓库 README 写着：代码托管是「Gitee（主仓库）→ GitHub（镜像同步）」。这句话我信了很久，直到跑了一次 `git branch -vv`，输出是这样一行：
 
-```
-* main 7a23df0 [gitee/main: ahead 9]
-```
+> `* main 7a23df0 [gitee/main: ahead 9]`
 
 本地 main 领先 Gitee 侧 **9 个 commit**。也就是说，真正的写入方向是反的：日常提交先到了另一个远端，Gitee 那份是滞后的。
 
