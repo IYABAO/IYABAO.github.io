@@ -42,7 +42,7 @@ fluxio-mcp --config ...
 
 ### README 的关键
 
-```
+```text
 ✅ 第一屏说清"这是什么、解决什么问题"（有人只看第一屏）
 ✅ 快速开始要"能直接复制粘贴跑通"（30 秒内看到效果）
 ✅ 有效果图（README 有图 vs 没图，star 差一个量级）
@@ -67,7 +67,7 @@ fluxio-mcp --config ...
 
 ### 处理策略
 
-```
+```text
 ✅ 24h 内首次回复（哪怕只是"收到，我周末看"）
 ✅ 打标签：bug / feature / question / duplicate
 ✅ 贴"最小复现"指南（让报 bug 的人给信息）
@@ -93,7 +93,7 @@ fluxio-mcp --config ...
 
 ### 合并规范
 
-```
+```text
 ✅ CI 必须过（测试 + lint）才合
 ✅ 要求"带测试的改动"（没测试的 PR 要解释）
 ✅ Code Review 友好：小 PR（<300 行）好合
@@ -102,7 +102,7 @@ fluxio-mcp --config ...
 
 ## 四、Release 节奏
 
-```
+```text
 ✅ 语义化版本：0.x（不稳定）→ 1.0（稳定 API）→ 2.0（破坏性变更）
 ✅ Release Notes：每次发布写"新增/修复/破坏性变更"
 ✅ 发布到包管理器（PyPI/npm）——不发布 = 用户要 clone 源码
@@ -113,7 +113,7 @@ fluxio-mcp --config ...
 
 ## 五、社区运营（轻量但有效）
 
-```
+```text
 ✅ 至少 2 个真实使用示例（用户照抄就能用）
 ✅ 收集"用在了哪"（Awesome 列表收录、用户项目链接）
 ✅ 常见问题 FAQ（减少重复 Issue）
@@ -123,7 +123,7 @@ fluxio-mcp --config ...
 
 ## 六、维护者的心态建设
 
-```
+```text
 真实情况：
   - star 涨得慢是常态（不是失败）
   - 大多数 Issue 是重复的（不是你的错）
@@ -137,7 +137,7 @@ fluxio-mcp --config ...
 
 ## 七、避坑清单
 
-```
+```text
 ✅ README 第一屏说清定位
 ✅ Issue 24h 内回复（哪怕只是告知已读）
 ✅ CI 是门面（测试红 = 项目死）
