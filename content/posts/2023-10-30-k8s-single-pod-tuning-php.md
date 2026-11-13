@@ -22,7 +22,7 @@ PHP-FPM 是进程模型，一个 `pm.max_children` 就是同时能处理的请�
 
 ### 正确姿势：按内存算上限
 
-```
+```text
 可用内存 1.5G（留 25% 给 OPCache/系统）
 单个 worker 峰值内存 40MB（压测实测）
 max_children = 1.5G / 40M ≈ 37 → 保守取 30
@@ -43,7 +43,7 @@ pm.max_requests = 500
 
 worker 数和 QPS 的关系：
 
-```
+```text
 并发数 = 平均响应时间(秒) × QPS
 例：响应 200ms，目标 150 QPS → 并发 = 0.2 × 150 = 30 worker
 ```
@@ -109,7 +109,7 @@ PHP-FPM 是**计算密集型**（每次请求都要执行字节码），CPU 配�
 
 ### 内存：Opcache 也是内存大户
 
-```
+```text
 PHP-FPM 30 worker × 40MB = 1.2G
 Opcache 128MB + interned strings 16MB
 系统 + 缓冲 ≈ 200MB
