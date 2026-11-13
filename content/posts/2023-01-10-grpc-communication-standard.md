@@ -19,7 +19,7 @@ summary: "微服务拆出来第一件事不是写代码，是定通信标准。p
 
 ### 目录结构
 
-```
+```text
 proto/
 ├── common/          # 公共类型（分页、错误、元数据）
 │   ├── page.proto
@@ -47,7 +47,7 @@ option go_package = "github.com/yourorg/proto-gen/go/resume/v1;resumev1";
 
 gRPC 原生 status code 只有 16 个，业务错误必须自定义。我们定：
 
-```
+```text
 标准结构：
 { code: "RESUME_NOT_FOUND", message: "简历不存在", http_status: 404 }
 ```
