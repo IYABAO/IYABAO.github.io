@@ -16,7 +16,7 @@ summary: "SSE 不是'把响应流转发'那么简单：心跳、断线重连、�
 
 ## 一、为什么流式难
 
-```
+```text
 LLM 生成的流（token 序列）
    → 经过：LLM 网关 → 业务服务 → 反向代理 → CDN → 浏览器
    → 每一层都可能：缓冲、超时、断开、乱序
@@ -30,7 +30,7 @@ LLM 生成的流（token 序列）
 
 ## 二、SSE 协议基础
 
-```
+```text
 HTTP 响应：Content-Type: text/event-stream
 格式：
   data: {"content": "你"}\n\n
@@ -138,7 +138,7 @@ while (true) {
 
 **注意**：
 
-```
+```text
 ✅ EventSource 只支持 GET → 带 body 的请求用 fetch 流式
 ✅ 中文按 UTF-8 解码可能跨 chunk 截断（用 TextDecoder 处理）
 ✅ 渲染用"追加"不用"重渲染"（性能）
@@ -146,7 +146,7 @@ while (true) {
 
 ### 2. 断线重连
 
-```
+```text
 客户端策略：
   收到 error(可重试) → 显示"重连中" → 3s 后重试（最多 3 次）
   收到 error(不可重试) → 显示错误 + 已生成内容保留
@@ -157,14 +157,14 @@ while (true) {
 
 ### 3. 取消（用户停止生成）
 
-```
+```text
 用户点"停止" → abort() / controller.abort()
 → 服务端收到 ctx 取消 → 停 LLM → 停计费
 ```
 
 ## 五、压测与监控
 
-```
+```text
 监控指标：
   连接时长分布（长连接占比）
   心跳超时率（中间层断开比例）
