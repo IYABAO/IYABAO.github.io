@@ -93,7 +93,7 @@ UPDATE delivery SET status='PAID' WHERE id=? AND status='CREATED'
 
 **先泼冷水**：90% 的业务不需要全局顺序。只有这些场景才需要：
 
-```
+```text
 1. 同一实体的状态流转（投递单：创建 → 支付 → 发货）
 2. 账务流水（先扣款后入账）
 3. 强一致快照（先改 A 再改 B，B 依赖 A 的结果）
@@ -140,7 +140,7 @@ type deliveryMsg struct {
 
 ## 五、顺序 + 幂等组合（真实场景）
 
-```
+```text
 投递单事件流（按 deliveryID 分区）
   │
   ▼
