@@ -13,7 +13,7 @@ tags: ["YAML", "JSON", "配置"]
 
 ## 示例
 
-```
+```text
 fruits:
   - apple1:
       color: red
