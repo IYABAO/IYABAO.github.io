@@ -45,7 +45,7 @@ redis.Eval(ctx, script, []string{lockKey}, token)
 
 最经典的坑：
 
-```
+```text
 A 拿到锁，执行任务（业务耗时 12s）
 锁 10s 过期 → 自动释放
 B 拿到锁，开始执行同一任务
