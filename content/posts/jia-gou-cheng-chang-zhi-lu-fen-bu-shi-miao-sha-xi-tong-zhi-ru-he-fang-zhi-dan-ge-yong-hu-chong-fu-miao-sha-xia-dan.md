@@ -50,7 +50,7 @@ tags: ["架构", "秒杀", "幂等", "分布式"]
 
 后端在订单数据表中，需要增加dedup\_key这列，并设置**唯一约束**。
 
-```
+```text
 create table order(
  # ...
  dedup_key varchar(60) not null comment 'key to pretend order duplication',
@@ -67,7 +67,7 @@ create table order(
 
 用伪代码表示大概是：
 
-```
+```text
 @Transactional
 Order createOrder(Integer userId, String prodCode, Decimal amount, String dedupKey) {
  try {
