@@ -46,13 +46,13 @@ public function serviceProvider()
 
 断言时可增加用例名作为报错message
 
-```
+```text
          public function testBackBlackService(){
 ```
 
 this−>assertEquals(this->assertEquals(this−>assertEquals(expected, $actual, $this->getName());
 
-```
+```text
          }
 ```
 
@@ -133,7 +133,7 @@ public static $remain\_field = 'SurplusNum';
 使用注解跳过相关代码块覆盖
 // @codeCoverageIgnoreStart
 
-```
+```text
  //@codeCoverageIgnoreEnd
 ```
 
