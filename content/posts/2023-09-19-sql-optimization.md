@@ -38,7 +38,7 @@ WHERE user_id = 123 AND status = 'PAID'
 ORDER BY created_at DESC LIMIT 10;
 ```
 
-```
+```text
 关键字段：
   type：访问类型（const > ref > range > index > ALL）
     ALL = 全表扫描（重点优化对象）
@@ -135,7 +135,7 @@ SELECT * FROM orders WHERE id > 100000 ORDER BY id LIMIT 20;
 
 ## 六、一个完整案例
 
-```
+```text
 慢 SQL：查询 3.2 秒
 SELECT * FROM resume 
 WHERE city='杭州' AND expect_position LIKE '%后端%' 
