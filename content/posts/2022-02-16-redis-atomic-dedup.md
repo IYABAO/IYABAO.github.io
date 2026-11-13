@@ -50,7 +50,7 @@ return 0
 
 防重不是拿「消息内容」当 key，而是拿**业务事件的稳定标识**：
 
-```
+```text
 push:dedup:{biz_type}:{biz_id}:{action}
 例：push:dedup:resume_viewed:1024:notify
 ```
@@ -71,7 +71,7 @@ Lua 里给 key 加了 `EX` 过期时间（默认 24h）。过期后允许重复�
 
 ## 三、完整链路
 
-```
+```text
 Kafka 消费（at-least-once）
    │
    ▼
