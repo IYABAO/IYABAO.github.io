@@ -6,7 +6,9 @@
 
 - **静态站点生成器**：Hugo (extended)
 - **包管理**：npm（hugo-bin）
-- **代码托管**：Gitee（主仓库）→ GitHub（镜像同步）
+- **代码托管**：**GitHub 主仓库** → Gitee 镜像（滞后 12 个 commit，只读副本，不参与构建部署）
+  - 滞后 N 的取法（先取远端最新、再数差集）：`git fetch gitee` 然后 `git rev-list --count gitee/main..main`
+  - 核对两侧指向同一个 commit 才算同步：`git ls-remote origin main` 与 `git ls-remote gitee main`
 - **部署平台**：阿里云 ESA 函数和 Pages
 - **域名**：www.plbear.com
 
@@ -129,7 +131,7 @@ git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 
 ## 部署
 
-推送到 Gitee 后自动镜像到 GitHub，ESA 检测到 GitHub 仓库变更后自动构建部署。
+发布只 push 到 GitHub，ESA 检测到该仓库 main 变更后自动构建部署。Gitee 侧是滞后的只读副本（当前滞后 12 个 commit，仓库为私有、未启用 Pages），不参与线上站点构建，不能拿它当基线对比。
 
 ESA 构建配置：
 - 安装命令：`npm install`
