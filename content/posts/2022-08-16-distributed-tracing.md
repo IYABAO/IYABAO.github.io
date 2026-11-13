@@ -16,7 +16,7 @@ summary: "微服务排查的痛：一个请求经过 8 个服务，日志散在 
 
 ## 一、痛点
 
-```
+```text
 用户说"下单失败了" → 排查开始：
   查 API 网关日志 → 找到请求
   → 记下 order_id → 查订单服务日志
@@ -34,7 +34,7 @@ summary: "微服务排查的痛：一个请求经过 8 个服务，日志散在 
 
 ### Trace 与 Span
 
-```
+```text
 Trace：一次请求的完整链路（一整棵树）
 Span：链路中的一个环节（一个服务的一次调用）
 
@@ -48,7 +48,7 @@ Span：链路中的一个环节（一个服务的一次调用）
 
 ### 三个 ID
 
-```
+```text
 trace_id：整条链路唯一（请求入口生成，全链路传递）
 span_id：当前环节唯一（每层生成）
 parent_span_id：父环节（构成树结构）
@@ -95,7 +95,7 @@ if md, ok := metadata.FromIncomingContext(ctx); ok {
 
 ### 采样策略（成本控制）
 
-```
+```text
 ✅ 全量采样：错误链路（ERROR/异常）
 ✅ 比例采样：正常请求（10%——统计够了）
 ✅ 关键接口全量：核心链路（支付/下单）
@@ -107,7 +107,7 @@ if md, ok := metadata.FromIncomingContext(ctx); ok {
 
 ### 存储选型
 
-```
+```text
 Jaeger：开源，ES/Cassandra 后端，部署简单
 Zipkin：老牌，轻量
 SkyWalking：Java 生态强
@@ -116,7 +116,7 @@ SkyWalking：Java 生态强
 
 ## 五、落地效果
 
-```
+```text
 排查从"半小时拼日志" → "30 秒看全链路"
 
 具体收益：
@@ -135,7 +135,7 @@ SkyWalking：Java 生态强
 
 ## 七、与日志/指标的配合
 
-```
+```text
 三层可观测：
   Metrics（指标）：服务健康（QPS/延迟/错误率）——宏观
   Logs（日志）：细节排查（具体报错/参数）——微观
