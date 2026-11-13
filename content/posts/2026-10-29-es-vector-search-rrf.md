@@ -116,7 +116,7 @@ top5：
 
 老集群想干同样的事，只有一条路：把向量存进 `dense_vector`，用 `script_score` 暴力算。我试了下 8.x 的 HNSW 写法，当场被拒：
 
-```
+```text
 PUT /jd_demo -> 400
 Mapping definition for [jd_vector] has unsupported parameters:
   [similarity : cosine] [index : true] [index_options : {hnsw,m:16,ef_construction:100}]
@@ -147,7 +147,7 @@ POST /jd_demo/_search
 
 RRF 的公式很简单：
 
-```
+```text
 RRF(d) = Σ 1 / (k + rank_i(d))      k = 60
 ```
 
@@ -169,7 +169,7 @@ POST /jd_demo/_search
 
 返回 **403**：
 
-```
+```text
 security_exception: current license is non-compliant for
 [Reciprocal Rank Fusion (RRF)]
 ```
