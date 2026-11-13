@@ -51,7 +51,7 @@ EXPLAIN 输出的字段很多，我重点看这几个：
 
 `type` 字段表示 MySQL 找到行的方式，性能从好到差：
 
-```
+```text
 system > const > eq_ref > ref > range > index > ALL
 ```
 
@@ -99,7 +99,7 @@ LIMIT 20;
 
 EXPLAIN 结果：
 
-```
+```text
 id: 1
 select_type: SIMPLE
 table: resume
@@ -136,7 +136,7 @@ ALTER TABLE resume ADD INDEX idx_status_city_created (status, city_id, created_a
 
 再 EXPLAIN：
 
-```
+```text
 type: range
 key: idx_status_city_created
 rows: 12450
