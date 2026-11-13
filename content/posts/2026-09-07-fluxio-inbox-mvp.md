@@ -131,7 +131,7 @@ Chrome/Edge 共用一套 MV3 扩展（`tool/extension/`），权限只申请 `ac
 - **选项页**：配置收件地址 + token（Fluxio 设置页一键复制）
 - 无 `host_permissions`：运行时向本机地址发请求即可，权限面最小
 
-```
+```text
 扩展(popup) ──POST /api/inbox──▶ 本地收件服务 ──▶ saveClip ──▶ Obsidian 收件箱
                                    (127.0.0.1:8730)
 ```
