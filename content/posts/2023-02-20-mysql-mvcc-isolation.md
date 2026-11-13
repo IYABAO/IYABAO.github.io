@@ -28,7 +28,7 @@ MVCC 的思路：**读不阻塞写、写不阻塞读**——每个事务看到�
 
 InnoDB 每行有 3 个隐藏列：
 
-```
+```text
 DB_TRX_ID  最近修改该行的事务 ID
 DB_ROLL_PTR 回滚指针，指向 undo log 中的旧版本
 DB_ROW_ID  单调递增的行 ID（无主键时用）
@@ -36,7 +36,7 @@ DB_ROW_ID  单调递增的行 ID（无主键时用）
 
 **关键：DB_ROLL_PTR 串起来的版本链**——同一行的多个版本通过回滚指针连成链表，旧版本数据存在 undo log 里。
 
-```
+```text
 行 v3（最新）：DB_TRX_ID=100, DB_ROLL_PTR → v2
 行 v2：        DB_TRX_ID=80,  DB_ROLL_PTR → v1
 行 v1（最旧）： DB_TRX_ID=50,  DB_ROLL_PTR → NULL
@@ -46,7 +46,7 @@ DB_ROW_ID  单调递增的行 ID（无主键时用）
 
 事务启动（第一次快照读）时生成 Read View，记录：
 
-```
+```text
 creator_trx_id  当前事务 ID
 m_ids           活跃事务 ID 列表（还没提交的）
 min_trx_id       活跃事务中最小的 ID
@@ -55,7 +55,7 @@ max_trx_id       下一个要分配的事务 ID（上界）
 
 **判断一行版本是否可见**（核心规则）：
 
-```
+```text
 1. 版本 trx_id < min_trx_id → 已提交，可见 ✅
 2. 版本 trx_id >= max_trx_id → 当前事务之后开启的，不可见 ❌
 3. min_trx_id <= trx_id < max_trx_id：
@@ -77,7 +77,7 @@ max_trx_id       下一个要分配的事务 ID（上界）
 
 RR 的快照读解决了"查询结果不变"，但**当前读**（`SELECT ... FOR UPDATE` / `UPDATE` / `DELETE`）走的是另一条路：**当前读 + 间隙锁**。
 
-```
+```text
 RR 下：
 快照读（普通 SELECT）→ 由 MVCC 保证一致 ✅
 当前读（FOR UPDATE）→ 走索引锁 + 间隙锁，防止插入 ✅
@@ -89,7 +89,7 @@ RR 下：
 
 MVCC 不是免费的：
 
-```
+```text
 每行多次更新 → 版本链变长 → 查询要沿链找可见版本 → 变慢
 undo log 膨胀 → 磁盘占用上升
 长事务 → undo 无法 purge → 版本链长期保留
