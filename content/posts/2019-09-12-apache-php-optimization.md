@@ -15,7 +15,7 @@ summary: "Apache + PHP 服务器性能调优实战，从 MPM 模式选择、进�
 
 先看了下 Apache 的错误日志：
 
-```
+```text
 [Fri Sep 06 14:23:15 2019] [error] server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
 ```
 
@@ -61,7 +61,7 @@ ps -ylC httpd --sort:rss | awk '{sum+=$8; ++n} END {print "平均内存: " sum/n
 
 我们的环境单个 httpd 进程大约占 80MB（因为 mod_php 把 PHP 解释器嵌进去了）。服务器内存 8GB，系统和 MySQL 占了 3GB，留给 Apache 的大约 4GB。
 
-```
+```text
 MaxRequestWorkers = 4GB / 80MB ≈ 50
 ```
 
