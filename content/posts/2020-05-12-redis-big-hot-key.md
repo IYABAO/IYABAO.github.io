@@ -17,7 +17,7 @@ summary: "大 Key 阻塞 Redis、热 Key 打爆单节点——两个线上事故
 
 ### 问题
 
-```
+```text
 一个 key 存了 500MB 的列表（比如全量用户 ID）
 → 每次操作这 key：网络传输 500MB、内存拷贝、阻塞其他命令
 → Redis 是单线程，一个慢命令 = 全库卡顿
@@ -41,7 +41,7 @@ redis-cli slowlog get 20
 
 ### 治理
 
-```
+```text
 1. 拆分：
    大列表 → 按时间/用户 ID 分桶（user:2026:01 / user:2026:02）
    大 hash → 按业务域拆分（各域独立 key）
@@ -61,7 +61,7 @@ redis-cli slowlog get 20
 
 ### 问题
 
-```
+```text
 一个 key 每秒 10 万次读（比如爆款商品、热点新闻）
 → 单节点 CPU 打满（即使集群有 10 个节点，这个 key 固定在一个节点）
 → 其他请求全部排队 → 集群假死
@@ -71,7 +71,7 @@ redis-cli slowlog get 20
 
 ### 发现
 
-```
+```text
 1. 监控：节点 CPU 不均衡（一个节点 90%，其他 10%）
 2. 访问统计：Redis 4.0+ 用 LFU 策略 + OBJECT FREQ
 3. 代理层统计：客户端 SDK 侧统计 key 访问频次
@@ -79,7 +79,7 @@ redis-cli slowlog get 20
 
 ### 治理
 
-```
+```text
 1. 本地缓存（最高效）：
    热 key 加一层应用本地缓存（Caffeine/进程 map）
    命中率 90%+ → Redis 压力降一个量级
@@ -99,7 +99,7 @@ redis-cli slowlog get 20
 
 ### 事故 1：大 Key 引发的全库阻塞
 
-```
+```text
 现象：线上 Redis 间歇性卡顿，P99 飙到 3s
 定位：slowlog 发现 SINTER 操作耗时 8s
 根因：用户标签集合存了 200 万会员 ID 的单个 key，每天全量计算交集
@@ -109,7 +109,7 @@ redis-cli slowlog get 20
 
 ### 事故 2：热 Key 打爆节点
 
-```
+```text
 现象：活动开始后 Redis 单节点 CPU 100%，集群整体超时
 定位：节点 CPU 严重不均衡
 根因：活动商品库存 key 每秒 8 万次读
@@ -119,7 +119,7 @@ redis-cli slowlog get 20
 
 ## 四、预防体系
 
-```
+```text
 ✅ 上线前：key 设计评审（预估 size/访问量）
 ✅ 巡检：--bigkeys 每周跑一次，大 key 告警
 ✅ 监控：节点 CPU 均衡度、慢命令、内存趋势
@@ -129,7 +129,7 @@ redis-cli slowlog get 20
 
 ## 五、避坑清单
 
-```
+```text
 ✅ 大 key 排查用 SCAN（KEYS 会雪上加霜）
 ✅ 热 key 优先本地缓存（简单高效），再考虑复制分片
 ✅ 热 key 分片要注意写放大（写多读少别用）
