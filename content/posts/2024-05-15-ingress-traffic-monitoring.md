@@ -19,7 +19,7 @@ K8s 里所有外部流量都过 Ingress，它天生是"全站流量的观测点"
 
 Ingress-Nginx Controller 默认暴露 Prometheus 指标端点（`:10254/metrics`），核心指标：
 
-```
+```text
 nginx_ingress_controller_requests        # 请求数（带 host/ingress/service 标签）
 nginx_ingress_controller_request_duration_seconds   # 请求耗时（直方图）
 nginx_ingress_controller_ingress_upstream_latency_seconds  # 上游延迟
@@ -50,7 +50,7 @@ spec:
 
 ### 1. 请求量（QPS 趋势）
 
-```
+```text
 sum(rate(nginx_ingress_controller_requests{controller_class="nginx"}[5m])) by (ingress)
 ```
 
@@ -65,7 +65,7 @@ histogram_quantile(0.99,
 
 ### 3. 错误率
 
-```
+```text
 sum(rate(nginx_ingress_controller_requests{status=~"5.."}[5m])) by (ingress)
 /
 sum(rate(nginx_ingress_controller_requests[5m])) by (ingress)
@@ -73,7 +73,7 @@ sum(rate(nginx_ingress_controller_requests[5m])) by (ingress)
 
 ### 4. 上游健康（哪个 Pod 在抖）
 
-```
+```text
 nginx_ingress_controller_ingress_upstream_latency_seconds
 ```
 
@@ -89,7 +89,7 @@ nginx_ingress_controller_ingress_upstream_latency_seconds
 
 我按"入口 → 出口"顺序排面板：
 
-```
+```text
 第一行：总览（总 QPS / 总错误率 / P99 全局）
 第二行：按 Ingress（服务）维度表格——QPS、P99、错误率、趋势 sparkline
 第三行：Top 慢接口 / Top 5xx 接口
