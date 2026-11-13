@@ -15,7 +15,7 @@ MCP（Model Context Protocol）正在成为 AI 应用连接外部世界的"USB-C
 
 ## 一、MCP 解决什么问题
 
-```
+```text
 没有 MCP：
   每个 AI 应用 × 每个数据源 = N×M 种定制集成
   Claude 连数据库要写插件，Cursor 连数据库要再写一份
@@ -29,7 +29,7 @@ MCP（Model Context Protocol）正在成为 AI 应用连接外部世界的"USB-C
 
 ## 二、协议分层
 
-```
+```text
 ┌─ Host（宿主应用：Claude Desktop / Cursor / 自研 Agent）
 │   ├─ Client（MCP 客户端：管理连接、协议交互）
 │   └─ Client
@@ -48,7 +48,7 @@ MCP（Model Context Protocol）正在成为 AI 应用连接外部世界的"USB-C
 
 ### 传输层
 
-```
+```text
 stdio：本地进程（标准输入输出），开发/本地工具主流
 SSE：HTTP 流式，远程服务
 Streamable HTTP：新版推荐（取代纯 SSE）
@@ -60,7 +60,7 @@ Streamable HTTP：新版推荐（取代纯 SSE）
 
 ### Server 侧（能力提供）
 
-```
+```text
 官方/知名 Server：
   GitHub、Slack、Google Drive、Notion、数据库（Postgres/MySQL）
 自建 Server（我们做的最多）：
@@ -69,14 +69,14 @@ Streamable HTTP：新版推荐（取代纯 SSE）
 
 ### Client 侧（能力消费）
 
-```
+```text
 主流 Host：Claude Desktop、Cursor、VS Code、自研 Agent
 MCP 之于 AI 应用 ≈ 插件系统之于浏览器
 ```
 
 ### 注册表与 Hub
 
-```
+```text
 官方注册表：modelcontextprotocol/servers（官方维护的精选列表）
 社区 Hub：smithery.ai、mcp.so（搜索、安装、发现）
 ```
@@ -98,7 +98,7 @@ MCP 之于 AI 应用 ≈ 插件系统之于浏览器
 
 ### 模式 1：薄封装（Tool = API 代理）
 
-```
+```text
 MCP Tool → 内部 HTTP API → 业务系统
 ```
 
@@ -106,7 +106,7 @@ MCP Tool → 内部 HTTP API → 业务系统
 
 ### 模式 2：领域服务（Tool = 业务能力）
 
-```
+```text
 MCP Tool（搜简历）→ 业务服务（ES 检索 + 权限过滤 + 结果裁剪）
 ```
 
@@ -114,7 +114,7 @@ MCP Tool（搜简历）→ 业务服务（ES 检索 + 权限过滤 + 结果裁�
 
 ### 模式 3：资源型（Resources = 数据目录）
 
-```
+```text
 Resources：数据库表清单、文档库索引（给 LLM 导航用）
 Tools：基于资源的具体操作
 ```
@@ -123,7 +123,7 @@ Tools：基于资源的具体操作
 
 ## 六、生产落地的五件事
 
-```
+```text
 ✅ 鉴权：Tool 层必须验 token（LLM 调用不等于无权限）
 ✅ 审计：所有 Tool 调用记日志（谁、调了什么、结果）
 ✅ 限流：按调用方/按工具限流（防刷爆上游）
