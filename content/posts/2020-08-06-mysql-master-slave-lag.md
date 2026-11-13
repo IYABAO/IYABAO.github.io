@@ -16,7 +16,7 @@ summary: "写完就读不到？主从延迟是读写分离的经典问题。延�
 
 ## 一、延迟从哪来
 
-```
+```text
 写入主库 → 生成 binlog → 传输到从库 → 从库 SQL 线程重放 → 才可见
 
 延迟 = 传输延迟 + 重放延迟
@@ -42,7 +42,7 @@ SHOW SLAVE STATUS;    -- 从库 Read_Master_Log_Pos
 
 **注意**：`Seconds_Behind_Master` 有局限（从库空闲时可能显示 0，实际位点差很大）。**生产用"位点差"监控**（binlog 文件号 + 位置）。
 
-```
+```text
 告警阈值：延迟 > 3s 告警，> 30s 严重（看业务容忍度）
 ```
 
@@ -60,7 +60,7 @@ slave_parallel_type = LOGICAL_CLOCK   # 事务组并行（推荐）
 
 ### 2. 消灭大事务
 
-```
+```text
 大事务 = 重放慢 + 长锁 + binlog 巨大
   10 万行的 UPDATE → 从库要重放很久
 
@@ -72,7 +72,7 @@ slave_parallel_type = LOGICAL_CLOCK   # 事务组并行（推荐）
 
 ### 3. 索引对齐
 
-```
+```text
 从库重放慢常见原因：从库缺少主库有的索引
 （有人给从库"瘦身"删索引 → 重放全表扫）
 → 从库结构必须和主库一致（读写分离 ≠ 结构分离）
@@ -96,7 +96,7 @@ func GetOrderAfterWrite(orderId string) *Order {
 
 ### 方案 2：延迟可接受标记
 
-```
+```text
 写操作返回时带上"写入时间"
 读操作对比：如果数据时间 > 当前时间 - 延迟容忍（如 2s）
 → 触发"稍后重试"或"读主库"
@@ -104,7 +104,7 @@ func GetOrderAfterWrite(orderId string) *Order {
 
 ### 方案 3：缓存先写
 
-```
+```text
 写库 + 写缓存（同事务/同秒）→ 读优先缓存
 缓存里有 = 读到新数据；缓存没有 → 读从库（可能旧）
 ```
@@ -118,7 +118,7 @@ func GetOrderAfterWrite(orderId string) *Order {
 
 ## 六、什么时候用半同步
 
-```
+```text
 异步复制：主库不等从库确认（性能好，丢数据风险窗口大）
 半同步：主库等一个从库确认收到 binlog（降低丢数据窗口，但延迟 +）
 全同步：所有从库确认（数据最安全，性能最差）
