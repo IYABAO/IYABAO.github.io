@@ -177,7 +177,7 @@ Docker 分为 CE 和 EE 两大版本。CE 即社区版，免费支持周期 7 �
 
 我们在安装前可以参看官方文档获取最新的 Docker 支持情况，官方文档在这里：
 
-```
+```text
 https://docs.docker.com/install/
 ```
 
@@ -185,7 +185,7 @@ Docker 对于内核支持的功能，即内核的配置选项也有一定的要�
 
 Docker 源码中提供了一个检测脚本来检测和指导内核的配置，脚本链接在这里：
 
-```
+```text
 https://raw.githubusercontent.com/docker/docker/master/contrib/check-config.sh
 ```
 
@@ -211,7 +211,7 @@ CentOS 7.4 64 位
 
 由于 Docker-CE 支持 64 位版本的 CentOS 7 ，并且要求内核版本不低于 3.10，首先我们需要卸载掉旧版本的 Docker：
 
-```
+```bash
 $ sudo yum remove docker \
  docker-client \
  docker-client-latest \
@@ -228,7 +228,7 @@ $ sudo yum remove docker \
 
 我们执行以下安装命令去安装依赖包：
 
-```
+```bash
 $ sudo yum install -y yum-utils \
  device-mapper-persistent-data \
  lvm2
@@ -242,19 +242,19 @@ $ sudo yum install -y yum-utils \
 
 Docker 软件包已经包括在默认的 CentOS-Extras 软件源里。因此想要安装 Docker，只需要运行下面的 yum 命令：
 
-```
+```bash
 $ sudo yum install docker
 ```
 
 当然在测试或开发环境中 Docker 官方为了简化安装流程，提供了一套便捷的安装脚本，CentOS 系统上可以使用这套脚本安装：
 
-```
+```bash
 curl -fsSL get.docker.com -o get-docker.shsh get-docker.sh
 ```
 
 具体可以参看 docker-install 的脚本：
 
-```
+```text
 https://github.com/docker/docker-install
 ```
 
@@ -262,7 +262,7 @@ https://github.com/docker/docker-install
 
 安装完成后，运行下面的命令，验证是否安装成功：
 
-```
+```bash
 docker versionordocker info
 ```
 
@@ -272,7 +272,7 @@ docker versionordocker info
 
 启动 Docker-CE：
 
-```
+```bash
 $ sudo systemctl enable docker$ sudo systemctl start docker
 ```
 
@@ -284,7 +284,7 @@ $ sudo systemctl enable docker$ sudo systemctl start docker
 
 我们直接运行下面的命令，将名为 hello-world 的 image 文件从仓库抓取到本地：
 
-```
+```bash
 docker pull library/hello-world
 ```
 
@@ -294,7 +294,7 @@ docker pull images 是抓取 image 文件，library/hello-world 是 image 文件
 
 抓取成功以后，就可以在本机看到这个 image 文件了：
 
-```
+```bash
 docker images
 ```
 
@@ -304,7 +304,7 @@ docker images
 
 现在，我们可以运行 hello-world 这个 image 文件：
 
-```
+```bash
 docker run hello-world
 ```
 
@@ -405,7 +405,7 @@ Docker 可执行文件运行时，运行代码通过不同的命令行 Flag 参�
 
 启动 Docker Daemon 时，一般可以使用以下命令来完成：
 
-```
+```bash
 docker --daemon = truedocker –d
 docker –d = true
 ```
@@ -426,7 +426,7 @@ docker –d = true
 
 ②重启 Docker Daemon：
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart docker.service
 ```
@@ -511,13 +511,13 @@ Docker Container 提供了系统硬件环境，我们可以使用 Docker Images 
 
 例如，我们需要拉取一个 Docker 镜像，我们可以用如下命令：
 
-```
+```bash
 docker pull image_name
 ```
 
 image\_name 为镜像的名称，而如果我们想从 Docker Hub 上去下载某个镜像，我们可以使用以下命令：
 
-```
+```bash
 docker pull centos:latest
 ```
 
@@ -525,13 +525,13 @@ cento：lastest 是镜像的名称，Docker Daemon 发现本地没有我们需�
 
 接着我们如果想查看主机下存在多少镜像，我们可以用如下命令：
 
-```
+```bash
 docker images
 ```
 
 我们要想知道当前有哪些容器在运行，我们可以用如下命令：
 
-```
+```bash
 docker ps -a
 ```
 
@@ -539,7 +539,7 @@ docker ps -a
 
 我们可以用如下命令：
 
-```
+```bash
 docker start container_name/container_id
 docker restart container_name/container_id
 docker stop container_name/container_id
@@ -547,13 +547,13 @@ docker stop container_name/container_id
 
 这个时候我们如果想进入到这个容器中，我们可以使用 attach 命令：
 
-```
+```bash
 docker attach container_name/container_id
 ```
 
 那如果我们想运行这个容器中的镜像的话，并且调用镜像里面的 bash ，我们可以使用如下命令：
 
-```
+```bash
 docker run -t -i container_name/container_id /bin/bash
 ```
 
@@ -561,19 +561,19 @@ docker run -t -i container_name/container_id /bin/bash
 
 我们首先得先去停止这个容器：
 
-```
+```bash
 docker psdocker stop container_name/container_id
 ```
 
 然后我们用如下命令去删除这个容器：
 
-```
+```bash
 docker rm container_name/container_id
 ```
 
 然后这个时候我们再去删除这个镜像：
 
-```
+```bash
 docker rmi image_name
 ```
 
@@ -602,7 +602,7 @@ Dockerfile 是自动构建 Docker 镜像的配置文件，用户可以使用 Doc
 
 下面是一段简单的 Dockerfile 的例子：
 
-```
+```dockerfile
 FROM python:2.7MAINTAINER Angel_Kitty <angelkitty6698@gmail.com>COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
@@ -635,7 +635,7 @@ FROM 是用于指定基础的 images ，一般格式为 FROM or FORM :。
 
 可以在同一个 Dockerfile 中多次使用 FROM 命令用于创建多个镜像。比如我们要指定 Python 2.7 的基础镜像，我们可以像如下写法一样：
 
-```
+```dockerfile
 FROM python:2.7
 ```
 
@@ -645,7 +645,7 @@ MAINTAINER 是用于指定镜像创建者和联系方式，一般格式为 MAINT
 
 这里我设置成我的 ID 和邮箱：
 
-```
+```dockerfile
 MAINTAINER Angel_Kitty <angelkitty6698@gmail.com>
 ```
 
@@ -657,7 +657,7 @@ COPY 是用于复制本地主机的 (为 Dockerfile 所在目录的相对路径)
 
 例如我们要拷贝当前目录到容器中的 /app 目录下，我们可以这样操作：
 
-```
+```dockerfile
 COPY . /app
 ```
 
@@ -669,7 +669,7 @@ WORKDIR 用于配合 RUN，CMD，ENTRYPOINT 命令设置当前工作路径。
 
 例如我们设置 /app 路径，我们可以进行如下操作：
 
-```
+```dockerfile
 WORKDIR /app
 ```
 
@@ -679,7 +679,7 @@ RUN 用于容器内部执行命令。每个 RUN 命令相当于在原有的镜�
 
 例如我们要安装 Python 依赖包，我们做法如下：
 
-```
+```dockerfile
 RUN pip install -r requirements.txt
 ```
 
@@ -689,7 +689,7 @@ EXPOSE 命令用来指定对外开放的端口。一般格式为 EXPOSE [ ...]�
 
 例如上面那个例子，开放5000端口：
 
-```
+```dockerfile
 EXPOSE 5000
 ```
 
@@ -704,7 +704,7 @@ ENTRYPOINT 命令也有两种格式：
 
 例如下面这个，我们要将 Python 镜像变成可执行的程序，我们可以这样去做：
 
-```
+```dockerfile
 ENTRYPOINT ["python"]
 ```
 
@@ -726,7 +726,7 @@ CMD 命令会被 Docker 命令行传入的参数覆盖：docker run busybox /bin
 
 例如我们要启动 /app ，我们可以用如下命令实现：
 
-```
+```dockerfile
 CMD ["app.py"]
 ```
 
@@ -736,7 +736,7 @@ CMD ["app.py"]
 
 我们大体已经把 Dockerfile 的写法讲述完毕，我们可以自己动手写一个例子：
 
-```
+```bash
 mkdir static_web
 cd static_web
 touch Dockerfile
@@ -744,7 +744,7 @@ touch Dockerfile
 
 然后 vi Dockerfile 开始编辑该文件，输入 i 开始编辑。以下是我们构建的 Dockerfile 内容：
 
-```
+```dockerfile
 FROM nginx
 MAINTAINER Angel_Kitty <angelkitty6698@gmail.com>
 RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
@@ -754,7 +754,7 @@ RUN echo '<h1>Hello, Docker!</h1>' > /usr/share/nginx/html/index.html
 
 我们在 Dockerfile 文件所在目录执行：
 
-```
+```bash
 docker build -t angelkitty/nginx_web:v1 .
 ```
 
@@ -771,7 +771,7 @@ docker build -t angelkitty/nginx_web:v1 .
 
 接下来使用 docker run 命令来启动容器：
 
-```
+```bash
 docker run --name nginx_web -d -p 8080:80 angelkitty/nginx_web:v1
 ```
 

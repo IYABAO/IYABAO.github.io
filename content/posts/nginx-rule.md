@@ -20,7 +20,7 @@ proxy常用于两类应用场景，一类是中转，如异地科学的上网方
 
 但这个问题是可以通过别的模块或者用内置字典变量方式来解决。
 
-```
+```nginx
 resolver 114.114.114.114;
 server {
  location / {
@@ -34,7 +34,7 @@ server {
 
 针对某个域名进行中转：
 
-```
+```nginx
 server {
 listen 172.16.10.1:80;
  server_name pypi.python.org;
@@ -50,7 +50,7 @@ listen 172.16.10.1:80;
 
 另外可以直接代理所有80端口的http流量：
 
-```
+```nginx
 server {
  listen 80;
  server_name _;
@@ -68,7 +68,7 @@ server {
 
 这是代理的另外一个常见用法，通过upstream到多个后端，可以通过weight来调节权重或者backup关键词来指定备份用的后端，通常默认就可以 了，或者可以指定类似ip\_hash这样的方式来均衡，配置很简单，先在http区域添加upstream定义：
 
-```
+```nginx
 upstream backend {
  ip_hash;
  server backend1.example.com weight=5;
@@ -78,7 +78,7 @@ upstream backend {
 
 然后在server里面添加proxy\_pass：
 
-```
+```nginx
 location / {
  proxy_pass http://backend;
  proxy_http_version 1.1;
@@ -88,7 +88,7 @@ location / {
 
 做负载均衡的时候可以智能识别后端服务器状态，虽然可以智能地proxy\_next\_upstream到另外的后端，但还是会定期损失一些正常的“尝试性”的连接，比如过了max\_fails 次尝试之后，休息fail\_timeout时间，过了这个时间之后又会去尝试，这个时候可以使用第三方的upstream\_check模块来在后台定期地自动探索，类似这样：
 
-```
+```nginx
 check interval=3000 rise=2 fall=5 timeout=2000 type=http;
 ```
 
@@ -100,7 +100,7 @@ check interval=3000 rise=2 fall=5 timeout=2000 type=http;
 
 普通的防盗链是通过referer来做，比如：
 
-```
+```nginx
 location ~* \.(gif|jpg|png|bmp)$ {
  valid_referers none blocked *.example.com server_names ~\.google\. ~\.baidu\.;
  if ($invalid_referer) {
@@ -117,7 +117,7 @@ nginx里面支持正则匹配和变量配置，默认的变量比如remote\_addr
 
 还有在进行多域名配置时候可以用通配符，比如：
 
-```
+```nginx
 server_name ~^(www\.)?(.+)$;
 root /data/web/$2;
 ```
@@ -126,7 +126,7 @@ root /data/web/$2;
 
 变量方面，比如配置变量a=1：
 
-```
+```nginx
 set $a 1;
 ```
 
@@ -136,7 +136,7 @@ set $a 1;
 
 nginx里面支持一些简单的if判断，但是没有多重逻辑的语法，多个判断条件用起来需要结合变量的方式来实现，比如允许ip地址为10.10.61段和和192.168.100段的用户访问，其余的拒绝，返回405状态码：
 
-```
+```nginx
 set $err 0;
  if ( $remote_addr ~ 10.10.61.){
  set $err 0;
@@ -155,7 +155,7 @@ set $err 0;
 
 有用到后端proxy的地方需要加上这句话才可以传到状态码到nginx：
 
-```
+```nginx
 fastcgi_intercept_errors on;
 ```
 
@@ -170,7 +170,7 @@ error_page 404 403 =200 /error.html
 
 或者采用callback的方式统一做处理：
 
-```
+```nginx
 error_page 404 403 = @fallback;
 location @fallback {
  proxy_pass http://backend;
@@ -184,7 +184,7 @@ location @fallback {
 
 rewrite做一些301、302之类的跳转，同时也可以在CDN前端做“去问号”缓存的效果。
 
-```
+```nginx
 location /db.txt {
  rewrite (.*) $1? break;
  include proxy.conf;
@@ -193,7 +193,7 @@ location /db.txt {
 
 另外最常见的跳转写法：
 
-```
+```nginx
 rewrite ^/game/(.*) /$1;
 ```
 
@@ -203,7 +203,7 @@ rewrite ^/game/(.*) /$1;
 
 同理，还可以进行多个正则匹配进行URL重组，比如：
 
-```
+```nginx
 rewrite ^/download/(.*)/lastest/(.*)$ /file/$1?ver=$2 break;
 ```
 
@@ -215,7 +215,7 @@ rewrite ^/download/(.*)/lastest/(.*)$ /file/$1?ver=$2 break;
 
 另外post的数据可以永久保留在文件里面，比如用来做http的日志备份，包括get和post的原始数据，把这个值开启即可：
 
-```
+```nginx
 client_body_in_file_only on;
 ```
 
@@ -225,7 +225,7 @@ client_body_in_file_only on;
 
 这个关键词很少见，但有时候是很有用的，比如在有很多规则时候，突然需要针对某个目录转为nginx内部处理。
 
-```
+```nginx
 location ^~ /upload/down/ {
 alias /data/web/dts/dtsfile/down/;
 internal;
@@ -236,13 +236,13 @@ internal;
 
 字面意思是尝试，后面可以接多个目录或者文件，比如kohana框架：
 
-```
+```nginx
 try_files $uri /index.php?$query_string;
 ```
 
 先看是否有URL这个文件，没有的话再调用index.php来处理，或者支持状态码处理：
 
-```
+```nginx
 try_files /foo /bar/ =404;
 ```
 
@@ -252,7 +252,7 @@ try_files /foo /bar/ =404;
 
 可以做简单的用户登录认证方式，其中的passwd\_file得通过apache的htpasswd命令来生成。
 
-```
+```nginx
 auth_basic "Restricted";
 auth_basic_user_file passwd_file;
 ```
@@ -265,7 +265,7 @@ auth_basic_user_file passwd_file;
 
 注意必须手动指定全需要压缩的类型，比如css、js之类的，线上配置如下：
 
-```
+```nginx
 gzip on;
 gzip_min_length 2048;
 gzip_buffers 4 16k;
@@ -278,7 +278,7 @@ gzip_types text/plain text/css text/xml application/xml application/javascript a
 
 很久以前基本是忽略这个配置，但手游流行之后就发现异常了，需要让手机浏览器知道返回的apk后缀是什么类型，否则类似IE浏览器会以zip后缀返回，需要加上：
 
-```
+```nginx
 application/vnd.android.package-archive apk;
 application/iphone pxl ipa;
 ```
@@ -289,7 +289,7 @@ application/iphone pxl ipa;
 
 简单的限制某个线程的下载速度就直接加上一句话就可以了：
 
-```
+```nginx
 limit_rate 1024k;
 ```
 
@@ -297,7 +297,7 @@ limit_rate 1024k;
 
 比如使用一个 10M 大小的状态缓存区，针对每个IP每秒只接受20次的请求：
 
-```
+```nginx
 limit_req_zone $binary_remote_addr zone=NAME:10m rate=20r/s;
 ```
 
@@ -305,7 +305,7 @@ limit_req_zone $binary_remote_addr zone=NAME:10m rate=20r/s;
 
 location匹配有多种方式，常见的比如
 
-```
+```nginx
 location = /
 location /
 location ^~ /test{
@@ -313,7 +313,7 @@ location ^~ /test{
 
 是有优先级的，直接 ”=” 的优先级是最高的，一般就用”~”这个符号来匹配php就好了，不过是区分了大小写的：
 
-```
+```nginx
 location ~ .*\.php$
 ```
 
@@ -323,13 +323,13 @@ location ~ .*\.php$
 
 比如缓存14天：
 
-```
+```nginx
 expires 14d;
 ```
 
 针对某些特殊的文件就需要location匹配之后进行禁止缓存配置：
 
-```
+```nginx
 add_header Cache-Control no-cache;
 add_header Cache-Control no-store;
 expires off;
@@ -365,7 +365,7 @@ nginx含有大量的模块可以支持多种复杂的需求，比如源码目录
 
 端口转发的模块，从nginx1.9版本才开始支持，包含tcp和udp的支持，和IPTABLES相比这个虽然是应用层，会监听端口，但是配置起来很方便，比IPTABLES灵活，在tcp模块下面添加类似vhost的server就可以了，方便自动化管理，参考配置：
 
-```
+```nginx
 server {
  listen PORT;
  proxy_pass IP:PORT;
