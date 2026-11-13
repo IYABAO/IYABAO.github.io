@@ -95,7 +95,7 @@ ctx2 := context.WithTimeout(ctx, 5*time.Second)
 
 ## 四、反模式清单（review 红线）
 
-```
+```text
 ❌ context 存 struct / 全局变量
 ❌ context 传业务参数（城市、分页）
 ❌ 函数内部 context.Background()（不接上游）
