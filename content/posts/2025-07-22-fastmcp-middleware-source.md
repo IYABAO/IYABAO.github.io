@@ -17,7 +17,7 @@ summary: "用 FastMCP 写了半年企业级 MCP 服务，决定读一遍源码�
 
 ## 一、FastMCP 的整体结构
 
-```
+```text
 fastmcp/
 ├── server/           # Server 核心：工具注册、session 管理、协议处理
 │   ├── server.py     # FastMCP 主类
@@ -96,7 +96,7 @@ class Session:
 
 FastMCP 中间件是**洋葱模型**（和 FastAPI 的 middleware 同款思路）：
 
-```
+```text
 请求进来
   ▼
 [鉴权中间件]  ── 校验 token，失败 401
@@ -148,7 +148,7 @@ async def auth_middleware(request, next):
 
 ## 五、工具调用的完整链路
 
-```
+```text
 LLM → tools/call {name: search_resume, arguments: {...}}
   │
   ▼
