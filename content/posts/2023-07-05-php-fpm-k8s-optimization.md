@@ -30,7 +30,7 @@ ps -ylC php-fpm --sort:rss | awk '{sum+=$8; n++} END {print sum/n/1024 " MB"}'
 
 假设单进程 60MB，Pod 内存限制 1GB（系统和其他进程留 200MB）：
 
-```
+```text
 max_children = (1024 - 200) / 60 ≈ 13
 ```
 
