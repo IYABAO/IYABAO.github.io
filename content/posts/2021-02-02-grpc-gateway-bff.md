@@ -16,7 +16,7 @@ summary: "内部 gRPC 服务怎么给外部提供 API？BFF 聚合、网关转�
 
 ## 一、问题：内部 gRPC，外部要 REST
 
-```
+```text
 微服务 A（gRPC）  ─┐
 微服务 B（gRPC）  ─┼── 前端要什么？→ JSON API（REST）
 微服务 C（gRPC）  ─┘     还要：聚合、裁剪、鉴权、限流
@@ -31,7 +31,7 @@ summary: "内部 gRPC 服务怎么给外部提供 API？BFF 聚合、网关转�
 
 ### 模式 A：网关（统一入口）
 
-```
+```text
 前端 → REST API → 网关 → gRPC 微服务
                         ├─ 路由、鉴权、限流
                         ├─ 协议转换（REST ↔ gRPC）
@@ -42,7 +42,7 @@ summary: "内部 gRPC 服务怎么给外部提供 API？BFF 聚合、网关转�
 
 ### 模式 B：BFF（前端专属后端）
 
-```
+```text
 Web 前端 → BFF-Web → gRPC 微服务
 App 前端 → BFF-App → gRPC 微服务
                      ├─ 聚合（按前端页面组装）
@@ -54,13 +54,13 @@ App 前端 → BFF-App → gRPC 微服务
 
 ## 三、我的实践：网关 + BFF 分层
 
-```
+```text
 前端 → REST → 网关（路由/鉴权/限流/审计）→ BFF（聚合/裁剪）→ gRPC 服务
 ```
 
 **为什么两层都要**：
 
-```
+```text
 网关管"横切"（所有接口统一的：鉴权、限流、审计、版本）
 BFF 管"业务"（页面级聚合、字段裁剪、前端适配）
 
@@ -104,7 +104,7 @@ func GetProfilePage(ctx, req) (*ProfileVO, error) {
 
 **关键**：
 
-```
+```text
 ✅ 并行聚合（gRPC 并发调用，不等串行）
 ✅ 裁剪字段（只返回前端要的，减少传输）
 ✅ BFF 无业务逻辑（只是聚合+适配，别在 BFF 写业务）
@@ -120,7 +120,7 @@ func GetProfilePage(ctx, req) (*ProfileVO, error) {
 
 ## 六、什么时候不需要 BFF
 
-```
+```text
 ✅ 单端（只有一个 Web）：网关 + 直接 gRPC 网关映射就够
 ✅ 接口简单（CRUD 直接映射）：不需要聚合
 ✅ 团队小：BFF 是额外维护成本
