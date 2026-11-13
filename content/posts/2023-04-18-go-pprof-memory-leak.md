@@ -158,7 +158,7 @@ k6 run load.js                      # 压测 1 小时看内存曲线
 
 ## 七、预防清单
 
-```
+```text
 ✅ goroutine 必须有退出路径（ctx 或 channel close）
 ✅ 批量任务用 Worker Pool，不裸开 goroutine
 ✅ channel 发送方考虑"没人收"的兜底（select + ctx）
