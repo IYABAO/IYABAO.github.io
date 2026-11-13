@@ -245,7 +245,7 @@ public function queryStats($companyId, $startDate, $endDate, $dimensions = [])
 
 独立的统计服务，对外提供 RESTful API：
 
-```
+```text
 GET /api/stats/overview?company_id=123&start_date=2020-01-01&end_date=2020-01-31
 GET /api/stats/trend?company_id=123&start_date=2020-01-01&end_date=2020-01-31&dimension=day
 GET /api/stats/by-job?company_id=123&start_date=2020-01-01&end_date=2020-01-31
