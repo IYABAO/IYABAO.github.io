@@ -26,7 +26,7 @@ summary: "公司有 8 个模型供应商、十几个模型，业务方各接各�
 
 ## 二、整体架构
 
-```
+```text
 业务方 A/B/C
    │  OpenAI 兼容 API（/v1/chat/completions）
    ▼
@@ -50,7 +50,7 @@ One-API 网关
 
 ### 路由规则（优先级从高到低）
 
-```
+```text
 1. 业务方显式指定渠道（如 debug 用特定渠道）
 2. 渠道健康状态（降级渠道自动剔除）
 3. 渠道优先级（成本优先/速度优先/稳定优先）
@@ -79,7 +79,7 @@ func route(ctx, model string) *Channel {
 
 双层令牌桶：
 
-```
+```text
 业务方层：用户 API key 限流（QPS 上限，防单个业务打爆）
 渠道层：  渠道总限流（防触发供应商账号封禁）
 ```
@@ -100,7 +100,7 @@ if !limiter.Allow() {
 
 每次请求完成，网关按模型单价计算成本：
 
-```
+```text
 成本 = prompt_tokens × 输入单价 + completion_tokens × 输出单价
 ```
 
@@ -114,7 +114,7 @@ if !limiter.Allow() {
 
 ### 关键：计费必须和流式解耦
 
-```
+```text
 LLM 流式响应
    │
    ├─ 客户端收 token（实时展示）
