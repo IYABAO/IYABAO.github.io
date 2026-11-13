@@ -25,7 +25,7 @@ keywords: ["MCP", "FastMCP", "企业级", "MCP Server", "鉴权", "限流", "脱
 
 企业级 MCP Server 不是"一个 FastMCP 实例"，而是一组横切能力 + 业务 Tools 的组合。fastmcp-enterprise 的架构长这样：
 
-```
+```text
 ┌─────────────────────────────────────────────────────┐
 │                    客户端（LLM Agent）                 │
 │        Claude Code / Cursor / 自研 Agent              │
@@ -179,7 +179,7 @@ class DesensitizeMiddleware(Middleware):
 
 效果（真实测试）：
 
-```
+```text
 原值: 13912344321  linzhuang@example.com  330106199001011234
 脱敏: 139****4321  li***@example.com      330106********1234
 ```
@@ -329,7 +329,7 @@ async with Client("http://localhost:8080/mcp", auth="sk-test-001") as client:
 
 ## 十、模板结构速览
 
-```
+```text
 fastmcp-enterprise/
 ├── src/enterprise_mcp/
 │   ├── server.py              # 入口：组装全部能力
