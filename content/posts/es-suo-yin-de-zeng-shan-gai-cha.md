@@ -30,7 +30,7 @@ DELETE test\_index?ignore\_unavailable=true ==> drop table xx if exists
 
 ## 增
 
-```
+```text
 PUT kibana_sample_data_ecommerce2?include_type_name=true
 {
 "mappings" : {
@@ -199,7 +199,7 @@ PUT kibana_sample_data_ecommerce2?include_type_name=true
 
 改 reindex
 
-```
+```text
 POST _reindex?wait_for_completion=true
 {
   "dest": {
@@ -211,7 +211,7 @@ POST _reindex?wait_for_completion=true
 }
 ```
 
-```
+```text
 POST _aliases
 {
   "actions": [
@@ -236,7 +236,7 @@ mapping
 POST kibana\_sample\_data\_ecommerce2/\_mapping
 {
 
-```
+```text
 "properties": {
   "agent": {
     "type": "text",
@@ -261,7 +261,7 @@ settings
 PUT kibana\_sample\_data\_ecommerce2/\_settings
 {
 
-```
+```text
 "index": {
   "auto_expand_replicas": "0-1",
   "number_of_replicas": "2"
@@ -407,13 +407,13 @@ Tokenizer [必须有一个]
 
 token filter
 
-```
+```text
 html_strip
 mapping
 pattern_replace
 ```
 
-```
+```text
 PUT my-index-000001
 {
   "settings": {
