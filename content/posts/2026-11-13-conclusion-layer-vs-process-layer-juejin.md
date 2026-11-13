@@ -123,6 +123,6 @@ description: "同一天，任务看板写着本周 2 篇，仓库提交信息写
 
 三个数字打架那天，我最后没改任何数字，只做了两件事：把 commit 里的序号去掉，把看板那行补上口径。下次再有人问"这周发了几篇"，答案只有一条：去线上数，别问我。
 
-## 封面
+## 封面（本节是物料备注，发布时不要复制进正文）
 
-`E:\github\IYABAO.github.io\static\images\2026-11-13-conclusion-layer-cover.png`（1920×1080，16:9）
+`static/images/2026-11-13-conclusion-layer-cover.png`（1920×1080，16:9，深色渐变、无中文无 logo）
