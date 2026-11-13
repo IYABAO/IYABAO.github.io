@@ -115,7 +115,7 @@ SELECT * FROM resume WHERE id > 100020 ORDER BY id LIMIT 20;  -- 5ms
 
 ## 七、索引设计检查清单
 
-```
+```text
 ✅ 高频查询的 WHERE 条件建索引
 ✅ 联合索引：等值在前、范围在后、区分度高的在前
 ✅ 覆盖索引：SELECT 的列尽量都在索引里
