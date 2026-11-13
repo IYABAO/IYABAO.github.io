@@ -16,7 +16,7 @@ Demo 和产品之间隔着一整条深水区：**流程不失控、流式不卡�
 
 ## 一、产品形态
 
-```
+```text
 用户 → 选择岗位/简历 → 开始 AI 面试
   → AI 面试官提问（流式输出）
   → 用户语音/文字回答
@@ -27,7 +27,7 @@ Demo 和产品之间隔着一整条深水区：**流程不失控、流式不卡�
 
 ## 二、核心架构
 
-```
+```text
 ┌─ 客户端（Web/App）
 │    ├─ 语音采集（WebRTC/录音）
 │    └─ 流式渲染（SSE 逐字显示）
@@ -51,7 +51,7 @@ Demo 和产品之间隔着一整条深水区：**流程不失控、流式不卡�
 
 ### 1. 流程控制：状态机（前文详述）
 
-```
+```text
 [START] → [INTRO] → [Q1] → [A1 判定] → [Q2] → ... → [END] → [REPORT]
                      ↑          │
                      └── 追问 ←─┘（回答质量低 → 追问 1 次）
@@ -76,7 +76,7 @@ func streamHandler(w http.ResponseWriter, r *http.Request) {
 
 **工程要点**：
 
-```
+```text
 ✅ 心跳（注释行）防中间层超时断开
 ✅ 客户端断线 → 服务端取消（context 取消）
 ✅ 背压：LLM 生成快、网络慢 → 缓冲控制
@@ -87,13 +87,13 @@ func streamHandler(w http.ResponseWriter, r *http.Request) {
 
 ### 3. 计费闭环
 
-```
+```text
 流程：会话开始 → 计量（token/时长/次数）→ 会话结束 → 记账 → 扣费/额度
 ```
 
 **关键**：
 
-```
+```text
 ✅ 计量在网关层（不信任业务层统计）
 ✅ 对账：网关流水 vs 业务订单，日对账
 ✅ 免费额度：体验卡（3 次/天）
@@ -105,7 +105,7 @@ func streamHandler(w http.ResponseWriter, r *http.Request) {
 
 ### 4. 数据安全
 
-```
+```text
 ✅ 简历数据 RAG 检索 + 权限过滤（只能看自己的）
 ✅ 会话数据隔离（用户 A 不能看用户 B）
 ✅ 语音流加密传输、ASR 后即弃（不留原始音频）
@@ -114,7 +114,7 @@ func streamHandler(w http.ResponseWriter, r *http.Request) {
 
 ### 5. 评测迭代
 
-```
+```text
 离线：评测集（流程正确性、问题质量、评分准确）
 在线：完成率、追问率、付费转化率、投诉率
 A/B：换模型/Prompt/评分算法都要实验
