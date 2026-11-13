@@ -52,7 +52,7 @@ rules := []*flow.Rule{
 
 **阈值怎么定（不是拍脑袋）**：
 
-```
+```text
 阈值 = 下游容量 × 安全系数
 例：DB 连接池 200，单连接能扛 5 QPS → 上游限 800 QPS（留 20% 余量）
 ```
@@ -104,7 +104,7 @@ if err := sentinel.Entry("recommend:list"); err != nil {
 
 ## 五、全链路配合
 
-```
+```text
 网关限流（入口总闸）
   │
   ▼
@@ -116,7 +116,7 @@ if err := sentinel.Entry("recommend:list"); err != nil {
 
 **关键链路设计**：
 
-```
+```text
 用户请求 → 服务A
             ├─ 正常 → 调服务B
             ├─ B 熔断 → 快速失败（不等待）
@@ -127,7 +127,7 @@ if err := sentinel.Entry("recommend:list"); err != nil {
 
 ## 六、阈值怎么调（经验）
 
-```
+```text
 1. 先观察一周：压测 + 监控拿到基线（正常 QPS、P99、错误率）
 2. 限流：基线 × 1.5（留突发余量）
 3. 熔断：错误率 50% / 慢调用 30%（保守起步，误断调高）
