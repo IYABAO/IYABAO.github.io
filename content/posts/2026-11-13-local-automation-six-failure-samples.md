@@ -40,7 +40,7 @@ if exist public\posts\future (echo future: EXISTS) else (echo future: MISSING)
 
 输出：
 
-```
+```text
 EXITCODE=0
 future: MISSING
 ```
@@ -66,7 +66,7 @@ if ($d -gt (Get-Date)) { throw "frontmatter date 在未来：$d" }
 
 实际的轮询记录：
 
-```
+```text
 21:28:27  404
 21:28:44  404
 21:29:01  404
@@ -89,7 +89,7 @@ if ($d -gt (Get-Date)) { throw "frontmatter date 在未来：$d" }
 
 它被杀之前干了这些事，日志都在：
 
-```
+```text
 抓取 48 items  (GitHub 1 / Telegram 17 / HackerNews 9 / RSS 9 / Reddit 12)
 AI 分析 48 items
 筛选 15 items
@@ -139,7 +139,7 @@ powershell -Command "$a=1; Write-Host $a; $b=2; Write-Host $b"
 
 按当时文档里的提示"删掉反斜杠"去改，更糟：
 
-```
+```text
 440/440
 ```
 
