@@ -99,7 +99,7 @@ AI 商业化必须按 token 计费。流式响应结束（`event: done`）时**�
 
 ## 五、我们的最终架构
 
-```
+```text
 用户 ←── SSE（token 流）── Go SSE 代理
   │                          │
   └── POST /chat（发起对话）──┘──► LLM 上游（OpenAI/自研，流式）
