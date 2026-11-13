@@ -16,7 +16,7 @@ summary: "一套代码多端跑？Taro（小程序+H5）、Flutter（App+H5）�
 
 ## 一、先分清需求
 
-```
+```text
 你的"多端"是哪几端？
   小程序（微信/支付宝）？
   App（iOS/Android）？
@@ -38,7 +38,7 @@ summary: "一套代码多端跑？Taro（小程序+H5）、Flutter（App+H5）�
 
 ## 三、选型逻辑（决策树）
 
-```
+```text
 团队技术栈是什么？
 ├─ 前端（React/Vue）为主 → Taro / uni-app（小程序优先）
 ├─ 要做高质量 App → Flutter / RN
@@ -52,7 +52,7 @@ summary: "一套代码多端跑？Taro（小程序+H5）、Flutter（App+H5）�
 
 ## 四、我的实践：小程序 + App 双栈
 
-```
+```text
 业务：信息流工具 Fluxio
   小程序：Taro（前端栈，快速覆盖微信生态）
   App：Flutter（Windows 先行，性能与本地能力）
@@ -82,7 +82,7 @@ summary: "一套代码多端跑？Taro（小程序+H5）、Flutter（App+H5）�
 
 ## 七、选型建议
 
-```
+```text
 方案速选：
   纯小程序（微信为主）→ 原生/Taro（前端栈）
   小程序 + H5 → Taro / uni-app
