@@ -17,7 +17,7 @@ summary: "服务拆成 20 个，排障却要登录 20 台机器 grep。ELK 日�
 
 ## 一、整体架构
 
-```
+```text
 服务 A ── Filebeat ──┐
 服务 B ── Filebeat ──┼──► Logstash ──► Elasticsearch ──► Kibana
 服务 C ── Filebeat ──┘        │              │
@@ -54,7 +54,7 @@ Logstash pipeline 统一做三件事：
 2. **字段重命名**：`msg` → `message`，`trace_id` → `traceId`，全局统一
 3. **补充环境标签**：`env`（prod/staging）、`service`、`pod` 从 K8s metadata 补
 
-```
+```text
 field 标准（全局唯一）：
   traceId   调用链 ID
   requestId 单请求 ID
@@ -101,7 +101,7 @@ field 标准（全局唯一）：
 
 一条业务报错怎么查：
 
-```
+```text
 1. Kibana 搜 level:error + service:delivery + @timestamp:最近1h
 2. 拿到报错日志的 traceId
 3. 按 traceId 全索引搜 → 该请求经过的所有服务日志全出来
