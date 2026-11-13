@@ -210,7 +210,7 @@ Claude Code 支持自定义 Skills，把常用的工作流固化下来。
 
 在项目根目录创建 `.claude/skills/` 目录，每个 Skill 是一个子目录，包含 `SKILL.md`：
 
-```
+```text
 my-project/
 └── .claude/
     └── skills/
