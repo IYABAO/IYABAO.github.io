@@ -17,7 +17,7 @@ summary: "Web 应用 XSS 攻击防御的完整实践，从输入过滤、输出�
 
 恶意脚本通过 URL 参数传递，后端直接把参数输出到页面。用户点击恶意链接后触发。
 
-```
+```text
 https://example.com/search?q=<script>alert(1)</script>
 ```
 
