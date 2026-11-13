@@ -71,7 +71,7 @@ AI 引用前会评估来源可信度（Experience / Expertise / Authoritativenes
 
 ### 4. 技术层：让 AI 爬虫能进能懂
 
-```
+```text
 ✅ sitemap.xml 提交（百度/谷歌/Bing）
 ✅ robots.txt 允许 AI 爬虫（GPTBot、Bingbot、Bytespider 都放行）
 ✅ 页面秒开（静态博客 + CDN，AI 爬虫没耐心等 3 秒）
