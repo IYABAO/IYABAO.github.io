@@ -362,7 +362,7 @@ Go 1.21 引入了 `golang.org/x/exp/constraints` 包（后来移到标准库 `cm
 
 泛型代码是编译时生成具体类型的实现，没有运行时反射开销，性能和手写具体类型的代码几乎一样：
 
-```
+```text
 BenchmarkMaxGeneric-8     100000000    10.2 ns/op    0 B/op    0 allocs/op
 BenchmarkMaxInterface-8    30000000    45.6 ns/op    8 B/op    1 allocs/op
 BenchmarkMaxHandwritten-8  100000000    10.1 ns/op    0 B/op    0 allocs/op
