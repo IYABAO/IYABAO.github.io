@@ -16,7 +16,7 @@ PHP 每请求都要"解析源码 → 编译成字节码 → 执行"。Opcache �
 
 ## 一、先看 Opcache 做了什么
 
-```
+```text
 没有 Opcache： 请求 → 读源码 → 词法分析 → 编译字节码 → 执行 → 释放（每次重复）
 有 Opcache：   请求 → 读缓存字节码 → 执行（一次编译，永久复用）
 ```
@@ -106,7 +106,7 @@ echo "prewarmed: $count files\n";
 
 ## 六、和 FPM worker 的配合
 
-```
+```text
 Opcache 共享内存（所有 worker 共享字节码）
   │
   ▼
