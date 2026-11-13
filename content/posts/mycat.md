@@ -165,7 +165,7 @@ readHost：Slave读操作的数据库配置。如果有多个Slave，这里可�
 
 规则配置文件。
 
-```
+```text
 <table name="user" primaryKey="id" dataNode="dn1,dn2,dn3" rule="mod-long" />
 ```
 
