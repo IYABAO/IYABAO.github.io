@@ -26,7 +26,7 @@ summary: "用 Flutter 做桌面信息流聚合工具，内嵌网页浏览是核�
 
 ## 二、第一个坑：初始化失败 RuntimeError
 
-```
+```text
 RuntimeError: Failed to initialize WebView2 environment
 ```
 
