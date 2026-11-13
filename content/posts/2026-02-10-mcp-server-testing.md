@@ -16,7 +16,7 @@ MCP Server 是"给 LLM 用的 API"——它的消费者不是人，是模型。�
 
 ## 一、MCP Server 的测试分层
 
-```
+```text
 第 1 层：单元测试（工具函数级）
 第 2 层：协议测试（MCP 握手/调用/错误）
 第 3 层：工具契约测试（参数校验/输出结构）
@@ -43,7 +43,7 @@ async def test_extract_markdown_from_html():
 
 MCP 协议的关键环节：
 
-```
+```text
 initialize 握手（协议版本协商）
 tools/list（工具声明）
 tools/call（调用）
@@ -76,7 +76,7 @@ async def test_unknown_tool():
 
 **契约 = LLM 依赖的东西**：
 
-```
+```text
 1. 工具名清晰（LLM 靠名字选择）
 2. 参数 schema 准确（LLM 靠描述填参）
 3. 输出结构稳定（LLM 靠结构消费）
