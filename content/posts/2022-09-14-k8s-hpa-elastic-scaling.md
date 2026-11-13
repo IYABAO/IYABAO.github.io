@@ -43,7 +43,7 @@ spec:
 
 ### 期望副本数公式
 
-```
+```text
 期望副本 = ceil(当前副本 × 当前指标 / 目标指标)
 
 例：当前 2 副本，平均 CPU 90%，目标 60%
@@ -80,7 +80,7 @@ metrics:
 
 需要 Prometheus Adapter 把业务指标暴露给 HPA：
 
-```
+```text
 Prometheus 采集 http_requests_total
   → prometheus-adapter（custom metrics API）
   → HPA 读取 → 触发伸缩
@@ -131,7 +131,7 @@ kubectl top pods                         # 看实际资源
 
 **验收标准**：
 
-```
+```text
 ✅ 流量升到阈值后，副本数在 2-5 分钟内升到预期
 ✅ 扩容后 P99 延迟回落（服务恢复）
 ✅ 流量降后，副本数在稳定窗口后回缩
@@ -140,7 +140,7 @@ kubectl top pods                         # 看实际资源
 
 ## 五、最佳实践清单
 
-```
+```text
 ✅ 多指标：CPU + QPS 双指标（业务指标更贴真实负载）
 ✅ minReplicas 留缓冲（至少 2，防止缩到底）
 ✅ 扩容上限考虑下游：DB/ES 连接数上限决定 maxReplicas
