@@ -24,7 +24,7 @@ summary: "小程序、公众号、支付、开放平台——微信生态的每�
 
 **核心概念**：
 
-```
+```text
 openid：同一公众号/小程序下，同一用户的唯一 ID（不同应用下不同）
 unionid：同一开放平台账号下，所有应用的统一用户 ID（打通小程序+公众号+App）
 
@@ -35,7 +35,7 @@ unionid：同一开放平台账号下，所有应用的统一用户 ID（打通�
 
 ## 二、微信登录（自动授权）
 
-```
+```text
 流程：
   前端 wx.login() → 拿 code
   → 后端 code2Session → 拿 openid + session_key（小程序）
@@ -57,7 +57,7 @@ func WxLogin(ctx, code string) (*LoginResult, error) {
 
 **坑**：
 
-```
+```text
 ✅ code 只能用一次（前端误重发 → 失败）
 ✅ code 有效期 5 分钟（过期失效）
 ✅ session_key 不要下发前端（敏感）
@@ -68,7 +68,7 @@ func WxLogin(ctx, code string) (*LoginResult, error) {
 
 ### 核心流程
 
-```
+```text
 用户下单 → 后端生成预支付单（统一下单）
 → 返回支付参数 → 前端拉起支付
 → 用户支付 → 微信回调 notify_url（异步！）
@@ -101,7 +101,7 @@ func PayNotify(w http.ResponseWriter, r *http.Request) {
 
 **回调的铁律**：
 
-```
+```text
 ✅ 验签不过 → 不返回成功（微信会重试）
 ✅ 只信"查单结果"，不信回调内容（回调可伪造/重复）
 ✅ 幂等处理（重复回调不重复发货）
@@ -110,7 +110,7 @@ func PayNotify(w http.ResponseWriter, r *http.Request) {
 
 ### 退款
 
-```
+```text
 退款比支付更容易踩坑：
   1. 退款需要证书（APIv3 证书，不是密钥）
   2. 退款金额不能超过可退金额（部分退 vs 全额退）
@@ -120,7 +120,7 @@ func PayNotify(w http.ResponseWriter, r *http.Request) {
 
 ## 四、开放平台
 
-```
+```text
 开放平台的坑：
   1. 小程序/公众号绑定开放平台才能拿 unionid
   2. 绑定后不可轻易解绑（影响数据打通）
@@ -130,7 +130,7 @@ func PayNotify(w http.ResponseWriter, r *http.Request) {
 
 ## 五、防重与安全
 
-```
+```text
 ✅ access_token 全局缓存 + 刷新锁（多实例并发刷会互踢！）
 ✅ 支付回调幂等（订单状态机：待支付→已支付→已发货）
 ✅ 敏感接口校验（openid 与 token 用户一致）
