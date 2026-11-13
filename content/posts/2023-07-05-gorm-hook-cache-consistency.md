@@ -19,7 +19,7 @@ summary: "先删缓存再写库还是先写库再删缓存？都有脏读窗口�
 
 ### 方案 A：先删缓存，再写库
 
-```
+```text
 1. DEL redis_key
 2. UPDATE db ...
 ```
@@ -28,7 +28,7 @@ summary: "先删缓存再写库还是先写库再删缓存？都有脏读窗口�
 
 ### 方案 B：先写库，再删缓存
 
-```
+```text
 1. UPDATE db ...
 2. DEL redis_key
 ```
@@ -43,7 +43,7 @@ summary: "先删缓存再写库还是先写库再删缓存？都有脏读窗口�
 
 GORM 的钩子体系给了我们抓手：`AfterSave` 钩子在 `INSERT`/`UPDATE` 成功之后、事务提交之前触发。在这个钩子里：
 
-```
+```text
 Begin Tx
   UPDATE resume SET ... WHERE id=1024
   └─ AfterSave 钩子触发：
