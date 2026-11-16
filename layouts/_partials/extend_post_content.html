@@ -13,13 +13,41 @@
 {{- end -}}
 {{- end -}}
 
-{{- /* 相关阅读 - 基于 tags/categories 自动匹配，提升内链与停留时长 */ -}}
-{{- $related := site.RegularPages.Related . | first 5 -}}
-{{- if $related -}}
-<div class="post-related" style="margin-top: 2em; padding-top: 1.2em; border-top: 1px solid var(--border);">
+{{- /*
+  相关阅读（模板级正文内链）：
+  - 用 Hugo 原生 related，hugo.toml 已按 tags(100)/categories(30)/date(10) 加权；
+  - 每篇固定输出 3 条，锚文本用对方标题；related 不足 3 条时用最近文章补齐；
+  - class 用 related-posts 而非 post-related：blog_audit.ps1 会把 post-related 之后的
+    整段当作「主题自带区块」排除在正文内链统计之外，这里需要被计入。
+*/ -}}
+{{- $current := . -}}
+{{- $pool := where site.RegularPages "Section" "posts" -}}
+{{- $picked := slice -}}
+{{- $seen := slice $current.RelPermalink -}}
+{{- range $pool.Related $current -}}
+  {{- if lt (len $picked) 3 -}}
+    {{- if not (in $seen .RelPermalink) -}}
+      {{- $picked = $picked | append . -}}
+      {{- $seen = $seen | append .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- /* 兜底：related 命中不足 3 条时，用最近文章补齐，确保每篇恒有 3 条 */ -}}
+{{- if lt (len $picked) 3 -}}
+  {{- range $pool.ByDate.Reverse -}}
+    {{- if lt (len $picked) 3 -}}
+      {{- if not (in $seen .RelPermalink) -}}
+        {{- $picked = $picked | append . -}}
+        {{- $seen = $seen | append .RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $picked -}}
+<div class="related-posts" style="margin-top: 2em; padding-top: 1.2em; border-top: 1px solid var(--border);">
   <h3 style="font-size: 1.1em; margin-bottom: 0.8em;">📚 相关阅读</h3>
   <ul style="list-style: none; padding: 0; margin: 0;">
-    {{- range $related }}
+    {{- range . }}
     <li style="margin: 0.5em 0; padding-left: 1.2em; position: relative;">
       <span style="position: absolute; left: 0; color: var(--primary);">▸</span>
       <a href="{{ .Permalink }}" style="font-weight: 500;">{{ .Title }}</a>
