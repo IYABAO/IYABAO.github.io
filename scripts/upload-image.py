@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-博客图片上传工具（GitHub + jsDelivr CDN 方案）
+博客图片上传工具（站内 static/images 直出方案）
 
 功能：
 1. 将指定图片复制到 static/images/ 目录
 2. 自动重命名为 日期-序号-原名 格式，避免重名
-3. 输出 jsDelivr CDN 链接和 Hugo 短代码，方便直接粘贴到文章中
+3. 输出站内图片 URL 和 Hugo 短代码，方便直接粘贴到文章中
 
 用法：
   python scripts/upload-image.py <图片路径> [自定义名称]
@@ -17,7 +17,7 @@
   
 输出：
   ✅ 图片已复制到: static/images/2026-09-09-001-架构图.png
-  🌐 CDN 链接: https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/2026-09-09-001-架构图.png
+  🌐 站内图片: https://www.plbear.com/images/2026-09-09-001-架构图.png
   📝 Hugo 短代码: {{< img src="2026-09-09-001-架构图.png" alt="架构图" >}}
 """
 
@@ -31,8 +31,8 @@ from pathlib import Path
 BLOG_ROOT = Path(__file__).parent.parent
 IMAGES_DIR = BLOG_ROOT / "static" / "images"
 
-# jsDelivr CDN 基础 URL
-CDN_BASE = "https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/"
+# 站内图片基础 URL（生产环境，与 hugo.toml [params.imageCDN].baseURL 一致）
+SITE_BASE = "https://www.plbear.com/images/"
 
 
 def get_next_sequence(date_str: str) -> int:
@@ -115,20 +115,17 @@ def main():
     shutil.copy2(src_path, dest_path)
     
     # 输出结果
-    cdn_url = f"{CDN_BASE}{new_filename}"
+    img_url = f"{SITE_BASE}{new_filename}"
     shortcode = f'{{{{< img src="{new_filename}" alt="{name_part}" >}}}}'
     
     print(f"\n✅ 图片已复制到: static/images/{new_filename}")
     print(f"📁 本地路径: {dest_path}")
     print(f"📦 文件大小: {dest_path.stat().st_size / 1024:.1f} KB")
-    print(f"\n🌐 CDN 链接: {cdn_url}")
+    print(f"\n🌐 站内图片: {img_url}")
     print(f"📝 Hugo 短代码: {shortcode}")
     print(f"\n💡 提示: 将短代码粘贴到文章 Markdown 中即可使用")
-    print(f"💡 提示: 推送代码到 GitHub 后，jsDelivr CDN 会自动生效（可能需要几分钟缓存刷新）")
+    print(f"💡 提示: 图片随站点构建发布到 /images/，无需第三方 CDN")
     
-    # 如果需要刷新 jsDelivr 缓存
-    print(f"\n🔄 如需立即刷新 CDN 缓存，访问:")
-    print(f"   https://purge.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/{new_filename}")
 
 
 if __name__ == "__main__":

@@ -6,9 +6,8 @@
 
 - **静态站点生成器**：Hugo (extended)
 - **包管理**：npm（hugo-bin）
-- **代码托管**：**GitHub 主仓库** → Gitee 镜像（滞后 N 个 commit，按下行命令实时取、2026-11-13 为 17；只读副本，不参与构建部署）
-  - 滞后 N 的取法（先取远端最新、再数差集）：`git fetch gitee` 然后 `git rev-list --count gitee/main..main`
-  - 核对两侧指向同一个 commit 才算同步：`git ls-remote origin main` 与 `git ls-remote gitee main`
+- **代码托管**：**Gitee 主仓库** `https://gitee.com/elevenxi/plbear-blog.git`，`main` 分支；本地 `main` 跟踪 `gitee/main`，`remote.pushDefault=gitee`，裸 `git push` 即推 Gitee（国内直连，不加代理）
+  - 核对本地与远端对齐：`git fetch gitee` 后 `git rev-list --left-right --count main...gitee/main`，两侧为 `0 0` 即指向同一 commit
 - **部署平台**：阿里云 ESA 函数和 Pages
 - **域名**：www.plbear.com
 
@@ -43,18 +42,18 @@ plbear-blog/
 └── .gitignore
 ```
 
-## 图床方案（GitHub + jsDelivr CDN）
+## 图床方案（站内直出）
 
-博客图片使用 **GitHub + jsDelivr CDN** 免费方案，国内访问速度快，零成本。
+博客图片存放在 `static/images/`，随构建发布到 `/images/`，由站点边缘缓存直接提供，不依赖第三方 CDN。
 
 ### 配置
 
-在 `hugo.toml` 中已配置：
+`hugo.toml` 中 `[params.imageCDN]`：
 
 ```toml
 [params.imageCDN]
   enable = true
-  baseURL = "https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/"
+  baseURL = "https://www.plbear.com/images/"
   useInDev = false   # 本地开发时使用相对路径
   lazyLoad = true    # 图片懒加载
 ```
@@ -73,13 +72,12 @@ python scripts/upload-image.py C:/Users/xxx/Pictures/screenshot.png 架构图
 输出示例：
 ```
 ✅ 图片已复制到: static/images/2026-09-09-001-架构图.png
-🌐 CDN 链接: https://cdn.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/2026-09-09-001-架构图.png
 📝 Hugo 短代码: {{< img src="2026-09-09-001-架构图.png" alt="架构图" >}}
 ```
 
 ### 文章中引用图片
 
-使用 `img` 短代码（自动使用 CDN 链接）：
+使用 `img` 短代码：
 
 ```markdown
 {{< img src="2026-09-09-001-架构图.png" alt="系统架构图" caption="图1：系统整体架构" >}}
@@ -91,20 +89,10 @@ python scripts/upload-image.py C:/Users/xxx/Pictures/screenshot.png 架构图
 - `caption`：图片说明文字（可选，显示在图片下方）
 - `width`：最大宽度（可选，单位 px）
 
-### 刷新 CDN 缓存
-
-图片更新后 CDN 可能还是旧的，主动刷新：
-
-```
-https://purge.jsdelivr.net/gh/IYABAO/IYABAO.github.io@master/static/images/文件名.png
-```
-
 ### 注意事项
 
 - 图片放在 `static/images/` 目录，命名格式：`日期-序号-名称.扩展名`
-- GitHub 单文件建议 ≤25MB
-- 仓库必须公开（jsDelivr 只能访问公开仓库）
-- 推送代码到 GitHub 后 CDN 自动生效（可能延迟几分钟）
+- 单文件建议 ≤25MB
 
 ## 主题选择
 
@@ -131,7 +119,7 @@ git submodule add https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
 
 ## 部署
 
-发布只 push 到 GitHub，ESA 检测到该仓库 main 变更后自动构建部署。Gitee 侧是滞后的只读副本（当前滞后 N 个 commit，按上文取法实时取、2026-11-13 为 17；仓库为私有、未启用 Pages），不参与线上站点构建，不能拿它当基线对比。
+发布推送到 Gitee `main`：`git push gitee main`（国内直连，不加代理）。ESA 检测到仓库 `main` 变更后自动构建部署。
 
 ESA 构建配置：
 - 安装命令：`npm install`
