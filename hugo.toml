@@ -144,6 +144,8 @@ enableEmoji = true
 [outputs]
   home = ['HTML', 'RSS', 'JSON', 'LLMS']
   section = ['HTML', 'RSS']
+  taxonomy = ['HTML']
+  term = ['HTML']
 
 [taxonomies]
   tag = 'tags'
