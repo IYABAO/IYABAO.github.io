@@ -1,0 +1,46 @@
+{{- define "main" }}
+
+{{- with site.Params.homeInfoParams }}
+{{- partial "home_info.html" . }}
+{{- end }}
+
+{{- $featured := site.Params.featuredPosts }}
+{{- $pages := slice }}
+{{- range $featured }}
+  {{- with site.GetPage (printf "/posts/%s" .) }}
+    {{- $pages = $pages | append . }}
+  {{- end }}
+{{- end }}
+
+{{- if eq (len $pages) 0 }}
+  {{- $pages = where site.RegularPages "Type" "posts" }}
+  {{- $pages = $pages | first 10 }}
+{{- end }}
+
+<p style="margin-top:8px;color:var(--secondary);font-size:14px;">精选文章 · 技术主线为主，也留几篇生活与阅读；日常更新见「归档」。</p>
+
+{{- range $index, $page := $pages }}
+
+<article class="post-entry">
+  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
+  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+      {{- .Title }}
+    </h2>
+  </header>
+  {{- if (ne (.Param "hideSummary") true) }}
+  <div class="entry-content">
+    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+  </div>
+  {{- end }}
+  {{- if not (.Param "hideMeta") }}
+  <footer class="entry-footer">
+    {{- partial "post_meta.html" . -}}
+  </footer>
+  {{- end }}
+  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

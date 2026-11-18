@@ -6,13 +6,13 @@ draft: false
 
 <div style="border-bottom:2px solid #333;padding-bottom:12px;margin-bottom:16px;">
   <h1 style="margin:0 0 6px;">林壮 Allen</h1>
-  <div style="color:#444;">资深后端架构师 / AI 应用开发 · 12 年互联网研发经验 · 现居杭州（接受远程）</div>
+  <div style="color:#444;">资深后端架构师 / AI 应用开发 · 十余年互联网研发经验 · 现居杭州（接受远程）</div>
   <div style="color:#888;font-size:14px;margin-top:4px;">GitHub：<a href="https://github.com/IYABAO">github.com/IYABAO</a> · 邮箱：iyabao@vip.qq.com</div>
 </div>
 
 ## 核心能力
 
-- **12 年中台架构与微服务演进**：主导核心业务由 PHP 单体向 Go 分层微服务平滑演进，核心接口 QPS 从 800 跃升至 5000+（+625%），P99 延迟由 120ms 降至 15ms，实现 0 脏读故障与 100% 缓存一致性。
+- **中台架构与微服务演进**：主导核心业务由 PHP 单体向 Go 分层微服务平滑演进，核心接口 QPS 从 800 跃升至 5000+（+625%），P99 延迟由 120ms 降至 15ms，实现 0 脏读故障与 100% 缓存一致性。
 - **AI 智能体与 MCP 协议落地**：基于 FastMCP 构建企业级 Skills 与 MCP 服务，打通大模型与招聘系统的安全 Tool Call；主导 One-API 网关与 AI 模拟面试商业化闭环。
 - **大数据检索与存储降本**：Elasticsearch 父子文档（Join Field）+ Rollup 预聚合，报表提速 80%+，每年节省存储成本数十万元。
 - **云原生 DevOps 与研发提效**：K8s 调度、ELK 日志中台、Ingress 流量监控，基于 Claude Code 的 AI 辅助研发提效 40%。

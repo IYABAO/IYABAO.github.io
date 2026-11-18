@@ -32,6 +32,22 @@ enableEmoji = true
   showtoc = true
   tocopen = false
 
+  # 首页精选（按下列顺序展示；slug 与 content/posts 文件名一致）
+  featuredPosts = [
+    "2026-08-28-enterprise-mcp-server",
+    "2026-10-29-es-vector-search-rrf",
+    "2026-08-25-ai-app-architecture",
+    "2026-04-08-php-to-go-migration",
+    "2026-08-20-chaos-engineering-intro",
+    "2026-11-14-acceptance-http-200",
+    "2026-11-12-three-agents-scorecard-playbook",
+    "2026-11-10-ai-agent-lies-scorecard-governance",
+    "2026-11-16-kids-first-internet-three-boundaries",
+    "2026-11-17-teach-parent-ai-meds-3-blocks",
+    "2024-05-08-wang-yangming-mind-emotion-self-rescue",
+    "2026-01-20-pantheon-review-tech-guardian",
+  ]
+
   [params.schema]
     publisherType = "Person"
 
@@ -96,10 +112,6 @@ enableEmoji = true
     name = '关于'
     url = '/about/'
     weight = 6
-  [[menu.main]]
-    name = '简历'
-    url = '/resume/'
-    weight = 7
 
 [markup]
   [markup.highlight]

@@ -8,14 +8,14 @@ draft: false
   <img src="/images/github-avatar.jpg" alt="林壮 Allen" style="width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid #eee;" />
   <div>
     <h2 style="margin:0 0 6px;">林壮 Allen <span style="font-weight:400;font-size:16px;color:#888;">· IYABAO</span></h2>
-    <p style="margin:0 0 4px;color:#444;">资深后端架构师 / AI 应用开发 · 12 年经验 · 现居杭州（接受远程）</p>
+    <p style="margin:0 0 4px;color:#444;">资深后端架构师 / AI 应用开发 · 十余年研发经验 · 现居杭州（接受远程）</p>
     <p style="margin:0;color:#888;font-size:14px;">Go · PHP · 微服务 · Elasticsearch · MCP / FastMCP · 云原生</p>
   </div>
 </div>
 
 ## 核心能力
 
-- **12 年中台架构演进**：主导核心业务 PHP → Go 微服务重构，QPS 800 → 5000+，P99 120ms → 15ms，100% 缓存一致、零架构级故障。
+- **中台架构演进**：主导核心业务 PHP → Go 微服务重构，QPS 800 → 5000+，P99 120ms → 15ms，100% 缓存一致、零架构级故障。
 - **AI 智能体与 FastMCP 落地**：基于 FastMCP 构建企业级 Skills 与 MCP 服务，打通大模型与招聘系统的安全 Tool Call；主导 One-API 网关与 AI 模拟面试商业化闭环。
 - **大数据检索与存储降本**：Elasticsearch 父子文档建模 + Rollup 预聚合，报表查询提速 80%+、每年节省存储成本数十万元。
 - **云原生 DevOps 与研发提效**：精通 K8s 调度、ELK 日志中台，基于 Claude Code 的 AI 辅助研发提效 40%。
