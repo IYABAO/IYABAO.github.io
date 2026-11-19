@@ -1,6 +1,7 @@
 ---
 title: "Go 内存模型：happens-before 与并发安全"
 date: 2025-08-06T09:00:00+08:00
+description: "为什么不加锁的并发读可能读到旧值？Go 内存模型的 happens-before 规则、可见性、数据竞争——并发编程的地基，比 goroutine 语法重要得多。"
 lastmod: 2025-08-06T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "OpenTelemetry 落地实践：从分布式追踪到全链路可观测性"
 date: 2024-03-10T10:00:00+08:00
+description: "OpenTelemetry 在微服务架构中的落地实践，从分布式追踪到指标、日志的统一可观测性体系，涵盖 SDK 接入、上下文传播、采样策略、后端存储，以及踩坑经验。"
 draft: false
 tags: ["OpenTelemetry", "可观测性", "分布式追踪", "K8s", "Go", "微服务"]
 categories: ["云原生"]

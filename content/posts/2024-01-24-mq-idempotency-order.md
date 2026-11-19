@@ -1,6 +1,7 @@
 ---
 title: "消息幂等与顺序：MQ 场景的两道必考题"
 date: 2024-01-24T09:00:00+08:00
+description: "MQ 的 at-least-once 投递意味着重复是常态。幂等三方案 + 顺序三场景，把消息系统的两个经典难题一次讲透，附生产代码。"
 lastmod: 2024-01-24T09:00:00+08:00
 draft: false
 author: IYABAO

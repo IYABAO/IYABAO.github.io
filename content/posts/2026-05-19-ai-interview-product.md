@@ -1,6 +1,7 @@
 ---
 title: "AI 面试模拟器：商业化产品的技术拆解"
 date: 2026-05-19T09:00:00+08:00
+description: "一个从 0 到商业化的 AI 面试产品拆解：流程控制、SSE 流式、计费闭环、数据安全、评测迭代——AI 产品从 Demo 到能收费之间的技术深水区。"
 lastmod: 2026-05-19T09:00:00+08:00
 draft: false
 author: IYABAO

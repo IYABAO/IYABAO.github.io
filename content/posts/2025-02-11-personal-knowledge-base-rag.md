@@ -1,6 +1,7 @@
 ---
 title: "个人知识库搭建：从 Markdown 到 RAG 检索"
 date: 2025-02-11T09:00:00+08:00
+description: "笔记记了十年，要用时找不到。用 Obsidian + 本地知识库 + RAG 检索，把碎片笔记变成可问答的个人知识库，让 AI 替你翻笔记。"
 lastmod: 2025-02-11T09:00:00+08:00
 draft: false
 author: IYABAO

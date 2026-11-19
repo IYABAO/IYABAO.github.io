@@ -1,6 +1,7 @@
 ---
 title: "分布式 ID 与防重：雪花算法实战"
 date: 2021-06-15T09:00:00+08:00
+description: "订单号、消息 ID、防重幂等键——分布式系统绕不开 ID 生成。雪花算法原理、时钟回拨、机器位分配、与数据库/Redis 方案的对比。"
 lastmod: 2021-06-15T09:00:00+08:00
 draft: false
 author: IYABAO

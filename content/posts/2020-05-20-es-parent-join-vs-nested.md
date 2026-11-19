@@ -1,6 +1,7 @@
 ---
 title: "ES 父子文档：为什么我弃用了 Nested"
 date: 2020-05-20T09:00:00+08:00
+description: "简历搜索里最纠结的建模选择：Nested 好写但改一个子项要重索引整份文档，Parent-Join 灵活但要处理关联查询的开销。这篇文章记录我从 Nested 迁到 Parent-Join 的真实决策过程。"
 lastmod: 2020-05-20T09:00:00+08:00
 draft: false
 author: IYABAO

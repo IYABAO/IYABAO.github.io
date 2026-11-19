@@ -1,6 +1,7 @@
 ---
 title: "Swoole 的七年：我在 PHP 高并发上的探索"
 date: 2024-09-03T09:00:00+08:00
+description: "PHP 常驻内存 + 协程，Swoole 让 PHP 摸到了高并发的边。七年的使用心得：协程、进程模型、连接池、常驻内存的坑，以及为什么最终还是迁移到了 Go。"
 lastmod: 2024-09-03T09:00:00+08:00
 draft: false
 author: IYABAO

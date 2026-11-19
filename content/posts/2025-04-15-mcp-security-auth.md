@@ -1,6 +1,7 @@
 ---
 title: "MCP 安全与鉴权：企业级 Tool Call 的边界"
 date: 2025-04-15T09:00:00+08:00
+description: "MCP Server 暴露的是'能力'，能力被滥用就是事故：越权读简历、刷爆上游接口、Prompt 注入。Token 鉴权、会话隔离、工具级权限、审计——企业 MCP 的安全边界设计。"
 lastmod: 2025-04-15T09:00:00+08:00
 draft: false
 author: IYABAO

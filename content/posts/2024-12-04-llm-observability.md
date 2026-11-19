@@ -1,6 +1,7 @@
 ---
 title: "AI 应用可观测：LLM 调用的追踪与评估"
 date: 2024-12-04T09:00:00+08:00
+description: "LLM 应用是个黑盒：为什么回答变差了？为什么 token 花了这么多？Prompt 追踪、成本审计、质量评估、A/B 实验——AI 应用的可观测体系搭建。"
 lastmod: 2024-12-04T09:00:00+08:00
 draft: false
 author: IYABAO

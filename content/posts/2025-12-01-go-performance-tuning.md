@@ -1,6 +1,7 @@
 ---
 title: "Go 性能调优：pprof 与 trace 工具链在生产环境的应用"
 date: 2025-12-01T10:00:00+08:00
+description: "Go 服务性能调优的完整方法论，涵盖 pprof CPU/内存/阻塞分析、trace 链路追踪、火焰图、常见性能问题定位与优化，以及在招聘平台微服务中的实战案例和调优效果。"
 draft: false
 tags: ["Go", "性能调优", "pprof", "trace", "性能分析", "微服务"]
 categories: ["Go开发"]

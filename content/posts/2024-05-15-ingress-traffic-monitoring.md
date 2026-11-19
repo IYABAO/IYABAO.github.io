@@ -1,6 +1,7 @@
 ---
 title: "Ingress 流量监控体系：从零到全景"
 date: 2024-05-15T09:00:00+08:00
+description: "入口流量是观察系统的第一扇窗。Ingress-Nginx + Prometheus 指标 + 自定义 Grafana 大盘，把请求量、延迟、错误率、上游状态一屏看全，异常 5 分钟内就能定位。"
 lastmod: 2024-05-15T09:00:00+08:00
 draft: false
 author: IYABAO

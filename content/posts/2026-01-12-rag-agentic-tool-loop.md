@@ -1,6 +1,7 @@
 ---
 title: "Agentic RAG：Agent 如何用工具迭代检索"
 date: 2026-01-12T09:00:00+08:00
+description: "传统 RAG 是'一次检索定生死'，Agentic RAG 让模型自己决定'搜什么、搜几次、要不要换关键词'。同一个知识库，从 55% 准确率提到 78%，代价是延迟和成本。"
 lastmod: 2026-01-12T09:00:00+08:00
 draft: false
 author: IYABAO

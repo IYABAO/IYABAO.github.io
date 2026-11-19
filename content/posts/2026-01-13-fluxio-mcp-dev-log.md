@@ -1,6 +1,7 @@
 ---
 title: "fluxio-mcp 开发手记：从需求到开源"
 date: 2026-01-13T09:00:00+08:00
+description: "一个真实开源项目的完整旅程：为什么做、怎么设计、怎么测试、怎么开源。fluxio-mcp——给 LLM 装上一个可编程的网络信息流读取器。"
 lastmod: 2026-01-13T09:00:00+08:00
 draft: false
 author: IYABAO

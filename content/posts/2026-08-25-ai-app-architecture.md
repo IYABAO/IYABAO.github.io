@@ -1,6 +1,7 @@
 ---
 title: "AI 应用架构模式：从单体 Prompt 到分层系统"
 date: 2026-08-25T09:00:00+08:00
+description: "AI 应用有没有'架构'？有：交互层、编排层、能力层、数据层。从单体 Prompt 到分层系统，AI 应用架构的演进路径与分层模式。"
 lastmod: 2026-08-25T09:00:00+08:00
 draft: false
 author: IYABAO

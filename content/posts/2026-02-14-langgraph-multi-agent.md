@@ -1,6 +1,7 @@
 ---
 title: "LangGraph 多智能体协作：招聘场景 Multi-Agent 编排实践"
 date: 2026-02-14T14:00:00+08:00
+description: "基于 LangGraph 的多智能体协作系统实践，涵盖 Agent 角色设计、状态机编排、工具调用、人机协作、记忆管理，以及在招聘场景（AI 面试官+简历分析师+匹配专家）中的实战应用和效果评估。"
 draft: false
 tags: ["LangGraph", "Multi-Agent", "AI Agent", "大模型", "招聘", "编排", "Python"]
 categories: ["AI架构"]

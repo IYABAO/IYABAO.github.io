@@ -1,6 +1,7 @@
 ---
 title: "服务熔断与限流：Sentinel 落地实录"
 date: 2023-11-20T09:00:00+08:00
+description: "微服务最怕的不是故障，是故障的蔓延。熔断、限流、降级三件套怎么配、阈值怎么定、演练怎么做——Sentinel 在招聘平台的完整落地记录。"
 lastmod: 2023-11-20T09:00:00+08:00
 draft: false
 author: IYABAO

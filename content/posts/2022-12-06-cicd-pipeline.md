@@ -1,6 +1,7 @@
 ---
 title: "CI/CD 流水线：从手动发布到一键上线"
 date: 2022-12-06T09:00:00+08:00
+description: "发布是最高危的操作。流水线化：提交即构建、PR 即测试、合并即部署——GitHub Actions 与自建流水线的完整设计，从手动到一键的演进。"
 lastmod: 2022-12-06T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "Elasticsearch BM25 原理：为什么相关度排序靠谱"
 date: 2024-03-12T09:00:00+08:00
+description: "ES 默认排序为什么好用？BM25 的 TF、IDF、文档长度归一化三个因子，调 k1/b 参数的实战，以及和向量检索的配合。"
 lastmod: 2024-03-12T09:00:00+08:00
 draft: false
 author: IYABAO

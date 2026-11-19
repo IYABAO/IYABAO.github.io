@@ -1,6 +1,7 @@
 ---
 title: "Fluxio 信息流聚合：RSS、快照与本地优先的架构"
 date: 2026-03-03T09:00:00+08:00
+description: "信息流聚合工具怎么设计？横向切换、快照收藏、Obsidian 同步、本地优先——Fluxio 的架构决策：从 WebView 到快照、从云端到本地、从链接到内容。"
 lastmod: 2026-03-03T09:00:00+08:00
 draft: false
 author: IYABAO

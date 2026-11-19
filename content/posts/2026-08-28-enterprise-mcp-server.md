@@ -1,6 +1,7 @@
 ---
 title: "从零搭建企业级 MCP Server：鉴权、限流、脱敏、审计与 K8s 部署实战"
 date: 2026-08-28T10:00:00+08:00
+description: "把 MCP Server 从本地 Demo 推向生产环境，需要解决鉴权、限流、数据脱敏、审计日志、会话隔离、容器化部署等一堆协议之外的问题。这篇文章用一个完整的开源模板 fastmcp-enterprise 讲清楚企业级 MCP Serve…"
 draft: false
 tags: ["MCP", "FastMCP", "AI架构", "鉴权", "限流", "数据脱敏", "Kubernetes"]
 categories: ["AI架构"]

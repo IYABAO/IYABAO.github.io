@@ -1,6 +1,7 @@
 ---
 title: "开源项目维护：从 README 到 Issue 治理"
 date: 2026-08-11T09:00:00+08:00
+description: "开源不是'把代码放上去'，是'持续经营'：README 门面、Issue 治理、PR 流程、Release 节奏、社区运营。一个项目从 0 star 到有人用，维护者要做的十件事。"
 lastmod: 2026-08-11T09:00:00+08:00
 draft: false
 author: IYABAO

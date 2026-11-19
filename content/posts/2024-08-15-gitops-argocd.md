@@ -1,6 +1,7 @@
 ---
 title: "GitOps with ArgoCD：声明式持续交付多环境实践"
 date: 2024-08-15T10:00:00+08:00
+description: "基于 ArgoCD 的 GitOps 持续交付实践，涵盖多环境管理、应用声明式配置、自动同步、回滚、权限控制，解决传统 CI/CD 流水线配置散乱、环境不一致的问题。"
 draft: false
 tags: ["GitOps", "ArgoCD", "K8s", "CI/CD", "持续交付", "DevOps"]
 categories: ["云原生"]

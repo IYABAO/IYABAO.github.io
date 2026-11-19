@@ -1,6 +1,7 @@
 ---
 title: "MySQL 慢查询深度分析：从 EXPLAIN 到索引优化的完整排查链路"
 date: 2019-05-20T14:20:00+08:00
+description: "线上 MySQL 慢查询排查的完整方法论，从慢查询日志定位到 EXPLAIN 执行计划分析，再到索引优化和 SQL 改写的实战记录。"
 draft: false
 tags: ["MySQL", "性能优化", "EXPLAIN", "索引"]
 categories: ["数据库"]

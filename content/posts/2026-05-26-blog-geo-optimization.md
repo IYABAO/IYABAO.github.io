@@ -1,6 +1,7 @@
 ---
 title: "个人博客 GEO 优化：被 AI 搜索引擎收录的实践"
 date: 2026-05-26T09:00:00+08:00
+description: "传统 SEO 是让人搜到，GEO 是让 AI 搜到你。个人博客从百度/谷歌收录到被 AI 搜索引用，结构化数据、引用友好、E-E-A-T、sitemap 推送，一套组合拳落地记录。"
 lastmod: 2026-05-26T09:00:00+08:00
 draft: false
 author: IYABAO

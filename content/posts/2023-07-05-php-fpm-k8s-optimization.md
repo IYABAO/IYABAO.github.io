@@ -1,6 +1,7 @@
 ---
 title: "PHP-FPM 单 Pod 性能调优：从 Opcache 到进程管理的深度优化"
 date: 2023-07-05T10:00:00+08:00
+description: "Kubernetes 环境下 PHP-FPM 单 Pod 性能调优实践，从 Opcache 配置、进程管理、资源限制到镜像优化，单 Pod QPS 从 200 提升到 800。"
 draft: false
 tags: ["PHP-FPM", "性能调优", "Kubernetes", "Opcache", "Docker"]
 categories: ["性能优化"]

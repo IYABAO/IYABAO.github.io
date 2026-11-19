@@ -1,6 +1,7 @@
 ---
 title: "API 网关演进：从 Kong 到 APISIX 的云原生网关选型实践"
 date: 2025-11-05T10:00:00+08:00
+description: "API 网关从 Kong 到 APISIX 的演进实践，涵盖网关选型对比、迁移方案、性能压测、插件开发、流量治理，以及在招聘平台微服务架构中的落地经验和踩坑记录。"
 draft: false
 tags: ["API网关", "Kong", "APISIX", "云原生", "微服务", "流量治理"]
 categories: ["架构设计"]

@@ -1,6 +1,7 @@
 ---
 title: "Prompt 工程进阶：CoT 思维链与 ReAct 推理模式在业务中的应用"
 date: 2025-08-20T14:00:00+08:00
+description: "Prompt 工程的进阶技术，从基础提示词到 CoT 思维链、ReAct 推理模式、Few-shot 示例、Self-Consistency，以及在招聘场景（AI面试、简历评估、职位匹配）中的实际应用和效果对比。"
 draft: false
 tags: ["Prompt工程", "大模型", "CoT", "ReAct", "AI应用", "推理模式"]
 categories: ["AI架构"]

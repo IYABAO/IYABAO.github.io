@@ -1,6 +1,7 @@
 ---
 title: "企业级 Coding Agent 落地：从个人提效到团队研发规范实践"
 date: 2026-03-28T14:00:00+08:00
+description: "Coding Agent 在企业级团队的落地实践，从个人提效到团队研发规范，涵盖工具选型、权限管理、代码规范、安全审计、培训体系、效果度量，以及在 10 人后端团队中的落地经验和踩坑记录。"
 draft: false
 tags: ["Coding Agent", "AI编程", "企业落地", "研发规范", "团队协作", "Claude Code", "Cursor"]
 categories: ["工程效能"]

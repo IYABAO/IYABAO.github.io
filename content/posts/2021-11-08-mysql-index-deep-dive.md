@@ -1,6 +1,7 @@
 ---
 title: "MySQL 索引深度：为什么你的 SQL 还是慢"
 date: 2021-11-08T09:00:00+08:00
+description: "索引不是'建了就快'。B+树高度、最左前缀、回表、覆盖索引、索引下推，从原理到 EXPLAIN 实战，把慢 SQL 优化的完整套路讲清楚。"
 lastmod: 2021-11-08T09:00:00+08:00
 draft: false
 author: IYABAO

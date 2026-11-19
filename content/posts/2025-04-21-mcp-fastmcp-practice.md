@@ -1,6 +1,7 @@
 ---
 title: "MCP 协议入门与实战：基于 FastMCP 构建企业级 Skills 服务"
 date: 2025-04-21T10:00:00+08:00
+description: "MCP（Model Context Protocol）协议入门与实战，基于 FastMCP 框架构建企业级 Skills 服务，让大模型安全调用招聘平台的结构化数据，实现 AI 智能体的工具调用能力。"
 draft: false
 tags: ["MCP", "AI", "FastMCP", "Skills", "Python", "大模型"]
 categories: ["AI架构"]

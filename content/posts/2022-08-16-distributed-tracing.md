@@ -1,6 +1,7 @@
 ---
 title: "分布式链路追踪：从日志拼查到 Trace 一键"
 date: 2022-08-16T09:00:00+08:00
+description: "微服务排查的痛：一个请求经过 8 个服务，日志散在 8 个文件里。Trace ID 贯穿、Span 采集、采样策略——从'拼日志'到'一键看全链路'的落地。"
 lastmod: 2022-08-16T09:00:00+08:00
 draft: false
 author: IYABAO

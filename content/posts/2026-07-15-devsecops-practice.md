@@ -1,6 +1,7 @@
 ---
 title: "DevSecOps 落地：从 SAST 到依赖扫描的安全左移实践"
 date: 2026-07-15T10:00:00+08:00
+description: "DevSecOps 在微服务团队的落地实践，涵盖安全左移理念、SAST 静态分析、依赖漏洞扫描、容器镜像扫描、密钥检测、安全门禁、CI/CD 集成，以及从0到1构建安全体系的踩坑经验和效果数据。"
 draft: false
 tags: ["DevSecOps", "安全左移", "SAST", "依赖扫描", "容器安全", "CI/CD", "安全"]
 categories: ["工程效能"]

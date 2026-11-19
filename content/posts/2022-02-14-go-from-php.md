@@ -1,6 +1,7 @@
 ---
 title: "Go 语言入门到实战：从 PHP 开发者视角的 Go 学习路径"
 date: 2022-02-14T09:30:00+08:00
+description: "从 PHP 开发者视角的 Go 语言学习路径，涵盖语法差异、工程实践、Web 开发、微服务架构，以及从 PHP 转 Go 过程中的踩坑经验。"
 draft: false
 tags: ["Go", "PHP", "学习路径", "微服务", "Gin", "Gorm"]
 categories: ["Go开发"]

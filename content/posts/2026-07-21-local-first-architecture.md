@@ -1,6 +1,7 @@
 ---
 title: "本地优先应用：离线可用与多端同步的架构"
 date: 2026-07-21T09:00:00+08:00
+description: "云端应用离线就瘫，本地优先应用离线也能用：本地存储 + 变更同步 + 冲突解决。CRDT、操作日志、增量同步——Local-First 架构的完整落地。"
 lastmod: 2026-07-21T09:00:00+08:00
 draft: false
 author: IYABAO

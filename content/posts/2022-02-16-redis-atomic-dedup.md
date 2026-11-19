@@ -1,6 +1,7 @@
 ---
 title: "Redis 原子防重：多渠道消息推送去重实战"
 date: 2022-02-16T09:00:00+08:00
+description: "一条投递提醒可能要同时发短信、站内信、公众号模板消息，重复推送比漏推更让用户烦。用 Redis SETNX + Lua 原子防重，把「同一业务事件只推一次」变成硬约束。"
 lastmod: 2022-02-16T09:00:00+08:00
 draft: false
 author: IYABAO

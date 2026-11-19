@@ -1,6 +1,7 @@
 ---
 title: "MCP 协议深度解析：Tools/Resources/Prompts 三大核心设计"
 date: 2025-05-12T14:00:00+08:00
+description: "MCP（Model Context Protocol）协议的深度解析，从设计哲学到三大核心能力 Tools/Resources/Prompts，传输层、安全模型、生命周期管理，以及和 Function Calling、OpenAPI 的本质…"
 draft: false
 tags: ["MCP", "Model Context Protocol", "AI", "大模型", "协议设计", "Anthropic"]
 categories: ["AI架构"]

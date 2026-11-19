@@ -1,6 +1,7 @@
 ---
 title: "eBPF 在 K8s 中的应用：无侵入式可观测性与性能分析"
 date: 2025-10-12T14:00:00+08:00
+description: "eBPF 技术在 Kubernetes 中的实战应用，涵盖无侵入式可观测性、网络监控、性能分析、安全审计，以及 Cilium、Pixie、Parca 等工具的选型和落地经验。"
 draft: false
 tags: ["eBPF", "K8s", "可观测性", "性能分析", "云原生", "网络"]
 categories: ["云原生"]

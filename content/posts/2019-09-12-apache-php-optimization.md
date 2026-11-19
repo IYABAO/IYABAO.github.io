@@ -1,6 +1,7 @@
 ---
 title: "Apache 服务器专项调优：从 MPM 模式到 Opcache 的全链路优化"
 date: 2019-09-12T16:10:00+08:00
+description: "Apache + PHP 服务器性能调优实战，从 MPM 模式选择、进程数配置到 Opcache 优化，完整记录调优前后的性能对比。"
 draft: false
 tags: ["Apache", "PHP", "性能调优", "Opcache", "运维"]
 categories: ["运维"]

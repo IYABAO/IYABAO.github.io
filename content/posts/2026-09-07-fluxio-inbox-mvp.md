@@ -1,6 +1,7 @@
 ---
 title: "Fluxio 收件箱：给本地 App 加一个「任何来源一键收藏」的能力"
 date: 2026-09-07T10:30:00+08:00
+description: "用 dart:io 零依赖给本地 App 加收件服务：浏览器扩展 / 剪贴板 / 脚本三入口一键收藏到 Obsidian，Token 鉴权 + 协议白名单 + 失败降级，附完整实现与踩坑。"
 lastmod: 2026-09-07T10:30:00+08:00
 draft: false
 author: IYABAO

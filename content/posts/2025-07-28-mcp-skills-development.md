@@ -1,6 +1,7 @@
 ---
 title: "MCP Skills 开发实战：从零构建招聘领域 Skills 服务"
 date: 2025-07-28T10:00:00+08:00
+description: "基于 FastMCP 从零构建招聘领域 MCP Skills 服务的完整实战，涵盖项目结构、工具定义、资源管理、提示词模板、鉴权安全、部署运维，以及在 Claude/Cursor 中的实际使用体验。"
 draft: false
 tags: ["MCP", "Skills", "FastMCP", "Python", "AI", "大模型", "招聘"]
 categories: ["AI架构"]

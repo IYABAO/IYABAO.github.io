@@ -1,6 +1,7 @@
 ---
 title: "Prompt 缓存与预填充：TTFT 优化的工程实践"
 date: 2025-07-08T09:00:00+08:00
+description: "首字延迟（TTFT）是 AI 产品体验的生死线。Prompt 缓存把重复的系统提示词命中缓存，预填充让模型先想好再开口——TTFT 从 3 秒压到 500ms 的工程实践。"
 lastmod: 2025-07-08T09:00:00+08:00
 draft: false
 author: IYABAO

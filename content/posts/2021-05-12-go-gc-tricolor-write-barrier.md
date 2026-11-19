@@ -1,6 +1,7 @@
 ---
 title: "Go GC 机制：从三色标记到混合写屏障"
 date: 2021-05-12T09:00:00+08:00
+description: "Go 的 GC 为什么延迟低？三色标记算法、插入写屏障、混合写屏障、GC 调优参数，把 Go 内存回收的底层机制一次讲透。"
 lastmod: 2021-05-12T09:00:00+08:00
 draft: false
 author: IYABAO

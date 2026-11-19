@@ -1,6 +1,7 @@
 ---
 title: "跨平台选型：Taro、Flutter 与原生小程序"
 date: 2021-03-23T09:00:00+08:00
+description: "一套代码多端跑？Taro（小程序+H5）、Flutter（App+H5）怎么选：技术栈匹配、性能、生态、维护成本——跨平台方案的选型实战。"
 lastmod: 2021-03-23T09:00:00+08:00
 draft: false
 author: IYABAO

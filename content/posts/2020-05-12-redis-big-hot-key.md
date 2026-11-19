@@ -1,6 +1,7 @@
 ---
 title: "Redis 大 Key 与热 Key：治理实战"
 date: 2020-05-12T09:00:00+08:00
+description: "大 Key 阻塞 Redis、热 Key 打爆单节点——两个线上事故的高发区。发现、拆分、降级、缓存热 Key：一套完整的治理方案。"
 lastmod: 2020-05-12T09:00:00+08:00
 draft: false
 author: IYABAO

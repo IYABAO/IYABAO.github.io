@@ -1,6 +1,7 @@
 ---
 title: "MCP 生态全景：2026 主流 MCP Server 盘点与选型指南"
 date: 2026-02-25T10:00:00+08:00
+description: "2026年 MCP 生态全景盘点，涵盖官方、社区、企业级三大类 MCP Server，按文件系统、数据库、开发工具、生产力、浏览器、AI 服务等分类对比，提供选型指南和最佳实践。"
 draft: false
 tags: ["MCP", "Model Context Protocol", "MCP Server", "AI生态", "选型", "工具盘点"]
 categories: ["AI架构"]

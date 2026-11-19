@@ -1,6 +1,7 @@
 ---
 title: "AI 网关架构设计：One-API 大模型网关的鉴权、限流与计费闭环"
 date: 2025-03-31T14:00:00+08:00
+description: "基于 One-API 的大模型网关架构设计，涵盖多模型统一接入、API Key 鉴权、限流策略、Token 计费、会员体系，实现 AI 能力的商业化闭环。"
 draft: false
 tags: ["AI", "网关", "One-API", "大模型", "Go", "鉴权", "限流", "计费"]
 categories: ["AI架构"]

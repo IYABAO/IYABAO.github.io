@@ -1,6 +1,7 @@
 ---
 title: "K8s 单 Pod 性能调优：PHP-FPM 与 Opcache 的极限"
 date: 2023-10-30T09:00:00+08:00
+description: "微服务都拆 Go 了，但存量 PHP 服务还得在 K8s 里活着。一个 Pod 里 PHP-FPM 并发调多少、Opcache 怎么预热、CPU 请求怎么配，这些细节决定了一个 Pod 能吃多少流量。"
 lastmod: 2023-10-30T09:00:00+08:00
 draft: false
 author: IYABAO

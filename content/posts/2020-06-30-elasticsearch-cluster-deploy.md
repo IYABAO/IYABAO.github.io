@@ -1,6 +1,7 @@
 ---
 title: "Elasticsearch 集群搭建与调优：测试环境 3 节点集群的完整部署笔记"
 date: 2020-06-30T16:30:00+08:00
+description: "Elasticsearch 测试环境 3 节点集群从0到1的完整部署笔记，涵盖安装配置、索引设计、分片策略、性能调优与常见问题排查。"
 draft: false
 tags: ["Elasticsearch", "运维", "集群搭建", "性能调优", "搜索"]
 categories: ["运维"]

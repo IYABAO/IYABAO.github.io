@@ -1,6 +1,7 @@
 ---
 title: "用 Habitica 把自律变成游戏：程序员习惯养成实践"
 date: 2021-06-25T10:00:00+08:00
+description: "把自律变成打怪升级：用 Habitica 把习惯养成、任务管理游戏化的完整实践，从原理到配置，再到坚持一年的真实效果。"
 draft: false
 tags: ["游戏化", "Habitica", "习惯养成", "自律", "效率工具"]
 categories: ["游戏化思维"]

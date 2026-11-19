@@ -1,6 +1,7 @@
 ---
 title: "招聘通统计分析 2.0：从实时查询到 OLAP 预聚合的性能跃迁"
 date: 2021-12-08T10:30:00+08:00
+description: "招聘通统计分析 2.0 架构升级，从 MySQL 实时查询到 ClickHouse + 预聚合的 OLAP 方案，解决大数据量下多维统计查询慢的问题，查询性能提升 50 倍。"
 draft: false
 tags: ["OLAP", "预聚合", "数据分析", "ClickHouse", "PHP", "性能优化"]
 categories: ["架构设计"]

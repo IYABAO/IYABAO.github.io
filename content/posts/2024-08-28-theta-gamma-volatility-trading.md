@@ -1,6 +1,7 @@
 ---
 title: "从 theta 到 gamma：A股期权波动率交易实践"
 date: 2024-08-28T10:00:00+08:00
+description: "期权的希腊字母（Delta/Gamma/Theta/Vega）到底怎么用？结合 A 股实战，聊聊如何利用时间价值损耗（Theta）和波动率（Gamma/Vega）构建更精细的期权策略。"
 draft: false
 tags: ["期权", "希腊字母", "Theta", "Gamma", "波动率", "投资"]
 categories: ["投资思考"]

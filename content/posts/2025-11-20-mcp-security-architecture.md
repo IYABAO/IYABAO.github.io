@@ -1,6 +1,7 @@
 ---
 title: "MCP 服务安全架构：Token 鉴权、多租户隔离与审计日志"
 date: 2025-11-20T14:00:00+08:00
+description: "企业级 MCP 服务的安全架构设计，涵盖 Token 鉴权、多租户数据隔离、权限控制、限流熔断、审计日志、数据脱敏、Prompt 注入防护，以及在招聘平台 MCP 服务中的落地实践。"
 draft: false
 tags: ["MCP", "安全", "鉴权", "多租户", "审计", "AI安全", "FastMCP"]
 categories: ["AI架构"]

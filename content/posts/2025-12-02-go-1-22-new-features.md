@@ -1,6 +1,7 @@
 ---
 title: "Go 1.22+ 新特性：泛型后的又一次进化"
 date: 2025-12-02T09:00:00+08:00
+description: "range 整数、迭代器、互斥锁 TryLock、http.ServeMux 增强——Go 1.22/1.23 的新特性哪些值得立刻用？一份升级实践清单。"
 lastmod: 2025-12-02T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "gRPC 网关与 BFF：前后端解耦的正确姿势"
 date: 2021-02-02T09:00:00+08:00
+description: "内部 gRPC 服务怎么给外部提供 API？BFF 聚合、网关转发、协议转换——gRPC 网关与 BFF 模式的架构设计与实践。"
 lastmod: 2021-02-02T09:00:00+08:00
 draft: false
 author: IYABAO

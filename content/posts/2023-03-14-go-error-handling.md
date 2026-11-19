@@ -1,6 +1,7 @@
 ---
 title: "Go 错误处理：从 if err != nil 到错误设计"
 date: 2023-03-14T09:00:00+08:00
+description: "Go 的错误处理不是'写 if err != nil'，是'设计错误'：错误分类、包装链、哨兵错误、错误码与日志——一套让错误'可定位、可分类、可恢复'的体系。"
 lastmod: 2023-03-14T09:00:00+08:00
 draft: false
 author: IYABAO

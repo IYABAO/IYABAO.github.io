@@ -1,6 +1,7 @@
 ---
 title: "PHP Opcache 调优：从命中率 80% 到 99%"
 date: 2024-11-12T09:00:00+08:00
+description: "Opcache 是 PHP 性能的第一杠杆：命中率 99% 和 80% 的差距是 3 倍吞吐。内存分配、max_accelerated_files、预热、K8s 冷启动——完整的 Opcache 调优手册。"
 lastmod: 2024-11-12T09:00:00+08:00
 draft: false
 author: IYABAO

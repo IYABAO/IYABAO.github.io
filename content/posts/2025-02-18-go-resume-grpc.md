@@ -1,6 +1,7 @@
 ---
 title: "Go 简历服务接口设计：从 RESTful 到 gRPC 的跨服务通信标准"
 date: 2025-02-18T10:00:00+08:00
+description: "Go 简历微服务的接口设计实践，从 RESTful 到 gRPC 的演进，涵盖 Protobuf 定义、错误码规范、拦截器设计、服务注册发现，建立跨服务通信标准。"
 draft: false
 tags: ["Go", "gRPC", "微服务", "接口设计", "Protobuf"]
 categories: ["Go开发"]

@@ -42,10 +42,22 @@ enableEmoji = true
     "2026-11-14-acceptance-http-200",
     "2026-11-12-three-agents-scorecard-playbook",
     "2026-11-10-ai-agent-lies-scorecard-governance",
+    "2026-07-07-llm-streaming-engineering",
+    "2026-08-04-mcp-rag-combination",
+    "2026-04-21-agent-orchestration-graph",
+    "2026-09-06-fluxio-mcp",
+    "2026-11-14-hugo-fence-goat-render-bug",
+    "2026-05-26-blog-geo-optimization",
+    "2026-11-16-ai-mock-interview-30-questions-10-answered",
+    "2026-11-12-job-pool-three-verifications-18-80",
     "2026-11-16-kids-first-internet-three-boundaries",
     "2026-11-17-teach-parent-ai-meds-3-blocks",
     "2024-05-08-wang-yangming-mind-emotion-self-rescue",
     "2026-01-20-pantheon-review-tech-guardian",
+    "2024-11-15-adult-animation-philosophy-lessons",
+    "2023-11-15-black-swan-antifragile-engineer",
+    "2020-08-20-dong-jian-fo-xue-du-shu-bi-ji",
+    "2022-10-28-ai-dramas-tech-metaphors",
   ]
 
   [params.schema]

@@ -1,6 +1,7 @@
 ---
 title: "Go context 使用规范：从入门到精通"
 date: 2023-08-15T09:00:00+08:00
+description: "context 是 Go 并发编程的'信号灯'：超时、取消、传值。但用错 context 反而制造泄漏。这篇文章是团队 context 规范，含官方建议和反模式。"
 lastmod: 2023-08-15T09:00:00+08:00
 draft: false
 author: IYABAO

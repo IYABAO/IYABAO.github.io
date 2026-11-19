@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 深度教程：从 CLI 命令到自定义 Skills 工作流"
 date: 2025-08-18T10:00:00+08:00
+description: "Claude Code 的深度使用教程，从基础 CLI 命令到高级技巧，涵盖项目理解、多文件重构、自定义 Skills、MCP 集成、调试排错、工作流优化，以及在 Go/PHP 微服务项目中的实战经验。"
 draft: false
 tags: ["Claude Code", "AI编程", "CLI", "Skills", "MCP", "研发效能", "教程"]
 categories: ["工程效能"]

@@ -1,6 +1,7 @@
 ---
 title: "向量数据库选型：Milvus vs Pinecone vs Weaviate vs pgvector"
 date: 2025-05-08T10:00:00+08:00
+description: "四款主流向量数据库的深度对比，Milvus、Pinecone、Weaviate、pgvector 的架构、性能、功能、部署方式、成本，以及在 RAG 场景下的选型实践和压测数据。"
 draft: false
 tags: ["向量数据库", "Milvus", "Pinecone", "Weaviate", "pgvector", "RAG", "AI基础设施"]
 categories: ["AI架构"]

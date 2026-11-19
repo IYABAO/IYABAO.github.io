@@ -1,6 +1,7 @@
 ---
 title: "Redis 分布式锁在高并发场景下的正确性分析：从 Redlock 到原子防重"
 date: 2021-09-25T15:30:00+08:00
+description: "Redis 分布式锁在高并发场景下的正确性分析，从基础的 SETNX 到 Redlock 算法，再到原子防重的工程实践，分析各种方案的适用场景和坑点。"
 draft: false
 tags: ["Redis", "分布式锁", "高并发", "PHP", "Redlock", "幂等"]
 categories: ["分布式系统"]

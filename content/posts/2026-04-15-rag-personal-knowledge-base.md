@@ -1,6 +1,7 @@
 ---
 title: "RAG 个人知识库实战：weknora + MCP 构建私有技术问答助手"
 date: 2026-04-15T10:00:00+08:00
+description: "基于 weknora + MCP 构建个人私有技术知识库 RAG 问答系统的完整实战，涵盖知识库搭建、文档处理、向量化、检索优化、MCP 接入、效果评估，以及在个人技术知识管理中的应用和踩坑经验。"
 draft: false
 tags: ["RAG", "知识库", "weknora", "MCP", "向量数据库", "AI问答", "个人知识管理"]
 categories: ["AI架构"]

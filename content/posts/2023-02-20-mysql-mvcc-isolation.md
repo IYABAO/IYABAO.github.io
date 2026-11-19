@@ -1,6 +1,7 @@
 ---
 title: "MySQL MVCC 与隔离级别：读懂 InnoDB 的读一致性"
 date: 2023-02-20T09:00:00+08:00
+description: "为什么 RR 隔离级别下你读不到别人未提交的数据？MVCC、隐藏列、undo log、Read View——把 InnoDB 的读一致性问题一次讲透。"
 lastmod: 2023-02-20T09:00:00+08:00
 draft: false
 author: IYABAO

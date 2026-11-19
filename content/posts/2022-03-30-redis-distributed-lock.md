@@ -1,6 +1,7 @@
 ---
 title: "Redis 分布式锁：从 SETNX 到 Redlock 的完整指南"
 date: 2022-03-30T09:00:00+08:00
+description: "分布式锁是'看着简单、用起来全是坑'的典型。SETNX 的坑、锁过期竞态、可重入、Redlock 的争议，以及什么时候其实不需要分布式锁。"
 lastmod: 2022-03-30T09:00:00+08:00
 draft: false
 author: IYABAO

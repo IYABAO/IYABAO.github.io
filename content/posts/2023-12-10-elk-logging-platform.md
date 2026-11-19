@@ -1,6 +1,7 @@
 ---
 title: "ELK 日志中台搭建实践：从 Filebeat 到 Kibana 的全链路日志方案"
 date: 2023-12-10T10:00:00+08:00
+description: "ELK 日志中台搭建实践，涵盖 Filebeat 日志采集、Logstash 过滤清洗、Elasticsearch 存储索引、Kibana 可视化分析，解决微服务架构下日志分散、排查困难的问题。"
 draft: false
 tags: ["ELK", "日志", "Filebeat", "Elasticsearch", "Kibana", "可观测性"]
 categories: ["运维"]

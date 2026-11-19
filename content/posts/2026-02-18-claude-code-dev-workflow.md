@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 提效 40%：我们的 AI 辅助研发规范"
 date: 2026-02-18T09:00:00+08:00
+description: "团队引入 Claude Code 三个月，重构交付效率提升 40%。但这不是'装个工具'的结果，是一套规范：任务边界、上下文管理、代码审查、禁止事项。这篇文章是完整落地手册。"
 lastmod: 2026-02-18T09:00:00+08:00
 draft: false
 author: IYABAO

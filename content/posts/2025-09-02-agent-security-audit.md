@@ -1,6 +1,7 @@
 ---
 title: "Agent 安全与审计：自主行为的边界"
 date: 2025-09-02T09:00:00+08:00
+description: "Agent 的自主性越强，安全边界越要清晰：权限最小化、工具白名单、行为审计、注入防御、可回滚——Agent 安全体系设计与落地。"
 lastmod: 2025-09-02T09:00:00+08:00
 draft: false
 author: IYABAO

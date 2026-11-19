@@ -1,6 +1,7 @@
 ---
 title: "Go pprof 实战：一个内存泄漏的定位全过程"
 date: 2023-04-18T09:00:00+08:00
+description: "服务内存每 6 小时涨 1G，重启就好了——典型的 goroutine 泄漏。用 pprof 火焰图、goroutine 栈、heap profile 一步步定位到根因，完整过程复盘。"
 lastmod: 2023-04-18T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "SQL 优化实战：从慢查询到索引设计"
 date: 2023-09-19T09:00:00+08:00
+description: "一条 SQL 从 3 秒到 5 毫秒的完整过程：慢查询定位、执行计划解读、索引设计原则、常见反模式——SQL 优化的实战手册。"
 lastmod: 2023-09-19T09:00:00+08:00
 draft: false
 author: IYABAO

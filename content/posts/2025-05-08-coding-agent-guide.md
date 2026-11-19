@@ -1,6 +1,7 @@
 ---
 title: "Coding Agent 选型与上手：Claude Code / Cursor / 开源方案横评"
 date: 2025-05-08T09:00:00+08:00
+description: "AI 编程工具爆发式增长，怎么选？Claude Code、Cursor、开源方案（Aider/Cline）实测对比：场景匹配、成本、可控性、上手教程，附我的选择结论。"
 lastmod: 2025-05-08T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "SSE vs WebSocket：AI 流式场景怎么选"
 date: 2025-01-15T09:00:00+08:00
+description: "AI 对话要打字机效果，选 SSE 还是 WebSocket？从协议机制、代理兼容、断线重连、服务端实现四个维度对比，结论：90% 的 AI 场景选 SSE，剩下 10% 才需要 WebSocket。"
 lastmod: 2025-01-15T09:00:00+08:00
 draft: false
 author: IYABAO

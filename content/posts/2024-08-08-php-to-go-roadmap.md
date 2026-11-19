@@ -1,6 +1,7 @@
 ---
 title: "从 PHP 到 Go：一个老 PHP 的转型路线图"
 date: 2024-08-08T09:00:00+08:00
+description: "写了 10 年 PHP，两年前开始转 Go。这条路怎么走、踩了什么坑、什么时候可以真正上生产，这份转型路线图是亲身经历。"
 lastmod: 2024-08-08T09:00:00+08:00
 draft: false
 author: IYABAO

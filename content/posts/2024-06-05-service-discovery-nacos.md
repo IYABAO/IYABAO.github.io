@@ -1,6 +1,7 @@
 ---
 title: "服务注册与发现：从 Nacos 到 Go 落地"
 date: 2024-06-05T09:00:00+08:00
+description: "微服务之间怎么找到彼此？服务注册、心跳续约、负载均衡、摘除机制——Nacos 在 Go 微服务里的完整落地，含健康检查与故障演练。"
 lastmod: 2024-06-05T09:00:00+08:00
 draft: false
 author: IYABAO

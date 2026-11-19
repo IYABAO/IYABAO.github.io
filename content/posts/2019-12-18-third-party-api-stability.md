@@ -1,6 +1,7 @@
 ---
 title: "第三方 API 集成中的稳定性保障：短信/邮件/Facebook 登录的高可用设计"
 date: 2019-12-18T15:00:00+08:00
+description: "跨境电商平台第三方 API 集成的稳定性保障实践，涵盖短信、邮件、Facebook 登录等核心外部依赖的降级、重试、熔断与监控方案。"
 draft: false
 tags: ["架构设计", "高可用", "第三方API", "短信", "邮件", "Facebook登录"]
 categories: ["架构设计"]

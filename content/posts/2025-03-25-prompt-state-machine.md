@@ -1,6 +1,7 @@
 ---
 title: "Prompt 状态机：AI 面试越级率 0% 的工程化"
 date: 2025-03-25T09:00:00+08:00
+description: "让 LLM 按流程走完一场面试，最大的敌人是模型自己——它会在第 3 步跳到第 8 步。System 强元规则 + User 变量 + Assistant 预填开场，三层结构把流程越级率压到 0%。"
 lastmod: 2025-03-25T09:00:00+08:00
 draft: false
 author: IYABAO

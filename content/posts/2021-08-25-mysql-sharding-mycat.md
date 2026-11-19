@@ -1,6 +1,7 @@
 ---
 title: "MySQL 分库分表：MyCat 水平分片踩坑实录"
 date: 2021-08-25T09:00:00+08:00
+description: "简历主表单表 2 亿行扛不住了，引入 MyCat 水平分片。分布式主键、跨分片 join、扩容、热点问题一个个踩过来，这篇文章是完整避坑清单。"
 lastmod: 2021-08-25T09:00:00+08:00
 draft: false
 author: IYABAO

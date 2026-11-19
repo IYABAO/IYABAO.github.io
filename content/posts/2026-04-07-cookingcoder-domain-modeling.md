@@ -1,6 +1,7 @@
 ---
 title: "CookingCoder：极客菜谱的领域建模"
 date: 2026-04-07T09:00:00+08:00
+description: "把做饭变成写代码：菜谱用规格（规格化常量）+ 步骤（程序化描述）+ 流程（控制流）组织。CookingCoder 的领域建模——用工程师的思维写家常菜。"
 lastmod: 2026-04-07T09:00:00+08:00
 draft: false
 author: IYABAO

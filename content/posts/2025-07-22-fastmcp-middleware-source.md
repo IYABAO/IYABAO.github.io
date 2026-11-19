@@ -1,6 +1,7 @@
 ---
 title: "FastMCP 源码级剖析：中间件机制是怎么工作的"
 date: 2025-07-22T09:00:00+08:00
+description: "用 FastMCP 写了半年企业级 MCP 服务，决定读一遍源码：装饰器如何变成工具定义、session 生命周期、中间件洋葱模型、鉴权注入点。读完你对 MCP 服务的掌控力完全不同。"
 lastmod: 2025-07-22T09:00:00+08:00
 draft: false
 author: IYABAO

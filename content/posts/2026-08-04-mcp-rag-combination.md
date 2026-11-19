@@ -1,6 +1,7 @@
 ---
 title: "MCP 与 RAG 结合：Tool 即知识的边界"
 date: 2026-08-04T09:00:00+08:00
+description: "RAG 把知识喂给模型，MCP 把能力交给模型。两者结合：查询即检索（Tool 即知识）、边检索边思考、动态知识接入——知识型 Agent 的新架构。"
 lastmod: 2026-08-04T09:00:00+08:00
 draft: false
 author: IYABAO

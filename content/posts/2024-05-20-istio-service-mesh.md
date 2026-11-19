@@ -1,6 +1,7 @@
 ---
 title: "Service Mesh Istio 实战：微服务流量治理与灰度发布"
 date: 2024-05-20T14:00:00+08:00
+description: "Istio Service Mesh 在微服务架构中的落地实践，涵盖流量治理、灰度发布、熔断限流、可观测性，以及从侵入式 SDK 到无侵入 Sidecar 的演进经验。"
 draft: false
 tags: ["Istio", "Service Mesh", "微服务", "K8s", "灰度发布", "流量治理"]
 categories: ["云原生"]

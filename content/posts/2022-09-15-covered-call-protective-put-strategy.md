@@ -1,6 +1,7 @@
 ---
 title: "备兑开仓与保护性看跌：稳健期权策略实操"
 date: 2022-09-15T10:00:00+08:00
+description: "两种适合普通投资者的稳健期权策略：备兑开仓（Covered Call）增厚持仓收益，保护性看跌（Protective Put）对冲下行风险。附实操要点与案例。"
 draft: false
 tags: ["期权", "备兑开仓", "Covered Call", "保护性看跌", "策略", "投资"]
 categories: ["投资思考"]

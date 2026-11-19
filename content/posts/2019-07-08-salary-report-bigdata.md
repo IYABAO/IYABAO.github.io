@@ -1,6 +1,7 @@
 ---
 title: "薪酬报告大数据统计系统架构设计：亿级数据下的预聚合方案"
 date: 2019-07-08T09:45:00+08:00
+description: "招聘平台薪酬报告系统从 MySQL 实时统计到 Elasticsearch 预聚合的架构演进，解决亿级数据下多维组合查询响应慢的问题。"
 draft: false
 tags: ["大数据", "架构设计", "预聚合", "Elasticsearch", "MySQL"]
 categories: ["架构设计"]

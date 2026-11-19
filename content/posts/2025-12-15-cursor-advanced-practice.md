@@ -1,6 +1,7 @@
 ---
 title: "Cursor 进阶实战：Rules 文件、Composer 模式与大型重构技巧"
 date: 2025-12-15T14:00:00+08:00
+description: "Cursor AI 编辑器的进阶使用技巧，涵盖 .cursorrules 项目规则配置、Composer 多文件编辑模式、@ 引用系统、自定义指令、大型重构工作流，以及在 Go/PHP 微服务项目中的实战经验和效率提升数据。"
 draft: false
 tags: ["Cursor", "AI编程", "Rules", "Composer", "代码重构", "研发效能"]
 categories: ["工程效能"]

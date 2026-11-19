@@ -1,6 +1,7 @@
 ---
 title: "Flutter 桌面开发：WebView2 踩坑记录"
 date: 2026-04-08T09:00:00+08:00
+description: "用 Flutter 做桌面信息流聚合工具，内嵌网页浏览是核心功能。flutter_inappwebview 在 Windows 上走 WebView2，从初始化失败、白屏、Cookie 隔离到多实例，踩坑全记录。"
 lastmod: 2026-04-08T09:00:00+08:00
 draft: false
 author: IYABAO

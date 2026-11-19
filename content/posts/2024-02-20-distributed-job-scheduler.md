@@ -1,6 +1,7 @@
 ---
 title: "分布式任务调度：从 Cron 到 XXL-Job"
 date: 2024-02-20T09:00:00+08:00
+description: "定时任务在集群里重复执行就是事故。分布式任务调度：分片、路由、失败重试、动态配置——从单机 Cron 到 XXL-Job 的演进与实践。"
 lastmod: 2024-02-20T09:00:00+08:00
 draft: false
 author: IYABAO

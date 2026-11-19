@@ -1,6 +1,7 @@
 ---
 title: "MCP Server 测试实践：握手、工具与端到端"
 date: 2026-02-10T09:00:00+08:00
+description: "MCP Server 怎么测？协议握手、工具声明、参数校验、端到端对话——从单元测试到真实 Client 联调的 MCP 测试体系，含 24 个测试用例的实战。"
 lastmod: 2026-02-10T09:00:00+08:00
 draft: false
 author: IYABAO

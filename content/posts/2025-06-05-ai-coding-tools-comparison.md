@@ -1,6 +1,7 @@
 ---
 title: "AI 编程助手选型横评：Cursor vs Claude Code vs Copilot vs Windsurf vs Trae"
 date: 2025-06-05T10:00:00+08:00
+description: "五款主流 AI 编程助手的深度横评，Cursor、Claude Code、GitHub Copilot、Windsurf、Trae 的功能对比、适用场景、价格、性能实测，以及在 Go/PHP 微服务项目中的实际使用体验和选型建议。"
 draft: false
 tags: ["AI编程", "Cursor", "Claude Code", "GitHub Copilot", "Windsurf", "Trae", "研发效能"]
 categories: ["工程效能"]

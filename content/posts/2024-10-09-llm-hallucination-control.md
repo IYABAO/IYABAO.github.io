@@ -1,6 +1,7 @@
 ---
 title: "LLM 幻觉治理：从 Prompt 到 RAG 到评测"
 date: 2024-10-09T09:00:00+08:00
+description: "幻觉是 LLM 的'天性'，治理是系统工程：Prompt 约束、RAG 兜底、引用强制、评测闭环。把 AI 面试的越级率打到 0% 的幻觉治理体系完整复盘。"
 lastmod: 2024-10-09T09:00:00+08:00
 draft: false
 author: IYABAO

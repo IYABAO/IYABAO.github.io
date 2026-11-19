@@ -1,6 +1,7 @@
 ---
 title: "多级缓存架构：本地、Redis 与数据库的分工"
 date: 2023-11-28T09:00:00+08:00
+description: "缓存不是只有 Redis 一层：本地缓存（最快）、Redis（共享）、数据库（兜底）——多级缓存的架构设计、一致性、穿透防护与性能收益。"
 lastmod: 2023-11-28T09:00:00+08:00
 draft: false
 author: IYABAO

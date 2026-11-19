@@ -1,6 +1,7 @@
 ---
 title: "从 MCP 到 Agent Skills：AI 能力封装的演进路径与最佳实践"
 date: 2026-06-18T14:00:00+08:00
+description: "AI 能力封装从 MCP 到 Agent Skills 的演进路径，涵盖 MCP 协议原理、Skills 概念、两者关系、封装方法论、设计原则，以及在企业级 AI 应用中的实践和选型建议。"
 draft: false
 tags: ["MCP", "Agent Skills", "AI能力封装", "大模型", "工具调用", "AI架构"]
 categories: ["AI架构"]

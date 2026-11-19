@@ -1,6 +1,7 @@
 ---
 title: "Elasticsearch 测试环境集群运维笔记：分片策略与索引生命周期管理"
 date: 2022-10-15T11:00:00+08:00
+description: "Elasticsearch 测试环境集群运维实践笔记，涵盖分片策略设计、索引生命周期管理、冷热分离、备份恢复，以及日常运维中的常见问题排查。"
 draft: false
 tags: ["Elasticsearch", "运维", "分片", "索引生命周期", "性能调优"]
 categories: ["运维"]

@@ -1,6 +1,7 @@
 ---
 title: "个人知识库搭建实践：Obsidian vs weknora vs Notion 选型与迁移"
 date: 2025-09-22T10:00:00+08:00
+description: "个人知识库的搭建实践，从工具选型（Obsidian vs weknora vs Notion）到知识体系构建、笔记方法论、AI 增强，以及从 Notion 迁移到 weknora 的完整经验，打造技术人的第二大脑。"
 draft: false
 tags: ["知识库", "Obsidian", "weknora", "Notion", "知识管理", "RAG", "个人知识体系"]
 categories: ["工程效能"]

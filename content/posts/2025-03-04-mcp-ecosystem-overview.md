@@ -1,6 +1,7 @@
 ---
 title: "MCP 生态全景：从 Server 到 Client 到 Hub"
 date: 2025-03-04T09:00:00+08:00
+description: "MCP 正在成为 AI 应用的 USB-C 接口。协议分层、Server/Client/Host 三方角色、注册表与 Hub、主流实现对比——MCP 生态的一次全景扫描。"
 lastmod: 2025-03-04T09:00:00+08:00
 draft: false
 author: IYABAO

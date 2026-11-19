@@ -1,6 +1,7 @@
 ---
 title: "Go 并发模式：goroutine + channel 实战"
 date: 2022-11-16T09:00:00+08:00
+description: "不要用锁解决问题，用通信。Worker Pool、Fan-out/Fan-in、超时控制、优雅退出——Go 并发编程的四个高频模式，每个都附可直接用的代码。"
 lastmod: 2022-11-16T09:00:00+08:00
 draft: false
 author: IYABAO

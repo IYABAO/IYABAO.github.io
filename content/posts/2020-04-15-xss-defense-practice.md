@@ -1,6 +1,7 @@
 ---
 title: "XSS 攻击防御实战：从输入过滤到输出编码的多层防护体系"
 date: 2020-04-15T14:00:00+08:00
+description: "Web 应用 XSS 攻击防御的完整实践，从输入过滤、输出编码到 CSP 策略的多层防护体系，结合真实漏洞案例讲解防御要点。"
 draft: false
 tags: ["安全", "XSS", "Web安全", "PHP", "输入过滤"]
 categories: ["安全"]

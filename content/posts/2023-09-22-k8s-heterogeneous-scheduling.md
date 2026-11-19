@@ -1,6 +1,7 @@
 ---
 title: "Kubernetes 异构队列调度实践：PHP 与 Go 混合部署的资源编排"
 date: 2023-09-22T15:00:00+08:00
+description: "Kubernetes 集群中 PHP 与 Go 服务混合部署的异构队列调度实践，涵盖节点亲和性、污点容忍、资源配额、HPA 自动扩缩容，解决不同语言服务资源需求差异大的问题。"
 draft: false
 tags: ["Kubernetes", "调度", "PHP", "Go", "混合部署", "资源编排"]
 categories: ["云原生"]

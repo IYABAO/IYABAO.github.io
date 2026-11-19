@@ -1,6 +1,7 @@
 ---
 title: "GORM 钩子与事务：缓存一致性的终极方案"
 date: 2023-07-05T09:00:00+08:00
+description: "先删缓存再写库还是先写库再删缓存？都有脏读窗口。GORM AfterSave 钩子里联动 Redis 双向清理，删缓存失败直接回滚 DB 事务——从机制上杜绝脏读，而不是靠概率。"
 lastmod: 2023-07-05T09:00:00+08:00
 draft: false
 author: IYABAO

@@ -1,6 +1,7 @@
 ---
 title: "App UI自动化测试实践：基于元素Skills的自动化测试框架设计"
 date: 2026-08-10T10:00:00+08:00
+description: "App UI 自动化测试框架的设计与实践，基于元素 Skills 概念，用 AI 辅助元素定位和测试用例生成，解决传统 UI 自动化维护成本高、元素定位不稳定的痛点。"
 draft: false
 tags: ["UI自动化", "App测试", "Skills", "AI", "测试框架", "元素定位"]
 categories: ["测试"]

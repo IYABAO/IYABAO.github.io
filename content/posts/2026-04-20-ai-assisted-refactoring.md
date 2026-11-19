@@ -1,6 +1,7 @@
 ---
 title: "AI 辅助研发效能：Claude Code/Cursor 微服务重构实践"
 date: 2026-04-20T14:00:00+08:00
+description: "用 AI 编程工具（Claude Code + Cursor）完成微服务重构的完整实践，涵盖重构规划、代码迁移、测试生成、性能优化、Bug 修复，以及 AI 辅助下的效率提升数据和踩坑经验。"
 draft: false
 tags: ["AI辅助研发", "Claude Code", "Cursor", "微服务重构", "研发效能", "工程实践"]
 categories: ["工程效能"]

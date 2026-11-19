@@ -1,6 +1,7 @@
 ---
 title: "Agentic Workflow：人机协作的工程化"
 date: 2026-06-16T09:00:00+08:00
+description: "全自动 Agent 是理想，人机协作是现实：人在回路、关键节点审批、异常升级、自主度分级——Agentic Workflow 的工程化设计。"
 lastmod: 2026-06-16T09:00:00+08:00
 draft: false
 author: IYABAO

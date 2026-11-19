@@ -1,6 +1,7 @@
 ---
 title: "博客图床方案：GitHub + jsDelivr CDN 配置实战"
 date: 2026-09-09T15:40:00+08:00
+description: "从零配置 GitHub + jsDelivr CDN 免费图床方案，实现博客图片的快速访问与管理。"
 draft: false
 tags: ["Hugo", "图床", "CDN", "jsDelivr", "博客优化"]
 categories: ["工程效能"]

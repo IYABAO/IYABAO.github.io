@@ -1,6 +1,7 @@
 ---
 title: "AI 模拟面试智能体架构：Go SSE 流式分发与 Prompt 状态机工程"
 date: 2025-06-10T14:00:00+08:00
+description: "AI 模拟面试智能体的架构设计，基于 Go SSE 流式分发实现实时对话，用 Prompt 状态机约束面试流程，解决长对话模型失控、流式延迟高、计费闭环等问题。"
 draft: false
 tags: ["AI", "智能体", "Go", "SSE", "Prompt工程", "状态机"]
 categories: ["AI架构"]

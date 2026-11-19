@@ -1,6 +1,7 @@
 ---
 title: "手写一个信息获取 MCP Server：fluxio-mcp 从零到开源"
 date: 2026-09-06T10:00:00+08:00
+description: "从零手写一个基于 FastMCP 的信息获取 MCP Server：RSS 解析、网页转 Markdown、免 Key 搜索，让 Claude/Cursor 等 Agent 直接读取任意信息源。含架构设计、踩坑记录、三层验证体系与接入教程。"
 draft: false
 tags: ["MCP", "FastMCP", "Python", "AI", "LLM", "开源", "Agent"]
 categories: ["AI架构"]

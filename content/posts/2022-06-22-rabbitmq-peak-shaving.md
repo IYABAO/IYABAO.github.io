@@ -1,6 +1,7 @@
 ---
 title: "RabbitMQ 削峰：百万级写入如何平稳化"
 date: 2022-06-22T09:00:00+08:00
+description: "每天早上 9 点的招聘高峰，投递请求像潮水一样打过来，数据库直写必死。RabbitMQ 异步削峰 + 消费端限流 + 幂等消费，把峰值写入平滑成恒定吞吐。"
 lastmod: 2022-06-22T09:00:00+08:00
 draft: false
 author: IYABAO

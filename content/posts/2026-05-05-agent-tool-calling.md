@@ -1,6 +1,7 @@
 ---
 title: "Agent 工具调用：从 Function Calling 到 MCP"
 date: 2026-05-05T09:00:00+08:00
+description: "Agent 的核心能力是'会调用工具'。Function Calling 的机制、工具描述如何影响选型、从私有函数到 MCP 标准化——Agent 工具调用的完整演进与工程实践。"
 lastmod: 2026-05-05T09:00:00+08:00
 draft: false
 author: IYABAO

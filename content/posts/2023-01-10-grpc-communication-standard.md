@@ -1,6 +1,7 @@
 ---
 title: "gRPC 服务间通信标准：我们是怎么定的"
 date: 2023-01-10T09:00:00+08:00
+description: "微服务拆出来第一件事不是写代码，是定通信标准。proto 目录结构、错误码、trace、鉴权、兼容性规范，这一套标准定了，后面 20 个服务才没乱。"
 lastmod: 2023-01-10T09:00:00+08:00
 draft: false
 author: IYABAO
