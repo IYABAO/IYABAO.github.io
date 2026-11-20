@@ -121,9 +121,13 @@ enableEmoji = true
     url = '/links/'
     weight = 5
   [[menu.main]]
+    name = '简历'
+    url = '/resume/'
+    weight = 6
+  [[menu.main]]
     name = '关于'
     url = '/about/'
-    weight = 6
+    weight = 7
 
 [markup]
   [markup.highlight]

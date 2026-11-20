@@ -7,7 +7,7 @@ draft: false
 <div style="border-bottom:2px solid #333;padding-bottom:12px;margin-bottom:16px;">
   <h1 style="margin:0 0 6px;">林壮 Allen</h1>
   <div style="color:#444;">资深后端架构师 / AI 应用开发 · 十余年互联网研发经验 · 现居杭州（接受远程）</div>
-  <div style="color:#888;font-size:14px;margin-top:4px;">GitHub：<a href="https://github.com/IYABAO">github.com/IYABAO</a> · 邮箱：iyabao@vip.qq.com</div>
+  <div style="color:#888;font-size:14px;margin-top:4px;">博客：<a href="https://www.plbear.com">www.plbear.com</a> · CSDN：<a href="https://blog.csdn.net/cupido86">blog.csdn.net/cupido86</a> · GitHub：<a href="https://github.com/IYABAO">github.com/IYABAO</a> · 邮箱：iyabao@vip.qq.com</div>
 </div>
 
 ## 核心能力
