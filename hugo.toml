@@ -81,7 +81,7 @@ enableEmoji = true
 
 [params.homeInfoParams]
   Title = "Plbear | 后端架构 · AI工程 · 云原生"
-  Content = "10年以上后端架构师，专注 Go 微服务、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能。"
+  Content = "10年以上后端架构师，专注 Go 微服务、AI 大模型应用（MCP/RAG/Agent）、云原生与工程效能。\n\n简历与项目经历见 [在线简历](/resume/)，站点与技术栈说明见 [关于](/about/)。"
 
 [params.assets]
   disableHLJS = true
