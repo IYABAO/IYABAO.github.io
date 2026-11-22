@@ -75,6 +75,70 @@ html[data-theme="dark"] .post-content code a,
 html[data-theme="dark"] .post-content a code {
     color: #79c0ff !important;
 }
+
+/* 首页“最新文章”：紧凑时间流，避免把 24 篇精选之后的新文埋没 */
+.home-latest {
+    margin: 1.5rem 0 2rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--entry);
+}
+.home-latest-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+}
+.home-latest h2 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+.home-latest-all {
+    color: var(--secondary);
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+.home-latest-all:hover {
+    color: var(--primary);
+}
+.home-latest-list {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.home-latest-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+.home-latest-list time {
+    flex: 0 0 5.9rem;
+    color: var(--secondary);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+}
+.home-latest-list a {
+    color: var(--primary);
+    text-decoration: none;
+}
+.home-latest-list a:hover {
+    color: var(--tertiary);
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    .home-latest-list li {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+    .home-latest-list time {
+        flex-basis: auto;
+    }
+}
 </style>
 
 <!-- WebSite 结构化数据（带搜索框，仅首页） -->

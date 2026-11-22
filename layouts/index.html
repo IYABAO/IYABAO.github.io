@@ -5,16 +5,50 @@
 {{- end }}
 
 {{- $featured := site.Params.featuredPosts }}
-{{- $pages := slice }}
+{{- $featuredPages := slice }}
 {{- range $featured }}
   {{- with site.GetPage (printf "/posts/%s" .) }}
-    {{- $pages = $pages | append . }}
+    {{- $featuredPages = $featuredPages | append . }}
   {{- end }}
 {{- end }}
 
+{{- $latest := where site.RegularPages "Type" "posts" }}
+{{- $latest = $latest.ByDate.Reverse }}
+{{- $latestVisible := slice }}
+{{- if gt (len $featuredPages) 0 }}
+  {{- $featuredPaths := slice }}
+  {{- range $featuredPages }}
+    {{- $featuredPaths = $featuredPaths | append .RelPermalink }}
+  {{- end }}
+  {{- range $latest }}
+    {{- if and (lt (len $latestVisible) 6) (not (in $featuredPaths .RelPermalink)) }}
+      {{- $latestVisible = $latestVisible | append . }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- $latestVisible = $latest | first 6 }}
+{{- end }}
+
+{{- $pages := $featuredPages }}
 {{- if eq (len $pages) 0 }}
-  {{- $pages = where site.RegularPages "Type" "posts" }}
-  {{- $pages = $pages | first 10 }}
+  {{- $pages = $latest | first 10 }}
+{{- end }}
+
+{{- with $latestVisible }}
+<section class="home-latest" aria-labelledby="home-latest-title">
+  <div class="home-latest-head">
+    <h2 id="home-latest-title">最新文章</h2>
+    <a class="home-latest-all" href="{{ "archives/" | relURL }}">全部文章 →</a>
+  </div>
+  <ol class="home-latest-list">
+    {{- range . }}
+    <li>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{- end }}
+  </ol>
+</section>
 {{- end }}
 
 {{- range $index, $page := $pages }}
